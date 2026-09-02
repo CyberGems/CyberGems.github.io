@@ -6,9 +6,11 @@ import type { CyberApp } from '../data/apps';
 interface Props {
   app: CyberApp;
   lang: Lang;
+  /** Whether the app's wiki was fetched at build time (enables on-site docs) */
+  docsAvailable?: boolean;
 }
 
-const { app, lang } = Astro.props;
+const { app, lang, docsAvailable = false } = Astro.props;
 const t = ui[lang];
 const homePath = lang === 'en' ? '/' : '/es/';
 const title = `${app.name} — CyberGems`;
@@ -53,8 +55,12 @@ const shotSrc = app.screenshot ? `/screenshots/${app.slug}/${app.screenshot}` : 
       </a>
       <a href={`${app.repo}/releases`} target="_blank" rel="noopener" class="btn-ghost">{t.releasesCta}</a>
       <a href={app.repo} target="_blank" rel="noopener" class="btn-ghost">⌨ {t.repoCta}</a>
-      {app.wiki && (
-        <a href={app.wiki} target="_blank" rel="noopener" class="btn-ghost">📖 {t.wikiCta}</a>
+      {docsAvailable ? (
+        <a href={`${homePath}docs/${app.slug}/`} class="btn-ghost">📖 {t.wikiCta}</a>
+      ) : (
+        app.wiki && (
+          <a href={app.wiki} target="_blank" rel="noopener" class="btn-ghost">📖 {t.wikiCta}</a>
+        )
       )}
     </div>
 

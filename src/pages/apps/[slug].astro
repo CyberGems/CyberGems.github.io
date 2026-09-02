@@ -1,12 +1,15 @@
 ---
 import AppPage from '../../components/AppPage.astro';
 import { apps } from '../../data/apps';
+import fs from 'node:fs';
+import path from 'node:path';
 
 export function getStaticPaths() {
   return apps.map((app) => ({ params: { slug: app.slug }, props: { app } }));
 }
 
 const { app } = Astro.props;
+const docsAvailable = fs.existsSync(path.resolve('wikis', app.slug));
 ---
 
-<AppPage app={app} lang="en" />
+<AppPage app={app} lang="en" docsAvailable={docsAvailable} />

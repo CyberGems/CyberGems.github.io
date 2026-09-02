@@ -42,7 +42,8 @@ const canonical = new URL(path, Astro.site);
         </a>
         <div class="flex items-center gap-2 sm:gap-5">
           <a href={`${homeHref}#apps`} class="text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.navApps}</a>
-          <a href={lang === 'en' ? '/changelog' : '/es/changelog'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.navChangelog}</a>
+          <a href={lang === 'en' ? '/changelog' : '/es/changelog'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden md:inline">{t.navChangelog}</a>
+          <a href={lang === 'en' ? '/docs' : '/es/docs'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.navDocs}</a>
           <a href="https://github.com/CyberGems" target="_blank" rel="noopener" class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden sm:inline">{t.navGitHub}</a>
           <a
             href={switchHref}

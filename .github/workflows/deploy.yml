@@ -3,6 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Daily rebuild: refreshes the changelog, download links and the
+  # documentation (fresh wiki clones) without any manual push.
+  schedule:
+    - cron: '30 4 * * *'
   workflow_dispatch:
 
 permissions:

@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ui, type Lang } from '../data/ui';
+import { apps } from '../data/apps';
+import { listDocs } from '../data/docs';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = ui[lang];
+const homeHref = lang === 'en' ? '/' : '/es/';
+const path_ = lang === 'en' ? '/docs' : '/es/docs';
+const title = lang === 'en' ? 'Documentation — CyberGems' : 'Documentación — CyberGems';
+
+// Apps whose wiki was fetched by the prebuild hook.
+const docsApps = listDocs();
+const available = apps.filter((a) => docsApps.some((d) => d.appDir === a.slug));
+---
+
+<BaseLayout title={title} description={t.docsSubtitle} lang={lang} path={path_}>
+  <div class="max-w-5xl mx-auto px-5 pt-16">
+    <header class="text-center">
+      <h1 class="text-4xl font-extrabold tracking-tight">
+        <span class="text-gradient brand-glow">{t.docsTitle}</span>
+      </h1>
+      <p class="mt-4 text-[#9a9aa5]">{t.docsSubtitle}</p>
+    </header>
+
+    {available.length === 0 && (
+      <div class="mt-10 rounded-xl border border-[#FFB74D]/40 bg-[#FFB74D]/10 text-[#FFD8A8] text-sm p-4 text-center">
+        ⚠ {t.docsUnavailable}
+      </div>
+    )}
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {available.map((app) => (
+        <a href={`/docs/${app.slug}/`} class="card flex flex-col overflow-hidden">
+          <div
+            class="h-24 flex items-center justify-center"
+            style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}26 0%, transparent 55%);`}
+          >
+            <span class="text-4xl">{app.emoji}</span>
+          </div>
+          <div class="p-5">
+            <h2 class="text-lg font-bold">{app.name}</h2>
+            <p class="mt-1 text-sm text-[#9a9aa5]">{t.docsOpen} →</p>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <p class="mt-10 text-xs text-[#9a9aa5] text-center">{t.docsSource}</p>
+    <p class="mt-2 text-center"><a href={homeHref} class="text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.backHome}</a></p>
+  </div>
+</BaseLayout>

@@ -2,6 +2,10 @@
 dist/
 .astro/
 
+# wikis fetched automatically at build time (prebuild hook)
+wikis/
+public/wikis/
+
 # dependencies
 node_modules/
 

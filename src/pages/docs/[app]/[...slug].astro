@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getApp } from '../../../data/apps';
+import { listDocs, docTitle, WIKIS_DIR } from '../../../data/docs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { marked } from 'marked';
+
+export function getStaticPaths() {
+  return listDocs().map((doc) => ({
+    params: { app: doc.appDir.toLowerCase(), slug: doc.slug || undefined },
+    props: { doc },
+  }));
+}
+
+const { doc } = Astro.props;
+const appSlug = doc.appDir.toLowerCase();
+const app = getApp(appSlug);
+const siblings = listDocs()
+  .filter((d) => d.appDir === doc.appDir)
+  .sort((a, b) => (a.slug === '' ? -1 : b.slug === '' ? 1 : a.slug.localeCompare(b.slug)));
+
+const raw = fs.readFileSync(path.join(WIKIS_DIR, doc.appDir, doc.file), 'utf-8');
+const wikiBase = `/docs/${appSlug}`;
+const assetBase = `/wikis/${doc.appDir}`;
+
+// Rewrite wiki-style and relative links for the static site:
+//  - [[Page]] / [[Page|Label]]  -> internal /docs/<app>/Page links
+//  - relative images            -> /wikis/<app>/... (static assets)
+//  - relative page links        -> /docs/<app>/<Page>
+let md = raw.replace(/\[\[([^\]|]+)(?:\|([^\]]*))?\]\]/g, (_m: string, target: string, label?: string) =>
+  `[${(label ?? target).trim()}](${target.trim()})`
+);
+md = md.replace(/\]\(([^)]+)\)/g, (m: string, href: string) => {
+  const trimmed = href.trim();
+  if (/^(https?:|mailto:|#|\/\/)/i.test(trimmed) || trimmed.startsWith('/')) return m;
+  const [p, anchor] = trimmed.split('#');
+  const suffix = anchor ? `#${anchor}` : '';
+  if (/\.(png|jpe?g|gif|webp|svg|bmp|ico)$/i.test(p)) {
+    return `](${assetBase}/${p}${suffix})`;
+  }
+  const clean = p.replace(/\.md$/i, '');
+  if (!clean) return m;
+  return `](${wikiBase}/${clean}${suffix})`;
+});
+
+const html = marked.parse(md) as string;
+const prettyTitle = docTitle(doc.slug);
+const title = `${app?.name ?? appSlug}: ${prettyTitle} — CyberGems`;
+---
+
+<BaseLayout title={title} description={`${app?.name ?? appSlug} documentation`} lang="en" path={`${wikiBase}/${doc.slug}`}>
+  <div class="max-w-6xl mx-auto px-5 pt-10 pb-4">
+    <a href="/docs" class="text-sm text-[#9a9aa5] hover:text-white transition-colors">← Documentation</a>
+
+    <div class="mt-6 grid gap-8 lg:grid-cols-[240px_1fr]">
+      <!-- Sidebar -->
+      <aside class="lg:sticky lg:top-20 self-start">
+        <div class="card p-4">
+          <a href={`/docs/${appSlug}/`} class="flex items-center gap-2 font-bold">
+            {app && <span class="text-xl">{app.emoji}</span>}
+            {app?.name ?? appSlug}
+          </a>
+          <nav class="mt-3 flex flex-col gap-1">
+            {siblings.map((s) => (
+              <a
+                href={`${wikiBase}/${s.slug}`}
+                class:list={[
+                  'text-sm rounded-md px-2 py-1.5 transition-colors',
+                  s.slug === doc.slug ? 'bg-white/8 text-white font-semibold' : 'text-[#9a9aa5] hover:text-white hover:bg-white/5',
+                ]}
+              >
+                {docTitle(s.slug)}
+              </a>
+            ))}
+          </nav>
+          <a
+            href={`https://github.com/CyberGems/${appSlug}/wiki${doc.slug ? `/${doc.slug}` : ''}`}
+            target="_blank"
+            rel="noopener"
+            class="mt-4 pt-3 border-t border-white/10 text-xs text-[#9a9aa5] hover:text-white transition-colors block"
+          >
+            ✎ Edit this page on GitHub
+          </a>
+        </div>
+      </aside>
+
+      <!-- Content -->
+      <article class="card p-6 sm:p-8 min-w-0">
+        <h1 class="text-3xl font-extrabold tracking-tight mb-6 capitalize">{prettyTitle}</h1>
+        <div class="release-notes" set:html={html} />
+      </article>
+    </div>
+  </div>
+</BaseLayout>
