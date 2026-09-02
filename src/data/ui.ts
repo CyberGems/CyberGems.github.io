@@ -29,6 +29,11 @@ export const ui = {
     wingetHint: 'or install with winget:',
     madeBy: 'Made by CyberGems — free and open source under GPLv3.',
     langSwitch: 'Español',
+    navChangelog: 'Changelog',
+    changelogTitle: "What's new",
+    changelogSubtitle: 'Latest releases across the suite, straight from GitHub.',
+    changelogError: 'Some releases could not be loaded right now — try refreshing in a minute.',
+    viewOnGitHub: 'Release notes on GitHub',
   },
   es: {
     tagline: 'Gratis, sin anuncios, sin rastreo.',
@@ -57,5 +62,10 @@ export const ui = {
     wingetHint: 'o instala con winget:',
     madeBy: 'Hecho por CyberGems — gratis y de código abierto bajo GPLv3.',
     langSwitch: 'English',
+    navChangelog: 'Novedades',
+    changelogTitle: 'Novedades',
+    changelogSubtitle: 'Los últimos lanzamientos de la suite, directamente desde GitHub.',
+    changelogError: 'Algunos lanzamientos no se pudieron cargar ahora mismo — prueba a recargar en un minuto.',
+    viewOnGitHub: 'Notas de la versión en GitHub',
   },
 } as const;

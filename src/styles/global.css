@@ -99,6 +99,50 @@ body {
   color: transparent;
 }
 
+/* GitHub release notes rendered from Markdown */
+.release-notes h1, .release-notes h2, .release-notes h3 {
+  font-weight: 700;
+  color: var(--text);
+  margin: 1em 0 0.4em;
+}
+.release-notes h1 { font-size: 1.05rem; }
+.release-notes h2 { font-size: 1rem; }
+.release-notes h3 { font-size: 0.95rem; }
+.release-notes p { margin: 0.5em 0; }
+.release-notes ul, .release-notes ol {
+  margin: 0.5em 0;
+  padding-left: 1.4em;
+  list-style: disc;
+}
+.release-notes ol { list-style: decimal; }
+.release-notes li { margin: 0.25em 0; }
+.release-notes a { color: var(--accent); }
+.release-notes code {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  font-size: 0.85em;
+}
+.release-notes pre {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.8em;
+  overflow-x: auto;
+  margin: 0.6em 0;
+}
+.release-notes pre code { background: none; border: none; padding: 0; }
+.release-notes img { max-width: 100%; border-radius: 8px; }
+.release-notes blockquote {
+  border-left: 3px solid var(--border-strong);
+  padding-left: 0.9em;
+  margin: 0.6em 0;
+  color: var(--text-dim);
+}
+.release-notes hr { border: none; border-top: 1px solid var(--border); margin: 1em 0; }
+.release-notes > :first-child { margin-top: 0; }
+
 .brand-glow {
   text-shadow: 0 0 32px rgba(0, 242, 255, 0.45);
 }
