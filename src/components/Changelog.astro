@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { ui, type Lang } from '../data/ui';
 import { fetchAllReleases } from '../data/releases';
+import { wrapTables } from '../data/docs';
 import { marked } from 'marked';
 
 interface Props {
@@ -80,7 +81,7 @@ const renderNotes = (body: string) => marked.parse(body) as string;
               </div>
 
               {rel.body && (
-                <div class="release-notes mt-4 text-sm text-[#c9c9d1] leading-relaxed" set:html={renderNotes(rel.body)} />
+                <div class="release-notes mt-4 text-sm text-[#c9c9d1] leading-relaxed" set:html={wrapTables(renderNotes(rel.body))} />
               )}
 
               <a

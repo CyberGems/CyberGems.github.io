@@ -143,6 +143,36 @@ body {
 .release-notes hr { border: none; border-top: 1px solid var(--border); margin: 1em 0; }
 .release-notes > :first-child { margin-top: 0; }
 
+/* Markdown tables (GitHub-like) — tables are wrapped in .table-wrap for
+   horizontal scrolling on narrow screens */
+.table-wrap {
+  overflow-x: auto;
+  margin: 1em 0;
+  border-radius: 8px;
+}
+.release-notes table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9em;
+}
+.release-notes th,
+.release-notes td {
+  border: 1px solid var(--border-strong);
+  padding: 0.5em 0.9em;
+  text-align: left;
+  vertical-align: top;
+}
+.release-notes th {
+  background: rgba(255, 255, 255, 0.05);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.release-notes tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+.release-notes td > :first-child, .release-notes th > :first-child { margin-top: 0; }
+.release-notes td > :last-child, .release-notes th > :last-child { margin-bottom: 0; }
+
 .brand-glow {
   text-shadow: 0 0 32px rgba(0, 242, 255, 0.45);
 }

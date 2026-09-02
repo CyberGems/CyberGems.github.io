@@ -29,3 +29,14 @@ export function listDocs(): DocPage[] {
 export function docTitle(slug: string): string {
   return (slug || 'Home').replace(/[-_]/g, ' ');
 }
+
+/**
+ * Wraps every <table> in a horizontally scrollable container so wide
+ * markdown tables don't squeeze (or bleed) on narrow screens.
+ */
+export function wrapTables(html: string): string {
+  return html
+    .replace(/<table>/g, '<div class="table-wrap"><table>')
+    .replace(/<\/table>/g, '</table></div>');
+}
+
