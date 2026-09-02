@@ -1,0 +1,27 @@
+{
+  "slug": "cybernotes",
+  "name": "CyberNotes",
+  "emoji": "📝",
+  "accent": "#81C784",
+  "stack": "Electron · React · TypeScript",
+  "license": "GPLv3",
+  "tagline": {
+    "en": "Privacy-focused notes with rich text and bcrypt-protected local storage.",
+    "es": "Notas centradas en la privacidad, con texto enriquecido y almacenamiento local protegido con bcrypt."
+  },
+  "description": {
+    "en": "A modern, privacy-focused desktop note-taking application with a cyberpunk aesthetic. Rich editing, powerful organization and rock-solid security — all 100% offline, stored locally with SQL.js (SQLite WASM). Your notes never leave your device.",
+    "es": "Una aplicación moderna de notas para escritorio, centrada en la privacidad y con estética cyberpunk. Edición rica, organización potente y seguridad sólida — todo 100% sin conexión, almacenado localmente con SQL.js (SQLite WASM). Tus notas nunca salen de tu dispositivo."
+  },
+  "features": [
+    { "en": "TipTap rich editor with markdown shortcuts and code blocks", "es": "Editor rico TipTap con atajos markdown y bloques de código" },
+    { "en": "Folders with icons & colors, multi-tabs, drag & drop", "es": "Carpetas con iconos y colores, multi-pestañas, arrastrar y soltar" },
+    { "en": "Master password (bcrypt) with auto-lock and privacy shield", "es": "Contraseña maestra (bcrypt) con bloqueo automático y escudo de privacidad" },
+    { "en": "Instant full-text search across titles and content", "es": "Búsqueda instantánea de texto completo en títulos y contenido" },
+    { "en": "Autosave, session restore, global hotkey and system tray", "es": "Autoguardado, restauración de sesión, hotkey global y bandeja del sistema" },
+    { "en": "6 themes, custom backgrounds, glass effects, UI scaling", "es": "6 temas, fondos personalizados, efectos glass y escala de la interfaz" }
+  ],
+  "repo": "https://github.com/CyberGems/CyberNotes",
+  "wiki": "https://github.com/CyberGems/CyberNotes/wiki",
+  "screenshot": null
+}

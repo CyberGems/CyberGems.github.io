@@ -1,0 +1,27 @@
+{
+  "slug": "cybersnap",
+  "name": "CyberSnap",
+  "emoji": "📸",
+  "accent": "#00F2FF",
+  "stack": "C# · WPF · .NET 9",
+  "license": "GPLv3",
+  "tagline": {
+    "en": "Capture anything. Edit everything. Share anywhere.",
+    "es": "Captura cualquier cosa. Edítalo todo. Comparte donde quieras."
+  },
+  "description": {
+    "en": "A full-featured screenshot, annotation, OCR, translation, screen-recording and sharing tool for Windows. A floating capture widget, a rich annotation editor, multilingual text recognition, local full-text search and multi-destination upload — all in one .NET 9 / WPF application.",
+    "es": "Una herramienta completa de captura de pantalla, anotación, OCR, traducción, grabación de pantalla y compartido para Windows. Widget de captura flotante, editor de anotaciones rico, reconocimiento de texto multilingüe, búsqueda local de texto completo y subida multi-destino — todo en una sola aplicación .NET 9 / WPF."
+  },
+  "features": [
+    { "en": "Area, window, full screen & scroll capture", "es": "Captura de área, ventana, pantalla completa y desplazamiento" },
+    { "en": "Screen recording to MP4 or GIF with built-in trimming", "es": "Grabación de pantalla a MP4 o GIF con recorte integrado" },
+    { "en": "Annotation editor with shapes, text, rulers and frames", "es": "Editor de anotaciones con formas, texto, reglas y marcos" },
+    { "en": "Multilingual OCR (Tesseract) with integrated translation", "es": "OCR multilingüe (Tesseract) con traducción integrada" },
+    { "en": "Local gallery with full-text search across OCR content", "es": "Galería local con búsqueda de texto completo sobre el OCR" },
+    { "en": "Upload to FTP, SFTP, S3, ImgBB, Imgur, Webhook & CyberSnap Share", "es": "Subida a FTP, SFTP, S3, ImgBB, Imgur, Webhook y CyberSnap Share" }
+  ],
+  "repo": "https://github.com/CyberGems/CyberSnap",
+  "wiki": "https://github.com/CyberGems/CyberSnap/wiki",
+  "screenshot": null
+}

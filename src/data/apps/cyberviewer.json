@@ -1,0 +1,27 @@
+{
+  "slug": "cyberviewer",
+  "name": "CyberViewer",
+  "emoji": "💫",
+  "accent": "#BA68C8",
+  "stack": "Electron · JavaScript",
+  "license": "MIT",
+  "tagline": {
+    "en": "A fast, lightweight image viewer with the essential editing tools built in.",
+    "es": "Un visor de imágenes rápido y ligero con las herramientas de edición esenciales integradas."
+  },
+  "description": {
+    "en": "A fast, lightweight Windows image viewer — open, browse folders, zoom/pan and perform light edits (rotate, crop, resize, adjust colors). Built with Electron and vanilla JavaScript, it delivers instant loading, smooth browsing and a sleek, distraction-free interface.",
+    "es": "Un visor de imágenes rápido y ligero para Windows: abre, navega por carpetas, haz zoom/pan y realiza ediciones ligeras (rotar, recortar, redimensionar, ajustar colores). Construido con Electron y JavaScript vanilla, ofrece apertura instantánea, navegación fluida y una interfaz elegante sin distracciones."
+  },
+  "features": [
+    { "en": "Lightning-fast open — custom streaming protocol, no full RAM load", "es": "Apertura ultrarrápida — protocolo de streaming propio, sin cargar todo en RAM" },
+    { "en": "Folder browsing with lazy-loading thumbnails", "es": "Navegación de carpetas con miniaturas de carga diferida" },
+    { "en": "Zoom 5%–2000%, pan, animated GIF playback", "es": "Zoom 5%–2000%, paneo, reproducción de GIF animados" },
+    { "en": "Rotate, crop, resize, flip and color adjustments with live preview", "es": "Rotar, recortar, redimensionar, voltear y ajustes de color con vista previa en vivo" },
+    { "en": "Fullscreen immersive mode and slideshow with loop", "es": "Modo inmersivo a pantalla completa y diapositivas con bucle" },
+    { "en": "System tray, auto-start, global hotkey, Explorer context menu", "es": "Bandeja del sistema, auto-inicio, hotkey global, menú contextual del Explorer" }
+  ],
+  "repo": "https://github.com/CyberGems/CyberViewer",
+  "wiki": "https://github.com/CyberGems/CyberViewer/wiki",
+  "screenshot": null
+}

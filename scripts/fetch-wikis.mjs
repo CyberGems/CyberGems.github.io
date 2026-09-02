@@ -16,9 +16,12 @@ const wikisDir = path.join(root, 'wikis');
 const publicWikisDir = path.join(root, 'public', 'wikis');
 fs.mkdirSync(wikisDir, { recursive: true });
 
-// Read the app slugs straight from the data source of truth.
-const appsTs = fs.readFileSync(path.join(root, 'src', 'data', 'apps.ts'), 'utf-8');
-const slugs = [...appsTs.matchAll(/slug:\s*'([a-z0-9-]+)'/g)].map((m) => m[1]);
+// Read the app slugs from the CMS-editable JSON files (one per app).
+const appsDir = path.join(root, 'src', 'data', 'apps');
+const slugs = fs
+  .readdirSync(appsDir)
+  .filter((f) => f.endsWith('.json'))
+  .map((f) => f.replace(/\.json$/, ''));
 
 for (const slug of slugs) {
   const dest = path.join(wikisDir, slug);

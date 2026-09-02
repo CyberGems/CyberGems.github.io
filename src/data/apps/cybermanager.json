@@ -1,0 +1,27 @@
+{
+  "slug": "cybermanager",
+  "name": "CyberManager",
+  "emoji": "💻",
+  "accent": "#4FC3F7",
+  "stack": "C# · WPF · .NET 10",
+  "license": "GPLv3",
+  "tagline": {
+    "en": "Ultra-light task manager that stays smooth at 3000+ processes.",
+    "es": "Gestor de tareas ultraligero que sigue fluido con más de 3000 procesos."
+  },
+  "description": {
+    "en": "An ultra-lightweight, virtualized task manager for Windows built as a premium alternative to the Task Manager. It handles machines with 3000+ processes at 144fps with zero lag, using native Windows NT API calls, and features real-time CPU/RAM sparklines and a cyberpunk glassmorphic interface.",
+    "es": "Un gestor de tareas ultraligero y virtualizado para Windows, creado como alternativa premium al Administrador de tareas. Maneja máquinas con más de 3000 procesos a 144fps sin lag, usando llamadas nativas a la API NT de Windows, con sparklines de CPU/RAM en tiempo real e interfaz glassmórfica cyberpunk."
+  },
+  "features": [
+    { "en": "Virtualized grid — 3000+ processes at 144fps, zero lag", "es": "Cuadrícula virtualizada — más de 3000 procesos a 144fps, sin lag" },
+    { "en": "NT-native engine (NtQuerySystemInformation, no WMI overhead)", "es": "Motor NT-nativo (NtQuerySystemInformation, sin sobrecarga de WMI)" },
+    { "en": "Adaptive CPU/RAM heatmap with live sparklines", "es": "Mapa de calor adaptativo de CPU/RAM con sparklines en vivo" },
+    { "en": "Full process control: end tree, suspend/resume, priority", "es": "Control total de procesos: fin de árbol, suspender/reanudar, prioridad" },
+    { "en": "System Information window with 4 tabs", "es": "Ventana de Información del sistema con 4 pestañas" },
+    { "en": "System tray, global hotkey, 3 themes, bilingual EN/ES", "es": "Bandeja del sistema, hotkey global, 3 temas, bilingüe EN/ES" }
+  ],
+  "repo": "https://github.com/CyberGems/CyberManager",
+  "wiki": "https://github.com/CyberGems/CyberManager/wiki",
+  "screenshot": null
+}

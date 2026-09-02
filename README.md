@@ -34,7 +34,7 @@ This repository powers **[cybergems.org](https://cybergems.org)** — the offici
 
 | Area | Route | Description |
 |---|---|---|
-| **Landing** | `/` (EN) · `/es/` (ES) | Hero, suite grid (10 apps from `src/data/apps.ts`), highlights and CTAs |
+| **Landing** | `/` (EN) · `/es/` (ES) | Hero, suite grid (10 apps from `src/data/apps/`), highlights and CTAs |
 | **App pages** | `/apps/[slug]` · `/es/apps/[slug]` | Tagline, description, feature list, screenshot or gradient placeholder, download / releases / source / wiki links |
 | **Changelog** | `/changelog` · `/es/changelog` | Latest releases aggregated from GitHub Releases across the suite |
 | **Docs** | `/docs` · `/docs/[app]` · `/es/docs/...` | Guides rendered from each repo's GitHub wiki, synced at build time |
@@ -78,8 +78,10 @@ All pages are static, SEO-friendly and served from a custom domain.
 ├── src/
 │   ├── components/Landing.astro
 │   ├── data/
-│   │   ├── apps.ts           # single source of truth — 10 apps
+│   │   ├── apps/             # one JSON per app — editable in the CMS (/admin)
+│   │   ├── apps.ts           # types + loader for the JSON files
 │   │   └── ui.ts             # shared UI strings (EN/ES)
+│   ├── admin/                # public/admin — Decap CMS panel
 │   └── pages/
 │       ├── index.astro       # → /
 │       ├── es/index.astro    # → /es/
@@ -94,13 +96,24 @@ All pages are static, SEO-friendly and served from a custom domain.
 
 ### 🧩 Content Model
 
-* **`src/data/apps.ts`** — one `CyberApp` entry per app (`slug`, `name`, `emoji`, `accent`, `stack`, `license`, bilingual `tagline`/`description`/`features`, `repo`, `wiki`, optional `winget`, `screenshot`). Screenshots are optional: set `screenshot` to a file inside `/public/screenshots/<slug>/` or leave it `null` to render the gradient placeholder.
+* **`src/data/apps/`** — one JSON file per app (`slug`, `name`, `emoji`, `accent`, `stack`, `license`, bilingual `tagline`/`description`/`features`, `repo`, `wiki`, optional `winget`, `screenshot`). Screenshots are optional: set `screenshot` to a file inside `/public/screenshots/<slug>/` (or an absolute `/screenshots/...` path, as written by the CMS) or leave it `null` to render the gradient placeholder.
 * **`src/data/ui.ts`** — shared UI strings for nav, hero, sections and footer (`en` / `es`).
 * **`src/pages/`** — `/` (English) and `/es/` (Spanish), plus `/apps/[slug]` per-app pages in both languages, plus `changelog` and `docs`.
 * **`public/screenshots/`** — static screenshots; absent files fall back to the accent-gradient placeholder.
 * **`wikis/` + `public/wikis/`** — generated; do not edit by hand (see below).
 
-To add or update an app, edit only `src/data/apps.ts` — the landing, app pages, changelog and docs pick it up automatically.
+To update an app: edit its JSON in `src/data/apps/` or use the visual CMS at `/admin` — the landing, app pages, changelog and docs pick it up automatically.
+
+---
+
+### 🎛️ Visual editing (Decap CMS)
+
+A content manager is available at **`/admin`** (`https://cybergems.github.io/admin`):
+
+* Edits the `src/data/apps/*.json` files and uploads screenshots to `public/screenshots/`
+* Every save is a commit to `main` → the deploy workflow rebuilds the site automatically
+* Login: GitHub **PKCE** — create a GitHub OAuth App with callback `https://<site>/admin/` and paste its Client ID into `public/admin/config.yml` (`app_id`). Only accounts with write access to the repo can log in.
+* Local dev: run `npx decap-server` and add `local_backend: true` to `public/admin/config.yml`
 
 ---
 
@@ -121,7 +134,7 @@ To add or update an app, edit only `src/data/apps.ts` — the landing, app pages
 
 Wikis live as separate git repos (`https://github.com/CyberGems/<slug>.wiki.git`). On every `dev` and `build`:
 
-1. `scripts/fetch-wikis.mjs` reads slugs from `src/data/apps.ts`
+1. `scripts/fetch-wikis.mjs` reads slugs from `src/data/apps/*.json`
 2. Shallow-clones each wiki into `wikis/<slug>/` (skips silently if wiki is disabled)
 3. Copies non-markdown assets into `public/wikis/<slug>/` so images referenced in markdown are served as static files
 4. Astro renders the markdown via `marked` into `/docs` routes
@@ -144,7 +157,7 @@ All CyberGems apps are **GPLv3** — free forever. Contributions, bug reports an
 
 * ⭐ Star this repo or any app you like — it helps a lot
 * 🐛 Open an issue if you find a bug
-* 🔀 PRs are welcome — keep changes focused and bilingual strings in sync (`src/data/apps.ts` + `src/data/ui.ts`)
+* 🔀 PRs are welcome — keep changes focused and bilingual strings in sync (`src/data/apps/` + `src/data/ui.ts`)
 
 <div align="center">
 

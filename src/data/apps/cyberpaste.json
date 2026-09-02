@@ -1,0 +1,28 @@
+{
+  "slug": "cyberpaste",
+  "name": "CyberPaste",
+  "emoji": "⚡",
+  "accent": "#FFD54F",
+  "stack": "Tauri · React · Rust",
+  "license": "GPLv3",
+  "tagline": {
+    "en": "Recall anything you have ever copied — text, code, images, files — 100% local.",
+    "es": "Recupera todo lo que hayas copiado — texto, código, imágenes, archivos — 100% local."
+  },
+  "description": {
+    "en": "A beautiful, privacy-focused clipboard history manager for Windows. CyberPaste stores everything you copy — text, code, images, files, URLs — in a local SQLite database, so you can recall any clip at any time. Search, organize, pin, edit and paste instantly, with optional AI-powered actions.",
+    "es": "Un gestor de historial del portapapeles elegante y centrado en la privacidad para Windows. CyberPaste guarda todo lo que copias — texto, código, imágenes, archivos, URLs — en una base de datos SQLite local, para que recuperes cualquier clip en cualquier momento. Busca, organiza, fija, edita y pega al instante, con acciones de IA opcionales."
+  },
+  "features": [
+    { "en": "Rich content: text, code (syntax highlighting), images (OCR), HTML, RTF, files, URLs", "es": "Contenido rico: texto, código (resaltado de sintaxis), imágenes (OCR), HTML, RTF, archivos, URLs" },
+    { "en": "Instant full-text search with quick filter chips", "es": "Búsqueda instantánea de texto completo con filtros rápidos" },
+    { "en": "AI actions — summarize, translate, explain code — with any OpenAI-compatible provider", "es": "Acciones de IA — resumir, traducir, explicar código — con cualquier proveedor compatible con OpenAI" },
+    { "en": "Folders, favorites, bulk management and dual view modes", "es": "Carpetas, favoritos, gestión por lotes y dos modos de vista" },
+    { "en": "Global hotkey, auto-paste injection, multi-monitor aware", "es": "Hotkey global, auto-pegado, consciente de multi-monitor" },
+    { "en": "Local SQLite — zero analytics, zero telemetry", "es": "SQLite local — cero analíticas, cero telemetría" }
+  ],
+  "repo": "https://github.com/CyberGems/CyberPaste",
+  "wiki": "https://github.com/CyberGems/CyberPaste/wiki",
+  "winget": "CyberGems.CyberPaste",
+  "screenshot": null
+}

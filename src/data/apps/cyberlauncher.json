@@ -1,0 +1,27 @@
+{
+  "slug": "cyberlauncher",
+  "name": "CyberLauncher",
+  "emoji": "🚀",
+  "accent": "#FF8A65",
+  "stack": "Electron · React · TypeScript",
+  "license": "GPLv3",
+  "tagline": {
+    "en": "Replace the Start Menu: type to search, hotkey to summon, click to launch.",
+    "es": "Reemplaza el menú Inicio: escribe para buscar, invócalo con una tecla y lanza con un clic."
+  },
+  "description": {
+    "en": "A full-screen, glassmorphic application launcher for Windows. CyberLauncher reimagines app launching — type to search, hotkey to summon, click to launch — with fuzzy search, system-wide file indexing, UWP support and a sleek cyberpunk interface.",
+    "es": "Un lanzador de aplicaciones a pantalla completa y glassmórfico para Windows. CyberLauncher reinventa el lanzamiento de apps — escribe para buscar, invócalo con una tecla, lanza con un clic — con búsqueda difusa, indexación de archivos en todo el sistema, soporte UWP y una interfaz cyberpunk elegante."
+  },
+  "features": [
+    { "en": "Full-screen, keyboard-driven launcher with instant fuzzy search", "es": "Lanzador a pantalla completa guiado por teclado con búsqueda difusa instantánea" },
+    { "en": "Hybrid indexing engine — system-wide file search across all drives", "es": "Motor de indexación híbrido — búsqueda de archivos en todo el sistema y todas las unidades" },
+    { "en": "UWP / Microsoft Store apps supported natively", "es": "Apps UWP / Microsoft Store soportadas de forma nativa" },
+    { "en": "Color-coded categories, favorites bar, taskbar pins", "es": "Categorías con colores, barra de favoritos, fijados en la barra" },
+    { "en": "Console mode — type > to run shell commands directly", "es": "Modo consola — escribe > para ejecutar comandos shell directamente" },
+    { "en": "Hot corners, per-app global shortcuts, multi-monitor", "es": "Esquinas activas, atajos globales por app, multi-monitor" }
+  ],
+  "repo": "https://github.com/CyberGems/CyberLauncher",
+  "wiki": "https://github.com/CyberGems/CyberLauncher/wiki",
+  "screenshot": null
+}

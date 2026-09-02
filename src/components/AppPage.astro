@@ -16,7 +16,13 @@ const homePath = lang === 'en' ? '/' : '/es/';
 const title = `${app.name} — CyberGems`;
 const description = app.description[lang];
 const releasesUrl = `${app.repo}/releases/latest`;
-const shotSrc = app.screenshot ? `/screenshots/${app.slug}/${app.screenshot}` : null;
+// CMS uploads write absolute public paths ("/screenshots/..."); hand-made
+// entries may use a bare filename inside the app's own screenshots folder.
+const shotSrc = app.screenshot
+  ? app.screenshot.startsWith('/')
+    ? app.screenshot
+    : `/screenshots/${app.slug}/${app.screenshot}`
+  : null;
 ---
 
 <BaseLayout title={title} description={description} lang={lang} path={lang === 'en' ? `/apps/${app.slug}` : `/es/apps/${app.slug}`}>

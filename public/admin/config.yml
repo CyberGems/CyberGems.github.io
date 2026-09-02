@@ -1,0 +1,94 @@
+backend:
+  name: github
+  repo: CyberGems/CyberGems.github.io
+  branch: main
+  # PKCE login — no auth server needed. Create a GitHub OAuth App with the
+  # callback URL https://cybergems.github.io/admin/ (and later the custom
+  # domain), then paste its Client ID below:
+  auth_type: pkce
+  app_id: PASTE_OAUTH_APP_CLIENT_ID
+
+site_url: https://cybergems.github.io
+media_folder: public/screenshots
+public_path: /screenshots
+
+collections:
+  - name: apps
+    label: Apps
+    label_singular: App
+    folder: src/data/apps
+    format: json
+    extension: json
+    create: true
+    slug: '{{slug}}'
+    summary: '{{emoji}} {{name}} — {{slug}}'
+    editor:
+      preview: false
+    fields:
+      - name: slug
+        label: Slug
+        widget: string
+        hint: Lowercase id used in URLs and the GitHub repo name (e.g. cybersnap)
+      - name: name
+        label: Name
+        widget: string
+      - name: emoji
+        label: Emoji
+        widget: string
+      - name: accent
+        label: Accent color
+        widget: color
+        default: '#00F2FF'
+      - name: stack
+        label: Tech stack
+        widget: string
+      - name: license
+        label: License
+        widget: string
+        default: GPLv3
+      - name: tagline
+        label: Tagline
+        widget: object
+        fields:
+          - name: en
+            label: English
+            widget: string
+          - name: es
+            label: Español
+            widget: string
+      - name: description
+        label: Description
+        widget: object
+        fields:
+          - name: en
+            label: English
+            widget: text
+          - name: es
+            label: Español
+            widget: text
+      - name: features
+        label: Features
+        widget: list
+        fields:
+          - name: en
+            label: English
+            widget: string
+          - name: es
+            label: Español
+            widget: string
+      - name: repo
+        label: Repo URL
+        widget: string
+      - name: wiki
+        label: Wiki URL
+        widget: string
+        required: false
+      - name: winget
+        label: Winget package id
+        widget: string
+        required: false
+      - name: screenshot
+        label: Screenshot
+        widget: file
+        required: false
+        hint: Leave empty to show the gradient placeholder

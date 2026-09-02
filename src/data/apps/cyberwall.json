@@ -1,0 +1,27 @@
+{
+  "slug": "cyberwall",
+  "name": "CyberWall",
+  "emoji": "🛡️",
+  "accent": "#E57373",
+  "stack": "C# · WPF · .NET 10",
+  "license": "GPLv3",
+  "tagline": {
+    "en": "A per-application firewall powered by the WFP kernel engine. Default deny, real-time prompts.",
+    "es": "Un firewall por aplicación impulsado por el motor kernel WFP. Denegación por defecto, avisos en tiempo real."
+  },
+  "description": {
+    "en": "A modern, high-performance per-application firewall for Windows powered by the Windows Filtering Platform (WFP). Built on a strict default-deny (whitelist) architecture, CyberWall intercepts unknown network connections and shows interactive real-time prompts per executable — turning your PC into an impenetrable network fortress.",
+    "es": "Un firewall por aplicación moderno y de alto rendimiento para Windows, impulsado por la Windows Filtering Platform (WFP). Con una arquitectura estricta de denegación por defecto (lista blanca), CyberWall intercepta las conexiones de red desconocidas y muestra avisos interactivos en tiempo real por ejecutable — convirtiendo tu PC en una fortaleza de red inexpugnable."
+  },
+  "features": [
+    { "en": "Strict default-deny (whitelist) architecture", "es": "Arquitectura estricta de denegación por defecto (lista blanca)" },
+    { "en": "Real-time WFP drop interception at the kernel layer", "es": "Intercepción de descartes WFP en tiempo real a nivel kernel" },
+    { "en": "Interactive per-executable connection prompts", "es": "Avisos interactivos de conexión por ejecutable" },
+    { "en": "Stops spyware, ransomware, C2 beacons and reverse shells", "es": "Detiene spyware, ransomware, beacons C2 y shells inversas" },
+    { "en": "Native WFP — no third-party drivers, no BSOD risk", "es": "WFP nativo — sin drivers de terceros, sin riesgo de BSOD" },
+    { "en": "Persistent per-app rules with auto-block timeouts", "es": "Reglas persistentes por aplicación con bloqueo automático por tiempo" }
+  ],
+  "repo": "https://github.com/CyberGems/CyberWall",
+  "wiki": "https://github.com/CyberGems/CyberWall/wiki",
+  "screenshot": null
+}
