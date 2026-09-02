@@ -1,0 +1,2 @@
+# Keep the screenshots folder in git. Drop app captures here as:
+# /screenshots/<slug>/<file>.png  and reference them from src/data/apps.ts

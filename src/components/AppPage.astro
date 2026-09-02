@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ui, type Lang } from '../data/ui';
+import type { CyberApp } from '../data/apps';
+
+interface Props {
+  app: CyberApp;
+  lang: Lang;
+}
+
+const { app, lang } = Astro.props;
+const t = ui[lang];
+const homePath = lang === 'en' ? '/' : '/es/';
+const title = `${app.name} — CyberGems`;
+const description = app.description[lang];
+const releasesUrl = `${app.repo}/releases/latest`;
+const shotSrc = app.screenshot ? `/screenshots/${app.slug}/${app.screenshot}` : null;
+---
+
+<BaseLayout title={title} description={description} lang={lang} path={lang === 'en' ? `/apps/${app.slug}` : `/es/apps/${app.slug}`}>
+  <article class="max-w-5xl mx-auto px-5 pt-12 pb-4">
+    <a href={homePath + '#apps'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.backHome}</a>
+
+    <!-- App header -->
+    <header class="mt-8 flex flex-col sm:flex-row sm:items-center gap-6">
+      <div
+        class="w-20 h-20 rounded-2xl flex items-center justify-center text-4xl shrink-0 border border-white/10"
+        style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}33 0%, transparent 60%); box-shadow: 0 0 40px -12px ${app.accent}66;`}
+      >
+        {app.emoji}
+      </div>
+      <div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">{app.name}</h1>
+        <p class="mt-2 text-lg text-[#9a9aa5]">{app.tagline[lang]}</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="chip">🧩 {app.stack}</span>
+          <span class="chip">📄 {app.license}</span>
+          <span class="chip">🪟 Windows</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- CTAs -->
+    <div class="mt-8 flex flex-wrap items-center gap-3">
+      <a href={releasesUrl} target="_blank" rel="noopener" class="btn-primary">⬇ {t.downloadCta}</a>
+      <a href={`${app.repo}/releases`} target="_blank" rel="noopener" class="btn-ghost">{t.releasesCta}</a>
+      <a href={app.repo} target="_blank" rel="noopener" class="btn-ghost">⌨ {t.repoCta}</a>
+      {app.wiki && (
+        <a href={app.wiki} target="_blank" rel="noopener" class="btn-ghost">📖 {t.wikiCta}</a>
+      )}
+    </div>
+
+    {app.winget && (
+      <p class="mt-4 text-sm text-[#9a9aa5]">
+        {t.wingetHint}
+        <code class="ml-2 px-2 py-1 rounded-md bg-white/5 border border-white/10 text-[#00f2ff] text-xs">winget install {app.winget}</code>
+      </p>
+    )}
+
+    <!-- Screenshot / placeholder -->
+    <div
+      class="mt-10 rounded-2xl border border-white/10 overflow-hidden aspect-video flex items-center justify-center relative"
+      style={`background: radial-gradient(100% 100% at 50% 0%, ${app.accent}1f 0%, transparent 60%), #10131c;`}
+    >
+      {shotSrc ? (
+        <img src={shotSrc} alt={`${app.name} screenshot`} class="w-full h-full object-cover" loading="lazy" />
+      ) : (
+        <div class="text-center select-none">
+          <div class="text-7xl mb-3 opacity-90">{app.emoji}</div>
+          <p class="text-sm text-[#9a9aa5]">{t.shotPlaceholder}</p>
+        </div>
+      )}
+    </div>
+
+    <!-- Description -->
+    <p class="mt-10 text-lg leading-relaxed text-[#c9c9d1]">{app.description[lang]}</p>
+
+    <!-- Features -->
+    <h2 class="mt-12 text-2xl font-bold tracking-tight">
+      {t.featuresTitle} {app.name}
+    </h2>
+    <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+      {app.features.map((feature) => (
+        <li class="card flex items-start gap-3 p-4">
+          <span
+            class="mt-1 w-2 h-2 rounded-full shrink-0"
+            style={`background: ${app.accent}; box-shadow: 0 0 10px ${app.accent};`}
+          >
+          </span>
+          <span class="text-sm leading-relaxed">{feature[lang]}</span>
+        </li>
+      ))}
+    </ul>
+  </article>
+</BaseLayout>

@@ -1,0 +1,74 @@
+---
+import '../styles/global.css';
+import { ui, type Lang } from '../data/ui';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Lang;
+  /** Current page path including locale, e.g. "/", "/es/", "/apps/cybersnap", "/es/apps/cybersnap" */
+  path: string;
+}
+
+const { title, description, lang, path } = Astro.props;
+const t = ui[lang];
+const other: Lang = lang === 'en' ? 'es' : 'en';
+const switchHref = lang === 'en' ? (path === '/' ? '/es/' : `/es${path}`) : path.replace(/^\/es/, '') || '/';
+const homeHref = lang === 'en' ? '/' : '/es/';
+const canonical = new URL(path, Astro.site);
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={lang} href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0d0f17" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-[#0d0f17]/80 border-b border-white/5">
+      <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+        <a href={homeHref} class="text-lg font-bold tracking-tight brand-glow">
+          Cyber<span class="text-gradient">Gems</span>
+        </a>
+        <div class="flex items-center gap-2 sm:gap-5">
+          <a href={`${homeHref}#apps`} class="text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.navApps}</a>
+          <a href="https://github.com/CyberGems" target="_blank" rel="noopener" class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden sm:inline">{t.navGitHub}</a>
+          <a
+            href={switchHref}
+            lang={other}
+            class="chip hover:border-[#00f2ff] hover:text-white transition-colors"
+            aria-label={t.langSwitch}
+          >
+            🌐 {t.langSwitch}
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="border-t border-white/5 mt-20">
+      <div class="max-w-6xl mx-auto px-5 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-sm font-bold tracking-tight">
+          Cyber<span class="text-gradient">Gems</span>
+        </div>
+        <p class="text-xs text-[#9a9aa5] text-center">{t.madeBy}</p>
+        <a href="https://github.com/CyberGems" target="_blank" rel="noopener" class="text-xs text-[#9a9aa5] hover:text-white transition-colors">
+          github.com/CyberGems
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

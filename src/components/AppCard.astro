@@ -1,0 +1,44 @@
+---
+import type { CyberApp } from '../data/apps';
+import type { Lang } from '../data/ui';
+import { ui } from '../data/ui';
+
+interface Props {
+  app: CyberApp;
+  lang: Lang;
+}
+
+const { app, lang } = Astro.props;
+const t = ui[lang];
+const href = lang === 'en' ? `/apps/${app.slug}` : `/es/apps/${app.slug}`;
+const learnMore = lang === 'en' ? 'Learn more' : 'Saber más';
+---
+
+<a href={href} class="card group flex flex-col overflow-hidden">
+  <!-- Visual tile: accent gradient + emoji (screenshot-ready) -->
+  <div
+    class="h-36 flex items-center justify-center relative overflow-hidden"
+    style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}26 0%, transparent 55%), linear-gradient(160deg, ${app.accent}14 0%, transparent 60%);`}
+  >
+    <div
+      class="absolute inset-x-0 bottom-0 h-px opacity-60"
+      style={`background: linear-gradient(90deg, transparent, ${app.accent}, transparent);`}
+    >
+    </div>
+    <span class="text-6xl drop-shadow-[0_0_24px_rgba(0,242,255,0.25)] group-hover:scale-110 transition-transform duration-300">
+      {app.emoji}
+    </span>
+  </div>
+
+  <div class="p-5 flex flex-col gap-3 flex-1">
+    <div class="flex items-center justify-between gap-2">
+      <h3 class="text-lg font-bold">{app.name}</h3>
+      <span class="text-[11px] text-[#9a9aa5] font-medium">{app.stack}</span>
+    </div>
+    <p class="text-sm text-[#9a9aa5] leading-relaxed flex-1">{app.tagline[lang]}</p>
+    <span class="text-sm font-semibold inline-flex items-center gap-1.5" style={`color: ${app.accent};`}>
+      {learnMore}
+      <span class="inline-block group-hover:translate-x-1 transition-transform">→</span>
+    </span>
+  </div>
+</a>
