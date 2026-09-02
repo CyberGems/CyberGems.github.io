@@ -42,7 +42,15 @@ const shotSrc = app.screenshot ? `/screenshots/${app.slug}/${app.screenshot}` : 
 
     <!-- CTAs -->
     <div class="mt-8 flex flex-wrap items-center gap-3">
-      <a href={releasesUrl} target="_blank" rel="noopener" class="btn-primary">⬇ {t.downloadCta}</a>
+      <a
+        href={releasesUrl}
+        target="_blank"
+        rel="noopener"
+        class="btn-primary"
+        data-gh-repo={`CyberGems/${app.slug}`}
+      >
+        ⬇ {t.downloadCta}<span data-gh-version></span>
+      </a>
       <a href={`${app.repo}/releases`} target="_blank" rel="noopener" class="btn-ghost">{t.releasesCta}</a>
       <a href={app.repo} target="_blank" rel="noopener" class="btn-ghost">⌨ {t.repoCta}</a>
       {app.wiki && (
@@ -93,3 +101,64 @@ const shotSrc = app.screenshot ? `/screenshots/${app.slug}/${app.screenshot}` : 
     </ul>
   </article>
 </BaseLayout>
+
+<script is:inline>
+  // Resolve the "Download latest" buttons to the direct .exe asset of each
+  // repo's latest GitHub release (asset names include the version, so the
+  // static /releases/latest/download/<name> shortcut does not apply).
+  // Falls back silently to the release page on API failure, and caches the
+  // resolved URL for 10 minutes to stay well within the API rate limit.
+  (function () {
+    var TTL = 10 * 60 * 1000;
+
+    function pickInstaller(assets) {
+      var exe = (assets || []).filter(function (a) {
+        return /\.exe$/i.test(a.name) && !/portable/i.test(a.name);
+      });
+      if (exe.length === 0) return null;
+      return (
+        exe.find(function (a) { return /setup|install/i.test(a.name); }) || exe[0]
+      );
+    }
+
+    function resolveButton(btn) {
+      var repo = btn.getAttribute('data-gh-repo');
+      if (!repo) return;
+
+      try {
+        var cache = JSON.parse(localStorage.getItem('cg-rel-' + repo) || 'null');
+        if (cache && cache.url && Date.now() - cache.ts < TTL) {
+          btn.href = cache.url;
+          showVersion(btn, cache.tag);
+          return;
+        }
+      } catch (e) { /* ignore cache errors */ }
+
+      fetch('https://api.github.com/repos/' + repo + '/releases/latest', {
+        headers: { Accept: 'application/vnd.github+json' },
+      })
+        .then(function (res) { return res.ok ? res.json() : null; })
+        .then(function (release) {
+          if (!release || !release.assets) return;
+          var asset = pickInstaller(release.assets);
+          if (!asset) return;
+          btn.href = asset.browser_download_url;
+          showVersion(btn, release.tag_name);
+          try {
+            localStorage.setItem(
+              'cg-rel-' + repo,
+              JSON.stringify({ url: asset.browser_download_url, tag: release.tag_name, ts: Date.now() })
+            );
+          } catch (e) { /* storage unavailable */ }
+        })
+        .catch(function () { /* keep the release page as fallback */ });
+    }
+
+    function showVersion(btn, tag) {
+      var span = btn.querySelector('[data-gh-version]');
+      if (span && tag) span.textContent = ' · ' + tag;
+    }
+
+    document.querySelectorAll('a[data-gh-repo]').forEach(resolveButton);
+  })();
+</script>
