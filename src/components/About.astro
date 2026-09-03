@@ -2,78 +2,48 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import type { Lang } from '../data/ui';
 import { site } from '../data/site';
+import pagesData from '../data/pages.json';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const en = lang === 'en';
-const title = en ? 'About — CyberGems' : 'Acerca de — CyberGems';
-const description = en
-  ? 'CyberGems is an independent one-person project: 10 free, open-source Windows apps built for daily use and shared with the world. No ads, no tracking, GPLv3.'
-  : 'CyberGems es un proyecto independiente de una sola persona: 10 apps gratuitas y open-source para Windows, creadas para el uso diario y compartidas con el mundo. Sin anuncios, sin rastreo, GPLv3.';
+const c = (pagesData.about as Record<string, any>)[lang];
 const path = en ? '/about' : '/es/about';
-
-const principles = en ? [
-  { icon: '🔒', t: 'Privacy-first', d: 'Your data never leaves your PC. No servers, no cloud, no hidden telemetry.' },
-  { icon: '💻', t: 'Local-first', d: 'Everything works offline. No account, no subscriptions, no external dependencies.' },
-  { icon: '📖', t: 'Open source', d: 'GPLv3 licensed. You can audit, modify and redistribute the code freely.' },
-  { icon: '🎁', t: '100% Free', d: 'No ads, no in-app purchases, no limitations. Free software at its fullest.' },
-  { icon: '⚡', t: 'Fast & light', d: 'Native desktop apps. No browser overhead, no heavy Electron shells.' },
-  { icon: '✨', t: 'Sober design', d: 'Clean interfaces without distractions. Every element has a clear purpose.' },
-] : [
-  { icon: '🔒', t: 'Privacy-first', d: 'Tus datos nunca salen de tu equipo. Sin servidores, sin nube, sin telemetría oculta.' },
-  { icon: '💻', t: 'Local-first', d: 'Todo funciona offline. No necesitas cuenta, no hay suscripciones, no hay dependencias externas.' },
-  { icon: '📖', t: 'Código abierto', d: 'Licencia GPLv3. Puedes auditar, modificar y distribuir el código libremente.' },
-  { icon: '🎁', t: '100% Gratuito', d: 'Sin anuncios, sin compras in-app, sin limitaciones. Software libre en su máxima expresión.' },
-  { icon: '⚡', t: 'Rápido y ligero', d: 'Aplicaciones nativas de escritorio. Sin overhead de navegador, sin electrones pesados.' },
-  { icon: '✨', t: 'Diseño sobrio', d: 'Interfaces limpias sin distracciones. Cada elemento tiene un propósito claro.' },
-];
 ---
 
-<BaseLayout title={title} description={description} lang={lang} path={path}>
+<BaseLayout title={c.metaTitle} description={c.metaDesc} lang={lang} path={path}>
   <div class="max-w-4xl mx-auto px-5 pt-16 pb-4">
     <header class="text-center">
-      <span class="chip mb-4">{en ? 'One-person independent project' : 'Proyecto independiente de una persona'}</span>
+      <span class="chip mb-4">{c.badge}</span>
       <h1 class="text-4xl font-extrabold tracking-tight">
-        <span class="text-gradient brand-glow">{en ? 'Built for daily use. Shared for free.' : 'Hechas para usarlas. Compartidas gratis.'}</span>
+        <span class="text-gradient brand-glow">{c.title}</span>
       </h1>
-      <p class="mt-4 text-[#9a9aa5] text-lg leading-relaxed max-w-2xl mx-auto">
-        {en
-          ? 'CyberGems started as a personal toolkit: over months I replaced most of my everyday Windows tools with my own apps — everything I always missed, with all the bloat removed. Now the whole suite is free and open source.'
-          : 'CyberGems nació como caja de herramientas personal: durante meses reemplacé la mayoría de mis herramientas cotidianas de Windows por mis propias apps — con todo lo que siempre eché en falta y sin la grasa. Ahora toda la suite es gratis y de código abierto.'}
-      </p>
+      <p class="mt-4 text-[#9a9aa5] text-lg leading-relaxed max-w-2xl mx-auto">{c.intro}</p>
     </header>
 
     <section class="mt-12 card p-6 sm:p-8">
-      <h2 class="text-xl font-bold">{en ? 'What this is — and what it is not' : 'Qué es esto — y qué no es'}</h2>
+      <h2 class="text-xl font-bold">{c.isTitle}</h2>
       <div class="mt-4 grid gap-4 sm:grid-cols-2 text-sm leading-relaxed">
         <div>
-          <p class="font-semibold text-white">✓ {en ? 'It is' : 'Sí es'}</p>
+          <p class="font-semibold text-white">✓ {c.yesLabel}</p>
           <ul class="mt-2 space-y-1.5 text-[#c9c9d1]">
-            <li>{en ? '· An independent developer building tools I use every day' : '· Un desarrollador independiente que crea las herramientas que usa cada día'}</li>
-            <li>{en ? '· 10 native Windows apps, GPLv3, public source and builds' : '· 10 apps nativas Windows, GPLv3, código y builds públicos'}</li>
-            <li>{en ? '· A long-term project: I maintain what I depend on' : '· Un proyecto a largo plazo: mantengo lo que yo mismo dependo'}</li>
+            {c.yesItems.map((item: string) => <li>· {item}</li>)}
           </ul>
         </div>
         <div>
-          <p class="font-semibold text-white">✕ {en ? 'It is not' : 'No es'}</p>
+          <p class="font-semibold text-white">✕ {c.noLabel}</p>
           <ul class="mt-2 space-y-1.5 text-[#c9c9d1]">
-            <li>{en ? '· Not a company, not a team, not funded — a one-man show' : '· No es una empresa, ni un equipo, ni tiene financiación — es un one-man show'}</li>
-            <li>{en ? '· No personal data collected, no accounts, no upsells' : '· Sin recogida de datos, sin cuentas, sin ventas adicionales'}</li>
-            <li>{en ? '· No personal identity here by choice — the code is the credential' : '· Sin identidad personal por decisión — el código es la credencial'}</li>
+            {c.noItems.map((item: string) => <li>· {item}</li>)}
           </ul>
         </div>
       </div>
-      <p class="mt-4 text-xs text-[#9a9aa5]">
-        {en
-          ? 'Privacy note: I keep my personal identity private. Everything verifiable — source, releases, issues — is public on GitHub.'
-          : 'Nota de privacidad: mantengo mi identidad personal en privado. Todo lo verificable — código, releases, issues — es público en GitHub.'}
-      </p>
+      <p class="mt-4 text-xs text-[#9a9aa5]">{c.privacyNote}</p>
     </section>
 
     <section class="mt-12">
-      <h2 class="text-2xl font-bold tracking-tight text-center">{en ? 'Principles' : 'Principios'}</h2>
+      <h2 class="text-2xl font-bold tracking-tight text-center">{c.principlesTitle}</h2>
       <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {principles.map((p) => (
+        {c.principles.map((p: any) => (
           <div class="card p-5">
             <div class="text-2xl" aria-hidden="true">{p.icon}</div>
             <h3 class="mt-3 font-bold">{p.t}</h3>
@@ -84,8 +54,8 @@ const principles = en ? [
     </section>
 
     <section class="mt-12 flex flex-wrap justify-center gap-3">
-      <a href={en ? '/apps/cybersnap' : '/es/apps/cybersnap'} class="btn-primary">{en ? 'Explore the apps ↓' : 'Explorar las apps ↓'}</a>
-      <a href={en ? '/donate' : '/es/donate'} class="btn-ghost">♥ {en ? 'Support the project' : 'Apoyar el proyecto'}</a>
+      <a href={en ? '/apps/cybersnap' : '/es/apps/cybersnap'} class="btn-primary">{c.exploreCta}</a>
+      <a href={en ? '/donate' : '/es/donate'} class="btn-ghost">♥ {c.donateCta}</a>
       <a href={site.githubOrg} target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub ↗</a>
     </section>
   </div>

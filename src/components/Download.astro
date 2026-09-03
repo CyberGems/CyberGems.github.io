@@ -2,61 +2,52 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { apps } from '../data/apps';
 import type { Lang } from '../data/ui';
+import pagesData from '../data/pages.json';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const en = lang === 'en';
-const title = en ? 'Download — CyberGems' : 'Descargar — CyberGems';
-const description = en
-  ? 'How to install any CyberGems app: Setup .exe installer, portable zip or winget. Windows 10/11 64-bit. Free, no ads, no tracking.'
-  : 'Cómo instalar cualquier app CyberGems: instalador Setup .exe, zip portable o winget. Windows 10/11 64-bit. Gratis, sin anuncios, sin rastreo.';
+const c = (pagesData.download as Record<string, any>)[lang];
 const path = en ? '/download' : '/es/download';
 const homePath = en ? '/' : '/es/';
+const reqLabel = en ? 'Requirements:' : 'Requisitos:';
 ---
 
-<BaseLayout title={title} description={description} lang={lang} path={path}>
+<BaseLayout title={c.metaTitle} description={c.metaDesc} lang={lang} path={path}>
   <div class="max-w-5xl mx-auto px-5 pt-16 pb-4">
     <header class="text-center">
-      <h1 class="text-4xl font-extrabold tracking-tight"><span class="text-gradient brand-glow">{en ? 'Download' : 'Descargar'}</span></h1>
-      <p class="mt-3 text-[#9a9aa5] max-w-2xl mx-auto">
-        {en
-          ? 'Every app ships the same 3 ways. Pick one — all builds come from public GitHub releases, no bundled junk.'
-          : 'Cada app se distribuye igual, de 3 formas. Elige una — todos los builds salen de releases públicos de GitHub, sin basura incluida.'}
-      </p>
+      <h1 class="text-4xl font-extrabold tracking-tight"><span class="text-gradient brand-glow">{c.pageTitle}</span></h1>
+      <p class="mt-3 text-[#9a9aa5] max-w-2xl mx-auto">{c.subtitle}</p>
     </header>
 
     <div class="mt-8 grid gap-4 sm:grid-cols-3 text-left">
       <div class="card p-5">
         <div class="text-2xl" aria-hidden="true">📦</div>
-        <h2 class="mt-2 font-bold">{en ? '1. Setup .exe (recommended)' : '1. Setup .exe (recomendado)'}</h2>
-        <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">
-          {en ? 'Double-click installer with auto-update check. The big button on each app page resolves to this file live.' : 'Instalador con doble clic y check de updates. El botón grande de cada app resuelve a este archivo en vivo.'}
-        </p>
+        <h2 class="mt-2 font-bold">{c.m1Title}</h2>
+        <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">{c.m1Text}</p>
       </div>
       <div class="card p-5">
         <div class="text-2xl" aria-hidden="true">💼</div>
-        <h2 class="mt-2 font-bold">{en ? '2. Portable .zip' : '2. Portable .zip'}</h2>
-        <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">
-          {en ? 'No install, no admin. Unzip and run — ideal for USB sticks. Available on the release page where offered.' : 'Sin instalación, sin admin. Descomprime y ejecuta — ideal para USB. Disponible en la release donde aplique.'}
-        </p>
+        <h2 class="mt-2 font-bold">{c.m2Title}</h2>
+        <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">{c.m2Text}</p>
       </div>
       <div class="card p-5">
         <div class="text-2xl" aria-hidden="true">⌨️</div>
         <h2 class="mt-2 font-bold">3. winget</h2>
         <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">
           <code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[#00f2ff] text-xs">winget install &lt;id&gt;</code>
-          <span class="block mt-1.5">{en ? 'Scriptable installs and upgrades. The id is on each app page when published.' : 'Instalación y upgrades scripteables. El id está en cada página cuando se publica.'}</span>
+          <span class="block mt-1.5">{c.m3Note}</span>
         </p>
       </div>
     </div>
 
     <section class="mt-8 card p-5 text-sm text-[#c9c9d1] leading-relaxed">
-      <p><strong class="text-white">🪟 {en ? 'Requirements:' : 'Requisitos:'}</strong> {en ? 'Windows 10 / 11, 64-bit.' : 'Windows 10 / 11, 64-bit.'} {en ? 'Check the stack chip per app (e.g. .NET 9/10 — self-contained where noted).' : 'Mira el chip de stack por app (p. ej. .NET 9/10 — autocontenido donde se indique).'}</p>
-      <p class="mt-2"><strong class="text-white">🔏 SmartScreen:</strong> {en ? '“Unknown publisher” is expected (no paid certificate yet). Verify with the release SHA / VirusTotal or build from source.' : '“Editor desconocido” es esperado (aún sin certificado de pago). Verifica con el SHA del release / VirusTotal o compilando.'}</p>
+      <p><strong class="text-white">🪟 {reqLabel}</strong> Windows 10 / 11, 64-bit. {c.reqStack}</p>
+      <p class="mt-2"><strong class="text-white">🔏 SmartScreen:</strong> {c.signText}</p>
     </section>
 
     <section class="mt-10">
-      <h2 class="text-xl font-bold">{en ? 'All apps' : 'Todas las apps'}</h2>
+      <h2 class="text-xl font-bold">{c.allTitle}</h2>
       <div class="mt-4 grid gap-4 sm:grid-cols-2">
         {apps.map((app) => (
           <div class="card p-5 flex gap-4 items-start">
@@ -65,8 +56,8 @@ const homePath = en ? '/' : '/es/';
               <h3 class="font-bold">{app.name}</h3>
               <p class="text-xs text-[#9a9aa5] truncate">{app.tagline[lang]}</p>
               <div class="mt-2.5 flex flex-wrap gap-2 text-xs">
-                <a href={`${homePath}apps/${app.slug}/`} class="font-semibold" style={`color: ${app.accent};`}>{en ? 'Download →' : 'Descargar →'}</a>
-                <a href={`${app.repo}/releases`} target="_blank" rel="noopener noreferrer" class="text-[#9a9aa5] hover:text-white transition-colors">{en ? 'All releases ↗' : 'Versiones ↗'}</a>
+                <a href={`${homePath}apps/${app.slug}/`} class="font-semibold" style={`color: ${app.accent};`}>{c.dlLink}</a>
+                <a href={`${app.repo}/releases`} target="_blank" rel="noopener noreferrer" class="text-[#9a9aa5] hover:text-white transition-colors">{c.relLink}</a>
                 {app.winget && <code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[#00f2ff]">winget install {app.winget}</code>}
               </div>
             </div>

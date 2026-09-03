@@ -1,48 +1,37 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import type { Lang } from '../data/ui';
+import pagesData from '../data/pages.json';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const en = lang === 'en';
-const title = en ? 'Privacy — CyberGems' : 'Privacidad — CyberGems';
-const description = en
-  ? 'CyberGems apps collect nothing. No accounts, no telemetry, no ads. This site is static with no tracking.'
-  : 'Las apps CyberGems no recogen nada. Sin cuentas, sin telemetría, sin anuncios. Este sitio es estático y sin rastreo.';
+const c = (pagesData.privacy as Record<string, any>)[lang];
 const path = en ? '/privacy' : '/es/privacy';
 ---
 
-<BaseLayout title={title} description={description} lang={lang} path={path}>
+<BaseLayout title={c.metaTitle} description={c.metaDesc} lang={lang} path={path}>
   <div class="max-w-3xl mx-auto px-5 pt-16 pb-4">
     <header class="text-center">
       <h1 class="text-4xl font-extrabold tracking-tight"><span class="text-gradient brand-glow">Privacy</span></h1>
-      <p class="mt-3 text-[#9a9aa5]">{en ? 'Short version: there is nothing to read. The apps work offline and collect nothing.' : 'Versión corta: no hay nada que leer. Las apps funcionan offline y no recogen nada.'}</p>
+      <p class="mt-3 text-[#9a9aa5]">{c.subtitle}</p>
     </header>
     <div class="mt-8 space-y-4 text-sm leading-relaxed">
       <section class="card p-6">
-        <h2 class="font-bold text-base">🖥️ {en ? 'The apps' : 'Las apps'}</h2>
+        <h2 class="font-bold text-base">🖥️ {c.appsTitle}</h2>
         <ul class="mt-2 text-[#c9c9d1] space-y-1.5">
-          <li>{en ? '· No telemetry, no crash reporting, no analytics SDKs.' : '· Sin telemetría, sin crash reporting, sin SDKs de analítica.'}</li>
-          <li>{en ? '· No accounts, no cloud sync — your files stay on your PC.' : '· Sin cuentas, sin sync en la nube — tus archivos se quedan en tu PC.'}</li>
-          <li>{en ? '· Network is only used when you ask (updates check, uploads you configure).' : '· La red solo se usa cuando tú lo pides (buscar updates, subidas que configuras).'}</li>
-          <li>{en ? '· Verifiable: full source under GPLv3, public builds on GitHub.' : '· Verificable: código completo bajo GPLv3, builds públicos en GitHub.'}</li>
+          {c.appsItems.map((item: string) => <li>· {item}</li>)}
         </ul>
       </section>
       <section class="card p-6">
-        <h2 class="font-bold text-base">🌐 {en ? 'This website' : 'Este sitio'}</h2>
+        <h2 class="font-bold text-base">🌐 {c.siteTitle}</h2>
         <ul class="mt-2 text-[#c9c9d1] space-y-1.5">
-          <li>{en ? '· Static site (Astro + GitHub Pages). No cookies, no fingerprinting, no A/B tests.' : '· Sitio estático (Astro + GitHub Pages). Sin cookies, sin fingerprinting, sin A/B tests.'}</li>
-          <li>{en ? '· Download buttons query api.github.com at click-time to resolve the latest .exe — standard GitHub traffic, no extra tracker.' : '· Los botones consultan api.github.com al hacer clic para resolver el último .exe — tráfico normal de GitHub, sin tracker extra.'}</li>
-          <li>{en ? '· External links (GitHub, wikis) follow their own policies.' : '· Los enlaces externos (GitHub, wikis) siguen sus propias políticas.'}</li>
+          {c.siteItems.map((item: string) => <li>· {item}</li>)}
         </ul>
       </section>
       <section class="card p-6">
-        <h2 class="font-bold text-base">🔏 {en ? 'SmartScreen / antivirus' : 'SmartScreen / antivirus'}</h2>
-        <p class="mt-2 text-[#c9c9d1]">
-          {en
-            ? 'Windows may warn that the publisher is unknown — expected for an independent project without an (expensive) code-signing certificate. Donations go toward one. You can always verify: compare the SHA with the GitHub release, check VirusTotal, or build from source.'
-            : 'Windows puede avisar de editor desconocido — esperado en un proyecto independiente sin certificado de firma (caro). Las donaciones van hacia uno. Siempre puedes verificar: compara el SHA con el release de GitHub, revisa VirusTotal o compila desde el código.'}
-        </p>
+        <h2 class="font-bold text-base">🔏 {c.signTitle}</h2>
+        <p class="mt-2 text-[#c9c9d1]">{c.signText}</p>
       </section>
     </div>
   </div>

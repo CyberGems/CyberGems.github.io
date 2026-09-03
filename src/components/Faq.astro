@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import type { Lang } from '../data/ui';
 import { site } from '../data/site';
+import faqsData from '../data/faqs.json';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
@@ -12,23 +13,7 @@ const description = en
   : '¿De verdad es gratis? ¿Es portable? ¿Cómo reporto un bug? Respuestas y dónde pedir ayuda para cualquier app CyberGems.';
 const path = en ? '/faq' : '/es/faq';
 
-const faqs = en ? [
-  { q: 'Is it really free — even for companies?', a: 'Yes. All 10 apps are GPLv3: free forever, including commercial use. No ads, no paywalls, no “pro” tier.' },
-  { q: 'Do I need an account? Is there telemetry?', a: 'No and no. Everything works offline and local-first. Network is only used when you explicitly ask (e.g. check for updates, uploads you configure). See /privacy.' },
-  { q: 'What are the system requirements?', a: 'Windows 10 / 11, 64-bit. Most apps run on .NET 9/10 (check the stack chip on each app page). No admin required for portable builds.' },
-  { q: 'Installer, portable or winget?', a: 'Releases include a Setup .exe installer; portable zips where available. Or run: winget install <package-id> shown on each app page. See /download.' },
-  { q: 'Windows warns about an unknown publisher. Is it safe?', a: 'Expected — there is no paid code-signing certificate yet. Verify via the release SHA, VirusTotal, or build from source. Donations fund the certificate.' },
-  { q: 'How do I report a bug or request a feature?', a: 'Open an issue in the app repo (each app page links Source / Releases). Include Windows version, app version, and steps to reproduce.' },
-  { q: 'How do I update?', a: 'Download the new Setup .exe from the app page or winget upgrade. Portable builds: replace the folder. Your local data is preserved.' },
-] : [
-  { q: '¿De verdad es gratis — incluso para empresas?', a: 'Sí. Las 10 apps son GPLv3: gratis para siempre, incluido uso comercial. Sin anuncios, sin muros de pago, sin tier “pro”.' },
-  { q: '¿Necesito cuenta? ¿Hay telemetría?', a: 'No y no. Todo funciona offline y local-first. La red solo se usa cuando tú lo pides (p. ej. buscar updates, subidas que configuras). Ver /privacidad.' },
-  { q: '¿Requisitos del sistema?', a: 'Windows 10 / 11, 64 bits. La mayoría usan .NET 9/10 (mira el chip de stack en cada app). Sin admin para builds portables.' },
-  { q: '¿Instalador, portable o winget?', a: 'Los releases incluyen Setup .exe; zips portables donde aplique. O: winget install <package-id> de cada página. Ver /download.' },
-  { q: 'Windows avisa de editor desconocido. ¿Es seguro?', a: 'Esperado — aún no hay certificado de firma de pago. Verifica con el SHA del release, VirusTotal o compilando desde el código. Las donaciones lo financian.' },
-  { q: '¿Cómo reporto un bug o pido una feature?', a: 'Abre un issue en el repo de la app (cada página enlaza Código / Versiones). Incluye versión de Windows, versión de la app y pasos.' },
-  { q: '¿Cómo actualizo?', a: 'Descarga el nuevo Setup .exe desde la página o winget upgrade. Portables: reemplaza la carpeta. Tus datos locales se conservan.' },
-];
+const faqs: { q: string; a: string }[] = (faqsData as Record<string, { q: string; a: string }[]>)[lang] ?? [];
 ---
 
 <BaseLayout title={title} description={description} lang={lang} path={path}>

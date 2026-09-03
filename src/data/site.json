@@ -1,0 +1,13 @@
+{
+  "sponsors": "https://github.com/sponsors/CyberGems",
+  "paypal": "https://www.paypal.com/donate/?hosted_button_id=M4PY3UPJA5Y6Q",
+  "kofi": "https://ko-fi.com/cybergems",
+  "bmc": "https://www.buymeacoffee.com/cybergems",
+  "crypto": [
+    { "label": "Bitcoin", "network": "BTC", "address": "bc1q5mxzz05nmvsheqzx7970euswta3fksxzcfzag4", "qr": "/donate/qr-btc.png", "icon": "/donate/btc.svg" },
+    { "label": "Ethereum", "network": "ETH", "address": "0x79b703Ec0f77493679Fcd280aF3b983E20c580B8", "qr": "/donate/qr-eth.png", "icon": "/donate/eth.svg" },
+    { "label": "USDT", "network": "ERC20 / BEP20", "address": "0x79b703Ec0f77493679Fcd280aF3b983E20c580B8", "qr": "/donate/qr-eth.png", "icon": "/donate/usdt.svg" },
+    { "label": "USDT", "network": "TRC20", "address": "TSVbSk1HSyZ1NprCnAYiw56ECwXgH887mD", "qr": "/donate/qr-usdt-tron.png", "icon": "/donate/usdt.svg" },
+    { "label": "Litecoin", "network": "LTC", "address": "LWGnEHgcFCE2BRkzLnsdPDD8Y8ZeDK577X", "qr": "/donate/qr-ltc.png", "icon": "/donate/ltc.svg" }
+  ]
+}

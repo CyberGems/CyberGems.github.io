@@ -111,6 +111,7 @@ To update an app: edit its JSON in `src/data/apps/` or use the visual CMS at `/a
 A content manager is available at **`/admin`** (`https://cybergems.org/admin`):
 
 * Edits the `src/data/apps/*.json` files and uploads screenshots to `public/screenshots/`
+* Also editable: `❓ FAQs` (`src/data/faqs.json`), `⚙️ Settings` (donation links + crypto in `src/data/site.json`), `🌐 UI Strings` (nav, hero, footer texts in `src/data/ui.json`) and `📄 Pages` (About, Privacy, Download copy in `src/data/pages.json`)
 * Every save is a commit to `main` → the deploy workflow rebuilds the site automatically
 * Login: **Sign In with Token** — paste a fine-grained PAT ([create one here](https://github.com/settings/tokens?type=beta)) with access to this repo and `Contents: Read and write`. No OAuth App, no auth server. Only accounts with write access to the repo can log in.
 * Local dev: Sveltia CMS has a built-in local workflow — no proxy server needed

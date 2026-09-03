@@ -92,3 +92,278 @@ collections:
         widget: file
         required: false
         hint: Leave empty to show the gradient placeholder
+
+  - name: faqs
+    label: '❓ FAQs'
+    files:
+      - name: faqs
+        label: Questions & answers (EN/ES)
+        file: src/data/faqs.json
+        fields:
+          - name: en
+            label: English
+            widget: list
+            fields:
+              - { name: q, label: Question, widget: string }
+              - { name: a, label: Answer, widget: text }
+          - name: es
+            label: Español
+            widget: list
+            fields:
+              - { name: q, label: Pregunta, widget: string }
+              - { name: a, label: Respuesta, widget: text }
+
+  - name: settings
+    label: '⚙️ Settings'
+    files:
+      - name: site
+        label: Site & donations
+        file: src/data/site.json
+        fields:
+          - { name: sponsors, label: GitHub Sponsors URL, widget: string }
+          - { name: paypal, label: PayPal URL, widget: string, required: false }
+          - { name: kofi, label: Ko-fi URL, widget: string, required: false }
+          - { name: bmc, label: Buy Me a Coffee URL, widget: string, required: false }
+          - name: crypto
+            label: Crypto addresses
+            widget: list
+            fields:
+              - { name: label, label: Asset, widget: string }
+              - { name: network, label: Network, widget: string, required: false }
+              - { name: address, label: Address, widget: string }
+              - { name: qr, label: QR image, widget: image, required: false, hint: 'Stored path, e.g. /donate/qr-btc.png' }
+              - { name: icon, label: Coin icon, widget: image, required: false, hint: 'Stored path, e.g. /donate/btc.svg' }
+
+  - name: ui
+    label: '🌐 UI Strings'
+    files:
+      - name: ui
+        label: Nav, hero, footer (EN/ES)
+        file: src/data/ui.json
+        fields:
+          - name: en
+            label: English
+            widget: object
+            fields:
+              - { name: tagline, widget: string }
+              - { name: navApps, widget: string }
+              - { name: navGitHub, widget: string }
+              - { name: heroBadge, widget: string }
+              - { name: heroTitle1, widget: string }
+              - { name: heroTitle2, widget: string }
+              - { name: heroText, widget: text }
+              - { name: heroCta, widget: string }
+              - { name: heroCta2, widget: string }
+              - { name: stripFree, widget: string }
+              - { name: stripNoAds, widget: string }
+              - { name: stripNoTrack, widget: string }
+              - { name: stripOss, widget: string }
+              - { name: appsTitle, widget: string }
+              - { name: appsSubtitle, widget: string }
+              - { name: featuresTitle, widget: string }
+              - { name: downloadCta, widget: string }
+              - { name: releasesCta, widget: string }
+              - { name: repoCta, widget: string }
+              - { name: wikiCta, widget: string }
+              - { name: backHome, widget: string }
+              - { name: shotPlaceholder, widget: string }
+              - { name: wingetHint, widget: string }
+              - { name: madeBy, widget: string }
+              - { name: langSwitch, widget: string }
+              - { name: navChangelog, widget: string }
+              - { name: navDownload, widget: string }
+              - { name: navAbout, widget: string }
+              - { name: navFaq, widget: string }
+              - { name: navDonate, widget: string }
+              - { name: changelogTitle, widget: string }
+              - { name: changelogSubtitle, widget: string }
+              - { name: changelogError, widget: text }
+              - { name: viewOnGitHub, widget: string }
+              - { name: navDocs, widget: string }
+              - { name: footerTagline, widget: string }
+              - { name: footerExplore, widget: string }
+              - { name: footerResources, widget: string }
+              - { name: footerProject, widget: string }
+              - { name: docsTitle, widget: string }
+              - { name: docsSubtitle, widget: string }
+              - { name: docsUnavailable, widget: text }
+              - { name: docsOpen, widget: string }
+              - { name: docsSource, widget: text }
+          - name: es
+            label: Español
+            widget: object
+            fields:
+              - { name: tagline, widget: string }
+              - { name: navApps, widget: string }
+              - { name: navGitHub, widget: string }
+              - { name: heroBadge, widget: string }
+              - { name: heroTitle1, widget: string }
+              - { name: heroTitle2, widget: string }
+              - { name: heroText, widget: text }
+              - { name: heroCta, widget: string }
+              - { name: heroCta2, widget: string }
+              - { name: stripFree, widget: string }
+              - { name: stripNoAds, widget: string }
+              - { name: stripNoTrack, widget: string }
+              - { name: stripOss, widget: string }
+              - { name: appsTitle, widget: string }
+              - { name: appsSubtitle, widget: string }
+              - { name: featuresTitle, widget: string }
+              - { name: downloadCta, widget: string }
+              - { name: releasesCta, widget: string }
+              - { name: repoCta, widget: string }
+              - { name: wikiCta, widget: string }
+              - { name: backHome, widget: string }
+              - { name: shotPlaceholder, widget: string }
+              - { name: wingetHint, widget: string }
+              - { name: madeBy, widget: string }
+              - { name: langSwitch, widget: string }
+              - { name: navChangelog, widget: string }
+              - { name: navDownload, widget: string }
+              - { name: navAbout, widget: string }
+              - { name: navFaq, widget: string }
+              - { name: navDonate, widget: string }
+              - { name: changelogTitle, widget: string }
+              - { name: changelogSubtitle, widget: string }
+              - { name: changelogError, widget: text }
+              - { name: viewOnGitHub, widget: string }
+              - { name: navDocs, widget: string }
+              - { name: footerTagline, widget: string }
+              - { name: footerExplore, widget: string }
+              - { name: footerResources, widget: string }
+              - { name: footerProject, widget: string }
+              - { name: docsTitle, widget: string }
+              - { name: docsSubtitle, widget: string }
+              - { name: docsUnavailable, widget: text }
+              - { name: docsOpen, widget: string }
+              - { name: docsSource, widget: text }
+
+  - name: pages
+    label: '📄 Pages'
+    files:
+      - name: pages
+        label: 'About, Privacy & Download (EN/ES)'
+        file: src/data/pages.json
+        fields:
+          - name: about
+            label: About
+            widget: object
+            fields:
+              - name: en
+                label: English
+                widget: object
+                fields:
+                  - { name: metaTitle, widget: string }
+                  - { name: metaDesc, widget: text }
+                  - { name: badge, widget: string }
+                  - { name: title, widget: string }
+                  - { name: intro, widget: text }
+                  - { name: isTitle, widget: string }
+                  - { name: yesLabel, widget: string }
+                  - { name: yesItems, label: 'Yes list', widget: list }
+                  - { name: noLabel, widget: string }
+                  - { name: noItems, label: 'No list', widget: list }
+                  - { name: privacyNote, widget: text }
+                  - { name: principlesTitle, widget: string }
+                  - name: principles
+                    widget: list
+                    fields:
+                      - { name: icon, label: Icon, widget: string }
+                      - { name: t, label: Title, widget: string }
+                      - { name: d, label: Text, widget: text }
+                  - { name: exploreCta, widget: string }
+                  - { name: donateCta, widget: string }
+              - name: es
+                label: Español
+                widget: object
+                fields:
+                  - { name: metaTitle, widget: string }
+                  - { name: metaDesc, widget: text }
+                  - { name: badge, widget: string }
+                  - { name: title, widget: string }
+                  - { name: intro, widget: text }
+                  - { name: isTitle, widget: string }
+                  - { name: yesLabel, widget: string }
+                  - { name: yesItems, label: 'Lista sí', widget: list }
+                  - { name: noLabel, widget: string }
+                  - { name: noItems, label: 'Lista no', widget: list }
+                  - { name: privacyNote, widget: text }
+                  - { name: principlesTitle, widget: string }
+                  - name: principles
+                    widget: list
+                    fields:
+                      - { name: icon, label: Icono, widget: string }
+                      - { name: t, label: Título, widget: string }
+                      - { name: d, label: Texto, widget: text }
+                  - { name: exploreCta, widget: string }
+                  - { name: donateCta, widget: string }
+          - name: privacy
+            label: Privacy
+            widget: object
+            fields:
+              - name: en
+                label: English
+                widget: object
+                fields:
+                  - { name: metaTitle, widget: string }
+                  - { name: metaDesc, widget: text }
+                  - { name: subtitle, widget: text }
+                  - { name: appsTitle, widget: string }
+                  - { name: appsItems, label: Apps bullets, widget: list }
+                  - { name: siteTitle, widget: string }
+                  - { name: siteItems, label: Site bullets, widget: list }
+                  - { name: signTitle, widget: string }
+                  - { name: signText, widget: text }
+              - name: es
+                label: Español
+                widget: object
+                fields:
+                  - { name: metaTitle, widget: string }
+                  - { name: metaDesc, widget: text }
+                  - { name: subtitle, widget: text }
+                  - { name: appsTitle, widget: string }
+                  - { name: appsItems, label: Bullets apps, widget: list }
+                  - { name: siteTitle, widget: string }
+                  - { name: siteItems, label: Bullets sitio, widget: list }
+                  - { name: signTitle, widget: string }
+                  - { name: signText, widget: text }
+          - name: download
+            label: Download
+            widget: object
+            fields:
+              - name: en
+                label: English
+                widget: object
+                fields:
+                  - { name: metaTitle, widget: string }
+                  - { name: metaDesc, widget: text }
+                  - { name: pageTitle, widget: string }
+                  - { name: subtitle, widget: text }
+                  - { name: m1Title, widget: string }
+                  - { name: m1Text, widget: text }
+                  - { name: m2Title, widget: string }
+                  - { name: m2Text, widget: text }
+                  - { name: m3Note, widget: text }
+                  - { name: reqStack, widget: text }
+                  - { name: signText, widget: text }
+                  - { name: allTitle, widget: string }
+                  - { name: dlLink, widget: string }
+                  - { name: relLink, widget: string }
+              - name: es
+                label: Español
+                widget: object
+                fields:
+                  - { name: metaTitle, widget: string }
+                  - { name: metaDesc, widget: text }
+                  - { name: pageTitle, widget: string }
+                  - { name: subtitle, widget: text }
+                  - { name: m1Title, widget: string }
+                  - { name: m1Text, widget: text }
+                  - { name: m2Title, widget: string }
+                  - { name: m2Text, widget: text }
+                  - { name: m3Note, widget: text }
+                  - { name: reqStack, widget: text }
+                  - { name: signText, widget: text }
+                  - { name: allTitle, widget: string }
+                  - { name: dlLink, widget: string }
+                  - { name: relLink, widget: string }

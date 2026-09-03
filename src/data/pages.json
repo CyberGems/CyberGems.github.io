@@ -1,0 +1,144 @@
+{
+  "about": {
+    "en": {
+      "metaTitle": "About — CyberGems",
+      "metaDesc": "CyberGems is an independent one-person project: 10 free, open-source Windows apps built for daily use and shared with the world. No ads, no tracking, GPLv3.",
+      "badge": "One-person independent project",
+      "title": "Built for daily use. Shared for free.",
+      "intro": "CyberGems started as a personal toolkit: over months I replaced most of my everyday Windows tools with my own apps — everything I always missed, with all the bloat removed. Now the whole suite is free and open source.",
+      "isTitle": "What this is — and what it is not",
+      "yesLabel": "It is",
+      "yesItems": [
+        "An independent developer building tools I use every day",
+        "10 native Windows apps, GPLv3, public source and builds",
+        "A long-term project: I maintain what I depend on"
+      ],
+      "noLabel": "It is not",
+      "noItems": [
+        "Not a company, not a team, not funded — a one-man show",
+        "No personal data collected, no accounts, no upsells",
+        "No personal identity here by choice — the code is the credential"
+      ],
+      "privacyNote": "Privacy note: I keep my personal identity private. Everything verifiable — source, releases, issues — is public on GitHub.",
+      "principlesTitle": "Principles",
+      "principles": [
+        { "icon": "🔒", "t": "Privacy-first", "d": "Your data never leaves your PC. No servers, no cloud, no hidden telemetry." },
+        { "icon": "💻", "t": "Local-first", "d": "Everything works offline. No account, no subscriptions, no external dependencies." },
+        { "icon": "📖", "t": "Open source", "d": "GPLv3 licensed. You can audit, modify and redistribute the code freely." },
+        { "icon": "🎁", "t": "100% Free", "d": "No ads, no in-app purchases, no limitations. Free software at its fullest." },
+        { "icon": "⚡", "t": "Fast & light", "d": "Native desktop apps. No browser overhead, no heavy Electron shells." },
+        { "icon": "✨", "t": "Sober design", "d": "Clean interfaces without distractions. Every element has a clear purpose." }
+      ],
+      "exploreCta": "Explore the apps ↓",
+      "donateCta": "Support the project"
+    },
+    "es": {
+      "metaTitle": "Acerca de — CyberGems",
+      "metaDesc": "CyberGems es un proyecto independiente de una sola persona: 10 apps gratuitas y open-source para Windows, creadas para el uso diario y compartidas con el mundo. Sin anuncios, sin rastreo, GPLv3.",
+      "badge": "Proyecto independiente de una persona",
+      "title": "Hechas para usarlas. Compartidas gratis.",
+      "intro": "CyberGems nació como caja de herramientas personal: durante meses reemplacé la mayoría de mis herramientas cotidianas de Windows por mis propias apps — con todo lo que siempre eché en falta y sin la grasa. Ahora toda la suite es gratis y de código abierto.",
+      "isTitle": "Qué es esto — y qué no es",
+      "yesLabel": "Sí es",
+      "yesItems": [
+        "Un desarrollador independiente que crea las herramientas que usa cada día",
+        "10 apps nativas Windows, GPLv3, código y builds públicos",
+        "Un proyecto a largo plazo: mantengo lo que yo mismo dependo"
+      ],
+      "noLabel": "No es",
+      "noItems": [
+        "No es una empresa, ni un equipo, ni tiene financiación — es un one-man show",
+        "Sin recogida de datos, sin cuentas, sin ventas adicionales",
+        "Sin identidad personal por decisión — el código es la credencial"
+      ],
+      "privacyNote": "Nota de privacidad: mantengo mi identidad personal en privado. Todo lo verificable — código, releases, issues — es público en GitHub.",
+      "principlesTitle": "Principios",
+      "principles": [
+        { "icon": "🔒", "t": "Privacy-first", "d": "Tus datos nunca salen de tu equipo. Sin servidores, sin nube, sin telemetría oculta." },
+        { "icon": "💻", "t": "Local-first", "d": "Todo funciona offline. No necesitas cuenta, no hay suscripciones, no hay dependencias externas." },
+        { "icon": "📖", "t": "Código abierto", "d": "Licencia GPLv3. Puedes auditar, modificar y distribuir el código libremente." },
+        { "icon": "🎁", "t": "100% Gratuito", "d": "Sin anuncios, sin compras in-app, sin limitaciones. Software libre en su máxima expresión." },
+        { "icon": "⚡", "t": "Rápido y ligero", "d": "Aplicaciones nativas de escritorio. Sin overhead de navegador, sin electrones pesados." },
+        { "icon": "✨", "t": "Diseño sobrio", "d": "Interfaces limpias sin distracciones. Cada elemento tiene un propósito claro." }
+      ],
+      "exploreCta": "Explorar las apps ↓",
+      "donateCta": "Apoyar el proyecto"
+    }
+  },
+  "privacy": {
+    "en": {
+      "metaTitle": "Privacy — CyberGems",
+      "metaDesc": "CyberGems apps collect nothing. No accounts, no telemetry, no ads. This site is static with no tracking.",
+      "subtitle": "Short version: there is nothing to read. The apps work offline and collect nothing.",
+      "appsTitle": "The apps",
+      "appsItems": [
+        "No telemetry, no crash reporting, no analytics SDKs.",
+        "No accounts, no cloud sync — your files stay on your PC.",
+        "Network is only used when you ask (updates check, uploads you configure).",
+        "Verifiable: full source under GPLv3, public builds on GitHub."
+      ],
+      "siteTitle": "This website",
+      "siteItems": [
+        "Static site (Astro + GitHub Pages). No cookies, no fingerprinting, no A/B tests.",
+        "Download buttons query api.github.com at click-time to resolve the latest .exe — standard GitHub traffic, no extra tracker.",
+        "External links (GitHub, wikis) follow their own policies."
+      ],
+      "signTitle": "SmartScreen / antivirus",
+      "signText": "Windows may warn that the publisher is unknown — expected for an independent project without an (expensive) code-signing certificate. Donations go toward one. You can always verify: compare the SHA with the GitHub release, check VirusTotal, or build from source."
+    },
+    "es": {
+      "metaTitle": "Privacidad — CyberGems",
+      "metaDesc": "Las apps CyberGems no recogen nada. Sin cuentas, sin telemetría, sin anuncios. Este sitio es estático y sin rastreo.",
+      "subtitle": "Versión corta: no hay nada que leer. Las apps funcionan offline y no recogen nada.",
+      "appsTitle": "Las apps",
+      "appsItems": [
+        "Sin telemetría, sin crash reporting, sin SDKs de analítica.",
+        "Sin cuentas, sin sync en la nube — tus archivos se quedan en tu PC.",
+        "La red solo se usa cuando tú lo pides (buscar updates, subidas que configuras).",
+        "Verificable: código completo bajo GPLv3, builds públicos en GitHub."
+      ],
+      "siteTitle": "Este sitio",
+      "siteItems": [
+        "Sitio estático (Astro + GitHub Pages). Sin cookies, sin fingerprinting, sin A/B tests.",
+        "Los botones consultan api.github.com al hacer clic para resolver el último .exe — tráfico normal de GitHub, sin tracker extra.",
+        "Los enlaces externos (GitHub, wikis) siguen sus propias políticas."
+      ],
+      "signTitle": "SmartScreen / antivirus",
+      "signText": "Windows puede avisar de editor desconocido — esperado en un proyecto independiente sin certificado de firma (caro). Las donaciones van hacia uno. Siempre puedes verificar: compara el SHA con el release de GitHub, revisa VirusTotal o compila desde el código."
+    }
+  },
+  "download": {
+    "en": {
+      "metaTitle": "Download — CyberGems",
+      "metaDesc": "How to install any CyberGems app: Setup .exe installer, portable zip or winget. Windows 10/11 64-bit. Free, no ads, no tracking.",
+      "pageTitle": "Download",
+      "subtitle": "Every app ships the same 3 ways. Pick one — all builds come from public GitHub releases, no bundled junk.",
+      "m1Title": "1. Setup .exe (recommended)",
+      "m1Text": "Double-click installer with auto-update check. The big button on each app page resolves to this file live.",
+      "m2Title": "2. Portable .zip",
+      "m2Text": "No install, no admin. Unzip and run — ideal for USB sticks. Available on the release page where offered.",
+      "m3Note": "Scriptable installs and upgrades. The id is on each app page when published.",
+      "reqStack": "Check the stack chip per app (e.g. .NET 9/10 — self-contained where noted).",
+      "signText": "“Unknown publisher” is expected (no paid certificate yet). Verify with the release SHA / VirusTotal or build from source.",
+      "allTitle": "All apps",
+      "dlLink": "Download →",
+      "relLink": "All releases ↗"
+    },
+    "es": {
+      "metaTitle": "Descargar — CyberGems",
+      "metaDesc": "Cómo instalar cualquier app CyberGems: instalador Setup .exe, zip portable o winget. Windows 10/11 64-bit. Gratis, sin anuncios, sin rastreo.",
+      "pageTitle": "Descargar",
+      "subtitle": "Cada app se distribuye igual, de 3 formas. Elige una — todos los builds salen de releases públicos de GitHub, sin basura incluida.",
+      "m1Title": "1. Setup .exe (recomendado)",
+      "m1Text": "Instalador con doble clic y check de updates. El botón grande de cada app resuelve a este archivo en vivo.",
+      "m2Title": "2. Portable .zip",
+      "m2Text": "Sin instalación, sin admin. Descomprime y ejecuta — ideal para USB. Disponible en la release donde aplique.",
+      "m3Note": "Instalación y upgrades scripteables. El id está en cada página cuando se publica.",
+      "reqStack": "Mira el chip de stack por app (p. ej. .NET 9/10 — autocontenido donde se indique).",
+      "signText": "“Editor desconocido” es esperado (aún sin certificado de pago). Verifica con el SHA del release / VirusTotal o compilando.",
+      "allTitle": "Todas las apps",
+      "dlLink": "Descargar →",
+      "relLink": "Versiones ↗"
+    }
+  }
+}
