@@ -8,14 +8,33 @@ interface Props {
   lang: Lang;
   /** Current page path including locale, e.g. "/", "/es/", "/apps/cybersnap", "/es/apps/cybersnap" */
   path: string;
+  /** Absolute OG image URL path, e.g. "/og.png" or "/og/cybersnap.png" */
+  ogImage?: string;
+  /** Optional JSON-LD object to inject */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title, description, lang, path } = Astro.props;
+const { title, description, lang, path, ogImage, jsonLd } = Astro.props;
 const t = ui[lang];
 const other: Lang = lang === 'en' ? 'es' : 'en';
 const switchHref = lang === 'en' ? (path === '/' ? '/es/' : `/es${path}`) : path.replace(/^\/es/, '') || '/';
 const homeHref = lang === 'en' ? '/' : '/es/';
-const canonical = new URL(path, Astro.site);
+// Normalize canonical: strip trailing slash except root, ensure leading slash
+const normalizedPath = (() => {
+  let p = path.startsWith('/') ? path : `/${path}`;
+  if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
+  // Special case: keep "/es" as "/es" (canonical without trailing slash is fine)
+  return p || '/';
+})();
+const canonical = new URL(normalizedPath === '/' ? '/' : `${normalizedPath}/`, Astro.site);
+// hreflang alternates
+const canonicalHref = canonical.href;
+const enHref = lang === 'en' ? canonicalHref : new URL(normalizedPath.replace(/^\/es/, '') || '/', Astro.site).href;
+const esHref = lang === 'es' ? canonicalHref : new URL(normalizedPath === '/' ? '/es/' : `/es${normalizedPath}/`, Astro.site).href;
+const xDefaultHref = new URL('/', Astro.site).href;
+const ogImageUrl = ogImage ? new URL(ogImage, Astro.site).href : new URL('/og.png', Astro.site).href;
+const ogLocale = lang === 'es' ? 'es_ES' : 'en_US';
+const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
 ---
 
 <!doctype html>
@@ -23,20 +42,37 @@ const canonical = new URL(path, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang={lang} href={canonical} />
+    <link rel="preconnect" href="https://api.github.com" />
+    <link rel="canonical" href={canonicalHref} />
+    <link rel="alternate" hreflang="en" href={enHref} />
+    <link rel="alternate" hreflang="es" href={esHref} />
+    <link rel="alternate" hreflang="x-default" href={xDefaultHref} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalHref} />
+    <meta property="og:site_name" content="CyberGems" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlt} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <meta name="theme-color" content="#0d0f17" />
     <title>{title}</title>
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
   </head>
   <body class="min-h-screen flex flex-col">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-white focus:text-[#0d0f17] focus:font-bold">Skip to content</a>
     <header class="sticky top-0 z-50 backdrop-blur-md bg-[#0d0f17]/80 border-b border-white/5">
-      <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+      <nav aria-label="Primary" class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
         <a href={homeHref} class="text-lg font-bold tracking-tight brand-glow">
           Cyber<span class="text-gradient">Gems</span>
         </a>
@@ -44,7 +80,7 @@ const canonical = new URL(path, Astro.site);
           <a href={`${homeHref}#apps`} class="text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.navApps}</a>
           <a href={lang === 'en' ? '/changelog' : '/es/changelog'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden md:inline">{t.navChangelog}</a>
           <a href={lang === 'en' ? '/docs' : '/es/docs'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.navDocs}</a>
-          <a href="https://github.com/CyberGems" target="_blank" rel="noopener" class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden sm:inline">{t.navGitHub}</a>
+          <a href="https://github.com/CyberGems" target="_blank" rel="noopener noreferrer" class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden sm:inline">{t.navGitHub} ↗</a>
           <a
             href={switchHref}
             lang={other}
@@ -57,7 +93,7 @@ const canonical = new URL(path, Astro.site);
       </nav>
     </header>
 
-    <main class="flex-1">
+    <main id="main" class="flex-1">
       <slot />
     </main>
 
@@ -67,8 +103,8 @@ const canonical = new URL(path, Astro.site);
           Cyber<span class="text-gradient">Gems</span>
         </div>
         <p class="text-xs text-[#9a9aa5] text-center">{t.madeBy}</p>
-        <a href="https://github.com/CyberGems" target="_blank" rel="noopener" class="text-xs text-[#9a9aa5] hover:text-white transition-colors">
-          github.com/CyberGems
+        <a href="https://github.com/CyberGems" target="_blank" rel="noopener noreferrer" class="text-xs text-[#9a9aa5] hover:text-white transition-colors">
+          github.com/CyberGems ↗
         </a>
       </div>
     </footer>

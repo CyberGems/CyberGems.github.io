@@ -14,7 +14,9 @@ const t = ui[lang];
 const path = lang === 'en' ? '/changelog' : '/es/changelog';
 const homeHref = lang === 'en' ? '/' : '/es/';
 const title = lang === 'en' ? 'Changelog — CyberGems' : 'Novedades — CyberGems';
-const description = t.changelogSubtitle;
+const description = lang === 'en'
+  ? 'Latest releases across the CyberGems suite — changelogs for all 10 Windows apps, synced from GitHub.'
+  : 'Últimos lanzamientos de la suite CyberGems — novedades de las 10 apps Windows, sincronizadas desde GitHub.';
 const locale = lang === 'es' ? 'es-ES' : 'en-US';
 
 const { apps: appsReleases, failed } = await fetchAllReleases();
@@ -25,10 +27,22 @@ const fmtDate = (iso: string) =>
     ? new Date(iso).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })
     : '';
 
-const renderNotes = (body: string) => marked.parse(body) as string;
+const renderNotes = (body: string) => {
+  const raw = marked.parse(body) as string;
+  // Downgrade stray h1 to h2 to preserve single h1 per page
+  return raw.replace(/<h1(\s|>)/g, '<h2$1').replace(/<\/h1>/g, '</h2>');
+};
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `https://cybergems.org${lang === 'es' ? '/es/' : '/'}` },
+    { '@type': 'ListItem', position: 2, name: t.navChangelog, item: `https://cybergems.org${path}/` },
+  ],
+};
 ---
 
-<BaseLayout title={title} description={description} lang={lang} path={path}>
+<BaseLayout title={title} description={description} lang={lang} path={path} ogImage="/og.png" jsonLd={breadcrumbLd}>
   <div class="max-w-4xl mx-auto px-5 pt-16">
     <header class="text-center">
       <h1 class="text-4xl font-extrabold tracking-tight">
@@ -44,10 +58,10 @@ const renderNotes = (body: string) => marked.parse(body) as string;
     )}
 
     <!-- App quick nav -->
-    <nav class="mt-10 flex flex-wrap justify-center gap-2">
+    <nav aria-label="Changelog apps" class="mt-10 flex flex-wrap justify-center gap-2">
       {withReleases.map((app) => (
         <a href={`#${app.slug}`} class="chip hover:border-[#00f2ff] hover:text-white transition-colors">
-          {app.emoji} {app.name}
+          <span aria-hidden="true">{app.emoji}</span> {app.name}
         </a>
       ))}
     </nav>
@@ -58,6 +72,7 @@ const renderNotes = (body: string) => marked.parse(body) as string;
           <div
             class="w-11 h-11 rounded-xl flex items-center justify-center text-2xl border border-white/10"
             style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}33 0%, transparent 60%);`}
+            aria-hidden="true"
           >
             {app.emoji}
           </div>
@@ -87,11 +102,11 @@ const renderNotes = (body: string) => marked.parse(body) as string;
               <a
                 href={rel.url}
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="mt-4 inline-block text-xs font-semibold hover:underline"
                 style={`color: ${app.accent};`}
               >
-                {t.viewOnGitHub} →
+                {t.viewOnGitHub} ↗
               </a>
             </article>
           ))}

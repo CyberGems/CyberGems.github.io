@@ -13,13 +13,24 @@ const t = ui[lang];
 const homeHref = lang === 'en' ? '/' : '/es/';
 const path_ = lang === 'en' ? '/docs' : '/es/docs';
 const title = lang === 'en' ? 'Documentation — CyberGems' : 'Documentación — CyberGems';
+const description = lang === 'en'
+  ? 'Official guides for every CyberGems app — synced from GitHub wikis. Choose an app to browse docs.'
+  : 'Guías oficiales de cada app CyberGems — desde las wikis de GitHub. Elige una app para ver la documentación.';
 
 // Apps whose wiki was fetched by the prebuild hook.
 const docsApps = listDocs();
 const available = apps.filter((a) => docsApps.some((d) => d.appDir === a.slug));
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `https://cybergems.org${lang === 'es' ? '/es/' : '/'}` },
+    { '@type': 'ListItem', position: 2, name: t.docsTitle, item: `https://cybergems.org${path_}/` },
+  ],
+};
 ---
 
-<BaseLayout title={title} description={t.docsSubtitle} lang={lang} path={path_}>
+<BaseLayout title={title} description={description} lang={lang} path={path_} ogImage="/og.png" jsonLd={breadcrumbLd}>
   <div class="max-w-5xl mx-auto px-5 pt-16">
     <header class="text-center">
       <h1 class="text-4xl font-extrabold tracking-tight">
@@ -35,20 +46,24 @@ const available = apps.filter((a) => docsApps.some((d) => d.appDir === a.slug));
     )}
 
     <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {available.map((app) => (
-        <a href={`/docs/${app.slug}/`} class="card flex flex-col overflow-hidden">
-          <div
-            class="h-24 flex items-center justify-center"
-            style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}26 0%, transparent 55%);`}
-          >
-            <span class="text-4xl">{app.emoji}</span>
-          </div>
-          <div class="p-5">
-            <h2 class="text-lg font-bold">{app.name}</h2>
-            <p class="mt-1 text-sm text-[#9a9aa5]">{t.docsOpen} →</p>
-          </div>
-        </a>
-      ))}
+      {available.map((app) => {
+        const href = lang === 'es' ? `/es/docs/${app.slug}/` : `/docs/${app.slug}/`;
+        return (
+          <a href={href} class="card flex flex-col overflow-hidden">
+            <div
+              class="h-24 flex items-center justify-center"
+              style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}26 0%, transparent 55%);`}
+              aria-hidden="true"
+            >
+              <span class="text-4xl">{app.emoji}</span>
+            </div>
+            <div class="p-5">
+              <h2 class="text-lg font-bold">{app.name}</h2>
+              <p class="mt-1 text-sm text-[#9a9aa5]">{t.docsOpen} →</p>
+            </div>
+          </a>
+        );
+      })}
     </div>
 
     <p class="mt-10 text-xs text-[#9a9aa5] text-center">{t.docsSource}</p>

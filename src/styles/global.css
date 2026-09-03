@@ -176,3 +176,44 @@ body {
 .brand-glow {
   text-shadow: 0 0 32px rgba(0, 242, 255, 0.45);
 }
+
+/* Accessibility — focus visible */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card, .card:hover, .btn-primary, .btn-primary:hover {
+    transition: none;
+    transform: none;
+  }
+  .card:hover {
+    box-shadow: none;
+  }
+}
+
+/* Screen-reader only — used for skip link */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.sr-only.focus\:not-sr-only:focus {
+  position: absolute;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}

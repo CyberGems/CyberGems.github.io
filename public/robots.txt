@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cybergems.org/sitemap-index.xml

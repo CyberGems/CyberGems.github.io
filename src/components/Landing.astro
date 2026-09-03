@@ -12,16 +12,49 @@ const { lang } = Astro.props;
 const t = ui[lang];
 const homePath = lang === 'en' ? '/' : '/es/';
 const title = lang === 'en' ? 'CyberGems — Free & open-source Windows apps' : 'CyberGems — Apps gratuitas y de código abierto para Windows';
-const description = t.heroText;
+const description = lang === 'en'
+  ? '10 free, open-source Windows apps — screen capture, clipboard, notes, firewall and more. No ads, no tracking, GPLv3.'
+  : '10 apps gratuitas y open-source para Windows — captura, portapapeles, notas, firewall y más. Sin anuncios, sin rastreo, GPLv3.';
 const strip = [
   { icon: '🎁', label: t.stripFree },
   { icon: '🚫', label: t.stripNoAds },
   { icon: '🔒', label: t.stripNoTrack },
   { icon: '📖', label: t.stripOss },
 ];
+
+const orgLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'CyberGems',
+  url: 'https://cybergems.org',
+  logo: 'https://cybergems.org/favicon.svg',
+  sameAs: ['https://github.com/CyberGems'],
+};
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'CyberGems',
+  url: 'https://cybergems.org',
+  inLanguage: lang,
+  description,
+};
+const itemListLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: t.appsTitle,
+  itemListElement: apps.map((app, i) => ({
+    '@type': 'SoftwareApplication',
+    position: i + 1,
+    name: app.name,
+    url: `https://cybergems.org${lang === 'es' ? '/es' : ''}/apps/${app.slug}/`,
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'Windows',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  })),
+};
 ---
 
-<BaseLayout title={title} description={description} lang={lang} path={homePath}>
+<BaseLayout title={title} description={description} lang={lang} path={homePath} ogImage="/og.png" jsonLd={[orgLd, websiteLd, itemListLd]}>
   <!-- Hero -->
   <section class="relative overflow-hidden">
     <div class="absolute inset-0 cyber-grid" aria-hidden="true"></div>
@@ -34,7 +67,7 @@ const strip = [
       <p class="mt-6 max-w-2xl mx-auto text-[#9a9aa5] text-lg leading-relaxed">{t.heroText}</p>
       <div class="mt-9 flex flex-wrap items-center justify-center gap-4">
         <a href="#apps" class="btn-primary">{t.heroCta} ↓</a>
-        <a href="https://github.com/CyberGems" target="_blank" rel="noopener" class="btn-ghost">
+        <a href="https://github.com/CyberGems" target="_blank" rel="noopener noreferrer" class="btn-ghost">
           ★ {t.heroCta2}
         </a>
       </div>
@@ -42,15 +75,15 @@ const strip = [
   </section>
 
   <!-- Trust strip -->
-  <section class="border-y border-white/5 bg-[#12151f]">
-    <div class="max-w-6xl mx-auto px-5 py-5 grid grid-cols-2 sm:grid-cols-4 gap-4">
+  <section class="border-y border-white/5 bg-[#12151f]" aria-label="Features">
+    <ul class="max-w-6xl mx-auto px-5 py-5 grid grid-cols-2 sm:grid-cols-4 gap-4 list-none m-0 p-0">
       {strip.map((item) => (
-        <div class="flex items-center justify-center gap-2 text-sm text-[#9a9aa5]">
+        <li class="flex items-center justify-center gap-2 text-sm text-[#9a9aa5]">
           <span aria-hidden="true">{item.icon}</span>
           <span class="font-medium">{item.label}</span>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   </section>
 
   <!-- Apps grid -->

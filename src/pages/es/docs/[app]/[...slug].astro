@@ -1,7 +1,7 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { getApp } from '../../../data/apps';
-import { listDocs, docTitle, wrapTables, WIKIS_DIR } from '../../../data/docs';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { getApp } from '../../../../data/apps';
+import { listDocs, docTitle, wrapTables, WIKIS_DIR } from '../../../../data/docs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { marked } from 'marked';
@@ -21,13 +21,10 @@ const siblings = listDocs()
   .sort((a, b) => (a.slug === '' ? -1 : b.slug === '' ? 1 : a.slug.localeCompare(b.slug)));
 
 const raw = fs.readFileSync(path.join(WIKIS_DIR, doc.appDir, doc.file), 'utf-8');
-const wikiBase = `/docs/${appSlug}`;
+const wikiBase = `/es/docs/${appSlug}`;
+const wikiBaseEn = `/docs/${appSlug}`;
 const assetBase = `/wikis/${doc.appDir}`;
 
-// Rewrite wiki-style and relative links for the static site:
-//  - [[Page]] / [[Page|Label]]  -> internal /docs/<app>/Page links
-//  - relative images            -> /wikis/<app>/... (static assets)
-//  - relative page links        -> /docs/<app>/<Page>
 let md = raw.replace(/\[\[([^\]|]+)(?:\|([^\]]*))?\]\]/g, (_m: string, target: string, label?: string) =>
   `[${(label ?? target).trim()}](${target.trim()})`
 );
@@ -45,47 +42,45 @@ md = md.replace(/\]\(([^)]+)\)/g, (m: string, href: string) => {
 });
 
 let html = marked.parse(md) as string;
-// Prevent duplicate h1: demote markdown h1 to h2
 html = html.replace(/<h1(\s|>)/g, '<h2$1').replace(/<\/h1>/g, '</h2>');
 const prettyTitle = docTitle(doc.slug);
 const title = `${app?.name ?? appSlug}: ${prettyTitle} — CyberGems`;
-const description = `${app?.name ?? appSlug} — ${prettyTitle}. Official CyberGems documentation.`.slice(0, 155);
+const description = `${app?.name ?? appSlug} — ${prettyTitle}. Documentación oficial de CyberGems.`.slice(0, 155);
 const ogImage = app ? `/og/${app.slug}.png` : '/og.png';
 const breadcrumbLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cybergems.org/' },
-    { '@type': 'ListItem', position: 2, name: 'Documentation', item: 'https://cybergems.org/docs/' },
-    { '@type': 'ListItem', position: 3, name: app?.name ?? appSlug, item: `https://cybergems.org/docs/${appSlug}/` },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cybergems.org/es/' },
+    { '@type': 'ListItem', position: 2, name: 'Documentación', item: 'https://cybergems.org/es/docs/' },
+    { '@type': 'ListItem', position: 3, name: app?.name ?? appSlug, item: `https://cybergems.org/es/docs/${appSlug}/` },
     ...(doc.slug ? [{ '@type': 'ListItem', position: 4, name: prettyTitle, item: `https://cybergems.org${wikiBase}/${doc.slug}/` }] : []),
   ],
 };
 ---
 
-<BaseLayout title={title} description={description} lang="en" path={`${wikiBase}/${doc.slug}`} ogImage={ogImage} jsonLd={breadcrumbLd}>
+<BaseLayout title={title} description={description} lang="es" path={`${wikiBase}/${doc.slug}`} ogImage={ogImage} jsonLd={breadcrumbLd}>
   <nav aria-label="Breadcrumb" class="max-w-6xl mx-auto px-5 pt-6">
     <ol class="flex flex-wrap items-center gap-1.5 text-sm text-[#9a9aa5]">
-      <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+      <li><a href="/es/" class="hover:text-white transition-colors">Inicio</a></li>
       <li aria-hidden="true">/</li>
-      <li><a href="/docs" class="hover:text-white transition-colors">Documentation</a></li>
+      <li><a href="/es/docs" class="hover:text-white transition-colors">Documentación</a></li>
       <li aria-hidden="true">/</li>
-      <li><a href={`/docs/${appSlug}/`} class="hover:text-white transition-colors">{app?.name ?? appSlug}</a></li>
+      <li><a href={`/es/docs/${appSlug}/`} class="hover:text-white transition-colors">{app?.name ?? appSlug}</a></li>
       {doc.slug && (<><li aria-hidden="true">/</li><li aria-current="page" class="text-white font-medium capitalize">{prettyTitle}</li></>)}
     </ol>
   </nav>
   <div class="max-w-6xl mx-auto px-5 pt-6 pb-4">
-    <a href="/docs" class="text-sm text-[#9a9aa5] hover:text-white transition-colors">← Documentation</a>
+    <a href="/es/docs" class="text-sm text-[#9a9aa5] hover:text-white transition-colors">← Documentación</a>
 
     <div class="mt-6 grid gap-8 lg:grid-cols-[240px_1fr]">
-      <!-- Sidebar -->
       <aside class="lg:sticky lg:top-20 self-start">
         <div class="card p-4">
-          <a href={`/docs/${appSlug}/`} class="flex items-center gap-2 font-bold">
+          <a href={`/es/docs/${appSlug}/`} class="flex items-center gap-2 font-bold">
             {app && <span class="text-xl" aria-hidden="true">{app.emoji}</span>}
             {app?.name ?? appSlug}
           </a>
-          <nav aria-label="Docs pages" class="mt-3 flex flex-col gap-1">
+          <nav aria-label="Páginas de docs" class="mt-3 flex flex-col gap-1">
             {siblings.map((s) => (
               <a
                 href={`${wikiBase}/${s.slug}`}
@@ -105,12 +100,11 @@ const breadcrumbLd = {
             rel="noopener noreferrer"
             class="mt-4 pt-3 border-t border-white/10 text-xs text-[#9a9aa5] hover:text-white transition-colors block"
           >
-            ✎ View source ↗
+            ✎ Ver fuente ↗
           </a>
         </div>
       </aside>
 
-      <!-- Content -->
       <article class="card p-6 sm:p-8 min-w-0">
         <h1 class="text-3xl font-extrabold tracking-tight mb-6 capitalize">{prettyTitle}</h1>
         <div class="release-notes" set:html={wrapTables(html)} />
