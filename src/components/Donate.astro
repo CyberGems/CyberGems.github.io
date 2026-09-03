@@ -8,9 +8,10 @@ const { lang } = Astro.props;
 const en = lang === 'en';
 const title = en ? 'Donate — Support CyberGems' : 'Donar — Apoya CyberGems';
 const description = en
-  ? 'CyberGems is free forever with no ads or tracking. If the apps save you time every day, consider supporting the independent developer behind them.'
-  : 'CyberGems es gratis para siempre, sin anuncios ni rastreo. Si las apps te ahorran tiempo cada día, considera apoyar al desarrollador independiente que hay detrás.';
+  ? 'CyberGems is free forever with no ads or tracking. Support via GitHub Sponsors, PayPal, Ko-fi, Buy Me a Coffee or crypto.'
+  : 'CyberGems es gratis para siempre, sin anuncios ni rastreo. Apoya vía GitHub Sponsors, PayPal, Ko-fi, Buy Me a Coffee o crypto.';
 const path = en ? '/donate' : '/es/donate';
+const hasFiduciary = site.paypal || site.kofi || site.bmc;
 ---
 
 <BaseLayout title={title} description={description} lang={lang} path={path}>
@@ -46,6 +47,62 @@ const path = en ? '/donate' : '/es/donate';
       </div>
     </div>
 
+    {hasFiduciary && (
+      <section class="mt-6 card p-6 text-left">
+        <h2 class="font-bold">{en ? 'One-time tips — official buttons' : 'Propinas puntuales — botones oficiales'}</h2>
+        <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">
+          {en
+            ? 'Brand buttons that link straight to each platform. No third-party scripts on this site — your privacy promise stays intact.'
+            : 'Botones de marca que enlazan directo a cada plataforma. Sin scripts de terceros en este sitio — tu promesa de privacidad intacta.'}
+        </p>
+        <div class="mt-4 flex flex-wrap items-center gap-3">
+          {site.paypal && (
+            <a href={site.paypal} target="_blank" rel="noopener noreferrer" aria-label="Donate via PayPal"
+               class="inline-flex items-center gap-2 font-bold rounded-xl px-5 py-3 bg-[#FFC439] text-[#003087] hover:brightness-95 transition">
+              <span class="italic font-extrabold">Pay<span class="text-[#0079C1]">Pal</span></span>
+              <span class="text-sm">{en ? 'Donate' : 'Donar'}</span>
+            </a>
+          )}
+          {site.kofi && (
+            <a href={site.kofi} target="_blank" rel="noopener noreferrer" aria-label="Support on Ko-fi"
+               class="inline-flex items-center gap-2 font-bold rounded-xl px-5 py-3 bg-[#FF5E5B] text-white hover:brightness-95 transition">
+              <span aria-hidden="true">☕</span> Ko-fi
+            </a>
+          )}
+          {site.bmc && (
+            <a href={site.bmc} target="_blank" rel="noopener noreferrer" aria-label="Buy me a coffee"
+               class="inline-flex items-center gap-2 font-bold rounded-xl px-5 py-3 bg-[#FFDD00] text-black hover:brightness-95 transition">
+              <span aria-hidden="true">☕</span> Buy me a coffee
+            </a>
+          )}
+        </div>
+      </section>
+    )}
+
+    {site.crypto.length > 0 && (
+      <section class="mt-6 card p-6 text-left">
+        <h2 class="font-bold">🪙 Crypto</h2>
+        <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">
+          {en ? 'No fees, no account. Scan or copy — QR images are served locally, nothing leaks to third parties.' : 'Sin comisiones, sin cuenta. Escanea o copia — los QR se sirven en local, nada se filtra a terceros.'}
+        </p>
+        <p class="mt-2 text-xs text-[#FFB74D]">
+          ⚠️ {en ? 'Send only the selected asset on the indicated network. Wrong network = permanent loss.' : 'Envía solo el activo indicado en la red indicada. Red equivocada = pérdida permanente.'}
+        </p>
+        <div class="mt-4 grid gap-4 sm:grid-cols-2">
+          {site.crypto.map((c) => (
+            <div class="rounded-xl border border-white/10 p-4 bg-white/[0.02] text-center">
+              <p class="font-bold text-sm">{c.label} {c.network && <span class="ml-1 text-xs font-semibold text-[#9a9aa5]">{c.network}</span>}</p>
+              {c.qr && <img src={c.qr} alt={`${c.label} QR`} width="160" height="160" loading="lazy" decoding="async" class="mt-3 mx-auto w-40 h-40 rounded-lg border border-white/10 bg-white" />}
+              <p class="mt-3 text-xs text-[#9a9aa5] break-all font-mono">{c.address}</p>
+              <button type="button" data-copy={c.address} class="mt-2.5 text-xs font-semibold px-3 py-2 rounded-lg border border-white/10 hover:border-[#00f2ff] hover:text-white text-[#9a9aa5] transition-colors">
+                {en ? 'Copy address' : 'Copiar dirección'}
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
     <div class="mt-6 card p-6 text-left">
       <h2 class="font-bold">{en ? 'Where does the money go?' : '¿A dónde va el dinero?'}</h2>
       <ul class="mt-3 text-sm text-[#9a9aa5] leading-relaxed space-y-1.5">
@@ -56,11 +113,39 @@ const path = en ? '/donate' : '/es/donate';
       <p class="mt-3 text-xs text-[#9a9aa5]">
         {en ? 'Note: donations never unlock features. Everything stays free and GPLv3 for everyone.' : 'Nota: donar nunca desbloquea funciones. Todo sigue gratis y GPLv3 para todos.'}
       </p>
-      <!-- TODO: when Ko-fi / PayPal exist, set them in src/data/site.ts and render buttons here -->
+      {!hasFiduciary && site.crypto.length === 0 && (
+        <p class="mt-3 text-xs text-[#FFB74D]">
+          {en
+            ? 'Setup: add your PayPal / Ko-fi / BuyMeACoffee links and crypto addresses in src/data/site.ts — sections appear automatically.'
+            : 'Setup: añade tus enlaces de PayPal / Ko-fi / BuyMeACoffee y direcciones crypto en src/data/site.ts — las secciones aparecen solas.'}
+        </p>
+      )}
     </div>
-
-    <p class="mt-8 text-xs text-[#9a9aa5]">
-      {en ? 'Prefer the README? The full story lives here now — this page replaces the cramped GitHub README section.' : '¿Venías del README? La historia completa vive aquí ahora — esta página reemplaza la escueta sección del README.'}
-    </p>
   </div>
 </BaseLayout>
+
+<script is:inline>
+  (function () {
+    document.querySelectorAll('button[data-copy]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var addr = btn.getAttribute('data-copy') || '';
+        var done = function () {
+          var orig = btn.textContent;
+          btn.textContent = '✓';
+          setTimeout(function () { btn.textContent = orig; }, 1200);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(addr).then(done).catch(done);
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = addr;
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); } catch (e) {}
+          document.body.removeChild(ta);
+          done();
+        }
+      });
+    });
+  })();
+</script>
