@@ -2,13 +2,13 @@ backend:
   name: github
   repo: CyberGems/CyberGems.github.io
   branch: main
-  # PKCE login — no auth server needed. Create a GitHub OAuth App with the
-  # callback URL https://cybergems.github.io/admin/ (and later the custom
-  # domain), then paste its Client ID below:
-  auth_type: pkce
-  app_id: PASTE_OAUTH_APP_CLIENT_ID
+  # Login: "Sign In with Token" using a fine-grained PAT (no OAuth app, no
+  # server needed). Create it at https://github.com/settings/tokens?type=beta
+  # with access to this repo and Contents: Read and write. The token is stored
+  # only in your browser's local storage. Only accounts with write access to
+  # the repo can save.
 
-site_url: https://cybergems.github.io
+site_url: https://cybergems.org
 media_folder: public/screenshots
 public_path: /screenshots
 

@@ -106,14 +106,14 @@ To update an app: edit its JSON in `src/data/apps/` or use the visual CMS at `/a
 
 ---
 
-### 🎛️ Visual editing (Decap CMS)
+### 🎛️ Visual editing (Sveltia CMS)
 
-A content manager is available at **`/admin`** (`https://cybergems.github.io/admin`):
+A content manager is available at **`/admin`** (`https://cybergems.org/admin`):
 
 * Edits the `src/data/apps/*.json` files and uploads screenshots to `public/screenshots/`
 * Every save is a commit to `main` → the deploy workflow rebuilds the site automatically
-* Login: GitHub **PKCE** — create a GitHub OAuth App with callback `https://<site>/admin/` and paste its Client ID into `public/admin/config.yml` (`app_id`). Only accounts with write access to the repo can log in.
-* Local dev: run `npx decap-server` and add `local_backend: true` to `public/admin/config.yml`
+* Login: **Sign In with Token** — paste a fine-grained PAT ([create one here](https://github.com/settings/tokens?type=beta)) with access to this repo and `Contents: Read and write`. No OAuth App, no auth server. Only accounts with write access to the repo can log in.
+* Local dev: Sveltia CMS has a built-in local workflow — no proxy server needed
 
 ---
 
