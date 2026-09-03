@@ -5,7 +5,8 @@ export interface CryptoEntry {
   label: string; // e.g. 'Bitcoin'
   network?: string; // e.g. 'BTC', 'ERC-20'
   address: string;
-  qr?: string; // e.g. '/donate/btc.png' — generate OFFLINE, commit to public/
+  qr?: string; // e.g. '/donate/qr-btc.png' — served locally from public/
+  icon?: string; // e.g. '/donate/btc.svg' — coin brand icon, served locally
 }
 export const site = {
   githubOrg: 'https://github.com/CyberGems',
@@ -21,11 +22,11 @@ export const site = {
   // Crypto — addresses verified against CyberViewer / CyberSnap READMEs.
   // QR images served locally from public/donate/ (copied from CyberViewer docs).
   crypto: [
-    { label: 'Bitcoin', network: 'BTC', address: 'bc1q5mxzz05nmvsheqzx7970euswta3fksxzcfzag4', qr: '/donate/qr-btc.png' },
-    { label: 'Ethereum', network: 'ETH', address: '0x79b703Ec0f77493679Fcd280aF3b983E20c580B8', qr: '/donate/qr-eth.png' },
-    { label: 'USDT', network: 'ERC20 / BEP20', address: '0x79b703Ec0f77493679Fcd280aF3b983E20c580B8', qr: '/donate/qr-eth.png' },
-    { label: 'USDT', network: 'TRC20', address: 'TSVbSk1HSyZ1NprCnAYiw56ECwXgH887mD', qr: '/donate/qr-usdt-tron.png' },
-    { label: 'Litecoin', network: 'LTC', address: 'LWGnEHgcFCE2BRkzLnsdPDD8Y8ZeDK577X', qr: '/donate/qr-ltc.png' },
+    { label: 'Bitcoin', network: 'BTC', address: 'bc1q5mxzz05nmvsheqzx7970euswta3fksxzcfzag4', qr: '/donate/qr-btc.png', icon: '/donate/btc.svg' },
+    { label: 'Ethereum', network: 'ETH', address: '0x79b703Ec0f77493679Fcd280aF3b983E20c580B8', qr: '/donate/qr-eth.png', icon: '/donate/eth.svg' },
+    { label: 'USDT', network: 'ERC20 / BEP20', address: '0x79b703Ec0f77493679Fcd280aF3b983E20c580B8', qr: '/donate/qr-eth.png', icon: '/donate/usdt.svg' },
+    { label: 'USDT', network: 'TRC20', address: 'TSVbSk1HSyZ1NprCnAYiw56ECwXgH887mD', qr: '/donate/qr-usdt-tron.png', icon: '/donate/usdt.svg' },
+    { label: 'Litecoin', network: 'LTC', address: 'LWGnEHgcFCE2BRkzLnsdPDD8Y8ZeDK577X', qr: '/donate/qr-ltc.png', icon: '/donate/ltc.svg' },
   ] as CryptoEntry[],
   // Contact / support
   issuesTemplate: (slug: string) => `https://github.com/CyberGems/${slug}/issues/new`,
