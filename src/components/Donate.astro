@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import type { Lang } from '../data/ui';
+import { site } from '../data/site';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const en = lang === 'en';
+const title = en ? 'Donate — Support CyberGems' : 'Donar — Apoya CyberGems';
+const description = en
+  ? 'CyberGems is free forever with no ads or tracking. If the apps save you time every day, consider supporting the independent developer behind them.'
+  : 'CyberGems es gratis para siempre, sin anuncios ni rastreo. Si las apps te ahorran tiempo cada día, considera apoyar al desarrollador independiente que hay detrás.';
+const path = en ? '/donate' : '/es/donate';
+---
+
+<BaseLayout title={title} description={description} lang={lang} path={path}>
+  <div class="max-w-3xl mx-auto px-5 pt-16 pb-4 text-center">
+    <span class="chip mb-4">♥ {en ? 'Free forever — supported by users' : 'Gratis para siempre — sostenido por usuarios'}</span>
+    <h1 class="text-4xl font-extrabold tracking-tight">
+      <span class="text-gradient brand-glow">{en ? 'If it saves you time daily, fuel it.' : 'Si te ahorra tiempo a diario, impúlsalo.'}</span>
+    </h1>
+    <p class="mt-4 text-[#9a9aa5] text-lg leading-relaxed">
+      {en
+        ? '10 native Windows apps, hundreds of hours each, no ads, no telemetry, no paywalls. Donations keep the project independent and the releases coming.'
+        : '10 apps nativas Windows, cientos de horas cada una, sin anuncios, sin telemetría, sin muros de pago. Las donaciones mantienen el proyecto independiente y los lanzamientos en marcha.'}
+    </p>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 text-left">
+      <a href={site.sponsors} target="_blank" rel="noopener noreferrer" class="card p-6 block">
+        <div class="text-3xl" aria-hidden="true">💜</div>
+        <h2 class="mt-3 text-lg font-bold">GitHub Sponsors <span class="text-xs font-semibold text-[#00f2ff] ml-1">{en ? 'RECOMMENDED' : 'RECOMENDADO'}</span></h2>
+        <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">
+          {en ? 'Recurring or one-time, 0 fees, integrated with the repos you already use.' : 'Recurrente o puntual, 0 comisiones, integrado con los repos que ya usas.'}
+        </p>
+        <span class="mt-3 inline-block text-sm font-semibold text-[#00f2ff]">{en ? 'Sponsor →' : 'Apadrinar →'}</span>
+      </a>
+      <div class="card p-6">
+        <div class="text-3xl" aria-hidden="true">⭐</div>
+        <h2 class="mt-3 text-lg font-bold">{en ? 'Free ways to help' : 'Formas gratis de ayudar'}</h2>
+        <ul class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed space-y-1">
+          <li>{en ? '· Star the repos you use on GitHub' : '· Dale estrella en GitHub a los repos que uses'}</li>
+          <li>{en ? '· Report bugs, suggest features, improve docs' : '· Reporta bugs, sugiere features, mejora docs'}</li>
+          <li>{en ? '· Tell a friend / share your setup' : '· Cuéntaselo a un amigo / comparte tu setup'}</li>
+        </ul>
+        <a href={site.githubOrg} target="_blank" rel="noopener noreferrer" class="mt-3 inline-block text-sm font-semibold text-[#00f2ff]">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="mt-6 card p-6 text-left">
+      <h2 class="font-bold">{en ? 'Where does the money go?' : '¿A dónde va el dinero?'}</h2>
+      <ul class="mt-3 text-sm text-[#9a9aa5] leading-relaxed space-y-1.5">
+        <li>{en ? '· 1. Development time — the scarcest resource in a one-man show.' : '· 1. Tiempo de desarrollo — el recurso más escaso en un one-man show.'}</li>
+        <li>{en ? '· 2. Code-signing certificate — removes SmartScreen warnings.' : '· 2. Certificado de firma de código — elimina avisos de SmartScreen.'}</li>
+        <li>{en ? '· 3. Hardware / test machines and domain costs.' : '· 3. Hardware / máquinas de prueba y costes del dominio.'}</li>
+      </ul>
+      <p class="mt-3 text-xs text-[#9a9aa5]">
+        {en ? 'Note: donations never unlock features. Everything stays free and GPLv3 for everyone.' : 'Nota: donar nunca desbloquea funciones. Todo sigue gratis y GPLv3 para todos.'}
+      </p>
+      <!-- TODO: when Ko-fi / PayPal exist, set them in src/data/site.ts and render buttons here -->
+    </div>
+
+    <p class="mt-8 text-xs text-[#9a9aa5]">
+      {en ? 'Prefer the README? The full story lives here now — this page replaces the cramped GitHub README section.' : '¿Venías del README? La historia completa vive aquí ahora — esta página reemplaza la escueta sección del README.'}
+    </p>
+  </div>
+</BaseLayout>

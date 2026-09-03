@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { ui, type Lang } from '../data/ui';
-import type { CyberApp } from '../data/apps';
+import { apps, type CyberApp } from '../data/apps';
 
 interface Props {
   app: CyberApp;
@@ -47,6 +47,9 @@ const shotSrc = app.screenshot
     ? app.screenshot
     : `/screenshots/${app.slug}/${app.screenshot}`
   : null;
+const related = apps.filter((a) => a.slug !== app.slug).slice(0, 3);
+const downloadPath = lang === 'en' ? '/download' : '/es/download';
+const faqPath = lang === 'en' ? '/faq' : '/es/faq';
 ---
 
 <BaseLayout title={title} description={description} lang={lang} path={lang === 'en' ? `/apps/${app.slug}` : `/es/apps/${app.slug}`} ogImage={ogImage} jsonLd={[breadcrumbLd, appLd]}>
@@ -145,6 +148,34 @@ const shotSrc = app.screenshot
         </li>
       ))}
     </ul>
+
+    <!-- Requirements & safety -->
+    <section class="mt-12 card p-6 text-sm leading-relaxed">
+      <h2 class="font-bold text-base">🪟 {lang === 'en' ? 'Requirements & safety' : 'Requisitos y seguridad'}</h2>
+      <ul class="mt-3 space-y-1.5 text-[#c9c9d1]">
+        <li>· Windows 10 / 11, 64-bit — {app.stack}</li>
+        <li>· {lang === 'en' ? 'Installer, portable or' : 'Instalador, portable o'} <code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[#00f2ff] text-xs">winget install {app.winget ?? '<id>'}</code></li>
+        <li>· 🔏 {lang === 'en' ? '“Unknown publisher” SmartScreen warning is expected (no paid certificate yet). Verify via release SHA / VirusTotal or build from source.' : 'Aviso SmartScreen de “editor desconocido” esperado (aún sin certificado de pago). Verifica con el SHA / VirusTotal o compilando.'}</li>
+      </ul>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a href={downloadPath} class="font-semibold text-sm" style={`color: ${app.accent};`}>{lang === 'en' ? 'All install options →' : 'Todas las opciones →'}</a>
+        <a href={faqPath} class="text-sm text-[#9a9aa5] hover:text-white transition-colors">FAQ →</a>
+      </div>
+    </section>
+
+    <!-- Related apps -->
+    <section class="mt-12">
+      <h2 class="text-xl font-bold">{lang === 'en' ? 'Pairs well with' : 'Combina bien con'}</h2>
+      <div class="mt-4 grid gap-4 sm:grid-cols-3">
+        {related.map((r) => (
+          <a href={lang === 'en' ? `/apps/${r.slug}` : `/es/apps/${r.slug}`} class="card p-4 block">
+            <div class="text-3xl" aria-hidden="true">{r.emoji}</div>
+            <p class="mt-2 font-bold text-sm">{r.name}</p>
+            <p class="text-xs text-[#9a9aa5] truncate">{r.tagline[lang]}</p>
+          </a>
+        ))}
+      </div>
+    </section>
   </article>
 </BaseLayout>
 

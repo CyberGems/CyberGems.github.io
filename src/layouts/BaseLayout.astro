@@ -84,9 +84,11 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
         </a>
         <div class="flex items-center gap-2 sm:gap-5">
           <a href={`${homeHref}#apps`} class="text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.navApps}</a>
+          <a href={lang === 'en' ? '/download' : '/es/download'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden md:inline">{t.navDownload}</a>
           <a href={lang === 'en' ? '/changelog' : '/es/changelog'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden md:inline">{t.navChangelog}</a>
           <a href={lang === 'en' ? '/docs' : '/es/docs'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.navDocs}</a>
-          <a href="https://github.com/CyberGems" target="_blank" rel="noopener noreferrer" class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden sm:inline">{t.navGitHub} ↗</a>
+          <a href={lang === 'en' ? '/about' : '/es/about'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden lg:inline">{t.navAbout}</a>
+          <a href={lang === 'en' ? '/donate' : '/es/donate'} class="text-sm font-semibold text-gradient hover:opacity-80 transition-opacity hidden sm:inline">♥ {t.navDonate}</a>
           <a
             href={switchHref}
             lang={other}
@@ -104,14 +106,40 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
     </main>
 
     <footer class="border-t border-white/5 mt-20">
-      <div class="max-w-6xl mx-auto px-5 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="text-sm font-bold tracking-tight">
-          Cyber<span class="text-gradient">Gems</span>
+      <div class="max-w-6xl mx-auto px-5 py-12 grid gap-10 md:grid-cols-4">
+        <div>
+          <div class="text-sm font-bold tracking-tight">
+            Cyber<span class="text-gradient">Gems</span>
+          </div>
+          <p class="mt-2 text-xs text-[#9a9aa5] leading-relaxed">{t.footerTagline}</p>
+          <p class="mt-3 text-xs text-[#9a9aa5]">{t.madeBy}</p>
         </div>
-        <p class="text-xs text-[#9a9aa5] text-center">{t.madeBy}</p>
-        <a href="https://github.com/CyberGems" target="_blank" rel="noopener noreferrer" class="text-xs text-[#9a9aa5] hover:text-white transition-colors">
-          github.com/CyberGems ↗
-        </a>
+        <nav aria-label="Explore">
+          <p class="text-xs font-bold uppercase tracking-wider text-white/60">{t.footerExplore}</p>
+          <ul class="mt-3 space-y-2 text-sm text-[#9a9aa5]">
+            <li><a href={`${homeHref}#apps`} class="hover:text-white transition-colors">{t.navApps}</a></li>
+            <li><a href={lang === 'en' ? '/download' : '/es/download'} class="hover:text-white transition-colors">{t.navDownload}</a></li>
+            <li><a href={lang === 'en' ? '/about' : '/es/about'} class="hover:text-white transition-colors">{t.navAbout}</a></li>
+            <li><a href={lang === 'en' ? '/donate' : '/es/donate'} class="hover:text-white transition-colors">♥ {t.navDonate}</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Resources">
+          <p class="text-xs font-bold uppercase tracking-wider text-white/60">{t.footerResources}</p>
+          <ul class="mt-3 space-y-2 text-sm text-[#9a9aa5]">
+            <li><a href={lang === 'en' ? '/docs' : '/es/docs'} class="hover:text-white transition-colors">{t.navDocs}</a></li>
+            <li><a href={lang === 'en' ? '/changelog' : '/es/changelog'} class="hover:text-white transition-colors">{t.navChangelog}</a></li>
+            <li><a href={lang === 'en' ? '/faq' : '/es/faq'} class="hover:text-white transition-colors">{t.navFaq}</a></li>
+            <li><a href="https://github.com/CyberGems" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">{t.navGitHub} ↗</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Project">
+          <p class="text-xs font-bold uppercase tracking-wider text-white/60">{t.footerProject}</p>
+          <ul class="mt-3 space-y-2 text-sm text-[#9a9aa5]">
+            <li><a href={lang === 'en' ? '/privacy' : '/es/privacy'} class="hover:text-white transition-colors">Privacy / Privacidad</a></li>
+            <li><a href="https://www.gnu.org/licenses/gpl-3.0" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GPLv3 ↗</a></li>
+            <li><a href="https://github.com/CyberGems/CyberGems" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">github.com/CyberGems ↗</a></li>
+          </ul>
+        </nav>
       </div>
     </footer>
   </body>
