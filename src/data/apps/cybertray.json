@@ -14,14 +14,33 @@
     "es": "Un lanzador de accesos y dock para la bandeja del sistema con estética cyberpunk. CyberTray ofrece una estantería animada que se desliza desde la parte superior o inferior de la pantalla para organizar, buscar y lanzar aplicaciones, archivos y URLs — además de monitoreo del sistema, gestión de procesos y una bóveda de archivos segura."
   },
   "features": [
-    { "en": "Animated shelf with search, categories and drag & drop import", "es": "Estantería animada con búsqueda, categorías e importación por arrastre" },
-    { "en": "Cyber-Handle bar, hot corners and global hotkey (Alt+T)", "es": "Barra Cyber-Handle, esquinas activas y hotkey global (Alt+T)" },
-    { "en": "Real-time RAM, CPU, disk and VRAM telemetry", "es": "Telemetría en tiempo real de RAM, CPU, disco y VRAM" },
-    { "en": "Process viewer with kill functionality", "es": "Visor de procesos con capacidad de finalizarlos" },
-    { "en": "PIN-protected Cyber-Vault with desktop sweep", "es": "Cyber-Vault protegido con PIN y barrido del escritorio" },
-    { "en": "5 neon themes, custom backgrounds, multi-monitor", "es": "5 temas neón, fondos personalizados, multi-monitor" }
+    {
+      "en": "Animated shelf with search, categories and drag & drop import",
+      "es": "Estantería animada con búsqueda, categorías e importación por arrastre"
+    },
+    {
+      "en": "Cyber-Handle bar, hot corners and global hotkey (Alt+T)",
+      "es": "Barra Cyber-Handle, esquinas activas y hotkey global (Alt+T)"
+    },
+    {
+      "en": "Real-time RAM, CPU, disk and VRAM telemetry",
+      "es": "Telemetría en tiempo real de RAM, CPU, disco y VRAM"
+    },
+    {
+      "en": "Process viewer with kill functionality",
+      "es": "Visor de procesos con capacidad de finalizarlos"
+    },
+    {
+      "en": "PIN-protected Cyber-Vault with desktop sweep",
+      "es": "Cyber-Vault protegido con PIN y barrido del escritorio"
+    },
+    {
+      "en": "5 neon themes, custom backgrounds, multi-monitor",
+      "es": "5 temas neón, fondos personalizados, multi-monitor"
+    }
   ],
   "repo": "https://github.com/CyberGems/CyberTray",
   "wiki": "https://github.com/CyberGems/CyberTray/wiki",
+  "winget": "",
   "screenshot": null
 }
