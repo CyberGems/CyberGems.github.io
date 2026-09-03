@@ -17,7 +17,7 @@ const title = `${app.name} — CyberGems`;
 const shortDesc = app.tagline[lang];
 const description = shortDesc.length > 155 ? `${shortDesc.slice(0, 152)}...` : `${shortDesc} ${app.stack} for Windows. GPLv3.`;
 const releasesUrl = `${app.repo}/releases/latest`;
-const ogImage = `/og/${app.slug}.png`;
+const ogImage = lang === 'es' ? `/og/es/${app.slug}.png` : `/og/${app.slug}.png`;
 const breadcrumbLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',

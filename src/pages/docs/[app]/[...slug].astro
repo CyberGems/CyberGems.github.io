@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getApp } from '../../../data/apps';
-import { listDocs, docTitle, wrapTables, WIKIS_DIR } from '../../../data/docs';
+import { listDocs, docTitle, wrapTables, sanitize, WIKIS_DIR } from '../../../data/docs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { marked } from 'marked';
@@ -113,7 +113,7 @@ const breadcrumbLd = {
       <!-- Content -->
       <article class="card p-6 sm:p-8 min-w-0">
         <h1 class="text-3xl font-extrabold tracking-tight mb-6 capitalize">{prettyTitle}</h1>
-        <div class="release-notes" set:html={wrapTables(html)} />
+        <div class="release-notes" set:html={sanitize(wrapTables(html))} />
       </article>
     </div>
   </div>

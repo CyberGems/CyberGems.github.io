@@ -54,7 +54,7 @@ const itemListLd = {
 };
 ---
 
-<BaseLayout title={title} description={description} lang={lang} path={homePath} ogImage="/og.png" jsonLd={[orgLd, websiteLd, itemListLd]}>
+<BaseLayout title={title} description={description} lang={lang} path={homePath} ogImage={lang === 'es' ? '/og/es.png' : '/og.png'} jsonLd={[orgLd, websiteLd, itemListLd]}>
   <!-- Hero -->
   <section class="relative overflow-hidden">
     <div class="absolute inset-0 cyber-grid" aria-hidden="true"></div>

@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const title = '404 — Página no encontrada — CyberGems';
+const description = 'La página que buscas no existe o fue movida.';
+---
+
+<BaseLayout title={title} description={description} lang="es" path="/es/404" ogImage="/og.png" noIndex>
+  <div class="max-w-2xl mx-auto px-5 py-24 text-center">
+    <div class="text-7xl mb-6" aria-hidden="true">💎</div>
+    <h1 class="text-4xl font-extrabold tracking-tight">Página no encontrada</h1>
+    <p class="mt-4 text-[#9a9aa5]">La página que buscas no existe o fue movida.</p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href="/es/" class="btn-primary">Ir al inicio</a>
+      <a href="/" class="btn-ghost">Go home</a>
+      <a href="https://github.com/CyberGems" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub ↗</a>
+    </div>
+  </div>
+</BaseLayout>

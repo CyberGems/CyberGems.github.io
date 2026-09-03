@@ -1,13 +1,18 @@
 import type { CyberApp } from '../data/apps';
+import type { Lang } from '../data/ui';
 
-export function ogSvg(app?: CyberApp): string {
+export function ogSvg(app?: CyberApp, lang: Lang = 'en'): string {
   const accent = app?.accent ?? '#00F2FF';
   const accent2 = '#7A5CFF';
   const title = app ? app.name : 'CyberGems';
-  const subtitle = app ? app.tagline.en : 'Free & open-source Windows apps';
+  const subtitle = app
+    ? app.tagline[lang] ?? app.tagline.en
+    : lang === 'es'
+      ? 'Apps gratuitas y open-source para Windows'
+      : 'Free & open-source Windows apps';
   const emoji = app ? app.emoji : '💎';
   // Extra description line for per-app
-  const extra = app ? app.stack : 'cybergems.org — No ads · No tracking · GPLv3';
+  const extra = app ? app.stack : lang === 'es' ? 'cybergems.org — Sin anuncios · Sin rastreo · GPLv3' : 'cybergems.org — No ads · No tracking · GPLv3';
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img">

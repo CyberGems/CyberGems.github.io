@@ -12,9 +12,11 @@ interface Props {
   ogImage?: string;
   /** Optional JSON-LD object to inject */
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /** If true, emits <meta name="robots" content="noindex, nofollow"> */
+  noIndex?: boolean;
 }
 
-const { title, description, lang, path, ogImage, jsonLd } = Astro.props;
+const { title, description, lang, path, ogImage, jsonLd, noIndex } = Astro.props;
 const t = ui[lang];
 const other: Lang = lang === 'en' ? 'es' : 'en';
 const switchHref = lang === 'en' ? (path === '/' ? '/es/' : `/es${path}`) : path.replace(/^\/es/, '') || '/';
@@ -27,9 +29,10 @@ const normalizedPath = (() => {
   return p || '/';
 })();
 const canonical = new URL(normalizedPath === '/' ? '/' : `${normalizedPath}/`, Astro.site);
-// hreflang alternates
+// hreflang alternates — both with trailing slash like canonical
 const canonicalHref = canonical.href;
-const enHref = lang === 'en' ? canonicalHref : new URL(normalizedPath.replace(/^\/es/, '') || '/', Astro.site).href;
+const enPath = normalizedPath.replace(/^\/es/, '') || '/';
+const enHref = lang === 'en' ? canonicalHref : new URL(enPath === '/' ? '/' : `${enPath}/`, Astro.site).href;
 const esHref = lang === 'es' ? canonicalHref : new URL(normalizedPath === '/' ? '/es/' : `/es${normalizedPath}/`, Astro.site).href;
 const xDefaultHref = new URL('/', Astro.site).href;
 const ogImageUrl = ogImage ? new URL(ogImage, Astro.site).href : new URL('/og.png', Astro.site).href;
@@ -45,6 +48,7 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
     <meta name="color-scheme" content="dark" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://api.github.com" />
     <link rel="canonical" href={canonicalHref} />
@@ -61,10 +65,12 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={title} />
     <meta name="theme-color" content="#0d0f17" />
     <title>{title}</title>
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}

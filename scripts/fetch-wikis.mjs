@@ -36,6 +36,8 @@ for (const slug of slugs) {
     const target = path.join(publicWikisDir, slug);
     fs.rmSync(target, { recursive: true, force: true });
     fs.cpSync(dest, target, { recursive: true });
+    // Don't publish .git metadata to the static site
+    fs.rmSync(path.join(target, '.git'), { recursive: true, force: true });
 
     console.log(`  ✓ wiki ${slug} (${fs.readdirSync(dest).filter((f) => f.endsWith('.md')).length} pages)`);
   } catch {

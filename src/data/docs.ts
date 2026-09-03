@@ -40,3 +40,19 @@ export function wrapTables(html: string): string {
     .replace(/<\/table>/g, '</table></div>');
 }
 
+import sanitizeHtml from 'sanitize-html';
+
+/** Sanitizes markdown-rendered HTML, allowing safe tags while stripping scripts and event handlers. */
+export function sanitize(html: string): string {
+  return sanitizeHtml(html, {
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'h1', 'h2', 'h3', 'h4', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'div', 'span', 'pre', 'code', 'blockquote', 'hr']),
+    allowedAttributes: {
+      '*': ['id', 'class', 'style', 'href', 'src', 'alt', 'title', 'width', 'height', 'colspan', 'rowspan'],
+      a: ['href', 'name', 'target', 'rel'],
+      img: ['src', 'alt', 'title', 'width', 'height', 'loading', 'decoding'],
+    },
+    allowedSchemes: ['http', 'https', 'mailto', 'tel'],
+    disallowedTagsMode: 'discard',
+  });
+}
+

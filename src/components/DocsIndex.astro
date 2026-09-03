@@ -30,7 +30,7 @@ const breadcrumbLd = {
 };
 ---
 
-<BaseLayout title={title} description={description} lang={lang} path={path_} ogImage="/og.png" jsonLd={breadcrumbLd}>
+<BaseLayout title={title} description={description} lang={lang} path={path_} ogImage={lang === 'es' ? '/og/es.png' : '/og.png'} jsonLd={breadcrumbLd}>
   <div class="max-w-5xl mx-auto px-5 pt-16">
     <header class="text-center">
       <h1 class="text-4xl font-extrabold tracking-tight">

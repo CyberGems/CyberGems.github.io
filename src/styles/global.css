@@ -184,14 +184,17 @@ body {
   border-radius: 4px;
 }
 
-/* Reduced motion */
+/* Reduced motion — disable all transforms/animations for a11y */
 @media (prefers-reduced-motion: reduce) {
-  .card, .card:hover, .btn-primary, .btn-primary:hover {
-    transition: none;
-    transform: none;
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  .card:hover {
-    box-shadow: none;
+  .card, .card:hover, .btn-primary, .btn-primary:hover {
+    transform: none !important;
+    box-shadow: none !important;
   }
 }
 
