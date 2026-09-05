@@ -79,6 +79,47 @@ collections:
       - name: repo
         label: Repo URL
         widget: string
+      - name: useCases
+        label: Use cases (By Role / By Task)
+        widget: object
+        required: false
+        fields:
+          - name: roles
+            label: By Role
+            widget: list
+            required: false
+            fields:
+              - { name: icon, label: Icon, widget: string }
+              - name: title
+                label: Title
+                widget: object
+                fields:
+                  - { name: en, label: English, widget: string }
+                  - { name: es, label: Español, widget: string }
+              - name: text
+                label: Text
+                widget: object
+                fields:
+                  - { name: en, label: English, widget: text }
+                  - { name: es, label: Español, widget: text }
+          - name: tasks
+            label: By Task
+            widget: list
+            required: false
+            fields:
+              - { name: icon, label: Icon, widget: string }
+              - name: title
+                label: Title
+                widget: object
+                fields:
+                  - { name: en, label: English, widget: string }
+                  - { name: es, label: Español, widget: string }
+              - name: text
+                label: Text
+                widget: object
+                fields:
+                  - { name: en, label: English, widget: text }
+                  - { name: es, label: Español, widget: text }
       - name: wiki
         label: Wiki URL
         widget: string

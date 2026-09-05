@@ -149,6 +149,44 @@ const faqPath = lang === 'en' ? '/faq' : '/es/faq';
       ))}
     </ul>
 
+    <!-- Use cases (optional per app: "By Role" / "By Task") -->
+    {app.useCases && (
+      <section class="mt-12 grid gap-10 lg:grid-cols-5">
+        <div class="lg:col-span-3">
+          <h2 class="text-xl font-bold" style={`color: ${app.accent};`}>
+            {lang === 'en' ? 'By Role' : 'Por rol'}
+          </h2>
+          <div class="mt-6 grid gap-6 sm:grid-cols-2">
+            {app.useCases.roles.map((role) => (
+              <div class="flex items-start gap-3">
+                <span class="text-2xl shrink-0" aria-hidden="true">{role.icon}</span>
+                <div>
+                  <p class="font-bold text-sm">{role.title[lang]}</p>
+                  <p class="mt-1 text-sm leading-relaxed text-[#9a9aa5]">{role.text[lang]}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="lg:col-span-2">
+          <h2 class="text-xl font-bold" style={`color: ${app.accent};`}>
+            {lang === 'en' ? 'By Task' : 'Por tarea'}
+          </h2>
+          <div class="mt-6 grid gap-6">
+            {app.useCases.tasks.map((task) => (
+              <div class="flex items-start gap-3">
+                <span class="text-2xl shrink-0" aria-hidden="true">{task.icon}</span>
+                <div>
+                  <p class="font-bold text-sm">{task.title[lang]}</p>
+                  <p class="mt-1 text-sm leading-relaxed text-[#9a9aa5]">{task.text[lang]}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
     <!-- Requirements & safety -->
     <section class="mt-12 card p-6 text-sm leading-relaxed">
       <h2 class="font-bold text-base">🪟 {lang === 'en' ? 'Requirements & safety' : 'Requisitos y seguridad'}</h2>

@@ -23,5 +23,23 @@
   ],
   "repo": "https://github.com/CyberGems/CyberSnap",
   "wiki": "https://github.com/CyberGems/CyberSnap/wiki",
+  "useCases": {
+    "roles": [
+      { "icon": "💻", "title": { "en": "Software Development", "es": "Desarrollo de software" }, "text": { "en": "Report bugs with annotated screenshots and MP4 reproductions; repeat-last-area captures before/after states without realigning.", "es": "Reporta errores con capturas anotadas y reproducciones MP4; recaptura la misma zona para el antes/después sin reencuadrar." } },
+      { "icon": "🎧", "title": { "en": "Customer Support", "es": "Soporte al cliente" }, "text": { "en": "Answer tickets with marked-up screenshots and short GIF how-tos; share one-click upload links instead of long explanations.", "es": "Responde tickets con capturas marcadas y mini-tutoriales GIF; comparte enlaces de subida en un clic en vez de explicaciones largas." } },
+      { "icon": "🎨", "title": { "en": "Design", "es": "Diseño" }, "text": { "en": "Review mockups with pixel-exact ruler measurements, HEX color sampling, and pinned annotations.", "es": "Revisa maquetas con medidas de regla al píxel, muestreo de color HEX y anotaciones fijadas." } },
+      { "icon": "🎓", "title": { "en": "ELearning", "es": "Formación" }, "text": { "en": "Create MP4 or GIF lessons, trim the edges, blur sensitive data, and share via link.", "es": "Crea lecciones en MP4 o GIF, recorta los bordes, difumina datos sensibles y comparte por enlace." } },
+      { "icon": "📋", "title": { "en": "Project Management", "es": "Gestión de proyectos" }, "text": { "en": "Document flows with auto-numbered steps and full-page scroll captures; find any of them later with OCR search.", "es": "Documenta flujos con pasos autonumerados y capturas de desplazamiento; encuéntralos luego con búsqueda OCR." } },
+      { "icon": "🌍", "title": { "en": "Remote Work", "es": "Trabajo remoto" }, "text": { "en": "Replace status meetings with async visual updates: capture, annotate, share a link.", "es": "Sustituye reuniones de estado por actualizaciones visuales asíncronas: captura, anota, comparte un enlace." } }
+    ],
+    "tasks": [
+      { "icon": "🖥️", "title": { "en": "Record Your Screen", "es": "Graba tu pantalla" }, "text": { "en": "Record screen to MP4 or GIF with microphone and system audio, pause/resume, and a built-in trimmer.", "es": "Graba la pantalla en MP4 o GIF con micrófono y audio del sistema, pausa/reanuda y recorta el resultado." } },
+      { "icon": "✏️", "title": { "en": "Take & Annotate Screenshots", "es": "Captura y anota" }, "text": { "en": "Shapes, arrows, text, blur, steps and emoji; files auto-save locally and upload in one click.", "es": "Formas, flechas, texto, difuminado, pasos y emoji; guardado local automático y subida en un clic." } },
+      { "icon": "🔤", "title": { "en": "Extract & Translate Text", "es": "Extrae y traduce texto" }, "text": { "en": "Tesseract OCR with integrated translation, one-click copy, and history search.", "es": "OCR Tesseract con traducción integrada, copiado en un clic y búsqueda en el historial." } },
+      { "icon": "📏", "title": { "en": "Measure & Sample", "es": "Mide y muestrea" }, "text": { "en": "On-screen pixel ruler and magnifier color picker with history.", "es": "Regla de píxeles en pantalla y cuentagotas con lupa e historial." } },
+      { "icon": "🔍", "title": { "en": "Find Anything Again", "es": "Encuentra todo" }, "text": { "en": "Every capture is indexed — search the gallery by OCR text, code content, or filename.", "es": "Todo queda indexado: busca en la galería por texto OCR, contenido de códigos o nombre de archivo." } },
+      { "icon": "📤", "title": { "en": "Share Instantly", "es": "Comparte al instante" }, "text": { "en": "FTP, SFTP, S3, ImgBB, Imgur, Webhook or CyberSnap Share — URL straight to your clipboard.", "es": "FTP, SFTP, S3, ImgBB, Imgur, Webhook o CyberSnap Share: URL directa a tu portapapeles." } }
+    ]
+  },
   "screenshot": null
 }

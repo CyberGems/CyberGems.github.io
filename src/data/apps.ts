@@ -5,6 +5,12 @@ export interface LocalizedText {
   es: string;
 }
 
+export interface UseCase {
+  icon: string;
+  title: LocalizedText;
+  text: LocalizedText;
+}
+
 export interface CyberApp {
   /** URL slug, e.g. "cybersnap" -> /apps/cybersnap */
   slug: string;
@@ -23,6 +29,11 @@ export interface CyberApp {
   wiki: string;
   /** winget package id, if published */
   winget?: string;
+  /** Optional role/task use cases rendered as "By Role" / "By Task" sections */
+  useCases?: {
+    roles: UseCase[];
+    tasks: UseCase[];
+  };
   /** Screenshot: bare filename resolved to /screenshots/<slug>/, or an
       absolute public path (as written by the CMS), or null for the placeholder */
   screenshot: string | null;
