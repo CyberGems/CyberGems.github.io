@@ -136,7 +136,7 @@
       "cmpCols": ["Setup .exe", "Portable .zip", "winget"],
       "cmpRows": [
         { "label": "Install steps", "v": ["Double-click the installer", "Unzip and run", "One command"] },
-        { "label": "Admin rights", "v": ["Yes (first run)", "Not required", "Not required"] },
+        { "label": "Admin rights", "v": ["Usually not — most install per-user; a few ask for admin", "Not required", "Not required"] },
         { "label": "Updates", "v": ["In-app update check", "Re-download", "winget upgrade"] },
         { "label": "Best for", "v": ["Most users", "USB sticks, no-install", "Scripted / silent setups"] }
       ]
@@ -169,7 +169,7 @@
       "cmpCols": ["Setup .exe", "Portable .zip", "winget"],
       "cmpRows": [
         { "label": "Pasos de instalación", "v": ["Doble clic al instalador", "Descomprimir y ejecutar", "Un comando"] },
-        { "label": "Permisos de admin", "v": ["SÍ (primera ejecución)", "No requeridos", "No requeridos"] },
+        { "label": "Permisos de admin", "v": ["Normalmente no — la mayoría instala por usuario; algunas lo piden", "No requeridos", "No requeridos"] },
         { "label": "Actualizaciones", "v": ["Check de updates en la app", "Re-descargar", "winget upgrade"] },
         { "label": "Ideal para", "v": ["La mayoría", "USB, sin instalación", "Scripteadas / silenciosas"] }
       ]
