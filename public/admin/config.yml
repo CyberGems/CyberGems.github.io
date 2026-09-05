@@ -202,6 +202,7 @@ collections:
               - { name: appsTitle, widget: string }
               - { name: appsSubtitle, widget: string }
               - { name: featuresTitle, widget: string }
+              - { name: useCasesTitle, widget: string }
               - { name: downloadCta, widget: string }
               - { name: releasesCta, widget: string }
               - { name: repoCta, widget: string }
@@ -250,6 +251,7 @@ collections:
               - { name: appsTitle, widget: string }
               - { name: appsSubtitle, widget: string }
               - { name: featuresTitle, widget: string }
+              - { name: useCasesTitle, widget: string }
               - { name: downloadCta, widget: string }
               - { name: releasesCta, widget: string }
               - { name: repoCta, widget: string }

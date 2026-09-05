@@ -80,7 +80,7 @@ const faqPath = lang === 'en' ? '/faq' : '/es/faq';
         <div class="mt-3 flex flex-wrap gap-2">
           <span class="chip">🧩 {app.stack}</span>
           <span class="chip">📄 {app.license}</span>
-          <span class="chip">🪟 Windows</span>
+          <span class="chip">🖥️ Windows</span>
         </div>
       </div>
     </header>
@@ -151,11 +151,15 @@ const faqPath = lang === 'en' ? '/faq' : '/es/faq';
 
     <!-- Use cases (optional per app: "By Role" / "By Task") -->
     {app.useCases && (
-      <section class="mt-12 grid gap-10 lg:grid-cols-5">
+      <section class="mt-12">
+        <h2 class="text-2xl font-bold tracking-tight">
+          {t.useCasesTitle} {app.name}
+        </h2>
+        <div class="mt-6 grid gap-10 lg:grid-cols-5">
         <div class="lg:col-span-3">
-          <h2 class="text-xl font-bold" style={`color: ${app.accent};`}>
+          <h3 class="text-xl font-bold" style={`color: ${app.accent};`}>
             {lang === 'en' ? 'By Role' : 'Por rol'}
-          </h2>
+          </h3>
           <div class="mt-6 grid gap-6 sm:grid-cols-2">
             {app.useCases.roles.map((role) => (
               <div class="flex items-start gap-3">
@@ -169,9 +173,9 @@ const faqPath = lang === 'en' ? '/faq' : '/es/faq';
           </div>
         </div>
         <div class="lg:col-span-2">
-          <h2 class="text-xl font-bold" style={`color: ${app.accent};`}>
+          <h3 class="text-xl font-bold" style={`color: ${app.accent};`}>
             {lang === 'en' ? 'By Task' : 'Por tarea'}
-          </h2>
+          </h3>
           <div class="mt-6 grid gap-6">
             {app.useCases.tasks.map((task) => (
               <div class="flex items-start gap-3">
@@ -184,12 +188,13 @@ const faqPath = lang === 'en' ? '/faq' : '/es/faq';
             ))}
           </div>
         </div>
+        </div>
       </section>
     )}
 
     <!-- Requirements & safety -->
     <section class="mt-12 card p-6 text-sm leading-relaxed">
-      <h2 class="font-bold text-base">🪟 {lang === 'en' ? 'Requirements & safety' : 'Requisitos y seguridad'}</h2>
+      <h2 class="font-bold text-base">🖥️ {lang === 'en' ? 'Requirements & safety' : 'Requisitos y seguridad'}</h2>
       <ul class="mt-3 space-y-1.5 text-[#c9c9d1]">
         <li>· Windows 10 / 11, 64-bit — {app.stack}</li>
         <li>· {lang === 'en' ? 'Installer, portable or' : 'Instalador, portable o'} <code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[#00f2ff] text-xs">winget install {app.winget ?? '<id>'}</code></li>
