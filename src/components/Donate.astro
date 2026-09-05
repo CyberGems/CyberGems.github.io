@@ -55,7 +55,7 @@ const hasFiduciary = site.paypal || site.kofi || site.bmc;
             ? 'Brand buttons that link straight to each platform. No third-party scripts on this site — your privacy promise stays intact.'
             : 'Botones de marca que enlazan directo a cada plataforma. Sin scripts de terceros en este sitio — tu promesa de privacidad intacta.'}
         </p>
-        <div class="mt-4 flex flex-wrap items-center gap-3">
+        <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
           {site.paypal && (
             <a href={site.paypal} target="_blank" rel="noopener noreferrer" aria-label="Donate via PayPal"
                class="inline-flex items-center gap-2 font-bold rounded-xl px-5 py-3 bg-[#FFC439] text-[#003087] hover:brightness-95 transition">
