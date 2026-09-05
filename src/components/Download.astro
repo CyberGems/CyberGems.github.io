@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { apps } from '../data/apps';
 import type { Lang } from '../data/ui';
+import { fetchLatestDownloads } from '../data/releases';
 import pagesData from '../data/pages.json';
 
 interface Props { lang: Lang; }
@@ -11,28 +12,61 @@ const c = (pagesData.download as Record<string, any>)[lang];
 const path = en ? '/download' : '/es/download';
 const homePath = en ? '/' : '/es/';
 const reqLabel = en ? 'Requirements:' : 'Requisitos:';
+
+// Latest release data per app, resolved at build time so the buttons below
+// are plain static links (no client-side GitHub API calls needed).
+const { downloads, failed } = await fetchLatestDownloads();
+const locale = en ? 'en-US' : 'es-ES';
+const fmtDate = (iso: string) =>
+  iso ? new Date(iso).toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+const fmtSize = (bytes: number) =>
+  bytes >= 1048576 ? `${(bytes / 1048576).toFixed(1)} MB` : `${Math.max(1, Math.round(bytes / 1024))} KB`;
+
+const wingetApps = apps.filter((a) => a.winget);
+const wingetLine = wingetApps.map((a) => `winget install ${a.winget}`).join('; ');
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `https://cybergems.org${en ? '/' : '/es/'}` },
+    { '@type': 'ListItem', position: 2, name: c.pageTitle, item: `https://cybergems.org${path}/` },
+  ],
+};
 ---
 
-<BaseLayout title={c.metaTitle} description={c.metaDesc} lang={lang} path={path}>
+<BaseLayout title={c.metaTitle} description={c.metaDesc} lang={lang} path={path} jsonLd={breadcrumbLd}>
   <div class="max-w-5xl mx-auto px-5 pt-16 pb-4">
     <header class="text-center">
       <h1 class="text-4xl font-extrabold tracking-tight"><span class="text-gradient brand-glow">{c.pageTitle}</span></h1>
       <p class="mt-3 text-[#9a9aa5] max-w-2xl mx-auto">{c.subtitle}</p>
+      <div class="mt-4 flex flex-wrap justify-center gap-2">
+        <span class="chip">{'\u{1FA9F}'} Windows 10 / 11</span>
+        <span class="chip">{'\u2699\uFE0F'} 64-bit</span>
+        <span class="chip">{'\u{1F4C4}'} GPLv3</span>
+        <span class="chip">{'\u2665'} {en ? '100% free' : '100% gratis'}</span>
+      </div>
     </header>
+
+    {failed && (
+      <div class="mt-8 rounded-xl border border-[#FFB74D]/40 bg-[#FFB74D]/10 text-[#FFD8A8] text-sm p-4 text-center">
+        {'\u26A0'} {c.dataWarn}
+      </div>
+    )}
 
     <div class="mt-8 grid gap-4 sm:grid-cols-3 text-left">
       <div class="card p-5">
-        <div class="text-2xl" aria-hidden="true">📦</div>
+        <div class="text-2xl" aria-hidden="true">{'\u{1F4E6}'}</div>
         <h2 class="mt-2 font-bold">{c.m1Title}</h2>
         <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">{c.m1Text}</p>
       </div>
       <div class="card p-5">
-        <div class="text-2xl" aria-hidden="true">💼</div>
+        <div class="text-2xl" aria-hidden="true">{'\u{1F4BC}'}</div>
         <h2 class="mt-2 font-bold">{c.m2Title}</h2>
         <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">{c.m2Text}</p>
       </div>
       <div class="card p-5">
-        <div class="text-2xl" aria-hidden="true">⌨️</div>
+        <div class="text-2xl" aria-hidden="true">{'\u2328\uFE0F'}</div>
         <h2 class="mt-2 font-bold">3. winget</h2>
         <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">
           <code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[#00f2ff] text-xs">winget install &lt;id&gt;</code>
@@ -41,29 +75,151 @@ const reqLabel = en ? 'Requirements:' : 'Requisitos:';
       </div>
     </div>
 
-    <section class="mt-8 card p-5 text-sm text-[#c9c9d1] leading-relaxed">
-      <p><strong class="text-white">🪟 {reqLabel}</strong> Windows 10 / 11, 64-bit. {c.reqStack}</p>
-      <p class="mt-2"><strong class="text-white">🔏 SmartScreen:</strong> {c.signText}</p>
+    <section class="mt-6 card p-5 text-sm text-[#c9c9d1] leading-relaxed text-left">
+      <p><strong class="text-white">{'\u{1F9E9}'} {reqLabel}</strong> {c.reqStack}</p>
+      <p class="mt-2"><strong class="text-white">{'\u{1F50F}'} SmartScreen:</strong> {c.signText}</p>
+    </section>
+
+    {wingetApps.length > 0 && (
+      <section class="mt-6 card p-6 text-left">
+        <h2 class="font-bold">{'\u2328\uFE0F'} {c.wingetTitle}</h2>
+        <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">{c.wingetText}</p>
+        <div class="mt-4 flex flex-wrap items-center gap-3">
+          <code id="winget-line" class="px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-[#00f2ff] text-xs break-all">{wingetLine}</code>
+          <button type="button" id="winget-copy" data-copied={c.copiedBtn} class="text-xs font-semibold px-3 py-2 rounded-lg border border-white/10 hover:border-[#00f2ff] hover:text-white text-[#9a9aa5] transition-colors">
+            {c.copyBtn}
+          </button>
+        </div>
+      </section>
+    )}
+
+    <section class="mt-8 card p-5 text-left overflow-x-auto">
+      <h2 class="font-bold">{c.cmpTitle}</h2>
+      <table class="mt-4 w-full text-sm min-w-[540px]">
+        <thead>
+          <tr class="text-left">
+            <th class="py-2 pr-4"></th>
+            {c.cmpCols.map((col: string) => <th class="py-2 pr-4 font-semibold text-white">{col}</th>)}
+          </tr>
+        </thead>
+        <tbody class="text-[#c9c9d1]">
+          {c.cmpRows.map((row: any) => (
+            <tr class="border-t border-white/5">
+              <td class="py-2.5 pr-4 text-[#9a9aa5]">{row.label}</td>
+              {row.v.map((cell: string) => <td class="py-2.5 pr-4">{cell}</td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </section>
 
     <section class="mt-10">
-      <h2 class="text-xl font-bold">{c.allTitle}</h2>
-      <div class="mt-4 grid gap-4 sm:grid-cols-2">
-        {apps.map((app) => (
-          <div class="card p-5 flex gap-4 items-start">
-            <div class="w-11 h-11 rounded-xl flex items-center justify-center text-2xl border border-white/10 shrink-0" style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}33 0%, transparent 60%);`} aria-hidden="true">{app.emoji}</div>
-            <div class="min-w-0">
-              <h3 class="font-bold">{app.name}</h3>
-              <p class="text-xs text-[#9a9aa5] truncate">{app.tagline[lang]}</p>
-              <div class="mt-2.5 flex flex-wrap gap-2 text-xs">
-                <a href={`${homePath}apps/${app.slug}/`} class="font-semibold" style={`color: ${app.accent};`}>{c.dlLink}</a>
-                <a href={`${app.repo}/releases`} target="_blank" rel="noopener noreferrer" class="text-[#9a9aa5] hover:text-white transition-colors">{c.relLink}</a>
-                {app.winget && <code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[#00f2ff]">winget install {app.winget}</code>}
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <h2 class="text-xl font-bold">{c.allTitle}</h2>
+        <input
+          id="dl-search"
+          type="search"
+          placeholder={c.searchPh}
+          aria-label={c.searchPh}
+          class="w-full sm:w-64 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder-[#6b6b76] focus:outline-none focus:border-[#00f2ff]/60"
+        />
+      </div>
+      <div id="dl-grid" class="mt-4 grid gap-4 sm:grid-cols-2">
+        {apps.map((app) => {
+          const dl = downloads[app.slug];
+          const inst = dl?.installer ?? null;
+          const hasData = Boolean(dl?.tag);
+          return (
+            <div
+              class="dl-card card p-5 flex gap-4 items-start scroll-mt-24"
+              id={app.slug}
+              data-search={`${app.name} ${app.tagline[lang]} ${app.stack}`.toLowerCase()}
+            >
+              <div class="w-11 h-11 rounded-xl flex items-center justify-center text-2xl border border-white/10 shrink-0" style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}33 0%, transparent 60%);`} aria-hidden="true">{app.emoji}</div>
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-center gap-2">
+                  <h3 class="font-bold">{app.name}</h3>
+                  {hasData && (
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md" style={`color: ${app.accent}; background: ${app.accent}14; border: 1px solid ${app.accent}40;`}>{dl?.tag}</span>
+                  )}
+                </div>
+                <p class="text-xs text-[#9a9aa5] truncate">{app.tagline[lang]}</p>
+                {hasData && dl && dl.publishedAt && (
+                  <p class="mt-0.5 text-[11px] text-[#9a9aa5]">{c.updated} {fmtDate(dl.publishedAt)}</p>
+                )}
+                <div class="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs">
+                  {inst ? (
+                    <a
+                      href={inst.url}
+                      aria-label={`${c.dlLink} ${app.name}`}
+                      class="inline-flex items-center gap-1.5 font-bold px-3 py-1.5 rounded-lg text-[#0d0f17] hover:brightness-95 transition"
+                      style={`background: ${app.accent};`}
+                    >
+                      {'\u2B07'} {c.dlLink} {'\u00B7'} {fmtSize(inst.size)}
+                    </a>
+                  ) : (
+                    <a href={`${homePath}apps/${app.slug}/`} class="font-semibold" style={`color: ${app.accent};`}>{c.dlLink}</a>
+                  )}
+                  <a href={`${homePath}apps/${app.slug}/`} class="text-[#9a9aa5] hover:text-white transition-colors">{en ? 'Details' : 'Detalles'}</a>
+                  {dl && dl.portable && (
+                    <a href={dl.portable.url} target="_blank" rel="noopener noreferrer" class="text-[#9a9aa5] hover:text-white transition-colors">Portable .zip</a>
+                  )}
+                  {hasData && dl && (
+                    <a href={dl.checksum ? dl.checksum.url : dl.releaseUrl} target="_blank" rel="noopener noreferrer" class="text-[#9a9aa5] hover:text-white transition-colors">{c.verLink}</a>
+                  )}
+                  <a href={`${app.repo}/releases`} target="_blank" rel="noopener noreferrer" class="text-[#9a9aa5] hover:text-white transition-colors">{c.relLink}</a>
+                  {app.winget && <code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[#00f2ff]">winget install {app.winget}</code>}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
+      <p id="dl-empty" class="hidden mt-6 text-center text-sm text-[#9a9aa5]">{c.noResults}</p>
     </section>
   </div>
 </BaseLayout>
+
+<script is:inline>
+  (function () {
+    // Download page: live card filter
+    var input = document.getElementById('dl-search');
+    var empty = document.getElementById('dl-empty');
+    if (input) {
+      input.addEventListener('input', function () {
+        var q = input.value.trim().toLowerCase();
+        var visible = 0;
+        document.querySelectorAll('.dl-card').forEach(function (card) {
+          var show = !q || (card.getAttribute('data-search') || '').indexOf(q) !== -1;
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        if (empty) empty.classList.toggle('hidden', visible === 0);
+      });
+    }
+
+    // winget one-liner copy button
+    var btn = document.getElementById('winget-copy');
+    var line = document.getElementById('winget-line');
+    if (btn && line) {
+      btn.addEventListener('click', function () {
+        var orig = btn.textContent;
+        var done = function () {
+          btn.textContent = btn.getAttribute('data-copied') || 'OK';
+          setTimeout(function () { btn.textContent = orig; }, 1200);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(line.textContent || '').then(done).catch(done);
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = line.textContent || '';
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); } catch (e) {}
+          document.body.removeChild(ta);
+          done();
+        }
+      });
+    }
+  })();
+</script>

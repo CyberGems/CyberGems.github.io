@@ -64,3 +64,85 @@ export async function fetchAllReleases(): Promise<{ apps: AppReleases[]; failed:
   const failed = results.some((r) => r.releases.length === 0);
   return { apps: results, failed };
 }
+
+export interface ReleaseAsset {
+  name: string;
+  url: string;
+  size: number;
+}
+
+export interface LatestDownload {
+  tag: string;
+  publishedAt: string;
+  releaseUrl: string;
+  /** Setup installer (.exe, non-portable) when the release offers one */
+  installer: ReleaseAsset | null;
+  /** Portable .zip when the release offers one */
+  portable: ReleaseAsset | null;
+  /** SHA256 / checksum asset when the release offers one */
+  checksum: ReleaseAsset | null;
+}
+
+function pickAsset(assets: any[], test: RegExp, prefer?: RegExp): ReleaseAsset | null {
+  const list = (assets || []).filter((a) => test.test(a.name || ''));
+  if (list.length === 0) return null;
+  const chosen = (prefer && list.find((a) => prefer.test(a.name || ''))) || list[0];
+  return { name: chosen.name ?? '', url: chosen.browser_download_url ?? '', size: chosen.size ?? 0 };
+}
+
+async function fetchLatestDownloadsOnce(): Promise<{
+  downloads: Record<string, LatestDownload>;
+  failed: boolean;
+}> {
+  const token = import.meta.env.GITHUB_TOKEN as string | undefined;
+  const headers: Record<string, string> = { Accept: 'application/vnd.github+json' };
+  if (token) headers.Authorization = `Bearer ${token}`;
+
+  const entries = await Promise.all(
+    apps.map(async (app): Promise<[string, LatestDownload]> => {
+      const empty: LatestDownload = {
+        tag: '',
+        publishedAt: '',
+        releaseUrl: `${app.repo}/releases/latest`,
+        installer: null,
+        portable: null,
+        checksum: null,
+      };
+      try {
+        const res = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${app.slug}/releases/latest`, { headers });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const r: any = await res.json();
+        const assets: any[] = Array.isArray(r.assets) ? r.assets : [];
+        return [
+          app.slug,
+          {
+            tag: r.tag_name ?? '',
+            publishedAt: r.published_at ?? '',
+            releaseUrl: r.html_url ?? empty.releaseUrl,
+            installer: pickAsset(assets, /\.exe$/i, /setup|install/i),
+            portable: pickAsset(assets, /\.zip$/i, /portable/i),
+            checksum: pickAsset(assets, /sha2?56|checksum/i),
+          },
+        ];
+      } catch {
+        return [app.slug, empty];
+      }
+    })
+  );
+
+  const downloads: Record<string, LatestDownload> = {};
+  for (const [slug, dl] of entries) downloads[slug] = dl;
+  const failed = entries.every(([, dl]) => !dl.tag);
+  return { downloads, failed };
+}
+
+let latestDownloadsCache: Promise<{ downloads: Record<string, LatestDownload>; failed: boolean }> | null = null;
+
+/**
+ * Latest release download info for every app, fetched at build time.
+ * Memoized so the EN and ES download pages share one fetch round per build.
+ */
+export function fetchLatestDownloads(): Promise<{ downloads: Record<string, LatestDownload>; failed: boolean }> {
+  latestDownloadsCache ??= fetchLatestDownloadsOnce();
+  return latestDownloadsCache;
+}

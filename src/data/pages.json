@@ -122,7 +122,24 @@
       "signText": "“Unknown publisher” is expected (no paid certificate yet). Verify with the release SHA / VirusTotal or build from source.",
       "allTitle": "All apps",
       "dlLink": "Download →",
-      "relLink": "All releases ↗"
+      "relLink": "All releases ↗",
+      "searchPh": "Search apps…",
+      "noResults": "No apps match your search.",
+      "dataWarn": "Could not reach the GitHub API while building — showing release links only.",
+      "updated": "updated",
+      "verLink": "SHA256 ↗",
+      "wingetTitle": "Install with winget",
+      "wingetText": "One command per app, straight from any terminal — scriptable and always the latest published version.",
+      "copyBtn": "Copy",
+      "copiedBtn": "Copied ✓",
+      "cmpTitle": "Which method should I pick?",
+      "cmpCols": ["Setup .exe", "Portable .zip", "winget"],
+      "cmpRows": [
+        { "label": "Install steps", "v": ["Double-click the installer", "Unzip and run", "One command"] },
+        { "label": "Admin rights", "v": ["Yes (first run)", "Not required", "Not required"] },
+        { "label": "Updates", "v": ["In-app update check", "Re-download", "winget upgrade"] },
+        { "label": "Best for", "v": ["Most users", "USB sticks, no-install", "Scripted / silent setups"] }
+      ]
     },
     "es": {
       "metaTitle": "Descargar — CyberGems",
@@ -138,7 +155,24 @@
       "signText": "“Editor desconocido” es esperado (aún sin certificado de pago). Verifica con el SHA del release / VirusTotal o compilando.",
       "allTitle": "Todas las apps",
       "dlLink": "Descargar →",
-      "relLink": "Versiones ↗"
+      "relLink": "Versiones ↗",
+      "searchPh": "Buscar apps…",
+      "noResults": "Ninguna app coincide con tu búsqueda.",
+      "dataWarn": "No se pudo contactar la API de GitHub al compilar — se muestran solo enlaces de releases.",
+      "updated": "actualizada",
+      "verLink": "SHA256 ↗",
+      "wingetTitle": "Instala con winget",
+      "wingetText": "Un comando por app, directo desde cualquier terminal — scripteable y siempre con la última versión publicada.",
+      "copyBtn": "Copiar",
+      "copiedBtn": "Copiado ✓",
+      "cmpTitle": "¿Qué método elijo?",
+      "cmpCols": ["Setup .exe", "Portable .zip", "winget"],
+      "cmpRows": [
+        { "label": "Pasos de instalación", "v": ["Doble clic al instalador", "Descomprimir y ejecutar", "Un comando"] },
+        { "label": "Permisos de admin", "v": ["SÍ (primera ejecución)", "No requeridos", "No requeridos"] },
+        { "label": "Actualizaciones", "v": ["Check de updates en la app", "Re-descargar", "winget upgrade"] },
+        { "label": "Ideal para", "v": ["La mayoría", "USB, sin instalación", "Scripteadas / silenciosas"] }
+      ]
     }
   }
 }
