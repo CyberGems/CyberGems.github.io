@@ -32,7 +32,7 @@ const appLd = {
   name: app.name,
   description: app.description[lang],
   applicationCategory: 'UtilitiesApplication',
-  operatingSystem: 'Windows',
+  operatingSystem: 'Windows 10, Windows 11',
   url: `https://cybergems.org${lang === 'es' ? '/es' : ''}/apps/${app.slug}/`,
   downloadUrl: releasesUrl,
   softwareVersion: undefined,
@@ -80,7 +80,8 @@ const faqPath = lang === 'en' ? '/faq' : '/es/faq';
         <div class="mt-3 flex flex-wrap gap-2">
           <span class="chip">🧩 {app.stack}</span>
           <span class="chip">📄 {app.license}</span>
-          <span class="chip">🖥️ Windows</span>
+          <span class="chip">🖥️ Windows 10</span>
+          <span class="chip">🖥️ Windows 11</span>
         </div>
       </div>
     </header>
