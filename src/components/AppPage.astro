@@ -140,7 +140,7 @@ const faqPath = lang === 'en' ? '/faq' : '/es/faq';
       {app.features.map((feature) => (
         <li class="card flex items-start gap-3 p-4">
           <span
-            class="mt-1 w-2 h-2 rounded-full shrink-0"
+            class="mt-[7px] w-2 h-2 rounded-full shrink-0"
             style={`background: ${app.accent}; box-shadow: 0 0 10px ${app.accent};`}
           >
           </span>
@@ -153,7 +153,7 @@ const faqPath = lang === 'en' ? '/faq' : '/es/faq';
     {app.useCases && (
       <section class="mt-12">
         <h2 class="text-2xl font-bold tracking-tight">
-          {t.useCasesTitle} {app.name}
+          {t.useCasesTitle}
         </h2>
         <div class="mt-6 grid gap-10 lg:grid-cols-5">
         <div class="lg:col-span-3">
