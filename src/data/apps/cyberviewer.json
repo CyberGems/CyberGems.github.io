@@ -4,7 +4,7 @@
   "emoji": "💫",
   "accent": "#BA68C8",
   "stack": "Electron · JavaScript",
-  "license": "MIT",
+  "license": "GPLv3",
   "tagline": {
     "en": "A fast, lightweight image viewer with the essential editing tools built in.",
     "es": "Un visor de imágenes rápido y ligero con las herramientas de edición esenciales integradas."
