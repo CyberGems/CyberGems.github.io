@@ -147,12 +147,16 @@ collections:
             fields:
               - { name: q, label: Question, widget: string }
               - { name: a, label: Answer, widget: text }
+              - { name: linkLabel, label: Internal link label, widget: string, required: false }
+              - { name: linkHref, label: Internal link URL, widget: string, required: false }
           - name: es
             label: Español
             widget: list
             fields:
               - { name: q, label: Pregunta, widget: string }
               - { name: a, label: Respuesta, widget: text }
+              - { name: linkLabel, label: Texto del enlace interno, widget: string, required: false }
+              - { name: linkHref, label: URL del enlace interno, widget: string, required: false }
 
   - name: settings
     label: '⚙️ Settings'

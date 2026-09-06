@@ -10,7 +10,7 @@
       "yesLabel": "It is",
       "yesItems": [
         "An independent developer building tools I use every day",
-        "10 native Windows apps, GPLv3, public source and builds",
+        "10 desktop apps for Windows, GPLv3, public source and builds",
         "A long-term project: I maintain what I depend on"
       ],
       "noLabel": "It is not",
@@ -42,7 +42,7 @@
       "yesLabel": "Sí es",
       "yesItems": [
         "Un desarrollador independiente que crea las herramientas que usa cada día",
-        "10 apps nativas Windows, GPLv3, código y builds públicos",
+        "10 aplicaciones de escritorio para Windows, GPLv3, código y builds públicos",
         "Un proyecto a largo plazo: mantengo lo que yo mismo dependo"
       ],
       "noLabel": "No es",

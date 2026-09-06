@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import AppCard from './AppCard.astro';
 import { apps } from '../data/apps';
 import { ui, type Lang } from '../data/ui';
+import { fetchLatestDownloads } from '../data/releases';
 
 interface Props {
   lang: Lang;
@@ -10,6 +11,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = ui[lang];
+const { downloads } = await fetchLatestDownloads();
 const homePath = lang === 'en' ? '/' : '/es/';
 const title = lang === 'en' ? 'CyberGems — Free & open-source Windows apps' : 'CyberGems — Apps gratuitas y de código abierto para Windows';
 const description = lang === 'en'
@@ -93,7 +95,7 @@ const itemListLd = {
       <p class="mt-3 text-[#9a9aa5]">{t.appsSubtitle}</p>
     </div>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {apps.map((app) => <AppCard app={app} lang={lang} />)}
+      {apps.map((app) => <AppCard app={app} lang={lang} download={downloads[app.slug]} />)}
     </div>
   </section>
 

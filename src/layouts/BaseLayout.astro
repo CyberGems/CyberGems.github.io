@@ -97,8 +97,31 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
           >
             🌐 {t.langSwitch}
           </a>
+          <button
+            type="button"
+            class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/10 text-[#c9c9d1] hover:border-[#00f2ff] hover:text-white transition-colors"
+            data-mobile-menu-toggle
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            aria-label={lang === 'en' ? 'Open navigation' : 'Abrir navegación'}
+            data-open-label={lang === 'en' ? 'Open navigation' : 'Abrir navegación'}
+            data-close-label={lang === 'en' ? 'Close navigation' : 'Cerrar navegación'}
+          >
+            <span data-mobile-menu-icon aria-hidden="true">☰</span>
+          </button>
         </div>
       </nav>
+      <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-[#0d0f17]/95">
+        <nav aria-label={lang === 'en' ? 'Mobile navigation' : 'Navegación móvil'} class="max-w-6xl mx-auto px-5 py-3 grid grid-cols-2 gap-2">
+          <a href={`${homeHref}#apps`} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navApps}</a>
+          <a href={lang === 'en' ? '/download' : '/es/download'} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navDownload}</a>
+          <a href={lang === 'en' ? '/changelog' : '/es/changelog'} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navChangelog}</a>
+          <a href={lang === 'en' ? '/docs' : '/es/docs'} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navDocs}</a>
+          <a href={lang === 'en' ? '/about' : '/es/about'} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navAbout}</a>
+          <a href={lang === 'en' ? '/faq' : '/es/faq'} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navFaq}</a>
+          <a href={lang === 'en' ? '/donate' : '/es/donate'} class="col-span-2 rounded-lg px-3 py-2.5 text-sm font-semibold text-gradient hover:bg-white/5" data-mobile-menu-link>♥ {t.navDonate}</a>
+        </nav>
+      </div>
     </header>
 
     <main id="main" class="flex-1">
@@ -142,5 +165,24 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
         </nav>
       </div>
     </footer>
+    <script is:inline>
+      (() => {
+        const toggle = document.querySelector('[data-mobile-menu-toggle]');
+        const menu = document.getElementById('mobile-menu');
+        if (!toggle || !menu) return;
+        const icon = toggle.querySelector('[data-mobile-menu-icon]');
+        const setOpen = (open) => {
+          menu.classList.toggle('hidden', !open);
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.setAttribute('aria-label', toggle.getAttribute(open ? 'data-close-label' : 'data-open-label') || 'Menu');
+          if (icon) icon.textContent = open ? '×' : '☰';
+        };
+        toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+        menu.querySelectorAll('[data-mobile-menu-link]').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+        window.addEventListener('resize', () => {
+          if (window.innerWidth >= 768) setOpen(false);
+        });
+      })();
+    </script>
   </body>
 </html>

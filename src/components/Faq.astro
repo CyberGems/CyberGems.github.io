@@ -13,7 +13,7 @@ const description = en
   : '¿De verdad es gratis? ¿Es portable? ¿Cómo reporto un bug? Respuestas y dónde pedir ayuda para cualquier app CyberGems.';
 const path = en ? '/faq' : '/es/faq';
 
-const faqs: { q: string; a: string }[] = (faqsData as Record<string, { q: string; a: string }[]>)[lang] ?? [];
+const faqs: { q: string; a: string; linkLabel?: string; linkHref?: string }[] = (faqsData as Record<string, { q: string; a: string; linkLabel?: string; linkHref?: string }[]>)[lang] ?? [];
 ---
 
 <BaseLayout title={title} description={description} lang={lang} path={path}>
@@ -28,7 +28,12 @@ const faqs: { q: string; a: string }[] = (faqsData as Record<string, { q: string
           <summary class="font-semibold cursor-pointer list-none flex justify-between gap-3">
             <span>{f.q}</span><span class="text-[#00f2ff] group-open:rotate-45 transition-transform">+</span>
           </summary>
-          <p class="mt-2.5 text-sm text-[#c9c9d1] leading-relaxed">{f.a}</p>
+          <p class="mt-2.5 text-sm text-[#c9c9d1] leading-relaxed">
+            {f.a}
+            {f.linkLabel && f.linkHref && (
+              <> <a href={f.linkHref} class="font-semibold text-[#00f2ff] hover:underline">{f.linkLabel}</a></>
+            )}
+          </p>
         </details>
       ))}
     </div>

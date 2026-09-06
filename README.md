@@ -136,7 +136,7 @@ A content manager is available at **`/admin`** (`https://cybergems.org/admin`):
 Wikis live as separate git repos (`https://github.com/CyberGems/<slug>.wiki.git`). On every `dev` and `build`:
 
 1. `scripts/fetch-wikis.mjs` reads slugs from `src/data/apps/*.json`
-2. Shallow-clones each wiki into `wikis/<slug>/` (skips silently if wiki is disabled)
+2. Uses the sibling `<App>.wiki` repository when it exists locally (for example `../CyberViewer.wiki`); in CI, shallow-clones the wiki from GitHub into `wikis/<slug>/`
 3. Copies non-markdown assets into `public/wikis/<slug>/` so images referenced in markdown are served as static files
 4. Astro renders the markdown via `marked` into `/docs` routes
 
