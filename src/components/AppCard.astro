@@ -50,6 +50,15 @@ const publishedDate = download?.publishedAt
         <h3 class="text-lg font-bold">{app.name}</h3>
         <span class="text-[11px] text-[#9a9aa5] font-medium">{app.stack}</span>
       </div>
+      <span
+        class="inline-flex w-fit items-center gap-1.5 rounded-md border border-[#0078D4]/35 bg-[#0078D4]/10 px-2 py-1 text-[11px] font-semibold text-[#c9dff4]"
+        aria-label="Compatible with Windows 10 and Windows 11"
+      >
+        <svg aria-hidden="true" viewBox="0 0 16 16" class="h-3.5 w-3.5 fill-[#4fc3f7]">
+          <path d="M1 2.3 7 1.5v6H1V2.3Zm8-1.1 6-.8v7.1H9V1.2ZM1 8.5h6v6L1 13.7V8.5Zm8 0h6v7.1l-6-.8V8.5Z" />
+        </svg>
+        Windows 10/11
+      </span>
       <p class="text-sm text-[#9a9aa5] leading-relaxed flex-1">{app.tagline[lang]}</p>
       <span class="text-sm font-semibold inline-flex items-center gap-1.5" style={`color: ${app.accent};`}>
         {learnMore}
