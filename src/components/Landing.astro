@@ -134,6 +134,7 @@ const itemListLd = {
 
 <script>
   const hero = document.querySelector<HTMLElement>('.landing-hero');
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
   const motion = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
 
   if (hero) {
@@ -150,7 +151,7 @@ const itemListLd = {
     };
 
     hero.addEventListener('pointermove', (event) => {
-      if (!motion.matches || event.pointerType === 'touch') return;
+      if (!canHover.matches || event.pointerType === 'touch') return;
       cursorX = event.clientX;
       cursorY = event.clientY;
       // Coalesce pointer events; no render loop runs while the cursor is idle.
@@ -162,8 +163,11 @@ const itemListLd = {
         const y = cursorY - bounds.top;
         hero.style.setProperty('--cursor-x', `${x}px`);
         hero.style.setProperty('--cursor-y', `${y}px`);
-        hero.style.setProperty('--grid-x', `${(x / bounds.width - 0.5) * 20}px`);
-        hero.style.setProperty('--grid-y', `${(y / bounds.height - 0.5) * 16}px`);
+        // Grid parallax is ambient motion: keep it behind reduced-motion.
+        if (motion.matches) {
+          hero.style.setProperty('--grid-x', `${(x / bounds.width - 0.5) * 20}px`);
+          hero.style.setProperty('--grid-y', `${(y / bounds.height - 0.5) * 16}px`);
+        }
         hero.classList.add('is-pointer-active');
       });
     }, { passive: true });
@@ -173,6 +177,7 @@ const itemListLd = {
     window.addEventListener('blur', reset);
     window.addEventListener('scroll', reset, { passive: true });
     motion.addEventListener('change', reset);
+    canHover.addEventListener('change', reset);
   }
 </script>
 
@@ -199,14 +204,18 @@ const itemListLd = {
     transform: translate(calc(var(--cursor-x, 0px) - 50%), calc(var(--cursor-y, 0px) - 50%));
   }
 
-  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  /* Cursor halo follows the pointer (user-driven, not autonomous motion),
+     so it is not gated behind reduced-motion. Grid parallax stays gated. */
+  @media (hover: hover) and (pointer: fine) {
     .hero-spotlight {
       display: block;
       transition: opacity 250ms ease;
     }
 
     .is-pointer-active .hero-spotlight { opacity: 1; }
+  }
 
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
     .hero-grid {
       transform: translate(var(--grid-x, 0px), var(--grid-y, 0px));
       transition: transform 350ms ease-out;
