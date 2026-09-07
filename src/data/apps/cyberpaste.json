@@ -78,8 +78,8 @@
       "color": "#A78BFA",
       "title": { "en": "Privacy First", "es": "Privacidad primero" },
       "text": {
-        "en": "100% local SQLite, zero telemetry, no account. Ignore sensitive apps by exe or path, filter ghost clips, or run AI offline with Ollama.",
-        "es": "SQLite 100% local, cero telemetría, sin cuentas. Ignora apps sensibles por exe o ruta, filtra clips fantasma o usa IA offline con Ollama."
+        "en": "100% local SQLite, zero telemetry, no account. Ignore sensitive apps by exe or path, filter ghost clips, or run AI offline with local Ollama via the custom endpoint.",
+        "es": "SQLite 100% local, cero telemetría, sin cuentas. Ignora apps sensibles por exe o ruta, filtra clips fantasma o usa IA offline con Ollama local vía endpoint personalizado."
       }
     },
     {
@@ -105,8 +105,8 @@
       "color": "#E879F9",
       "title": { "en": "AI Assistant", "es": "Asistente IA" },
       "text": {
-        "en": "Summarize, translate, explain code or fix grammar — plus custom prompts. OpenAI, DeepSeek, Groq, OpenRouter, Ollama or any compatible endpoint.",
-        "es": "Resume, traduce, explica código o corrige gramática — más prompts personalizados. OpenAI, DeepSeek, Groq, OpenRouter, Ollama o cualquier endpoint compatible."
+        "en": "Summarize, translate, explain code or fix grammar — plus custom prompts. OpenAI, DeepSeek, Kimi, Gemini, Grok or any OpenAI-compatible custom endpoint.",
+        "es": "Resume, traduce, explica código o corrige gramática — más prompts personalizados. OpenAI, DeepSeek, Kimi, Gemini, Grok o cualquier endpoint personalizado compatible con OpenAI."
       }
     },
     {
@@ -145,7 +145,7 @@
       { "icon": "🎧", "title": { "en": "Customer Support", "es": "Soporte al cliente" }, "text": { "en": "Answer tickets with pinned replies and folders per topic; bulk-manage canned responses in seconds.", "es": "Responde tickets con respuestas fijadas y carpetas por tema; gestiona respuestas tipo en lote en segundos." } },
       { "icon": "🔬", "title": { "en": "Research", "es": "Investigación" }, "text": { "en": "Collect URLs, files and screenshots; OCR images into searchable text and filter by source app.", "es": "Recopila URLs, archivos y capturas; convierte imágenes en texto buscable con OCR y filtra por app de origen." } },
       { "icon": "📋", "title": { "en": "Office & Productivity", "es": "Oficina y productividad" }, "text": { "en": "Pin templates, forms and addresses on top; number clips and auto-paste them where you need.", "es": "Fija plantillas, formularios y direcciones arriba; numera clips y auto-pégalos donde los necesites." } },
-      { "icon": "🔒", "title": { "en": "Privacy-minded", "es": "Privacidad" }, "text": { "en": "Everything stays in local SQLite with zero telemetry; ignore password managers and run AI offline via Ollama.", "es": "Todo queda en SQLite local con cero telemetría; ignora gestores de contraseñas y usa IA offline con Ollama." } }
+      { "icon": "🔒", "title": { "en": "Privacy-minded", "es": "Privacidad" }, "text": { "en": "Everything stays in local SQLite with zero telemetry; ignore password managers and run AI offline with local Ollama via the custom endpoint.", "es": "Todo queda en SQLite local con cero telemetría; ignora gestores de contraseñas y usa IA offline con Ollama local vía endpoint personalizado." } }
     ],
     "tasks": [
       { "icon": "📥", "title": { "en": "Capture Everything", "es": "Captura todo" }, "text": { "en": "Text, code, HTML, RTF, images, links and files — including Ctrl+X cuts, deduped and ghost-filtered.", "es": "Texto, código, HTML, RTF, imágenes, enlaces y archivos — incluidos cortes Ctrl+X, sin duplicados ni clips fantasma." } },
