@@ -23,8 +23,8 @@
         "icon": "⬇️",
         "title": { "en": "Download & Install", "es": "Descarga e instala" },
         "text": {
-          "en": "Install with winget, the .msi setup or the portable zip. Enable Start with Windows if you want it always on.",
-          "es": "Instala con winget, el instalador .msi o el zip portable. Activa Iniciar con Windows si lo quieres siempre activo."
+          "en": "Install with winget, the NSIS setup, or run the portable zip — no installation needed. Enable Start with Windows if you want it always on.",
+          "es": "Instala con winget, el setup NSIS, o ejecuta el zip portable — sin instalación. Activa Iniciar con Windows si lo quieres siempre activo."
         }
       },
       {
