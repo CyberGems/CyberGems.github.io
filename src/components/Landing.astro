@@ -60,7 +60,8 @@ const itemListLd = {
   <!-- Hero -->
   <section class="landing-hero relative overflow-hidden">
     <div class="hero-aura" aria-hidden="true"></div>
-    <div class="absolute inset-0 cyber-grid" aria-hidden="true"></div>
+    <div class="hero-grid absolute inset-0 cyber-grid" aria-hidden="true"></div>
+    <div class="hero-spotlight" aria-hidden="true"></div>
     <div class="max-w-6xl mx-auto px-5 pt-24 pb-20 text-center relative">
       <span class="hero-enter hero-badge chip mb-6">{t.heroBadge}</span>
       <h1 class="hero-enter hero-title text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
@@ -131,9 +132,85 @@ const itemListLd = {
   </section>
 </BaseLayout>
 
+<script>
+  const hero = document.querySelector<HTMLElement>('.landing-hero');
+  const motion = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
+
+  if (hero) {
+    let frame = 0;
+    let cursorX = 0;
+    let cursorY = 0;
+
+    const reset = () => {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      hero.classList.remove('is-pointer-active');
+      hero.style.setProperty('--grid-x', '0px');
+      hero.style.setProperty('--grid-y', '0px');
+    };
+
+    hero.addEventListener('pointermove', (event) => {
+      if (!motion.matches || event.pointerType === 'touch') return;
+      cursorX = event.clientX;
+      cursorY = event.clientY;
+      // Coalesce pointer events; no render loop runs while the cursor is idle.
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        const bounds = hero.getBoundingClientRect();
+        const x = cursorX - bounds.left;
+        const y = cursorY - bounds.top;
+        hero.style.setProperty('--cursor-x', `${x}px`);
+        hero.style.setProperty('--cursor-y', `${y}px`);
+        hero.style.setProperty('--grid-x', `${(x / bounds.width - 0.5) * 20}px`);
+        hero.style.setProperty('--grid-y', `${(y / bounds.height - 0.5) * 16}px`);
+        hero.classList.add('is-pointer-active');
+      });
+    }, { passive: true });
+
+    hero.addEventListener('pointerleave', reset);
+    hero.addEventListener('pointercancel', reset);
+    window.addEventListener('blur', reset);
+    window.addEventListener('scroll', reset, { passive: true });
+    motion.addEventListener('change', reset);
+  }
+</script>
+
 <style>
   .landing-hero {
     isolation: isolate;
+  }
+
+  .hero-grid {
+    inset: -12px;
+    pointer-events: none;
+  }
+
+  .hero-spotlight {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 440px;
+    height: 440px;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(circle, rgb(0 242 255 / 0.16), rgb(122 92 255 / 0.09) 38%, transparent 70%);
+    transform: translate(calc(var(--cursor-x, 0px) - 50%), calc(var(--cursor-y, 0px) - 50%));
+  }
+
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .hero-spotlight {
+      display: block;
+      transition: opacity 250ms ease;
+    }
+
+    .is-pointer-active .hero-spotlight { opacity: 1; }
+
+    .hero-grid {
+      transform: translate(var(--grid-x, 0px), var(--grid-y, 0px));
+      transition: transform 350ms ease-out;
+    }
   }
 
   /* Static gradients need no blur filter, images, or animation runtime. */
