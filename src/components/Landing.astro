@@ -58,16 +58,17 @@ const itemListLd = {
 
 <BaseLayout title={title} description={description} lang={lang} path={homePath} ogImage={lang === 'es' ? '/og/es.png' : '/og.png'} jsonLd={[orgLd, websiteLd, itemListLd]}>
   <!-- Hero -->
-  <section class="relative overflow-hidden">
+  <section class="landing-hero relative overflow-hidden">
+    <div class="hero-aura" aria-hidden="true"></div>
     <div class="absolute inset-0 cyber-grid" aria-hidden="true"></div>
     <div class="max-w-6xl mx-auto px-5 pt-24 pb-20 text-center relative">
-      <span class="chip mb-6">{t.heroBadge}</span>
-      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+      <span class="hero-enter hero-badge chip mb-6">{t.heroBadge}</span>
+      <h1 class="hero-enter hero-title text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
         {t.heroTitle1}<br />
         <span class="text-gradient brand-glow">{t.heroTitle2}</span>
       </h1>
-      <p class="mt-6 max-w-2xl mx-auto text-[#9a9aa5] text-lg leading-relaxed">{t.heroText}</p>
-      <div class="mt-9 flex flex-wrap items-center justify-center gap-4">
+      <p class="hero-enter hero-description mt-6 max-w-2xl mx-auto text-[#9a9aa5] text-lg leading-relaxed">{t.heroText}</p>
+      <div class="hero-enter hero-actions mt-9 flex flex-wrap items-center justify-center gap-4">
         <a href="#apps" class="btn-primary">{t.heroCta} ↓</a>
         <a href="https://github.com/CyberGems" target="_blank" rel="noopener noreferrer" class="btn-ghost">
           ★ {t.heroCta2}
@@ -129,3 +130,59 @@ const itemListLd = {
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .landing-hero {
+    isolation: isolate;
+  }
+
+  /* Static gradients need no blur filter, images, or animation runtime. */
+  .hero-aura {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 42% 65% at 28% 35%, rgb(0 242 255 / 0.085), transparent 75%),
+      radial-gradient(ellipse 42% 70% at 75% 45%, rgb(122 92 255 / 0.12), transparent 75%);
+  }
+
+  .landing-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    width: 70%;
+    height: 1px;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgb(0 242 255 / 0.3), rgb(122 92 255 / 0.3), transparent);
+  }
+
+  /* One-shot compositor-friendly motion; the page is still once settled.
+     Content stays visible by default, including with reduced motion or no JS. */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-enter {
+      animation: hero-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    }
+
+    .hero-title { animation-delay: 80ms; }
+    .hero-description { animation-delay: 160ms; }
+    .hero-actions { animation-delay: 240ms; }
+
+    /* Reveal focused controls immediately during the entrance. */
+    .hero-actions:focus-within { animation: none; }
+
+    .hero-aura {
+      animation: hero-aura-settle 2400ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    }
+  }
+
+  @keyframes hero-enter {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes hero-aura-settle {
+    from { opacity: 0; transform: translateY(16px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+</style>
