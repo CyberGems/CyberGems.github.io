@@ -79,6 +79,54 @@ collections:
       - name: repo
         label: Repo URL
         widget: string
+      - name: howItWorks
+        label: How it works (3-step strip)
+        widget: object
+        required: false
+        fields:
+          - name: title
+            label: Title
+            widget: object
+            fields:
+              - { name: en, label: English, widget: string }
+              - { name: es, label: Español, widget: string }
+          - name: steps
+            label: Steps
+            widget: list
+            required: false
+            fields:
+              - { name: icon, label: Icon, widget: string }
+              - name: title
+                label: Title
+                widget: object
+                fields:
+                  - { name: en, label: English, widget: string }
+                  - { name: es, label: Español, widget: string }
+              - name: text
+                label: Text
+                widget: object
+                fields:
+                  - { name: en, label: English, widget: text }
+                  - { name: es, label: Español, widget: text }
+      - name: highlights
+        label: Highlight cards
+        widget: list
+        required: false
+        fields:
+          - { name: icon, label: Icon, widget: string }
+          - { name: color, label: Color, widget: string, required: false, hint: 'Hex, e.g. #22C55E — empty = app accent' }
+          - name: title
+            label: Title
+            widget: object
+            fields:
+              - { name: en, label: English, widget: string }
+              - { name: es, label: Español, widget: string }
+          - name: text
+            label: Text
+            widget: object
+            fields:
+              - { name: en, label: English, widget: text }
+              - { name: es, label: Español, widget: text }
       - name: useCases
         label: Use cases (By Role / By Task)
         widget: object

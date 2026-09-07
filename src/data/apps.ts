@@ -11,6 +11,20 @@ export interface UseCase {
   text: LocalizedText;
 }
 
+export interface HowItWorksStep {
+  icon: string;
+  title: LocalizedText;
+  text: LocalizedText;
+}
+
+export interface HighlightCard {
+  icon: string;
+  /** Optional hex color for the icon tile (falls back to the app accent) */
+  color?: string;
+  title: LocalizedText;
+  text: LocalizedText;
+}
+
 export interface CyberApp {
   /** URL slug, e.g. "cybersnap" -> /apps/cybersnap */
   slug: string;
@@ -34,6 +48,13 @@ export interface CyberApp {
     roles: UseCase[];
     tasks: UseCase[];
   };
+  /** Optional "how it works" 3-step strip (numbered badges + icons) */
+  howItWorks?: {
+    title: LocalizedText;
+    steps: HowItWorksStep[];
+  };
+  /** Optional highlight cards grid (icon tile + title + text) */
+  highlights?: HighlightCard[];
   /** Screenshot: bare filename resolved to /screenshots/<slug>/, or an
       absolute public path (as written by the CMS), or null for the placeholder */
   screenshot: string | null;

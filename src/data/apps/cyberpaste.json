@@ -13,14 +13,149 @@
     "en": "A beautiful, privacy-focused clipboard history manager for Windows. CyberPaste stores everything you copy — text, code, images, files, URLs — in a local SQLite database, so you can recall any clip at any time. Search, organize, pin, edit and paste instantly, with optional AI-powered actions.",
     "es": "Un gestor de historial del portapapeles elegante y centrado en la privacidad para Windows. CyberPaste guarda todo lo que copias — texto, código, imágenes, archivos, URLs — en una base de datos SQLite local, para que recuperes cualquier clip en cualquier momento. Busca, organiza, fija, edita y pega al instante, con acciones de IA opcionales."
   },
+  "howItWorks": {
+    "title": {
+      "en": "Up and running in minutes",
+      "es": "Listo en minutos"
+    },
+    "steps": [
+      {
+        "icon": "⬇️",
+        "title": { "en": "Download & Install", "es": "Descarga e instala" },
+        "text": {
+          "en": "Install with winget, the .msi setup or the portable zip. Enable Start with Windows if you want it always on.",
+          "es": "Instala con winget, el instalador .msi o el zip portable. Activa Iniciar con Windows si lo quieres siempre activo."
+        }
+      },
+      {
+        "icon": "📋",
+        "title": { "en": "Copy Anything", "es": "Copia lo que sea" },
+        "text": {
+          "en": "Work normally — CyberPaste silently captures text, code, HTML, images, links and files (even Ctrl+X cuts) into local SQLite.",
+          "es": "Trabaja con normalidad — CyberPaste captura en silencio texto, código, HTML, imágenes, enlaces y archivos (incluso cortes Ctrl+X) en SQLite local."
+        }
+      },
+      {
+        "icon": "⌨️",
+        "title": { "en": "Press Ctrl+Shift+V", "es": "Pulsa Ctrl+Shift+V" },
+        "text": {
+          "en": "Your history appears instantly. Search or filter, then Enter, click or double-click to paste. Space previews, P pins.",
+          "es": "Tu historial aparece al instante. Busca o filtra y pulsa Enter, clic o doble clic para pegar. Espacio previsualiza, P fija."
+        }
+      }
+    ]
+  },
+  "highlights": [
+    {
+      "icon": "⚡",
+      "color": "#3B82F6",
+      "title": { "en": "Instant Access", "es": "Acceso instantáneo" },
+      "text": {
+        "en": "One configurable hotkey. Your full history pops up instantly — Enter or click to paste, with auto-paste and multi-monitor support.",
+        "es": "Un hotkey configurable. Todo tu historial aparece al instante — Enter o clic para pegar, con auto-pegado y soporte multi-monitor."
+      }
+    },
+    {
+      "icon": "🔍",
+      "color": "#22C55E",
+      "title": { "en": "Powerful Search", "es": "Búsqueda potente" },
+      "text": {
+        "en": "SQLite FTS5 search across content, OCR text and source app. Filter chips with live counts — find a clip from weeks ago in seconds.",
+        "es": "Búsqueda SQLite FTS5 sobre contenido, texto OCR y app de origen. Filtros con conteos en vivo — encuentra un clip de hace semanas en segundos."
+      }
+    },
+    {
+      "icon": "📌",
+      "color": "#F59E0B",
+      "title": { "en": "Pin & Favorites", "es": "Fijados y favoritos" },
+      "text": {
+        "en": "Pinned clips stay on top everywhere and are never auto-deleted. Favorites give you a second quick-access lane.",
+        "es": "Los fijados quedan arriba en todas partes y nunca se auto-borran. Los favoritos te dan una segunda vía de acceso rápido."
+      }
+    },
+    {
+      "icon": "🛡️",
+      "color": "#A78BFA",
+      "title": { "en": "Privacy First", "es": "Privacidad primero" },
+      "text": {
+        "en": "100% local SQLite, zero telemetry, no account. Ignore sensitive apps by exe or path, filter ghost clips, or run AI offline with Ollama.",
+        "es": "SQLite 100% local, cero telemetría, sin cuentas. Ignora apps sensibles por exe o ruta, filtra clips fantasma o usa IA offline con Ollama."
+      }
+    },
+    {
+      "icon": "🗂️",
+      "color": "#38BDF8",
+      "title": { "en": "Smart History", "es": "Historial inteligente" },
+      "text": {
+        "en": "300 clips and 30-day retention by default — both configurable up to unlimited. Oldest unpinned go first, plus JSON export/import.",
+        "es": "300 clips y 30 días por defecto — ambos configurables hasta ilimitado. Se borran primero los más antiguos no fijados, más exportar/importar JSON."
+      }
+    },
+    {
+      "icon": "🪶",
+      "color": "#34D399",
+      "title": { "en": "Lightweight & Native", "es": "Ligero y nativo" },
+      "text": {
+        "en": "Tauri + Rust build (~50 MB) that lives quietly in your tray. Winget, .msi or portable, optional Start with Windows and GitHub auto-updates.",
+        "es": "Compilado Tauri + Rust (~50 MB) que vive discreto en la bandeja. Winget, .msi o portable, inicio con Windows opcional y auto-actualización desde GitHub."
+      }
+    },
+    {
+      "icon": "✨",
+      "color": "#E879F9",
+      "title": { "en": "AI Assistant", "es": "Asistente IA" },
+      "text": {
+        "en": "Summarize, translate, explain code or fix grammar — plus custom prompts. OpenAI, DeepSeek, Groq, OpenRouter, Ollama or any compatible endpoint.",
+        "es": "Resume, traduce, explica código o corrige gramática — más prompts personalizados. OpenAI, DeepSeek, Groq, OpenRouter, Ollama o cualquier endpoint compatible."
+      }
+    },
+    {
+      "icon": "🖼️",
+      "color": "#FB7185",
+      "title": { "en": "Rich Content + OCR", "es": "Contenido rico + OCR" },
+      "text": {
+        "en": "Code with 100+ language highlighting, preserved HTML/RTF, images, links and files. Local Windows Media OCR turns images into searchable text.",
+        "es": "Código con resaltado en 100+ lenguajes, HTML/RTF preservados, imágenes, enlaces y archivos. El OCR local de Windows convierte imágenes en texto buscable."
+      }
+    },
+    {
+      "icon": "🎛️",
+      "color": "#FACC15",
+      "title": { "en": "Organize Your Way", "es": "Organiza a tu manera" },
+      "text": {
+        "en": "Folders with drag & drop, bulk select, editable clips and detail view. Full grid or Compact list (Ctrl+M), 4 Mica themes and HUD toasts.",
+        "es": "Carpetas con arrastrar y soltar, selección múltiple, clips editables y vista detalle. Rejilla completa o lista compacta (Ctrl+M), 4 temas Mica y avisos HUD."
+      }
+    }
+  ],
   "features": [
     { "en": "Rich content: text, code (syntax highlighting), images (OCR), HTML, RTF, files, URLs", "es": "Contenido rico: texto, código (resaltado de sintaxis), imágenes (OCR), HTML, RTF, archivos, URLs" },
-    { "en": "Instant full-text search with quick filter chips", "es": "Búsqueda instantánea de texto completo con filtros rápidos" },
-    { "en": "AI actions — summarize, translate, explain code — with any OpenAI-compatible provider", "es": "Acciones de IA — resumir, traducir, explicar código — con cualquier proveedor compatible con OpenAI" },
-    { "en": "Folders, favorites, bulk management and dual view modes", "es": "Carpetas, favoritos, gestión por lotes y dos modos de vista" },
-    { "en": "Global hotkey, auto-paste injection, multi-monitor aware", "es": "Hotkey global, auto-pegado, consciente de multi-monitor" },
-    { "en": "Local SQLite — zero analytics, zero telemetry", "es": "SQLite local — cero analíticas, cero telemetría" }
+    { "en": "Instant FTS5 search with filter chips and live counts (content, OCR text, source app)", "es": "Búsqueda instantánea FTS5 con filtros y conteos en vivo (contenido, OCR, app de origen)" },
+    { "en": "AI actions — summarize, translate, explain code, fix grammar — plus custom prompts, any OpenAI-compatible provider", "es": "Acciones de IA — resumir, traducir, explicar código, corregir gramática — más prompts propios, cualquier proveedor compatible con OpenAI" },
+    { "en": "Folders, pinning, favorites, bulk management, editable clips and detail panel", "es": "Carpetas, fijados, favoritos, gestión por lotes, clips editables y panel de detalle" },
+    { "en": "Full grid and Compact list modes (Ctrl+M), zoom, 4 Mica themes, HUD toasts", "es": "Modos rejilla completa y lista compacta (Ctrl+M), zoom, 4 temas Mica, avisos HUD" },
+    { "en": "Global hotkey (Ctrl+Shift+V), auto-paste injection, multi-monitor aware", "es": "Hotkey global (Ctrl+Shift+V), auto-pegado, consciente de multi-monitor" },
+    { "en": "Fullscreen image viewer with local Windows Media OCR, save OCR text as a new clip", "es": "Visor de imágenes a pantalla completa con OCR local de Windows, guarda el texto como clip nuevo" },
+    { "en": "Local SQLite, zero telemetry, ignored apps, ghost-clip filter, JSON backup, configurable retention", "es": "SQLite local, cero telemetría, apps ignoradas, filtro de clips fantasma, copia JSON, retención configurable" }
   ],
+  "useCases": {
+    "roles": [
+      { "icon": "💻", "title": { "en": "Software Development", "es": "Desarrollo de software" }, "text": { "en": "Keep reusable snippets with 100+ language highlighting; explain or fix code with AI and paste with Enter.", "es": "Guarda fragmentos reutilizables con resaltado en 100+ lenguajes; explica o corrige código con IA y pega con Enter." } },
+      { "icon": "✍️", "title": { "en": "Writing & Study", "es": "Escritura y estudio" }, "text": { "en": "Summarize long texts, translate, fix grammar and re-collect quotes or sources without losing anything.", "es": "Resume textos largos, traduce, corrige gramática y recupera citas o fuentes sin perder nada." } },
+      { "icon": "🎧", "title": { "en": "Customer Support", "es": "Soporte al cliente" }, "text": { "en": "Answer tickets with pinned replies and folders per topic; bulk-manage canned responses in seconds.", "es": "Responde tickets con respuestas fijadas y carpetas por tema; gestiona respuestas tipo en lote en segundos." } },
+      { "icon": "🔬", "title": { "en": "Research", "es": "Investigación" }, "text": { "en": "Collect URLs, files and screenshots; OCR images into searchable text and filter by source app.", "es": "Recopila URLs, archivos y capturas; convierte imágenes en texto buscable con OCR y filtra por app de origen." } },
+      { "icon": "📋", "title": { "en": "Office & Productivity", "es": "Oficina y productividad" }, "text": { "en": "Pin templates, forms and addresses on top; number clips and auto-paste them where you need.", "es": "Fija plantillas, formularios y direcciones arriba; numera clips y auto-pégalos donde los necesites." } },
+      { "icon": "🔒", "title": { "en": "Privacy-minded", "es": "Privacidad" }, "text": { "en": "Everything stays in local SQLite with zero telemetry; ignore password managers and run AI offline via Ollama.", "es": "Todo queda en SQLite local con cero telemetría; ignora gestores de contraseñas y usa IA offline con Ollama." } }
+    ],
+    "tasks": [
+      { "icon": "📥", "title": { "en": "Capture Everything", "es": "Captura todo" }, "text": { "en": "Text, code, HTML, RTF, images, links and files — including Ctrl+X cuts, deduped and ghost-filtered.", "es": "Texto, código, HTML, RTF, imágenes, enlaces y archivos — incluidos cortes Ctrl+X, sin duplicados ni clips fantasma." } },
+      { "icon": "🔍", "title": { "en": "Find Instantly", "es": "Encuentra al instante" }, "text": { "en": "FTS5 search over content, OCR and source app, plus type chips with live counts. Ctrl+F to jump in.", "es": "Búsqueda FTS5 sobre contenido, OCR y app de origen, más filtros por tipo con conteos. Ctrl+F para saltar." } },
+      { "icon": "🗂️", "title": { "en": "Organize & Edit", "es": "Organiza y edita" }, "text": { "en": "Folders, drag & drop, bulk actions, editable clips, detail panel (Space) and pin protection.", "es": "Carpetas, arrastrar y soltar, acciones en lote, clips editables, panel detalle (Espacio) y protección de fijados." } },
+      { "icon": "✨", "title": { "en": "Apply AI", "es": "Aplica IA" }, "text": { "en": "Right-click → AI Actions: summarize, translate, explain, fix grammar — copy, replace or regenerate.", "es": "Clic derecho → Acciones IA: resumir, traducir, explicar, corregir — copiar, reemplazar o regenerar." } },
+      { "icon": "🖼️", "title": { "en": "Read Images", "es": "Lee imágenes" }, "text": { "en": "Fullscreen viewer with zoom, pan, rotate and one-click local OCR that saves results as a new clip.", "es": "Visor a pantalla completa con zoom, paneo, rotación y OCR local en un clic que guarda el texto como clip nuevo." } },
+      { "icon": "⌨️", "title": { "en": "Paste Anywhere", "es": "Pega donde sea" }, "text": { "en": "Ctrl+Shift+V from any app, navigate with arrows, Enter to paste, auto-paste injection, multi-monitor aware.", "es": "Ctrl+Shift+V desde cualquier app, navega con flechas, Enter para pegar, auto-pegado y multi-monitor." } }
+    ]
+  },
   "repo": "https://github.com/CyberGems/CyberPaste",
   "wiki": "https://github.com/CyberGems/CyberPaste/wiki",
   "winget": "CyberGems.CyberPaste",

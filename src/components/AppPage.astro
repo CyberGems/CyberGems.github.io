@@ -134,6 +134,56 @@ const faqPath = lang === 'en' ? '/faq' : '/es/faq';
     <!-- Description -->
     <p class="mt-10 text-lg leading-relaxed text-[#c9c9d1]">{app.description[lang]}</p>
 
+    <!-- How it works (optional per app: 3-step strip) -->
+    {app.howItWorks && (
+      <section class="mt-16 text-center" aria-label={app.howItWorks.title[lang]}>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">{app.howItWorks.title[lang]}</h2>
+        <div class="mt-10 grid gap-10 sm:grid-cols-3 sm:gap-6">
+          {app.howItWorks.steps.map((step, i) => (
+            <div class="relative flex flex-col items-center px-2">
+              {i < app.howItWorks!.steps.length - 1 && (
+                <div
+                  aria-hidden="true"
+                  class="hidden sm:block absolute top-7 left-[calc(50%+3.2rem)] w-[calc(100%-6.4rem)] border-t-2 border-dashed border-white/15"
+                />
+              )}
+              <div
+                class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-extrabold border border-white/10"
+                style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}2e 0%, transparent 65%), #141828; box-shadow: 0 0 32px -10px ${app.accent}55; color: ${app.accent};`}
+                aria-hidden="true"
+              >
+                {i + 1}
+              </div>
+              <div class="mt-5 text-2xl" aria-hidden="true">{step.icon}</div>
+              <p class="mt-3 font-bold text-lg">{step.title[lang]}</p>
+              <p class="mt-2 text-[15px] leading-relaxed text-[#9a9aa5] max-w-xs">{step.text[lang]}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Highlights (optional per app: icon cards grid) -->
+    {app.highlights && (
+      <section class="mt-14" aria-label={t.featuresTitle + ' ' + app.name}>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {app.highlights.map((h) => (
+            <div class="card p-6 text-left">
+              <div
+                class="w-11 h-11 rounded-xl flex items-center justify-center text-xl border border-white/10"
+                style={`background: ${(h.color ?? app.accent)}14; color: ${h.color ?? app.accent};`}
+                aria-hidden="true"
+              >
+                {h.icon}
+              </div>
+              <p class="mt-4 font-bold text-lg">{h.title[lang]}</p>
+              <p class="mt-2 text-[15px] leading-relaxed text-[#9a9aa5]">{h.text[lang]}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
     <!-- Features -->
     <h2 class="mt-12 text-2xl font-bold tracking-tight">
       {t.featuresTitle} {app.name}
