@@ -23,7 +23,10 @@ const fmtSize = (bytes: number) =>
   bytes >= 1048576 ? `${(bytes / 1048576).toFixed(1)} MB` : `${Math.max(1, Math.round(bytes / 1024))} KB`;
 
 const wingetApps = apps.filter((a) => a.winget);
+const hasWinget = wingetApps.length > 0;
 const wingetLine = wingetApps.map((a) => `winget install ${a.winget}`).join('; ');
+const compareCols = hasWinget ? c.cmpCols : c.cmpCols.slice(0, 2);
+const compareRows = hasWinget ? c.cmpRows : c.cmpRows.map((row: any) => ({ ...row, v: row.v.slice(0, 2) }));
 
 const breadcrumbLd = {
   '@context': 'https://schema.org',
@@ -54,7 +57,7 @@ const breadcrumbLd = {
       </div>
     )}
 
-    <div class="mt-8 grid gap-4 sm:grid-cols-3 text-left">
+    <div class:list={["mt-8 grid gap-4 text-left", hasWinget ? "sm:grid-cols-3" : "sm:grid-cols-2"]}>
       <div class="card p-5">
         <div class="text-2xl" aria-hidden="true">{'\u{1F4E6}'}</div>
         <h2 class="mt-2 font-bold">{c.m1Title}</h2>
@@ -65,14 +68,14 @@ const breadcrumbLd = {
         <h2 class="mt-2 font-bold">{c.m2Title}</h2>
         <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">{c.m2Text}</p>
       </div>
-      <div class="card p-5">
+      {hasWinget && <div class="card p-5">
         <div class="text-2xl" aria-hidden="true">{'\u2328\uFE0F'}</div>
         <h2 class="mt-2 font-bold">3. winget</h2>
         <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">
           <code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[#00f2ff] text-xs">winget install &lt;id&gt;</code>
           <span class="block mt-1.5">{c.m3Note}</span>
         </p>
-      </div>
+      </div>}
     </div>
 
     <section class="mt-6 card p-5 text-sm text-[#c9c9d1] leading-relaxed text-left">
@@ -99,11 +102,11 @@ const breadcrumbLd = {
         <thead>
           <tr class="text-left">
             <th class="py-2 pr-4"></th>
-            {c.cmpCols.map((col: string) => <th class="py-2 pr-4 font-semibold text-white">{col}</th>)}
+            {compareCols.map((col: string) => <th class="py-2 pr-4 font-semibold text-white">{col}</th>)}
           </tr>
         </thead>
         <tbody class="text-[#c9c9d1]">
-          {c.cmpRows.map((row: any) => (
+          {compareRows.map((row: any) => (
             <tr class="border-t border-white/5">
               <td class="py-2.5 pr-4 text-[#9a9aa5]">{row.label}</td>
               {row.v.map((cell: string) => <td class="py-2.5 pr-4">{cell}</td>)}

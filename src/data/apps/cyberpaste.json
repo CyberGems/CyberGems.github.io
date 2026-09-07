@@ -23,8 +23,8 @@
         "icon": "⬇️",
         "title": { "en": "Download & Install", "es": "Descarga e instala" },
         "text": {
-          "en": "Install with winget, the NSIS setup, or run the portable zip — no installation needed. Enable Start with Windows if you want it always on.",
-          "es": "Instala con winget, el setup NSIS, o ejecuta el zip portable — sin instalación. Activa Iniciar con Windows si lo quieres siempre activo."
+          "en": "Install with the NSIS setup, or run the portable zip — no installation needed. Enable Start with Windows if you want it always on.",
+          "es": "Instala con el setup NSIS, o ejecuta el zip portable — sin instalación. Activa Iniciar con Windows si lo quieres siempre activo."
         }
       },
       {
@@ -96,8 +96,8 @@
       "color": "#34D399",
       "title": { "en": "Lightweight & Native", "es": "Ligero y nativo" },
       "text": {
-        "en": "Tauri + Rust build (~50 MB) that lives quietly in your tray. Winget, .msi or portable, optional Start with Windows and GitHub auto-updates.",
-        "es": "Compilado Tauri + Rust (~50 MB) que vive discreto en la bandeja. Winget, .msi o portable, inicio con Windows opcional y auto-actualización desde GitHub."
+        "en": "Tauri + Rust build (~50 MB) that lives quietly in your tray. NSIS setup or portable, optional Start with Windows and GitHub auto-updates.",
+        "es": "Compilado Tauri + Rust (~50 MB) que vive discreto en la bandeja. Setup NSIS o portable, inicio con Windows opcional y auto-actualización desde GitHub."
       }
     },
     {
@@ -158,6 +158,5 @@
   },
   "repo": "https://github.com/CyberGems/CyberPaste",
   "wiki": "https://github.com/CyberGems/CyberPaste/wiki",
-  "winget": "CyberGems.CyberPaste",
   "screenshot": null
 }

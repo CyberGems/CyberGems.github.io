@@ -110,9 +110,9 @@
   "download": {
     "en": {
       "metaTitle": "Download — CyberGems",
-      "metaDesc": "How to install any CyberGems app: Setup .exe installer, portable zip or winget. Windows 10/11 64-bit. Free, no ads, no tracking.",
+      "metaDesc": "How to install any CyberGems app: Setup .exe installer or portable zip. Windows 10/11 64-bit. Free, no ads, no tracking.",
       "pageTitle": "Download",
-      "subtitle": "Every app ships the same 3 ways. Pick one — all builds come from public GitHub releases, no bundled junk.",
+      "subtitle": "Every app ships with a Setup .exe, plus a portable zip where available — all builds come from public GitHub releases, no bundled junk.",
       "m1Title": "1. Setup .exe (recommended)",
       "m1Text": "Double-click installer with auto-update check. The big button on each app page resolves to this file live.",
       "m2Title": "2. Portable .zip",
@@ -143,9 +143,9 @@
     },
     "es": {
       "metaTitle": "Descargar — CyberGems",
-      "metaDesc": "Cómo instalar cualquier app CyberGems: instalador Setup .exe, zip portable o winget. Windows 10/11 64-bit. Gratis, sin anuncios, sin rastreo.",
+      "metaDesc": "Cómo instalar cualquier app CyberGems: instalador Setup .exe o zip portable. Windows 10/11 64 bits. Gratis, sin anuncios, sin rastreo.",
       "pageTitle": "Descargar",
-      "subtitle": "Cada app se distribuye igual, de 3 formas. Elige una — todos los builds salen de releases públicos de GitHub, sin basura incluida.",
+      "subtitle": "Cada app incluye un Setup .exe y, donde aplica, un zip portable — todos los builds salen de releases públicos de GitHub, sin basura incluida.",
       "m1Title": "1. Setup .exe (recomendado)",
       "m1Text": "Instalador con doble clic y check de updates. El botón grande de cada app resuelve a este archivo en vivo.",
       "m2Title": "2. Portable .zip",
