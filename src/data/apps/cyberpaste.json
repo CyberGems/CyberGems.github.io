@@ -105,8 +105,8 @@
       "color": "#E879F9",
       "title": { "en": "AI Assistant", "es": "Asistente IA" },
       "text": {
-        "en": "Summarize, translate, explain code or fix grammar — plus custom prompts. OpenAI, DeepSeek, Kimi, Gemini, Grok or any OpenAI-compatible custom endpoint.",
-        "es": "Resume, traduce, explica código o corrige gramática — más prompts personalizados. OpenAI, DeepSeek, Kimi, Gemini, Grok o cualquier endpoint personalizado compatible con OpenAI."
+        "en": "Summarize, translate, explain code or fix grammar — plus custom prompts. OpenAI, DeepSeek, Kimi, Gemini, Grok, Meta (Muse Spark) or any OpenAI-compatible custom endpoint.",
+        "es": "Resume, traduce, explica código o corrige gramática — más prompts personalizados. OpenAI, DeepSeek, Kimi, Gemini, Grok, Meta (Muse Spark) o cualquier endpoint personalizado compatible con OpenAI."
       }
     },
     {
