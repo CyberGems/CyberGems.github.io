@@ -254,6 +254,7 @@ collections:
               - { name: heroCta2, widget: string }
               - { name: stripFree, widget: string }
               - { name: stripNoAds, widget: string }
+              - { name: stripNoAccount, widget: string }
               - { name: stripNoTrack, widget: string }
               - { name: stripOss, widget: string }
               - { name: appsTitle, widget: string }
@@ -303,6 +304,7 @@ collections:
               - { name: heroCta2, widget: string }
               - { name: stripFree, widget: string }
               - { name: stripNoAds, widget: string }
+              - { name: stripNoAccount, widget: string }
               - { name: stripNoTrack, widget: string }
               - { name: stripOss, widget: string }
               - { name: appsTitle, widget: string }

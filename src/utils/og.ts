@@ -17,7 +17,7 @@ export function ogSvg(app?: CyberApp, lang: Lang = 'en'): string {
     : '';
   const emoji = app ? app.emoji : '💎';
   // Extra description line for per-app
-  const extra = app ? app.stack : lang === 'es' ? 'cybergems.org — Sin anuncios · Sin rastreo · GPLv3' : 'cybergems.org — No ads · No tracking · GPLv3';
+  const extra = app ? app.stack : lang === 'es' ? 'cybergems.org — Sin cuenta · Sin anuncios · Sin rastreo · GPLv3' : 'cybergems.org — No account · No ads · No tracking · GPLv3';
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img">
@@ -58,7 +58,7 @@ export function ogSvg(app?: CyberApp, lang: Lang = 'en'): string {
   <text x="70" y="310" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="20" font-weight="500">${escapeXml(extra)}</text>
   <!-- bottom brand -->
   <text x="70" y="560" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="24" font-weight="800">Cyber<tspan fill="url(#g)">Gems</tspan></text>
-  <text x="70" y="590" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="16">Free • No Ads • No Tracking • Open Source</text>
+  <text x="70" y="590" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="16">Free • No Account • No Ads • No Tracking • Open Source</text>
   <!-- URL -->
   <text x="1130" y="590" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="15" text-anchor="end">cybergems.org</text>
 </svg>`;

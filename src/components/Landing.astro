@@ -15,11 +15,12 @@ const { downloads } = await fetchLatestDownloads();
 const homePath = lang === 'en' ? '/' : '/es/';
 const title = lang === 'en' ? 'CyberGems — Free & open-source Windows apps' : 'CyberGems — Apps gratuitas y de código abierto para Windows';
 const description = lang === 'en'
-  ? '10 free, open-source Windows apps — screen capture, clipboard, notes, firewall and more. No ads, no tracking, GPLv3.'
-  : '10 apps gratuitas y open-source para Windows — captura, portapapeles, notas, firewall y más. Sin anuncios, sin rastreo, GPLv3.';
+  ? '10 free, open-source Windows apps — screen capture, clipboard, notes, firewall and more. No account, no ads, no tracking, GPLv3.'
+  : '10 apps gratuitas y open-source para Windows — captura, portapapeles, notas, firewall y más. Sin cuenta, sin anuncios, sin rastreo, GPLv3.';
 const strip = [
   { icon: '🎁', label: t.stripFree },
   { icon: '🚫', label: t.stripNoAds },
+  { icon: '👤', label: t.stripNoAccount },
   { icon: '🔒', label: t.stripNoTrack },
   { icon: '📖', label: t.stripOss },
 ];
@@ -112,7 +113,7 @@ const itemListLd = {
 
   <!-- Trust strip -->
   <section class="border-y border-white/5 bg-[#12151f]" aria-label="Features">
-    <ul class="max-w-6xl mx-auto px-5 py-5 grid grid-cols-2 sm:grid-cols-4 gap-4 list-none m-0 p-0">
+    <ul class="max-w-6xl mx-auto px-5 py-5 grid grid-cols-2 sm:grid-cols-5 gap-4 list-none m-0 p-0">
       {strip.map((item) => (
         <li class="flex items-center justify-center gap-2 text-sm text-[#9a9aa5]">
           <span aria-hidden="true">{item.icon}</span>
