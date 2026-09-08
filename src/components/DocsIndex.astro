@@ -49,18 +49,12 @@ const breadcrumbLd = {
       {available.map((app) => {
         const href = lang === 'es' ? `/es/docs/${app.slug}/` : `/docs/${app.slug}/`;
         return (
-          <a href={href} class="card flex flex-col overflow-hidden">
-            <div
-              class="h-24 flex items-center justify-center"
-              style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}26 0%, transparent 55%);`}
-              aria-hidden="true"
-            >
+          <a href={href} class="card p-6 block h-full">
+            <div class="h-16 flex items-center" aria-hidden="true">
               {app.icon ? <img src={app.icon} alt="" width="56" height="56" class="h-14 w-14 object-contain" /> : <span class="text-4xl">{app.emoji}</span>}
             </div>
-            <div class="p-5">
-              <h2 class="text-lg font-bold">{app.name}</h2>
-              <p class="mt-1 text-sm text-[#9a9aa5]">{t.docsOpen} →</p>
-            </div>
+            <h2 class="mt-5 text-lg font-bold">{app.name}</h2>
+            <p class="mt-1 text-sm text-[#9a9aa5]">{t.docsOpen} →</p>
           </a>
         );
       })}
