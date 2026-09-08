@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import type { Lang } from '../data/ui';
+import { site } from '../data/site';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const en = lang === 'en';
+const title = en ? 'Contact — CyberGems' : 'Contacto — CyberGems';
+const description = en
+  ? 'Get in touch with CyberGems for questions, feedback, collaborations or support. Direct email, no form and no tracking.'
+  : 'Contacta con CyberGems para preguntas, comentarios, colaboraciones o soporte. Email directo, sin formulario ni rastreo.';
+const path = en ? '/contact' : '/es/contact';
+const emailHref = 'mailto:' + site.contactEmail + '?subject=' + encodeURIComponent(en ? 'CyberGems contact' : 'Contacto CyberGems');
+---
+
+<BaseLayout title={title} description={description} lang={lang} path={path}>
+  <div class="max-w-4xl mx-auto px-5 pt-16 pb-4">
+    <header class="text-center">
+      <span class="chip mb-4">✉ {en ? 'Direct line' : 'Contacto directo'}</span>
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">
+        <span class="text-gradient brand-glow">{en ? 'Let’s make the tools better.' : 'Hagamos mejores estas herramientas.'}</span>
+      </h1>
+      <p class="mt-4 text-[#9a9aa5] text-lg leading-relaxed max-w-2xl mx-auto">
+        {en
+          ? 'There is no support portal or ticket maze here. Pick the channel that fits and say hello.'
+          : 'Aquí no hay portal de soporte ni laberinto de tickets. Elige el canal que encaje y saluda.'}
+      </p>
+    </header>
+
+    <div class="mt-10 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+      <section class="card p-7 sm:p-9 relative overflow-hidden">
+        <div class="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-[#00f2ff]/10 blur-3xl" aria-hidden="true"></div>
+        <div class="relative">
+          <div class="w-12 h-12 rounded-2xl bg-[#00f2ff]/10 border border-[#00f2ff]/20 flex items-center justify-center text-2xl" aria-hidden="true">✉</div>
+          <p class="mt-6 text-xs font-bold uppercase tracking-wider text-[#00f2ff]">{en ? 'General email' : 'Email general'}</p>
+          <h2 class="mt-2 text-2xl sm:text-3xl font-bold break-all">
+            <a href={emailHref} class="hover:text-[#00f2ff] transition-colors">{site.contactEmail}</a>
+          </h2>
+          <p class="mt-4 text-[#9a9aa5] leading-relaxed">
+            {en
+              ? 'For questions, feedback, collaborations, press, privacy concerns or anything that does not belong in a GitHub issue.'
+              : 'Para preguntas, comentarios, colaboraciones, prensa, privacidad o cualquier tema que no corresponda a un issue de GitHub.'}
+          </p>
+          <a href={emailHref} class="btn-primary mt-6">{en ? 'Write an email' : 'Escribir un email'} →</a>
+        </div>
+      </section>
+
+      <div class="grid gap-5">
+        <a href={site.githubOrg} target="_blank" rel="noopener noreferrer" class="card p-6 block">
+          <div class="text-3xl" aria-hidden="true">🐛</div>
+          <h2 class="mt-3 text-lg font-bold">{en ? 'Bugs & feature ideas' : 'Bugs e ideas'}</h2>
+          <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">
+            {en ? 'Open an issue in the relevant app repository so it stays close to the code.' : 'Abre un issue en el repositorio de la app correspondiente para mantenerlo cerca del código.'}
+          </p>
+          <span class="mt-3 inline-block text-sm font-semibold text-[#00f2ff]">GitHub ↗</span>
+        </a>
+        <a href={site.discussions} target="_blank" rel="noopener noreferrer" class="card p-6 block">
+          <div class="text-3xl" aria-hidden="true">💬</div>
+          <h2 class="mt-3 text-lg font-bold">{en ? 'Questions & conversation' : 'Preguntas y conversación'}</h2>
+          <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">
+            {en ? 'Use GitHub Discussions for broader questions, workflows and community ideas.' : 'Usa GitHub Discussions para preguntas generales, workflows e ideas de la comunidad.'}
+          </p>
+          <span class="mt-3 inline-block text-sm font-semibold text-[#00f2ff]">Discussions ↗</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-8 grid gap-5 sm:grid-cols-2">
+      <section class="card p-6">
+        <h2 class="font-bold">{en ? 'A useful message includes' : 'Un mensaje útil incluye'}</h2>
+        <ul class="mt-3 space-y-2 text-sm text-[#9a9aa5] leading-relaxed">
+          <li>· {en ? 'App name and version' : 'Nombre y versión de la app'}</li>
+          <li>· {en ? 'What happened and what you expected' : 'Qué ocurrió y qué esperabas'}</li>
+          <li>· {en ? 'Steps to reproduce, when relevant' : 'Pasos para reproducirlo, si aplica'}</li>
+          <li>· {en ? 'Windows version and redacted logs/screenshots' : 'Versión de Windows y logs/capturas sin datos privados'}</li>
+        </ul>
+      </section>
+      <section class="card p-6">
+        <h2 class="font-bold">{en ? 'Privacy by default' : 'Privacidad por defecto'}</h2>
+        <p class="mt-3 text-sm text-[#9a9aa5] leading-relaxed">
+          {en
+            ? 'This page has no contact form, cookies or analytics. Clicking the email link opens your own mail provider; its handling of the message follows that provider’s policy.'
+            : 'Esta página no tiene formulario de contacto, cookies ni analítica. El enlace de email abre tu propio proveedor de correo; el tratamiento del mensaje depende de su política.'}
+        </p>
+      </section>
+    </div>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href={en ? '/faq' : '/es/faq'} class="btn-ghost">{en ? 'Read the FAQ' : 'Leer las FAQ'}</a>
+      <a href={en ? '/' : '/es/'} class="btn-primary">{en ? 'Explore the apps' : 'Explorar las apps'} ↓</a>
+    </div>
+  </div>
+</BaseLayout>

@@ -11,6 +11,7 @@ export interface CryptoEntry {
 }
 
 export const site = {
+  contactEmail: data.contactEmail as string,
   githubOrg: 'https://github.com/CyberGems',
   profileRepo: 'https://github.com/CyberGems/CyberGems',
   sponsors: data.sponsors as string,

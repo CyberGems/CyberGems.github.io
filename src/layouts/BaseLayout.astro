@@ -88,6 +88,7 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
           <a href={lang === 'en' ? '/changelog' : '/es/changelog'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden md:inline">{t.navChangelog}</a>
           <a href={lang === 'en' ? '/docs' : '/es/docs'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.navDocs}</a>
           <a href={lang === 'en' ? '/about' : '/es/about'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden lg:inline">{t.navAbout}</a>
+          <a href={lang === 'en' ? '/contact' : '/es/contact'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden xl:inline">{t.navContact}</a>
           <a href={lang === 'en' ? '/donate' : '/es/donate'} class="text-sm font-semibold text-gradient hover:opacity-80 transition-opacity hidden sm:inline">♥ {t.navDonate}</a>
           <a
             href={switchHref}
@@ -119,6 +120,7 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
           <a href={lang === 'en' ? '/docs' : '/es/docs'} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navDocs}</a>
           <a href={lang === 'en' ? '/about' : '/es/about'} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navAbout}</a>
           <a href={lang === 'en' ? '/faq' : '/es/faq'} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navFaq}</a>
+          <a href={lang === 'en' ? '/contact' : '/es/contact'} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navContact}</a>
           <a href={lang === 'en' ? '/donate' : '/es/donate'} class="col-span-2 rounded-lg px-3 py-2.5 text-sm font-semibold text-gradient hover:bg-white/5" data-mobile-menu-link>♥ {t.navDonate}</a>
         </nav>
       </div>
@@ -143,6 +145,7 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
             <li><a href={`${homeHref}#apps`} class="hover:text-white transition-colors">{t.navApps}</a></li>
             <li><a href={lang === 'en' ? '/download' : '/es/download'} class="hover:text-white transition-colors">{t.navDownload}</a></li>
             <li><a href={lang === 'en' ? '/about' : '/es/about'} class="hover:text-white transition-colors">{t.navAbout}</a></li>
+            <li><a href={lang === 'en' ? '/contact' : '/es/contact'} class="hover:text-white transition-colors">{t.navContact}</a></li>
             <li><a href={lang === 'en' ? '/donate' : '/es/donate'} class="hover:text-white transition-colors">♥ {t.navDonate}</a></li>
           </ul>
         </nav>

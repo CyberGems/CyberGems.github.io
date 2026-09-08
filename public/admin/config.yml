@@ -218,6 +218,7 @@ collections:
         label: Site & donations
         file: src/data/site.json
         fields:
+          - { name: contactEmail, label: Contact email, widget: string }
           - { name: sponsors, label: GitHub Sponsors URL, widget: string }
           - { name: paypal, label: PayPal URL, widget: string, required: false }
           - { name: kofi, label: Ko-fi URL, widget: string, required: false }
@@ -274,6 +275,7 @@ collections:
               - { name: navDownload, widget: string }
               - { name: navAbout, widget: string }
               - { name: navFaq, widget: string }
+              - { name: navContact, widget: string }
               - { name: navDonate, widget: string }
               - { name: changelogTitle, widget: string }
               - { name: changelogSubtitle, widget: string }
@@ -324,6 +326,7 @@ collections:
               - { name: navDownload, widget: string }
               - { name: navAbout, widget: string }
               - { name: navFaq, widget: string }
+              - { name: navContact, widget: string }
               - { name: navDonate, widget: string }
               - { name: changelogTitle, widget: string }
               - { name: changelogSubtitle, widget: string }
