@@ -29,7 +29,7 @@ const publishedDate = download?.publishedAt
 ---
 
 <article class="card group flex flex-col overflow-hidden">
-  <!-- Visual tile: accent gradient + emoji (screenshot-ready) -->
+  <!-- Visual tile: official app icon with an emoji fallback for older CMS entries -->
   <a href={href} class="flex flex-col flex-1">
     <div
       class="h-36 flex items-center justify-center relative overflow-hidden"
@@ -40,9 +40,21 @@ const publishedDate = download?.publishedAt
         style={`background: linear-gradient(90deg, transparent, ${app.accent}, transparent);`}
       >
       </div>
-      <span aria-hidden="true" class="text-6xl drop-shadow-[0_0_24px_rgba(0,242,255,0.25)] group-hover:scale-110 transition-transform duration-300">
-        {app.emoji}
-      </span>
+      {app.icon ? (
+        <img
+          src={app.icon}
+          alt=""
+          width="96"
+          height="96"
+          class="h-24 w-24 object-contain drop-shadow-[0_0_24px_rgba(0,242,255,0.25)] group-hover:scale-110 transition-transform duration-300"
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        <span aria-hidden="true" class="text-6xl drop-shadow-[0_0_24px_rgba(0,242,255,0.25)] group-hover:scale-110 transition-transform duration-300">
+          {app.emoji}
+        </span>
+      )}
     </div>
 
     <div class="p-5 flex flex-col gap-3 flex-1">

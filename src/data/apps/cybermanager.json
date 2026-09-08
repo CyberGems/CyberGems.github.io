@@ -2,6 +2,7 @@
   "slug": "cybermanager",
   "name": "CyberManager",
   "emoji": "💻",
+  "icon": "/icons/apps/cybermanager.png",
   "accent": "#4FC3F7",
   "stack": "C# · WPF · .NET 10",
   "license": "GPLv3",

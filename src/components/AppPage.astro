@@ -72,7 +72,7 @@ const faqPath = lang === 'en' ? '/faq' : '/es/faq';
         style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}33 0%, transparent 60%); box-shadow: 0 0 40px -12px ${app.accent}66;`}
         aria-hidden="true"
       >
-        {app.emoji}
+        {app.icon ? <img src={app.icon} alt="" width="64" height="64" class="h-16 w-16 object-contain" /> : app.emoji}
       </div>
       <div>
         <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">{app.name}</h1>
@@ -125,7 +125,7 @@ const faqPath = lang === 'en' ? '/faq' : '/es/faq';
         <img src={shotSrc} alt={`${app.name} — ${app.tagline[lang]}`} class="w-full h-full object-cover" loading="lazy" decoding="async" width="1280" height="720" />
       ) : (
         <div class="text-center select-none" aria-hidden="true">
-          <div class="text-7xl mb-3 opacity-90">{app.emoji}</div>
+          {app.icon ? <img src={app.icon} alt="" width="112" height="112" class="h-28 w-28 object-contain mb-3 opacity-95" /> : <div class="text-7xl mb-3 opacity-90">{app.emoji}</div>}
           <p class="text-sm text-[#9a9aa5]">{t.shotPlaceholder}</p>
         </div>
       )}
@@ -273,7 +273,7 @@ const faqPath = lang === 'en' ? '/faq' : '/es/faq';
       <div class="mt-4 grid gap-4 sm:grid-cols-3">
         {related.map((r) => (
           <a href={lang === 'en' ? `/apps/${r.slug}` : `/es/apps/${r.slug}`} class="card p-4 block">
-            <div class="text-3xl" aria-hidden="true">{r.emoji}</div>
+            {r.icon ? <img src={r.icon} alt="" width="48" height="48" class="h-12 w-12 object-contain" /> : <div class="text-3xl" aria-hidden="true">{r.emoji}</div>}
             <p class="mt-2 font-bold text-sm">{r.name}</p>
             <p class="text-xs text-[#9a9aa5] truncate">{r.tagline[lang]}</p>
           </a>

@@ -2,6 +2,7 @@
   "slug": "cybernotes",
   "name": "CyberNotes",
   "emoji": "📝",
+  "icon": "/icons/apps/cybernotes.png",
   "accent": "#81C784",
   "stack": "Electron · React · TypeScript",
   "license": "GPLv3",

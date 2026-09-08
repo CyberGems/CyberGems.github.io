@@ -2,6 +2,7 @@
   "slug": "cyberviewer",
   "name": "CyberViewer",
   "emoji": "💫",
+  "icon": "/icons/apps/cyberviewer.png",
   "accent": "#BA68C8",
   "stack": "Electron · JavaScript",
   "license": "GPLv3",

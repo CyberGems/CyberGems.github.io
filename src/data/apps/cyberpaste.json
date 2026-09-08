@@ -2,6 +2,7 @@
   "slug": "cyberpaste",
   "name": "CyberPaste",
   "emoji": "⚡",
+  "icon": "/icons/apps/cyberpaste.png",
   "accent": "#FFD54F",
   "stack": "Tauri · React · Rust",
   "license": "GPLv3",

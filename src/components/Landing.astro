@@ -23,6 +23,10 @@ const strip = [
   { icon: '🔒', label: t.stripNoTrack },
   { icon: '📖', label: t.stripOss },
 ];
+const showcasePositions = [
+  [-365, -64], [-182, -112], [0, -126], [182, -112], [365, -64],
+  [-315, 76], [-105, 112], [105, 112], [315, 76], [0, 156],
+];
 
 const orgLd = {
   '@context': 'https://schema.org',
@@ -74,6 +78,34 @@ const itemListLd = {
         <a href="https://github.com/CyberGems" target="_blank" rel="noopener noreferrer" class="btn-ghost">
           ★ {t.heroCta2}
         </a>
+      </div>
+      <div class="hero-enter suite-showcase mt-16" style="--showcase-delay: 320ms;" aria-label={lang === 'en' ? 'CyberGems apps' : 'Apps de CyberGems'}>
+        <div class="suite-showcase-ring suite-showcase-ring-one" aria-hidden="true"></div>
+        <div class="suite-showcase-ring suite-showcase-ring-two" aria-hidden="true"></div>
+        <div class="suite-showcase-core" aria-hidden="true">
+          <img src="/favicon.svg" alt="" width="44" height="44" />
+          <span>CyberGems</span>
+        </div>
+        <div class="suite-showcase-apps">
+          {apps.map((app, index) => {
+            const [x, y] = showcasePositions[index] ?? [0, 0];
+            return (
+              <a
+                href={lang === 'en' ? `/apps/${app.slug}` : `/es/apps/${app.slug}`}
+                class="suite-showcase-app"
+                style={`--app-x: ${x}px; --app-y: ${y}px; --app-accent: ${app.accent}; --app-delay: ${index * 55}ms;`}
+                aria-label={app.name}
+              >
+                <span class="suite-showcase-app-body">
+                  <span class="suite-showcase-icon">
+                    {app.icon ? <img src={app.icon} alt="" width="56" height="56" /> : <span aria-hidden="true">{app.emoji}</span>}
+                  </span>
+                  <span class="suite-showcase-name">{app.name}</span>
+                </span>
+              </a>
+            );
+          })}
+        </div>
       </div>
     </div>
   </section>
@@ -270,5 +302,144 @@ const itemListLd = {
   @keyframes hero-aura-settle {
     from { opacity: 0; transform: translateY(16px) scale(0.96); }
     to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .suite-showcase {
+    position: relative;
+    width: min(100%, 960px);
+    height: 300px;
+    margin-inline: auto;
+    isolation: isolate;
+  }
+
+  .suite-showcase::before {
+    content: '';
+    position: absolute;
+    inset: 24% 18% 6%;
+    z-index: -1;
+    background: radial-gradient(ellipse, rgb(0 242 255 / 0.13), transparent 68%);
+    filter: blur(18px);
+  }
+
+  .suite-showcase-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgb(0 242 255 / 0.14);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) rotate(-12deg);
+  }
+
+  .suite-showcase-ring-one { width: 360px; height: 180px; }
+  .suite-showcase-ring-two { width: 610px; height: 230px; border-color: rgb(122 92 255 / 0.13); transform: translate(-50%, -50%) rotate(14deg); }
+
+  .suite-showcase-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    display: flex;
+    width: 132px;
+    height: 132px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    border: 1px solid rgb(0 242 255 / 0.32);
+    border-radius: 2rem;
+    background: linear-gradient(145deg, rgb(21 24 36 / 0.96), rgb(13 15 23 / 0.92));
+    box-shadow: 0 0 55px rgb(0 242 255 / 0.16), inset 0 0 26px rgb(0 242 255 / 0.05);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    transform: translate(-50%, -50%);
+  }
+
+  .suite-showcase-core img { width: 44px; height: 44px; }
+
+  .suite-showcase-apps {
+    position: absolute;
+    inset: 0;
+  }
+
+  .suite-showcase-app {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    color: #c9c9d1;
+    transform: translate(calc(-50% + var(--app-x)), calc(-50% + var(--app-y)));
+  }
+
+  .suite-showcase-app-body {
+    display: flex;
+    min-width: 94px;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    border-radius: 1rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-shadow: 0 1px 12px rgb(0 0 0 / 0.75);
+    transition: color 180ms ease, transform 180ms ease;
+    animation: suite-app-in 650ms cubic-bezier(0.22, 1, 0.36, 1) var(--app-delay) both;
+  }
+
+  .suite-showcase-icon {
+    display: grid;
+    width: 72px;
+    height: 72px;
+    place-items: center;
+    background: transparent;
+  }
+
+  .suite-showcase-icon img { width: 72px; height: 72px; object-fit: contain; filter: drop-shadow(0 0 9px rgb(0 242 255 / 0.28)); transition: filter 180ms ease; }
+  .suite-showcase-icon > span { font-size: 2.1rem; }
+
+  .suite-showcase-app:hover .suite-showcase-app-body,
+  .suite-showcase-app:focus-visible .suite-showcase-app-body {
+    color: #fff;
+    transform: translateY(-5px) scale(1.04);
+  }
+
+  .suite-showcase-app:hover .suite-showcase-icon img,
+  .suite-showcase-app:focus-visible .suite-showcase-icon img {
+    filter: drop-shadow(0 0 14px var(--app-accent));
+  }
+
+  @keyframes suite-app-in {
+    from { opacity: 0; transform: scale(0.72); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @media (max-width: 760px) {
+    .suite-showcase {
+      height: auto;
+      margin-top: 3rem;
+    }
+
+    .suite-showcase-core,
+    .suite-showcase-ring { display: none; }
+
+    .suite-showcase-apps {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .suite-showcase-app {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+    }
+
+    .suite-showcase-app-body { min-width: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .suite-showcase-app-body { animation: none; }
   }
 </style>

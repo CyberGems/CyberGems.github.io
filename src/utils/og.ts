@@ -1,5 +1,7 @@
 import type { CyberApp } from '../data/apps';
 import type { Lang } from '../data/ui';
+import fs from 'node:fs';
+import path from 'node:path';
 
 export function ogSvg(app?: CyberApp, lang: Lang = 'en'): string {
   const accent = app?.accent ?? '#00F2FF';
@@ -10,6 +12,9 @@ export function ogSvg(app?: CyberApp, lang: Lang = 'en'): string {
     : lang === 'es'
       ? 'Apps gratuitas y open-source para Windows'
       : 'Free & open-source Windows apps';
+  const iconHref = app?.icon
+    ? `data:image/png;base64,${fs.readFileSync(path.join(process.cwd(), 'public', app.icon.replace(/^\//, ''))).toString('base64')}`
+    : '';
   const emoji = app ? app.emoji : '💎';
   // Extra description line for per-app
   const extra = app ? app.stack : lang === 'es' ? 'cybergems.org — Sin anuncios · Sin rastreo · GPLv3' : 'cybergems.org — No ads · No tracking · GPLv3';
@@ -39,10 +44,10 @@ export function ogSvg(app?: CyberApp, lang: Lang = 'en'): string {
   </g>
   <!-- accent top line -->
   <rect x="0" y="0" width="1200" height="4" fill="url(#g)" />
-  <!-- emoji badge -->
+  <!-- app icon badge -->
   <g transform="translate(70, 110)">
     <rect width="120" height="120" rx="24" fill="white" fill-opacity="0.06" stroke="white" stroke-opacity="0.10" />
-    <text x="60" y="78" font-size="64" text-anchor="middle" dominant-baseline="middle">${emoji}</text>
+    ${iconHref ? `<image href="${iconHref}" x="12" y="12" width="96" height="96" preserveAspectRatio="xMidYMid meet" />` : `<text x="60" y="78" font-size="64" text-anchor="middle" dominant-baseline="middle">${emoji}</text>`}
   </g>
   <!-- title -->
   <text x="220" y="175" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="64" font-weight="800" letter-spacing="-1">${escapeXml(title)}</text>

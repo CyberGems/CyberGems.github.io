@@ -12,6 +12,7 @@ export interface AppReleases {
   slug: string;
   name: string;
   emoji: string;
+  icon?: string;
   accent: string;
   releases: ReleaseInfo[];
 }
@@ -37,6 +38,7 @@ export async function fetchAllReleases(): Promise<{ apps: AppReleases[]; failed:
         slug: app.slug,
         name: app.name,
         emoji: app.emoji,
+        icon: app.icon,
         accent: app.accent,
       };
       try {

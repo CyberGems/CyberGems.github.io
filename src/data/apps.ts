@@ -30,6 +30,8 @@ export interface CyberApp {
   slug: string;
   name: string;
   emoji: string;
+  /** Official app icon stored in the website's public assets */
+  icon?: string;
   /** Hex accent color used for gradients & highlights */
   accent: string;
   /** Tech stack label */

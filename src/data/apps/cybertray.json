@@ -2,6 +2,7 @@
   "slug": "cybertray",
   "name": "CyberTray",
   "emoji": "⚡",
+  "icon": "/icons/apps/cybertray.png",
   "accent": "#FFB74D",
   "stack": "Electron · TypeScript",
   "license": "GPLv3",

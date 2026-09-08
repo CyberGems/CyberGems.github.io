@@ -2,6 +2,7 @@
   "slug": "cybersnap",
   "name": "CyberSnap",
   "emoji": "📸",
+  "icon": "/icons/apps/cybersnap.png",
   "accent": "#00F2FF",
   "stack": "C# · WPF · .NET 9",
   "license": "GPLv3",

@@ -61,7 +61,7 @@ const breadcrumbLd = {
     <nav aria-label="Changelog apps" class="mt-10 flex flex-wrap justify-center gap-2">
       {withReleases.map((app) => (
         <a href={`#${app.slug}`} class="chip hover:border-[#00f2ff] hover:text-white transition-colors">
-          <span aria-hidden="true">{app.emoji}</span> {app.name}
+          {app.icon ? <img src={app.icon} alt="" width="18" height="18" class="h-[18px] w-[18px] object-contain" /> : <span aria-hidden="true">{app.emoji}</span>} {app.name}
         </a>
       ))}
     </nav>
@@ -74,7 +74,7 @@ const breadcrumbLd = {
             style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}33 0%, transparent 60%);`}
             aria-hidden="true"
           >
-            {app.emoji}
+            {app.icon ? <img src={app.icon} alt="" width="36" height="36" class="h-9 w-9 object-contain" /> : app.emoji}
           </div>
           <h2 class="text-2xl font-bold tracking-tight">{app.name}</h2>
         </div>

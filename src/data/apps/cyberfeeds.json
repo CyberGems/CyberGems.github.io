@@ -2,6 +2,7 @@
   "slug": "cyberfeeds",
   "name": "CyberFeeds",
   "emoji": "📢",
+  "icon": "/icons/apps/cyberfeeds.png",
   "accent": "#29B6F6",
   "stack": "Electron · React · TypeScript",
   "license": "GPLv3",

@@ -35,6 +35,11 @@ collections:
       - name: emoji
         label: Emoji
         widget: string
+      - name: icon
+        label: Official icon path
+        widget: string
+        required: false
+        hint: Website asset path, e.g. /icons/apps/cybersnap.png
       - name: accent
         label: Accent color
         widget: color

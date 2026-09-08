@@ -55,7 +55,7 @@ const breadcrumbLd = {
               style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}26 0%, transparent 55%);`}
               aria-hidden="true"
             >
-              <span class="text-4xl">{app.emoji}</span>
+              {app.icon ? <img src={app.icon} alt="" width="56" height="56" class="h-14 w-14 object-contain" /> : <span class="text-4xl">{app.emoji}</span>}
             </div>
             <div class="p-5">
               <h2 class="text-lg font-bold">{app.name}</h2>
