@@ -45,8 +45,7 @@
     "docsTitle": "Documentation",
     "docsSubtitle": "Official guides for every app in the suite.",
     "docsUnavailable": "Documentation could not be loaded right now — try again in a minute.",
-    "docsOpen": "Browse documentation",
-    "docsSource": "Content synced automatically from the official GitHub wikis on every build."
+    "docsOpen": "Browse documentation"
   },
   "es": {
     "tagline": "Gratis, sin anuncios, sin rastreo, sin cuenta.",
@@ -94,7 +93,6 @@
     "docsTitle": "Documentación",
     "docsSubtitle": "Guías oficiales de cada app de la suite.",
     "docsUnavailable": "La documentación no pudo cargarse ahora mismo — prueba de nuevo en un minuto.",
-    "docsOpen": "Abrir documentación",
-    "docsSource": "Contenido sincronizado automáticamente desde las wikis oficiales de GitHub en cada build."
+    "docsOpen": "Abrir documentación"
   }
 }

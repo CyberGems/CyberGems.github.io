@@ -290,7 +290,6 @@ collections:
               - { name: docsSubtitle, widget: string }
               - { name: docsUnavailable, widget: text }
               - { name: docsOpen, widget: string }
-              - { name: docsSource, widget: text }
           - name: es
             label: Español
             widget: object
@@ -341,7 +340,6 @@ collections:
               - { name: docsSubtitle, widget: string }
               - { name: docsUnavailable, widget: text }
               - { name: docsOpen, widget: string }
-              - { name: docsSource, widget: text }
 
   - name: pages
     label: '📄 Pages'
