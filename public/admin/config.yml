@@ -361,6 +361,11 @@ collections:
                   - { name: badge, widget: string }
                   - { name: title, widget: string }
                   - { name: intro, widget: text }
+                  - { name: brandBadge, label: Brand badge, widget: string }
+                  - { name: brandTitle, label: Brand title, widget: string }
+                  - { name: brandText, label: Brand text, widget: text }
+                  - { name: brandCta, label: Brand CTA, widget: string }
+                  - { name: brandAlt, label: Brand image alt text, widget: string }
                   - { name: isTitle, widget: string }
                   - { name: yesLabel, widget: string }
                   - { name: yesItems, label: 'Yes list', widget: list }
@@ -385,6 +390,11 @@ collections:
                   - { name: badge, widget: string }
                   - { name: title, widget: string }
                   - { name: intro, widget: text }
+                  - { name: brandBadge, label: Etiqueta de marca, widget: string }
+                  - { name: brandTitle, label: Título de marca, widget: string }
+                  - { name: brandText, label: Texto de marca, widget: text }
+                  - { name: brandCta, label: CTA de marca, widget: string }
+                  - { name: brandAlt, label: Texto alternativo de la imagen, widget: string }
                   - { name: isTitle, widget: string }
                   - { name: yesLabel, widget: string }
                   - { name: yesItems, label: 'Lista sí', widget: list }
