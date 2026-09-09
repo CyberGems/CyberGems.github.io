@@ -117,7 +117,7 @@ const toolGroups = [
       </header>
 
       <div class="mt-6 card p-5 sm:p-7">
-        <div class="grid gap-8 lg:grid-cols-4">
+        <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.15fr)_minmax(0,1.35fr)]">
           {toolGroups.map((group, index) => (
             <div class={index === 0 ? 'lg:col-span-2' : 'lg:border-l lg:border-white/10 lg:pl-8'}>
               <div class="flex items-center gap-3">
@@ -128,7 +128,7 @@ const toolGroups = [
                 {group.tools.map((tool) => (
                   <li class="flex min-w-0 items-center gap-3 rounded-xl border border-white/10 bg-white/[0.02] px-3 py-3">
                     <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-xs font-extrabold tracking-tight text-[#c9c9d1]" aria-hidden="true">{tool.mark}</span>
-                    <span class="min-w-0 break-words text-sm font-semibold leading-snug">{tool.name}</span>
+                    <span class="min-w-0 text-sm font-semibold leading-snug">{tool.name}</span>
                   </li>
                 ))}
               </ul>
