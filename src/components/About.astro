@@ -93,7 +93,7 @@ const toolGroups = [
                 <span class="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-sm font-extrabold text-[#00f2ff]" aria-hidden="true">{group.icon}</span>
                 <h3 class="font-bold">{group.title}</h3>
               </div>
-              <ul class="mt-4 grid grid-cols-2 gap-3 list-none m-0 p-0 sm:grid-cols-3 lg:grid-cols-2">
+              <ul class={index === 1 ? 'mt-4 grid grid-cols-1 gap-3 list-none m-0 p-0' : 'mt-4 grid grid-cols-2 gap-3 list-none m-0 p-0 sm:grid-cols-3 lg:grid-cols-2'}>
                 {group.tools.map((tool) => (
                   <li class="flex min-w-0 items-center gap-3 rounded-xl border border-white/10 bg-white/[0.02] px-3 py-3">
                     <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-xs font-extrabold tracking-tight text-[#c9c9d1]" aria-hidden="true">{tool.mark}</span>
