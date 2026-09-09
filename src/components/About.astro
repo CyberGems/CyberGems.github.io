@@ -44,6 +44,27 @@ const toolGroups = [
       <p class="mt-4 text-[#9a9aa5] text-lg leading-relaxed max-w-2xl mx-auto">{c.intro}</p>
     </header>
 
+    <section class="mt-12 card brand-card p-5 sm:p-7">
+      <div class="grid gap-7 sm:grid-cols-[minmax(0,220px)_1fr] sm:items-center">
+        <figure class="brand-visual">
+          <img
+            src="/branding/cybergems-github.jpg"
+            alt={c.brandAlt}
+            width="1280"
+            height="1280"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+        <div>
+          <span class="chip">✦ {c.brandBadge}</span>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight">{c.brandTitle}</h2>
+          <p class="mt-3 text-[#9a9aa5] leading-relaxed">{c.brandText}</p>
+          <a href={site.githubOrg} target="_blank" rel="noopener noreferrer" class="btn-ghost mt-5">{c.brandCta} ↗</a>
+        </div>
+      </div>
+    </section>
+
     <section class="mt-12 card p-6 sm:p-8">
       <h2 class="text-xl font-bold">{c.isTitle}</h2>
       <div class="mt-4 grid gap-4 sm:grid-cols-2 text-sm leading-relaxed">
@@ -117,3 +138,39 @@ const toolGroups = [
     </section>
   </div>
 </BaseLayout>
+
+<style>
+  .brand-card {
+    background:
+      radial-gradient(circle at 15% 50%, rgb(0 242 255 / 0.08), transparent 34%),
+      linear-gradient(135deg, rgb(21 24 36 / 0.98), rgb(13 15 23 / 0.96));
+  }
+
+  .brand-visual {
+    position: relative;
+    width: min(100%, 220px);
+    aspect-ratio: 1;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid rgb(0 242 255 / 0.26);
+    border-radius: 1.25rem;
+    background: #000;
+    box-shadow: 0 0 42px rgb(0 242 255 / 0.13), 0 0 70px rgb(122 92 255 / 0.08);
+  }
+
+  .brand-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    box-shadow: inset 0 0 30px rgb(0 242 255 / 0.08);
+  }
+
+  .brand-visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>

@@ -6,6 +6,11 @@
       "badge": "One-person independent project",
       "title": "Built for daily use. Shared for free.",
       "intro": "CyberGems started as a personal toolkit: over months I replaced most of my everyday Windows tools with my own apps — everything I always missed, with all the bloat removed. Now the whole suite is free and open source.",
+      "brandBadge": "The mark behind the project",
+      "brandTitle": "A small mark for a very personal project.",
+      "brandText": "This crystal CyberGems mark is the visual signature I use on GitHub: a compact way to recognize the project beyond the code.",
+      "brandCta": "View GitHub",
+      "brandAlt": "CyberGems crystal logo on a black background",
       "isTitle": "What this is — and what it is not",
       "yesLabel": "It is",
       "yesItems": [
@@ -38,6 +43,11 @@
       "badge": "Proyecto independiente de una persona",
       "title": "Hechas para usarlas. Compartidas gratis.",
       "intro": "CyberGems nació como caja de herramientas personal: durante meses reemplacé la mayoría de mis herramientas cotidianas de Windows por mis propias apps — con todo lo que siempre eché en falta y sin la grasa. Ahora toda la suite es gratis y de código abierto.",
+      "brandBadge": "El símbolo detrás del proyecto",
+      "brandTitle": "Un pequeño símbolo para un proyecto muy personal.",
+      "brandText": "Este símbolo de cristal de CyberGems es la firma visual que uso en GitHub: una forma compacta de reconocer el proyecto más allá del código.",
+      "brandCta": "Ver GitHub",
+      "brandAlt": "Logo de cristal de CyberGems sobre fondo negro",
       "isTitle": "Qué es esto — y qué no es",
       "yesLabel": "Sí es",
       "yesItems": [
