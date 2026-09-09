@@ -82,8 +82,10 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
           if (privacySignal) return;
           const script = document.createElement('script');
           script.defer = true;
-          script.dataset.domain = 'cybergems.org';
-          script.src = 'https://plausible.io/js/script.js';
+          script.dataset.websiteId = 'c6d75024-3ca1-484a-bc54-cf1fc24ad6e0';
+          script.dataset.doNotTrack = 'true';
+          script.dataset.domains = 'cybergems.org,www.cybergems.org';
+          script.src = 'https://cloud.umami.is/script.js';
           document.head.appendChild(script);
         })();
       </script>

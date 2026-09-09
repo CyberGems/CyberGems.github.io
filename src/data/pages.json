@@ -143,13 +143,13 @@
       ],
       "analyticsTitle": "Site analytics",
       "analyticsItems": [
-        "This site uses Plausible Analytics to count visits and understand which pages are useful.",
+        "This site uses Umami Analytics to count visits and understand which pages are useful.",
         "It uses no advertising cookies, cross-site identifiers, fingerprinting or user profiles.",
         "We only use aggregated site metrics; analytics is separate from the apps, which contain no telemetry or analytics SDKs.",
-        "The analytics script is loaded from plausible.io, only in production, and is not loaded when the browser sends Do Not Track or Global Privacy Control."
+        "The analytics script is loaded from cloud.umami.is, only in production, and is not loaded when the browser sends Do Not Track or Global Privacy Control."
       ],
       "analyticsPolicyText": "Provider details:",
-      "analyticsPolicyLink": "Plausible's data policy ↗",
+      "analyticsPolicyLink": "Umami's privacy FAQ ↗",
       "signTitle": "SmartScreen / antivirus",
       "signText": "Windows may warn that the publisher is unknown — expected for an independent project without an (expensive) code-signing certificate. Donations go toward one. You can always verify: compare the SHA with the GitHub release, check VirusTotal, or build from source."
     },
@@ -172,13 +172,13 @@
       ],
       "analyticsTitle": "Analítica del sitio",
       "analyticsItems": [
-        "Este sitio usa Plausible Analytics para contar visitas y entender qué páginas son útiles.",
+        "Este sitio usa Umami Analytics para contar visitas y entender qué páginas son útiles.",
         "No usa cookies publicitarias, identificadores entre sitios, fingerprinting ni perfiles de usuario.",
         "Solo usamos métricas agregadas; la analítica está separada de las apps, que no tienen telemetría ni SDKs de analítica.",
-        "El script de analítica se carga desde plausible.io, solo en producción, y no se carga cuando el navegador envía Do Not Track o Global Privacy Control."
+        "El script de analítica se carga desde cloud.umami.is, solo en producción, y no se carga cuando el navegador envía Do Not Track o Global Privacy Control."
       ],
       "analyticsPolicyText": "Detalles del proveedor:",
-      "analyticsPolicyLink": "Política de datos de Plausible ↗",
+      "analyticsPolicyLink": "FAQ de privacidad de Umami ↗",
       "signTitle": "SmartScreen / antivirus",
       "signText": "Windows puede avisar de editor desconocido — esperado en un proyecto independiente sin certificado de firma (caro). Las donaciones van hacia uno. Siempre puedes verificar: compara el SHA con el release de GitHub, revisa VirusTotal o compila desde el código."
     }
