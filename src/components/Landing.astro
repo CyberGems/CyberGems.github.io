@@ -114,8 +114,11 @@ const itemListLd = {
   <!-- Trust strip -->
   <section class="border-y border-white/5 bg-[#12151f]" aria-label="Features">
     <ul class="max-w-6xl mx-auto px-5 py-5 grid grid-cols-2 sm:grid-cols-5 gap-4 list-none m-0 p-0">
-      {strip.map((item) => (
-        <li class="flex items-center justify-center gap-2 text-sm text-[#9a9aa5]">
+      {strip.map((item, index) => (
+        <li class:list={[
+          'flex items-center justify-center gap-2 text-sm text-[#9a9aa5]',
+          index === strip.length - 1 && 'col-span-2 sm:col-span-1',
+        ]}>
           <span aria-hidden="true">{item.icon}</span>
           <span class="font-medium">{item.label}</span>
         </li>
