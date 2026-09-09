@@ -18,7 +18,6 @@ interface Props {
 
 const { title, description, lang, path, ogImage, jsonLd, noIndex } = Astro.props;
 const t = ui[lang];
-const other: Lang = lang === 'en' ? 'es' : 'en';
 const switchHref = lang === 'en' ? (path === '/' ? '/es/' : `/es${path}`) : path.replace(/^\/es/, '') || '/';
 const homeHref = lang === 'en' ? '/' : '/es/';
 // Normalize canonical: strip trailing slash except root, ensure leading slash
@@ -91,14 +90,30 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
           <a href={lang === 'en' ? '/about' : '/es/about'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden lg:inline">{t.navAbout}</a>
           <a href={lang === 'en' ? '/contact' : '/es/contact'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden xl:inline">{t.navContact}</a>
           <a href={lang === 'en' ? '/donate' : '/es/donate'} class="text-sm font-semibold text-gradient hover:opacity-80 transition-opacity hidden sm:inline">♥ {t.navDonate}</a>
-          <a
-            href={switchHref}
-            lang={other}
-            class="chip hover:border-[#00f2ff] hover:text-white transition-colors"
-            aria-label={t.langSwitch}
+          <div
+            class="inline-flex items-center gap-1 rounded-full border border-white/10 p-1"
+            role="group"
+            aria-label={lang === 'en' ? 'Language' : 'Idioma'}
           >
-            🌐 {t.langSwitch}
-          </a>
+            <a
+              href={lang === 'en' ? path : switchHref}
+              lang="en"
+              aria-current={lang === 'en' ? 'page' : undefined}
+              class:list={[
+                'rounded-full px-2.5 py-1 text-[11px] font-bold tracking-wide transition-colors',
+                lang === 'en' ? 'bg-[#00f2ff] text-[#0d0f17]' : 'text-[#9a9aa5] hover:text-white',
+              ]}
+            >EN</a>
+            <a
+              href={lang === 'es' ? path : switchHref}
+              lang="es"
+              aria-current={lang === 'es' ? 'page' : undefined}
+              class:list={[
+                'rounded-full px-2.5 py-1 text-[11px] font-bold tracking-wide transition-colors',
+                lang === 'es' ? 'bg-[#00f2ff] text-[#0d0f17]' : 'text-[#9a9aa5] hover:text-white',
+              ]}
+            >ES</a>
+          </div>
           <button
             type="button"
             class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/10 text-[#c9c9d1] hover:border-[#00f2ff] hover:text-white transition-colors"
