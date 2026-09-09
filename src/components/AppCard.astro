@@ -13,6 +13,19 @@ interface Props {
 const { app, lang, download } = Astro.props;
 const t = ui[lang];
 const href = lang === 'en' ? `/apps/${app.slug}` : `/es/apps/${app.slug}`;
+const actionAccents: Record<string, string> = {
+  cybersnap: '#F2A65A',
+  cybermanager: '#82D6B0',
+  cybertray: '#F0B35D',
+  cyberfeeds: '#C792EA',
+  cybernotes: '#81C784',
+  cyberpaste: '#E8C86A',
+  cyberwall: '#E57373',
+  cyberviewer: '#BA68C8',
+  cyberlauncher: '#8B9CF6',
+  cyberclock: '#DDA15E',
+};
+const actionAccent = actionAccents[app.slug] ?? '#A8B3CF';
 const learnMore = lang === 'en' ? 'Learn more' : 'Saber más';
 const downloadHref = download?.installer?.url || download?.releaseUrl || `${app.repo}/releases/latest`;
 const hasDirectInstaller = Boolean(download?.installer?.url);
@@ -28,10 +41,11 @@ const publishedDate = download?.publishedAt
   : '';
 ---
 
-<article class="card group flex flex-col overflow-hidden">
+<article class="card app-card group flex flex-col overflow-hidden" style={`--app-accent: ${app.accent}; --action-accent: ${actionAccent};`}>
   <!-- Visual tile: official app icon with an emoji fallback for older CMS entries -->
   <a href={href} class="flex flex-col flex-1">
-    <div class="h-36 flex items-center justify-center relative overflow-hidden">
+    <div class="app-card-visual h-36 flex items-center justify-center relative overflow-hidden">
+      <span class="app-card-logo-glow" aria-hidden="true"></span>
       {app.icon ? (
         <img
           src={app.icon}
@@ -64,7 +78,7 @@ const publishedDate = download?.publishedAt
         Windows 10/11
       </span>
       <p class="text-sm text-[#9a9aa5] leading-relaxed flex-1">{app.tagline[lang]}</p>
-      <span class="text-sm font-semibold inline-flex items-center gap-1.5" style={`color: ${app.accent};`}>
+      <span class="text-sm font-semibold inline-flex items-center gap-1.5" style={`color: var(--action-accent);`}>
         {learnMore}
         <span class="inline-block group-hover:translate-x-1 transition-transform">→</span>
       </span>
@@ -75,7 +89,7 @@ const publishedDate = download?.publishedAt
     {(download?.tag || publishedDate) && (
       <div class="flex flex-wrap items-center gap-2 text-[11px] text-[#9a9aa5]">
         {download?.tag && (
-          <span class="font-bold px-2 py-0.5 rounded-md" style={`color: ${app.accent}; background: ${app.accent}14; border: 1px solid ${app.accent}40;`}>
+          <span class="font-bold px-2 py-0.5 rounded-md" style={`color: var(--action-accent); background: ${actionAccent}14; border: 1px solid ${actionAccent}40;`}>
             {download.tag}
           </span>
         )}
@@ -83,7 +97,7 @@ const publishedDate = download?.publishedAt
       </div>
     )}
     <div class="mt-3 flex flex-wrap items-center gap-2">
-      <a href={downloadHref} class="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-bold text-[#0d0f17] hover:brightness-95 transition" style={`background: ${app.accent};`}>
+      <a href={downloadHref} class="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-bold text-[#0d0f17] hover:brightness-95 transition" style={`background: var(--action-accent);`}>
         ↓ {downloadLabel}
       </a>
       <a href={`${app.repo}/releases`} target="_blank" rel="noopener noreferrer" class="text-xs text-[#9a9aa5] hover:text-white transition-colors">
@@ -92,3 +106,38 @@ const publishedDate = download?.publishedAt
     </div>
   </div>
 </article>
+
+<style>
+  .app-card-visual {
+    isolation: isolate;
+  }
+
+  .app-card-logo-glow {
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--app-accent) 20%, transparent) 0%, transparent 70%);
+    filter: blur(16px);
+    opacity: 0.75;
+    transform: scale(1.08);
+    transition: opacity 220ms ease, transform 220ms ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .app-card-visual > :not(.app-card-logo-glow) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .app-card:hover .app-card-logo-glow,
+  .app-card:focus-within .app-card-logo-glow {
+    opacity: 0.95;
+    transform: scale(1.18);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .app-card-logo-glow { transition: none; }
+  }
+</style>

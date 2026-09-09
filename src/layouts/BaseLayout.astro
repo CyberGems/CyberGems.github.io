@@ -79,14 +79,14 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-white focus:text-[#0d0f17] focus:font-bold">Skip to content</a>
     <header class="sticky top-0 z-50 backdrop-blur-md bg-[#0d0f17]/80 border-b border-white/5">
       <nav aria-label="Primary" class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
-        <a href={homeHref} class="inline-flex items-center" aria-label="CyberGems">
-          <img src="/branding/cybergems-header.svg" alt="CyberGems" width="192" height="32" class="h-7 w-auto sm:h-8" />
+        <a href={homeHref} class="inline-flex min-w-0 shrink items-center" aria-label="CyberGems">
+          <img src="/branding/cybergems-header.svg" alt="CyberGems" width="192" height="32" class="h-6 w-auto sm:h-8" />
         </a>
         <div class="flex items-center gap-2 sm:gap-5">
-          <a href={`${homeHref}#apps`} class="text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.navApps}</a>
+          <a href={`${homeHref}#apps`} class="hidden sm:inline text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.navApps}</a>
           <a href={lang === 'en' ? '/download' : '/es/download'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden md:inline">{t.navDownload}</a>
           <a href={lang === 'en' ? '/changelog' : '/es/changelog'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden md:inline">{t.navChangelog}</a>
-          <a href={lang === 'en' ? '/docs' : '/es/docs'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.navDocs}</a>
+          <a href={lang === 'en' ? '/docs' : '/es/docs'} class="hidden sm:inline text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.navDocs}</a>
           <a href={lang === 'en' ? '/about' : '/es/about'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden lg:inline">{t.navAbout}</a>
           <a href={lang === 'en' ? '/contact' : '/es/contact'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden xl:inline">{t.navContact}</a>
           <a href={lang === 'en' ? '/donate' : '/es/donate'} class="text-sm font-semibold text-gradient hover:opacity-80 transition-opacity hidden sm:inline">♥ {t.navDonate}</a>
