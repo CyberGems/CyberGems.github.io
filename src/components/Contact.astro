@@ -8,8 +8,8 @@ const { lang } = Astro.props;
 const en = lang === 'en';
 const title = en ? 'Contact — CyberGems' : 'Contacto — CyberGems';
 const description = en
-  ? 'Get in touch with CyberGems for questions, feedback, collaborations or support. Direct email, no form and no tracking.'
-  : 'Contacta con CyberGems para preguntas, comentarios, colaboraciones o soporte. Email directo, sin formulario ni rastreo.';
+  ? 'Get in touch with CyberGems for questions, feedback, collaborations or support. Direct email, no form and no contact tracking.'
+  : 'Contacta con CyberGems para preguntas, comentarios, colaboraciones o soporte. Email directo, sin formulario ni seguimiento de contactos.';
 const path = en ? '/contact' : '/es/contact';
 const emailHref = 'mailto:' + site.contactEmail + '?subject=' + encodeURIComponent(en ? 'CyberGems contact' : 'Contacto CyberGems');
 ---
@@ -78,10 +78,10 @@ const emailHref = 'mailto:' + site.contactEmail + '?subject=' + encodeURICompone
       </section>
       <section class="card p-6">
         <h2 class="font-bold">{en ? 'Privacy by default' : 'Privacidad por defecto'}</h2>
-        <p class="mt-3 text-sm text-[#9a9aa5] leading-relaxed">
-          {en
-            ? 'This page has no contact form, cookies or analytics. Clicking the email link opens your own mail provider; its handling of the message follows that provider’s policy.'
-            : 'Esta página no tiene formulario de contacto, cookies ni analítica. El enlace de email abre tu propio proveedor de correo; el tratamiento del mensaje depende de su política.'}
+          <p class="mt-3 text-sm text-[#9a9aa5] leading-relaxed">
+            {en
+            ? 'This page has no contact form or embedded third-party widgets. The site’s aggregate analytics is explained in Privacy. Clicking the email link opens your own mail provider; its handling of the message follows that provider’s policy.'
+            : 'Esta página no tiene formulario de contacto ni widgets de terceros. La analítica agregada del sitio se explica en Privacidad. El enlace de email abre tu propio proveedor de correo; el tratamiento del mensaje depende de su política.'}
         </p>
       </section>
     </div>

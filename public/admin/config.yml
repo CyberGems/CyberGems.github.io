@@ -425,6 +425,10 @@ collections:
                   - { name: appsItems, label: Apps bullets, widget: list }
                   - { name: siteTitle, widget: string }
                   - { name: siteItems, label: Site bullets, widget: list }
+                  - { name: analyticsTitle, label: Analytics section title, widget: string }
+                  - { name: analyticsItems, label: Analytics bullets, widget: list }
+                  - { name: analyticsPolicyText, label: Analytics policy intro, widget: string }
+                  - { name: analyticsPolicyLink, label: Analytics policy link, widget: string }
                   - { name: signTitle, widget: string }
                   - { name: signText, widget: text }
               - name: es
@@ -438,6 +442,10 @@ collections:
                   - { name: appsItems, label: Bullets apps, widget: list }
                   - { name: siteTitle, widget: string }
                   - { name: siteItems, label: Bullets sitio, widget: list }
+                  - { name: analyticsTitle, label: Título de analítica, widget: string }
+                  - { name: analyticsItems, label: Bullets de analítica, widget: list }
+                  - { name: analyticsPolicyText, label: Intro de política de analítica, widget: string }
+                  - { name: analyticsPolicyLink, label: Enlace de política de analítica, widget: string }
                   - { name: signTitle, widget: string }
                   - { name: signText, widget: text }
           - name: download

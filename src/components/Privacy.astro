@@ -30,6 +30,16 @@ const path = en ? '/privacy' : '/es/privacy';
         </ul>
       </section>
       <section class="card p-6">
+        <h2 class="font-bold text-base">📊 {c.analyticsTitle}</h2>
+        <ul class="mt-2 text-[#c9c9d1] space-y-1.5">
+          {c.analyticsItems.map((item: string) => <li>· {item}</li>)}
+        </ul>
+        <p class="mt-3 text-xs text-[#9a9aa5]">
+          {c.analyticsPolicyText}{' '}
+          <a href="https://plausible.io/data-policy" target="_blank" rel="noopener noreferrer" class="text-[#00f2ff] hover:text-white transition-colors">{c.analyticsPolicyLink}</a>
+        </p>
+      </section>
+      <section class="card p-6">
         <h2 class="font-bold text-base">🔏 {c.signTitle}</h2>
         <p class="mt-2 text-[#c9c9d1]">{c.signText}</p>
       </section>

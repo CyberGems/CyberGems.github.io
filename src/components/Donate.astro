@@ -8,8 +8,8 @@ const { lang } = Astro.props;
 const en = lang === 'en';
 const title = en ? 'Donate — Support CyberGems' : 'Donar — Apoya CyberGems';
 const description = en
-  ? 'CyberGems is free forever with no ads or tracking. Support via GitHub Sponsors, PayPal, Ko-fi, Buy Me a Coffee or crypto.'
-  : 'CyberGems es gratis para siempre, sin anuncios ni rastreo. Apoya vía GitHub Sponsors, PayPal, Ko-fi, Buy Me a Coffee o crypto.';
+  ? 'CyberGems apps are free forever with no ads or app tracking. Support via GitHub Sponsors, PayPal, Ko-fi, Buy Me a Coffee or crypto.'
+  : 'Las apps CyberGems son gratis para siempre, sin anuncios ni rastreo en las apps. Apoya vía GitHub Sponsors, PayPal, Ko-fi, Buy Me a Coffee o crypto.';
 const path = en ? '/donate' : '/es/donate';
 const hasFiduciary = site.paypal || site.kofi || site.bmc;
 ---
@@ -52,8 +52,8 @@ const hasFiduciary = site.paypal || site.kofi || site.bmc;
         <h2 class="font-bold">{en ? 'One-time tips — official buttons' : 'Propinas puntuales — botones oficiales'}</h2>
         <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">
           {en
-            ? 'Brand buttons that link straight to each platform. No third-party scripts on this site — your privacy promise stays intact.'
-            : 'Botones de marca que enlazan directo a cada plataforma. Sin scripts de terceros en este sitio — tu promesa de privacidad intacta.'}
+            ? 'Brand buttons that link straight to each platform. No payment widgets are embedded; site analytics is described in Privacy.'
+            : 'Botones de marca que enlazan directo a cada plataforma. No incrustamos widgets de pago; la analítica del sitio se explica en Privacidad.'}
         </p>
         <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
           {site.paypal && (

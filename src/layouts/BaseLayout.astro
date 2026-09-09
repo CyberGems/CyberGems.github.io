@@ -73,6 +73,21 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
     <meta name="twitter:image:alt" content={title} />
     <meta name="theme-color" content="#0d0f17" />
     <title>{title}</title>
+    {import.meta.env.PROD && (
+      <script is:inline>
+        (() => {
+          const privacySignal = navigator.doNotTrack === '1'
+            || window.doNotTrack === '1'
+            || navigator.globalPrivacyControl === true;
+          if (privacySignal) return;
+          const script = document.createElement('script');
+          script.defer = true;
+          script.dataset.domain = 'cybergems.org';
+          script.src = 'https://plausible.io/js/script.js';
+          document.head.appendChild(script);
+        })();
+      </script>
+    )}
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
   </head>
   <body class="min-h-screen flex flex-col">

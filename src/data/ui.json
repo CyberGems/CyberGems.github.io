@@ -1,6 +1,6 @@
 {
   "en": {
-    "tagline": "Free, no ads, no tracking, no account.",
+    "tagline": "Free, no ads, no app tracking, no account.",
     "navApps": "Apps",
     "navGitHub": "GitHub",
     "heroBadge": "10 free & open-source apps for Windows",
@@ -12,7 +12,7 @@
     "stripFree": "Free forever",
     "stripNoAds": "No ads",
     "stripNoAccount": "No account",
-    "stripNoTrack": "No tracking",
+    "stripNoTrack": "No app tracking",
     "stripOss": "Open source (GPLv3)",
     "appsTitle": "The suite",
     "appsSubtitle": "Ten apps, one philosophy: fast, private and beautiful.",
@@ -48,7 +48,7 @@
     "docsOpen": "Browse documentation"
   },
   "es": {
-    "tagline": "Gratis, sin anuncios, sin rastreo, sin cuenta.",
+    "tagline": "Gratis, sin anuncios, sin rastreo en apps, sin cuenta.",
     "navApps": "Apps",
     "navGitHub": "GitHub",
     "heroBadge": "10 apps gratuitas y de código abierto para Windows",
@@ -60,7 +60,7 @@
     "stripFree": "Gratis para siempre",
     "stripNoAds": "Sin anuncios",
     "stripNoAccount": "Sin cuenta",
-    "stripNoTrack": "Sin rastreo",
+    "stripNoTrack": "Sin rastreo en apps",
     "stripOss": "Código abierto (GPLv3)",
     "appsTitle": "La suite",
     "appsSubtitle": "Diez apps, una filosofía: rápidas, privadas y preciosas.",

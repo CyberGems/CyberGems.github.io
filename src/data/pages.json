@@ -126,8 +126,8 @@
   "privacy": {
     "en": {
       "metaTitle": "Privacy — CyberGems",
-      "metaDesc": "CyberGems apps collect nothing. No accounts, no telemetry, no ads. This site is static with no tracking.",
-      "subtitle": "Short version: there is nothing to read. The apps work offline and collect nothing.",
+      "metaDesc": "CyberGems apps collect nothing. No accounts, no telemetry, no ads. This site uses privacy-friendly, aggregate analytics with no cookies or personal profiles.",
+      "subtitle": "Short version: the apps collect nothing. This site uses minimal, anonymous analytics to understand which pages are useful.",
       "appsTitle": "The apps",
       "appsItems": [
         "No telemetry, no crash reporting, no analytics SDKs.",
@@ -138,16 +138,25 @@
       "siteTitle": "This website",
       "siteItems": [
         "Static site (Astro + GitHub Pages). No cookies, no fingerprinting, no A/B tests.",
-        "Download buttons query api.github.com at click-time to resolve the latest .exe — standard GitHub traffic, no extra tracker.",
+        "Download buttons query api.github.com at click-time to resolve the latest .exe — standard GitHub traffic, separate from the aggregate analytics described below.",
         "External links (GitHub, wikis) follow their own policies."
       ],
+      "analyticsTitle": "Site analytics",
+      "analyticsItems": [
+        "This site uses Plausible Analytics to count visits and understand which pages are useful.",
+        "It uses no advertising cookies, cross-site identifiers, fingerprinting or user profiles.",
+        "We only use aggregated site metrics; analytics is separate from the apps, which contain no telemetry or analytics SDKs.",
+        "The analytics script is loaded from plausible.io, only in production, and is not loaded when the browser sends Do Not Track or Global Privacy Control."
+      ],
+      "analyticsPolicyText": "Provider details:",
+      "analyticsPolicyLink": "Plausible's data policy ↗",
       "signTitle": "SmartScreen / antivirus",
       "signText": "Windows may warn that the publisher is unknown — expected for an independent project without an (expensive) code-signing certificate. Donations go toward one. You can always verify: compare the SHA with the GitHub release, check VirusTotal, or build from source."
     },
     "es": {
       "metaTitle": "Privacidad — CyberGems",
-      "metaDesc": "Las apps CyberGems no recogen nada. Sin cuentas, sin telemetría, sin anuncios. Este sitio es estático y sin rastreo.",
-      "subtitle": "Versión corta: no hay nada que leer. Las apps funcionan offline y no recogen nada.",
+      "metaDesc": "Las apps CyberGems no recogen nada. Sin cuentas, sin telemetría, sin anuncios. Este sitio usa analítica agregada y respetuosa con la privacidad, sin cookies ni perfiles personales.",
+      "subtitle": "Versión corta: las apps no recogen nada. Este sitio usa analítica mínima y anónima para entender qué páginas son útiles.",
       "appsTitle": "Las apps",
       "appsItems": [
         "Sin telemetría, sin crash reporting, sin SDKs de analítica.",
@@ -158,9 +167,18 @@
       "siteTitle": "Este sitio",
       "siteItems": [
         "Sitio estático (Astro + GitHub Pages). Sin cookies, sin fingerprinting, sin A/B tests.",
-        "Los botones consultan api.github.com al hacer clic para resolver el último .exe — tráfico normal de GitHub, sin tracker extra.",
+        "Los botones consultan api.github.com al hacer clic para resolver el último .exe — tráfico normal de GitHub, separado de la analítica agregada descrita abajo.",
         "Los enlaces externos (GitHub, wikis) siguen sus propias políticas."
       ],
+      "analyticsTitle": "Analítica del sitio",
+      "analyticsItems": [
+        "Este sitio usa Plausible Analytics para contar visitas y entender qué páginas son útiles.",
+        "No usa cookies publicitarias, identificadores entre sitios, fingerprinting ni perfiles de usuario.",
+        "Solo usamos métricas agregadas; la analítica está separada de las apps, que no tienen telemetría ni SDKs de analítica.",
+        "El script de analítica se carga desde plausible.io, solo en producción, y no se carga cuando el navegador envía Do Not Track o Global Privacy Control."
+      ],
+      "analyticsPolicyText": "Detalles del proveedor:",
+      "analyticsPolicyLink": "Política de datos de Plausible ↗",
       "signTitle": "SmartScreen / antivirus",
       "signText": "Windows puede avisar de editor desconocido — esperado en un proyecto independiente sin certificado de firma (caro). Las donaciones van hacia uno. Siempre puedes verificar: compara el SHA con el release de GitHub, revisa VirusTotal o compila desde el código."
     }
