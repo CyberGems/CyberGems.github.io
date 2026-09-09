@@ -9,6 +9,29 @@ const { lang } = Astro.props;
 const en = lang === 'en';
 const c = (pagesData.about as Record<string, any>)[lang];
 const path = en ? '/about' : '/es/about';
+const toolGroups = [
+  {
+    title: en ? 'Development & AI' : 'Desarrollo e IA',
+    icon: '</>',
+    tools: [
+      { name: 'Codex', mark: 'CX' },
+      { name: 'Antigravity', mark: 'AG' },
+      { name: 'VS Code', mark: '⌘' },
+      { name: 'Cursor', mark: '↗' },
+      { name: 'ZCode', mark: 'Z' },
+      { name: 'Claude', mark: '✳' },
+      { name: 'OpenCode', mark: 'OC' },
+    ],
+  },
+  {
+    title: en ? 'Visual & Creative' : 'Visual y creativo',
+    icon: '✦',
+    tools: [
+      { name: 'Photoshop', mark: 'Ps' },
+      { name: 'CorelDRAW', mark: 'CD' },
+    ],
+  },
+];
 ---
 
 <BaseLayout title={c.metaTitle} description={c.metaDesc} lang={lang} path={path}>
@@ -50,6 +73,40 @@ const path = en ? '/about' : '/es/about';
             <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">{p.d}</p>
           </div>
         ))}
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <header class="text-center">
+        <span class="chip mb-4">🛠 {en ? 'The toolchain' : 'Herramientas de trabajo'}</span>
+        <h2 class="text-2xl font-bold tracking-tight">Powered by</h2>
+        <p class="mt-3 text-[#9a9aa5] max-w-2xl mx-auto">
+          {en ? 'The tools behind the code, visuals and everyday craft of CyberGems.' : 'Las herramientas detrás del código, los visuales y el trabajo diario de CyberGems.'}
+        </p>
+      </header>
+
+      <div class="mt-6 card p-5 sm:p-7">
+        <div class="grid gap-8 lg:grid-cols-[1.55fr_1fr]">
+          {toolGroups.map((group, index) => (
+            <div class={index === 1 ? 'lg:border-l lg:border-white/10 lg:pl-8' : ''}>
+              <div class="flex items-center gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-sm font-extrabold text-[#00f2ff]" aria-hidden="true">{group.icon}</span>
+                <h3 class="font-bold">{group.title}</h3>
+              </div>
+              <ul class="mt-4 grid grid-cols-2 gap-3 list-none m-0 p-0 sm:grid-cols-3 lg:grid-cols-2">
+                {group.tools.map((tool) => (
+                  <li class="flex min-w-0 items-center gap-3 rounded-xl border border-white/10 bg-white/[0.02] px-3 py-3">
+                    <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-xs font-extrabold tracking-tight text-[#c9c9d1]" aria-hidden="true">{tool.mark}</span>
+                    <span class="truncate text-sm font-semibold">{tool.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <p class="mt-6 border-t border-white/10 pt-4 text-center text-xs text-[#9a9aa5]">
+          {en ? 'Independent project — these are tools in the workflow, not sponsors or official partners.' : 'Proyecto independiente — son herramientas del flujo de trabajo, no patrocinadores ni socios oficiales.'}
+        </p>
       </div>
     </section>
 
