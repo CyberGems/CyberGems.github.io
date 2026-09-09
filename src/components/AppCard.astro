@@ -31,27 +31,19 @@ const publishedDate = download?.publishedAt
 <article class="card group flex flex-col overflow-hidden">
   <!-- Visual tile: official app icon with an emoji fallback for older CMS entries -->
   <a href={href} class="flex flex-col flex-1">
-    <div
-      class="h-36 flex items-center justify-center relative overflow-hidden"
-      style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}26 0%, transparent 55%), linear-gradient(160deg, ${app.accent}14 0%, transparent 60%);`}
-    >
-      <div
-        class="absolute inset-x-0 bottom-0 h-px opacity-60"
-        style={`background: linear-gradient(90deg, transparent, ${app.accent}, transparent);`}
-      >
-      </div>
+    <div class="h-36 flex items-center justify-center relative overflow-hidden">
       {app.icon ? (
         <img
           src={app.icon}
           alt=""
           width="96"
           height="96"
-          class="h-24 w-24 object-contain drop-shadow-[0_0_24px_rgba(0,242,255,0.25)] group-hover:scale-110 transition-transform duration-300"
+          class="h-24 w-24 object-contain group-hover:scale-110 transition-transform duration-300"
           loading="lazy"
           decoding="async"
         />
       ) : (
-        <span aria-hidden="true" class="text-6xl drop-shadow-[0_0_24px_rgba(0,242,255,0.25)] group-hover:scale-110 transition-transform duration-300">
+        <span aria-hidden="true" class="text-6xl group-hover:scale-110 transition-transform duration-300">
           {app.emoji}
         </span>
       )}
