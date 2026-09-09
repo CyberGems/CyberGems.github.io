@@ -95,6 +95,11 @@ const faqPath = lang === 'en' ? '/faq' : '/es/faq';
         rel="noopener noreferrer"
         class="btn-primary"
         data-gh-repo={`CyberGems/${app.slug}`}
+        data-umami-event="download_click"
+        data-umami-event-app={app.slug}
+        data-umami-event-format="installer"
+        data-umami-event-source="app-page"
+        data-download-start
       >
         ⬇ {t.downloadCta}<span data-gh-version></span>
       </a>

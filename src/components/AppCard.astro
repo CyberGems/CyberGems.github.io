@@ -97,7 +97,16 @@ const publishedDate = download?.publishedAt
       </div>
     )}
     <div class="mt-3 flex flex-wrap items-center gap-2">
-      <a href={downloadHref} class="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-bold text-[#0d0f17] hover:brightness-95 transition" style={`background: var(--action-accent);`}>
+      <a
+        href={downloadHref}
+        class="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs font-bold text-[#0d0f17] hover:brightness-95 transition"
+        style={`background: var(--action-accent);`}
+        data-umami-event="download_click"
+        data-umami-event-app={app.slug}
+        data-umami-event-format="installer"
+        data-umami-event-source="app-card"
+        data-download-start
+      >
         ↓ {downloadLabel}
       </a>
       <a href={`${app.repo}/releases`} target="_blank" rel="noopener noreferrer" class="text-xs text-[#9a9aa5] hover:text-white transition-colors">

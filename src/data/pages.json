@@ -146,6 +146,8 @@
         "This site uses Umami Analytics to count visits and understand which pages are useful.",
         "It uses no advertising cookies, cross-site identifiers, fingerprinting or user profiles.",
         "We only use aggregated site metrics; analytics is separate from the apps, which contain no telemetry or analytics SDKs.",
+        "Download button clicks and direct-file download starts are recorded as separate anonymous events so they can be filtered independently.",
+        "Because files are served by GitHub, the site cannot confirm that a download finished; the second event means the browser was sent to a direct .exe or .zip URL.",
         "The analytics script is loaded from cloud.umami.is, only in production, and is not loaded when the browser sends Do Not Track or Global Privacy Control."
       ],
       "analyticsPolicyText": "Provider details:",
@@ -175,6 +177,8 @@
         "Este sitio usa Umami Analytics para contar visitas y entender qué páginas son útiles.",
         "No usa cookies publicitarias, identificadores entre sitios, fingerprinting ni perfiles de usuario.",
         "Solo usamos métricas agregadas; la analítica está separada de las apps, que no tienen telemetría ni SDKs de analítica.",
+        "Los clics en botones de descarga y los inicios de descarga directa se registran como eventos anónimos separados para poder filtrarlos de forma independiente.",
+        "Como los archivos los sirve GitHub, el sitio no puede confirmar que una descarga terminó; el segundo evento significa que el navegador fue enviado a una URL directa de .exe o .zip.",
         "El script de analítica se carga desde cloud.umami.is, solo en producción, y no se carga cuando el navegador envía Do Not Track o Global Privacy Control."
       ],
       "analyticsPolicyText": "Detalles del proveedor:",

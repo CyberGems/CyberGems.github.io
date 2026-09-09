@@ -159,15 +159,38 @@ const breadcrumbLd = {
                       aria-label={`${c.dlLink} ${app.name}`}
                       class="inline-flex items-center gap-1.5 font-bold px-3 py-1.5 rounded-lg text-[#0d0f17] hover:brightness-95 transition"
                       style={`background: ${app.accent};`}
+                      data-umami-event="download_click"
+                      data-umami-event-app={app.slug}
+                      data-umami-event-format="installer"
+                      data-umami-event-source="download-page"
+                      data-download-start
                     >
                       {'\u2B07'} {c.dlLink} {'\u00B7'} {fmtSize(inst.size)}
                     </a>
                   ) : (
-                    <a href={`${homePath}apps/${app.slug}/`} class="font-semibold" style={`color: ${app.accent};`}>{c.dlLink}</a>
+                    <a
+                      href={`${homePath}apps/${app.slug}/`}
+                      class="font-semibold"
+                      style={`color: ${app.accent};`}
+                      data-umami-event="download_click"
+                      data-umami-event-app={app.slug}
+                      data-umami-event-format="installer"
+                      data-umami-event-source="download-page"
+                    >{c.dlLink}</a>
                   )}
                   <a href={`${homePath}apps/${app.slug}/`} class="text-[#9a9aa5] hover:text-white transition-colors">{en ? 'Details' : 'Detalles'}</a>
                   {dl && dl.portable && (
-                    <a href={dl.portable.url} target="_blank" rel="noopener noreferrer" class="text-[#9a9aa5] hover:text-white transition-colors">Portable .zip</a>
+                    <a
+                      href={dl.portable.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-[#9a9aa5] hover:text-white transition-colors"
+                      data-umami-event="download_click"
+                      data-umami-event-app={app.slug}
+                      data-umami-event-format="portable"
+                      data-umami-event-source="download-page"
+                      data-download-start
+                    >Portable .zip</a>
                   )}
                   {hasData && dl && (
                     <a href={dl.checksum ? dl.checksum.url : dl.releaseUrl} target="_blank" rel="noopener noreferrer" class="text-[#9a9aa5] hover:text-white transition-colors">{c.verLink}</a>
