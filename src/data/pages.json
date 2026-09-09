@@ -2,15 +2,10 @@
   "about": {
     "en": {
       "metaTitle": "About — CyberGems",
-      "metaDesc": "CyberGems is an independent one-person project: 10 free, open-source Windows apps built for daily use and shared with the world. No ads, no tracking, GPLv3.",
+      "metaDesc": "CyberGems is an independent one-person project: a set of free, open-source Windows apps built for daily use and shared with the world. No ads, no tracking, no account, GPLv3.",
       "badge": "One-person independent project",
       "title": "Built for daily use. Shared for free.",
-      "intro": "CyberGems started as a personal toolkit: over months I replaced most of my everyday Windows tools with my own apps — everything I always missed, with all the bloat removed. Now the whole suite is free and open source.",
-      "brandBadge": "The mark behind the project",
-      "brandTitle": "A small mark for a very personal project.",
-      "brandText": "This crystal CyberGems mark is the visual signature I use on GitHub: a compact way to recognize the project beyond the code.",
-      "brandCta": "View GitHub",
-      "brandAlt": "CyberGems crystal logo on a black background",
+      "intro": "CyberGems started as a personal toolkit. After using everyday Windows tools that lacked features, were expensive, or felt bloated, I eventually replaced most of my old tools with my own apps. After countless hours of hobby tinkering and polishing, I eventually swapped nearly all of my previous apps for my own. Recently, I decided to share the entire suite for free as open source, while continuing to improve it.",
       "isTitle": "What this is — and what it is not",
       "yesLabel": "It is",
       "yesItems": [
@@ -27,15 +22,44 @@
       "privacyNote": "Privacy note: I keep my personal identity private. Everything verifiable — source, releases, issues — is public on GitHub.",
       "principlesTitle": "Principles",
       "principles": [
-        { "icon": "🔒", "t": "Privacy-first", "d": "Your data never leaves your PC. No servers, no cloud, no hidden telemetry." },
-        { "icon": "💻", "t": "Local-first", "d": "Everything works offline. No account, no subscriptions, no external dependencies." },
-        { "icon": "📖", "t": "Open source", "d": "GPLv3 licensed. You can audit, modify and redistribute the code freely." },
-        { "icon": "🎁", "t": "100% Free", "d": "No ads, no in-app purchases, no limitations. Free software at its fullest." },
-        { "icon": "⚡", "t": "Fast & light", "d": "Native desktop apps. No browser overhead, no heavy Electron shells." },
-        { "icon": "✨", "t": "Sober design", "d": "Clean interfaces without distractions. Every element has a clear purpose." }
+        {
+          "icon": "🔒",
+          "t": "Privacy-first",
+          "d": "Your data never leaves your PC. No servers, no cloud, no hidden telemetry."
+        },
+        {
+          "icon": "💻",
+          "t": "Local-first",
+          "d": "Everything works offline. No account, no subscriptions, no external dependencies."
+        },
+        {
+          "icon": "📖",
+          "t": "Open source",
+          "d": "GPLv3 licensed. You can audit, modify and redistribute the code freely."
+        },
+        {
+          "icon": "🎁",
+          "t": "100% Free",
+          "d": "No ads, no in-app purchases, no limitations. Free software at its fullest."
+        },
+        {
+          "icon": "⚡",
+          "t": "Fast & light",
+          "d": "Native desktop apps. No browser overhead, no heavy Electron shells."
+        },
+        {
+          "icon": "✨",
+          "t": "Sober design",
+          "d": "Clean interfaces without distractions. Every element has a clear purpose."
+        }
       ],
       "exploreCta": "Explore the apps ↓",
-      "donateCta": "Support the project"
+      "donateCta": "Support the project",
+      "brandAlt": "CyberGems crystal logo on a black background",
+      "brandBadge": "The mark behind the project",
+      "brandCta": "View GitHub",
+      "brandText": "This crystal CyberGems mark is the visual signature I use on GitHub: a compact way to recognize the project beyond the code.",
+      "brandTitle": "A small mark for a very personal project."
     },
     "es": {
       "metaTitle": "Acerca de — CyberGems",
@@ -43,11 +67,6 @@
       "badge": "Proyecto independiente de una persona",
       "title": "Hechas para usarlas. Compartidas gratis.",
       "intro": "CyberGems nació como caja de herramientas personal: durante meses reemplacé la mayoría de mis herramientas cotidianas de Windows por mis propias apps — con todo lo que siempre eché en falta y sin la grasa. Ahora toda la suite es gratis y de código abierto.",
-      "brandBadge": "El símbolo detrás del proyecto",
-      "brandTitle": "Un pequeño símbolo para un proyecto muy personal.",
-      "brandText": "Este símbolo de cristal de CyberGems es la firma visual que uso en GitHub: una forma compacta de reconocer el proyecto más allá del código.",
-      "brandCta": "Ver GitHub",
-      "brandAlt": "Logo de cristal de CyberGems sobre fondo negro",
       "isTitle": "Qué es esto — y qué no es",
       "yesLabel": "Sí es",
       "yesItems": [
@@ -64,15 +83,44 @@
       "privacyNote": "Nota de privacidad: mantengo mi identidad personal en privado. Todo lo verificable — código, releases, issues — es público en GitHub.",
       "principlesTitle": "Principios",
       "principles": [
-        { "icon": "🔒", "t": "Privacy-first", "d": "Tus datos nunca salen de tu equipo. Sin servidores, sin nube, sin telemetría oculta." },
-        { "icon": "💻", "t": "Local-first", "d": "Todo funciona offline. No necesitas cuenta, no hay suscripciones, no hay dependencias externas." },
-        { "icon": "📖", "t": "Código abierto", "d": "Licencia GPLv3. Puedes auditar, modificar y distribuir el código libremente." },
-        { "icon": "🎁", "t": "100% Gratuito", "d": "Sin anuncios, sin compras in-app, sin limitaciones. Software libre en su máxima expresión." },
-        { "icon": "⚡", "t": "Rápido y ligero", "d": "Aplicaciones nativas de escritorio. Sin overhead de navegador, sin electrones pesados." },
-        { "icon": "✨", "t": "Diseño sobrio", "d": "Interfaces limpias sin distracciones. Cada elemento tiene un propósito claro." }
+        {
+          "icon": "🔒",
+          "t": "Privacy-first",
+          "d": "Tus datos nunca salen de tu equipo. Sin servidores, sin nube, sin telemetría oculta."
+        },
+        {
+          "icon": "💻",
+          "t": "Local-first",
+          "d": "Todo funciona offline. No necesitas cuenta, no hay suscripciones, no hay dependencias externas."
+        },
+        {
+          "icon": "📖",
+          "t": "Código abierto",
+          "d": "Licencia GPLv3. Puedes auditar, modificar y distribuir el código libremente."
+        },
+        {
+          "icon": "🎁",
+          "t": "100% Gratuito",
+          "d": "Sin anuncios, sin compras in-app, sin limitaciones. Software libre en su máxima expresión."
+        },
+        {
+          "icon": "⚡",
+          "t": "Rápido y ligero",
+          "d": "Aplicaciones nativas de escritorio. Sin overhead de navegador, sin electrones pesados."
+        },
+        {
+          "icon": "✨",
+          "t": "Diseño sobrio",
+          "d": "Interfaces limpias sin distracciones. Cada elemento tiene un propósito claro."
+        }
       ],
       "exploreCta": "Explorar las apps ↓",
-      "donateCta": "Apoyar el proyecto"
+      "donateCta": "Apoyar el proyecto",
+      "brandAlt": "Logo de cristal de CyberGems sobre fondo negro",
+      "brandBadge": "El símbolo detrás del proyecto",
+      "brandCta": "Ver GitHub",
+      "brandText": "Este símbolo de cristal de CyberGems es la firma visual que uso en GitHub: una forma compacta de reconocer el proyecto más allá del código.",
+      "brandTitle": "Un pequeño símbolo para un proyecto muy personal."
     }
   },
   "privacy": {
@@ -132,24 +180,56 @@
       "signText": "“Unknown publisher” is expected (no paid certificate yet). Verify with the release SHA / VirusTotal or build from source.",
       "allTitle": "All apps",
       "dlLink": "Download →",
-      "relLink": "All releases ↗",
-      "searchPh": "Search apps…",
-      "noResults": "No apps match your search.",
+      "relLink": "All releases ↗",
+      "cmpCols": [
+        "Setup .exe",
+        "Portable .zip",
+        "winget"
+      ],
+      "cmpRows": [
+        {
+          "label": "Install steps",
+          "v": [
+            "Double-click the installer",
+            "Unzip and run",
+            "One command"
+          ]
+        },
+        {
+          "label": "Admin rights",
+          "v": [
+            "Usually not — most install per-user; a few ask for admin",
+            "Not required",
+            "Not required"
+          ]
+        },
+        {
+          "label": "Updates",
+          "v": [
+            "In-app update check",
+            "Re-download",
+            "winget upgrade"
+          ]
+        },
+        {
+          "label": "Best for",
+          "v": [
+            "Most users",
+            "USB sticks, no-install",
+            "Scripted / silent setups"
+          ]
+        }
+      ],
+      "cmpTitle": "Which method should I pick?",
+      "copiedBtn": "Copied ✓",
+      "copyBtn": "Copy",
       "dataWarn": "Could not reach the GitHub API while building — showing release links only.",
+      "noResults": "No apps match your search.",
+      "searchPh": "Search apps…",
       "updated": "updated",
       "verLink": "SHA256 ↗",
-      "wingetTitle": "Install with winget",
       "wingetText": "One command per app, straight from any terminal — scriptable and always the latest published version.",
-      "copyBtn": "Copy",
-      "copiedBtn": "Copied ✓",
-      "cmpTitle": "Which method should I pick?",
-      "cmpCols": ["Setup .exe", "Portable .zip", "winget"],
-      "cmpRows": [
-        { "label": "Install steps", "v": ["Double-click the installer", "Unzip and run", "One command"] },
-        { "label": "Admin rights", "v": ["Usually not — most install per-user; a few ask for admin", "Not required", "Not required"] },
-        { "label": "Updates", "v": ["In-app update check", "Re-download", "winget upgrade"] },
-        { "label": "Best for", "v": ["Most users", "USB sticks, no-install", "Scripted / silent setups"] }
-      ]
+      "wingetTitle": "Install with winget"
     },
     "es": {
       "metaTitle": "Descargar — CyberGems",
@@ -165,24 +245,56 @@
       "signText": "“Editor desconocido” es esperado (aún sin certificado de pago). Verifica con el SHA del release / VirusTotal o compilando.",
       "allTitle": "Todas las apps",
       "dlLink": "Descargar →",
-      "relLink": "Versiones ↗",
-      "searchPh": "Buscar apps…",
-      "noResults": "Ninguna app coincide con tu búsqueda.",
+      "relLink": "Versiones ↗",
+      "cmpCols": [
+        "Setup .exe",
+        "Portable .zip",
+        "winget"
+      ],
+      "cmpRows": [
+        {
+          "label": "Pasos de instalación",
+          "v": [
+            "Doble clic al instalador",
+            "Descomprimir y ejecutar",
+            "Un comando"
+          ]
+        },
+        {
+          "label": "Permisos de admin",
+          "v": [
+            "Normalmente no — la mayoría instala por usuario; algunas lo piden",
+            "No requeridos",
+            "No requeridos"
+          ]
+        },
+        {
+          "label": "Actualizaciones",
+          "v": [
+            "Check de updates en la app",
+            "Re-descargar",
+            "winget upgrade"
+          ]
+        },
+        {
+          "label": "Ideal para",
+          "v": [
+            "La mayoría",
+            "USB, sin instalación",
+            "Scripteadas / silenciosas"
+          ]
+        }
+      ],
+      "cmpTitle": "¿Qué método elijo?",
+      "copiedBtn": "Copiado ✓",
+      "copyBtn": "Copiar",
       "dataWarn": "No se pudo contactar la API de GitHub al compilar — se muestran solo enlaces de releases.",
+      "noResults": "Ninguna app coincide con tu búsqueda.",
+      "searchPh": "Buscar apps…",
       "updated": "actualizada",
       "verLink": "SHA256 ↗",
-      "wingetTitle": "Instala con winget",
       "wingetText": "Un comando por app, directo desde cualquier terminal — scripteable y siempre con la última versión publicada.",
-      "copyBtn": "Copiar",
-      "copiedBtn": "Copiado ✓",
-      "cmpTitle": "¿Qué método elijo?",
-      "cmpCols": ["Setup .exe", "Portable .zip", "winget"],
-      "cmpRows": [
-        { "label": "Pasos de instalación", "v": ["Doble clic al instalador", "Descomprimir y ejecutar", "Un comando"] },
-        { "label": "Permisos de admin", "v": ["Normalmente no — la mayoría instala por usuario; algunas lo piden", "No requeridos", "No requeridos"] },
-        { "label": "Actualizaciones", "v": ["Check de updates en la app", "Re-descargar", "winget upgrade"] },
-        { "label": "Ideal para", "v": ["La mayoría", "USB, sin instalación", "Scripteadas / silenciosas"] }
-      ]
+      "wingetTitle": "Instala con winget"
     }
   }
 }
