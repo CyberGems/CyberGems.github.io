@@ -6,6 +6,11 @@
       "badge": "One-person independent project",
       "title": "Built for daily use. Shared for free.",
       "intro": "CyberGems started as a personal toolkit. After using everyday Windows tools that lacked features, were expensive, or felt bloated, I eventually replaced most of my old tools with my own apps. After countless hours of hobby tinkering and polishing, I eventually swapped nearly all of my previous apps for my own. Recently, I decided to share the entire suite for free as open source, while continuing to improve it.",
+      "brandBadge": "Open source",
+      "brandTitle": "Crystal-clear transparency",
+      "brandText": "This crystal CyberGems mark is the visual signature I use on GitHub: a compact way to recognize the project beyond the code.",
+      "brandCta": "View GitHub",
+      "brandAlt": "CyberGems crystal logo on a black background",
       "isTitle": "What this is — and what it is not",
       "yesLabel": "It is",
       "yesItems": [
@@ -54,19 +59,19 @@
         }
       ],
       "exploreCta": "Explore the apps ↓",
-      "donateCta": "Support the project",
-      "brandAlt": "CyberGems crystal logo on a black background",
-      "brandBadge": "The mark behind the project",
-      "brandCta": "View GitHub",
-      "brandText": "This crystal CyberGems mark is the visual signature I use on GitHub: a compact way to recognize the project beyond the code.",
-      "brandTitle": "A small mark for a very personal project."
+      "donateCta": "Support the project"
     },
     "es": {
       "metaTitle": "Acerca de — CyberGems",
       "metaDesc": "CyberGems es un proyecto independiente de una sola persona: 10 apps gratuitas y open-source para Windows, creadas para el uso diario y compartidas con el mundo. Sin anuncios, sin rastreo, GPLv3.",
       "badge": "Proyecto independiente de una persona",
       "title": "Hechas para usarlas. Compartidas gratis.",
-      "intro": "CyberGems nació como caja de herramientas personal: durante meses reemplacé la mayoría de mis herramientas cotidianas de Windows por mis propias apps — con todo lo que siempre eché en falta y sin la grasa. Ahora toda la suite es gratis y de código abierto.",
+      "intro": "CyberGems empezó como un kit de herramientas personal. Cansado de usar programas de Windows que carecían de funciones, eran caros o se sentían pesados, terminé reemplazando casi todas mis viejas herramientas por mis propias aplicaciones. Después de incontables horas de ajustes por hobby y de ir puliéndolas, acabé cambiando prácticamente todas mis apps anteriores por las mías. Hace poco, decidí compartir toda la suite de forma gratuita como código abierto, mientras sigo mejorándola.",
+      "brandBadge": "GitHub",
+      "brandTitle": "Código y releases públicos",
+      "brandText": "Todo el proyecto vive en GitHub: código fuente, builds y seguimiento de issues.",
+      "brandCta": "Ver GitHub",
+      "brandAlt": "Logo de cristal de CyberGems sobre fondo negro",
       "isTitle": "Qué es esto — y qué no es",
       "yesLabel": "Sí es",
       "yesItems": [
@@ -115,12 +120,7 @@
         }
       ],
       "exploreCta": "Explorar las apps ↓",
-      "donateCta": "Apoyar el proyecto",
-      "brandAlt": "Logo de cristal de CyberGems sobre fondo negro",
-      "brandBadge": "El símbolo detrás del proyecto",
-      "brandCta": "Ver GitHub",
-      "brandText": "Este símbolo de cristal de CyberGems es la firma visual que uso en GitHub: una forma compacta de reconocer el proyecto más allá del código.",
-      "brandTitle": "Un pequeño símbolo para un proyecto muy personal."
+      "donateCta": "Apoyar el proyecto"
     }
   },
   "privacy": {
