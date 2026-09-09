@@ -128,7 +128,7 @@ const toolGroups = [
                 {group.tools.map((tool) => (
                   <li class="flex min-w-0 items-center gap-3 rounded-xl border border-white/10 bg-white/[0.02] px-3 py-3">
                     <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-xs font-extrabold tracking-tight text-[#c9c9d1]" aria-hidden="true">{tool.mark}</span>
-                    <span class="truncate text-sm font-semibold">{tool.name}</span>
+                    <span class="min-w-0 break-words text-sm font-semibold leading-snug">{tool.name}</span>
                   </li>
                 ))}
               </ul>
