@@ -7,12 +7,12 @@
   "stack": "C# · WPF · .NET 10",
   "license": "GPLv3",
   "tagline": {
-    "en": "Ultra-light task manager that stays smooth at 3000+ processes.",
-    "es": "Gestor de tareas ultraligero que sigue fluido con más de 3000 procesos."
+    "en": "Lightweight, high-capacity virtualized task manager with instant search and compact mode.",
+    "es": "Gestor de tareas ligero y virtualizado de alta capacidad, con búsqueda instantánea y modo compacto."
   },
   "description": {
-    "en": "An ultra-lightweight, virtualized task manager for Windows built as a premium alternative to the Task Manager. It handles machines with 3000+ processes at 144fps with zero lag, using native Windows NT API calls, and features real-time CPU/RAM sparklines and a cyberpunk glassmorphic interface.",
-    "es": "Un gestor de tareas ultraligero y virtualizado para Windows, creado como alternativa premium al Administrador de tareas. Maneja máquinas con más de 3000 procesos a 144fps sin lag, usando llamadas nativas a la API NT de Windows, con sparklines de CPU/RAM en tiempo real e interfaz glassmórfica cyberpunk."
+    "en": "CyberManager is a lightweight, high-capacity virtualized task manager. Powered by the native NT engine, it offers instant search and a compact mode. The ultimate alternative to Windows Task Manager.",
+    "es": "CyberManager es un gestor de tareas ligero y virtualizado de alta capacidad. Impulsado por el motor NT nativo, ofrece búsqueda instantánea y un modo compacto. La alternativa definitiva al Administrador de tareas de Windows."
   },
   "features": [
     { "en": "Virtualized grid — 3000+ processes at 144fps, zero lag", "es": "Cuadrícula virtualizada — más de 3000 procesos a 144fps, sin lag" },
