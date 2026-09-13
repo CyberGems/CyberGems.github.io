@@ -15,12 +15,34 @@
     "es": "Un reloj de escritorio lleno de funciones con una estética cyber-neon futurista. CyberClock combina utilidades prácticas — reloj analógico y digital, calendario completo, temporizador y cronómetro — con un módulo de bienestar que incluye síntesis procedural de sonidos ambientales para relajarse y practicar mindfulness."
   },
   "features": [
-    { "en": "Canvas-rendered analog clock + digital display (12H/24H)", "es": "Reloj analógico renderizado en canvas + pantalla digital (12H/24H)" },
-    { "en": "Full calendar with agenda, day notes, statistics and moon phase", "es": "Calendario completo con agenda, notas del día, estadísticas y fase lunar" },
-    { "en": "Countdown timer with presets + precision stopwatch with laps", "es": "Temporizador con presets + cronómetro de precisión con vueltas" },
-    { "en": "6 procedurally-synthesized ambient soundscapes with breathing guide", "es": "6 paisajes sonoros ambientales sintetizados proceduralmente con guía de respiración" },
-    { "en": "Mini mode — compact always-on-top clock bar with 12 skins", "es": "Modo mini — barra de reloj compacta siempre visible con 12 skins" },
-    { "en": "Alarms, chimes, CRT scanlines, transparency and multi-monitor", "es": "Alarmas, campanadas, líneas CRT, transparencia y multi-monitor" }
+    {
+      "en": "Canvas-rendered analog clock + digital display (12H/24H)",
+      "es": "Reloj analógico renderizado en canvas + pantalla digital (12H/24H)"
+    },
+    {
+      "en": "Full calendar with agenda, day notes, statistics and moon phase",
+      "es": "Calendario completo con agenda, notas del día, estadísticas y fase lunar"
+    },
+    {
+      "en": "Countdown timer with presets + precision stopwatch with laps",
+      "es": "Temporizador con presets + cronómetro de precisión con vueltas"
+    },
+    {
+      "en": "6 procedurally-synthesized ambient soundscapes with breathing guide",
+      "es": "6 paisajes sonoros ambientales sintetizados proceduralmente con guía de respiración"
+    },
+    {
+      "en": "Mini mode — compact always-on-top clock bar with 12 skins",
+      "es": "Modo mini — barra de reloj compacta siempre visible con 12 skins"
+    },
+    {
+      "en": "Alarms, chimes, CRT scanlines, transparency and multi-monitor",
+      "es": "Alarmas, campanadas, líneas CRT, transparencia y multi-monitor"
+    },
+    {
+      "en": "Global hotkey (Alt+Shift+C), automatic monitor selection and NTP clock-accuracy alerts",
+      "es": "Atajo global (Alt+Shift+C), selección automática de monitor y alertas de precisión horaria NTP"
+    }
   ],
   "repo": "https://github.com/CyberGems/CyberClock",
   "wiki": "https://github.com/CyberGems/CyberClock/wiki",
