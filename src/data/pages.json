@@ -5,7 +5,40 @@
       "metaDesc": "CyberGems is an independent one-person project: a set of free, open-source Windows apps built for daily use and shared with the world. No ads, no tracking, no account, GPLv3.",
       "badge": "One-person independent project",
       "title": "Built for daily use. Shared for free.",
-      "intro": "CyberGems began as a personal toolkit born from frustration with everyday Windows applications. I found existing tools either lacked essential features, came with hefty price tags, or felt unnecessarily bloated. This prompted me to develop my own solutions. After countless hours of hobby development and refinement, I successfully replaced nearly all my previous applications with my custom-built alternatives. Recently, I decided to share the entire suite as free open-source software, while continuing to enhance and expand its capabilities.",
+      "introLead": "CyberGems began as a personal toolkit born from frustration with everyday Windows applications.",
+      "introBody": [
+        "I found existing tools either lacked essential features, came with hefty price tags, or felt unnecessarily bloated. This prompted me to develop my own solutions.",
+        "After countless hours of hobby development and refinement, I successfully replaced nearly all my previous applications with my custom-built alternatives. Recently, I decided to share the entire suite as free open-source software, while continuing to enhance and expand its capabilities."
+      ],
+      "journeyTitle": "From frustration to shared toolkit",
+      "journeySteps": [
+        {
+          "icon": "😤",
+          "t": "Frustration",
+          "d": "Everyday Windows tools missing features, too expensive, or bloated."
+        },
+        {
+          "icon": "🛠",
+          "t": "Building",
+          "d": "Countless hobby hours crafting my own solutions."
+        },
+        {
+          "icon": "🔄",
+          "t": "Switching",
+          "d": "Replaced nearly all my previous apps with custom alternatives."
+        },
+        {
+          "icon": "🎁",
+          "t": "Sharing",
+          "d": "Released the whole suite as free open-source software."
+        }
+      ],
+      "quickFacts": [
+        "10 Windows apps",
+        "GPLv3 open source",
+        "Offline-first",
+        "No account needed"
+      ],
       "brandBadge": "Open source",
       "brandTitle": "Crystal-clear transparency",
       "brandText": "The entire project lives on GitHub: full source code, changelog, official builds and issue tracking.",
@@ -66,7 +99,40 @@
       "metaDesc": "CyberGems es un proyecto independiente de una sola persona: 10 apps gratuitas y open-source para Windows, creadas para el uso diario y compartidas con el mundo. Sin anuncios, sin rastreo, GPLv3.",
       "badge": "Proyecto independiente de una persona",
       "title": "Hechas para usarlas. Compartidas gratis.",
-      "intro": "CyberGems nació como un kit de herramientas personal, motivado por mi frustración con las aplicaciones cotidianas de Windows. Descubrí que las herramientas existentes carecían de funciones esenciales, tenían precios elevados o se sentían innecesariamente pesadas. Esto me impulsó a desarrollar mis propias soluciones. Después de innumerables horas de desarrollo como hobby y perfeccionamiento, logré reemplazar casi todas mis aplicaciones anteriores con mis alternativas personalizadas. Recientemente, decidí compartir toda la suite como software libre de código abierto, mientras continúo mejorando y expandiendo sus capacidades.",
+      "introLead": "CyberGems nació como un kit de herramientas personal, motivado por mi frustración con las aplicaciones cotidianas de Windows.",
+      "introBody": [
+        "Descubrí que las herramientas existentes carecían de funciones esenciales, tenían precios elevados o se sentían innecesariamente pesadas. Esto me impulsó a desarrollar mis propias soluciones.",
+        "Después de innumerables horas de desarrollo como hobby y perfeccionamiento, logré reemplazar casi todas mis aplicaciones anteriores con mis alternativas personalizadas. Recientemente, decidí compartir toda la suite como software libre de código abierto, mientras continúo mejorando y expandiendo sus capacidades."
+      ],
+      "journeyTitle": "De la frustración al kit compartido",
+      "journeySteps": [
+        {
+          "icon": "😤",
+          "t": "Frustración",
+          "d": "Herramientas de Windows sin funciones, caras o pesadas."
+        },
+        {
+          "icon": "🛠",
+          "t": "Construcción",
+          "d": "Incontables horas creando mis propias soluciones."
+        },
+        {
+          "icon": "🔄",
+          "t": "Reemplazo",
+          "d": "Sustituí casi todas mis apps por alternativas propias."
+        },
+        {
+          "icon": "🎁",
+          "t": "Compartir",
+          "d": "Publiqué toda la suite como código abierto gratuito."
+        }
+      ],
+      "quickFacts": [
+        "10 apps Windows",
+        "GPLv3 open source",
+        "Offline primero",
+        "Sin cuenta"
+      ],
       "brandBadge": "Open source",
       "brandTitle": "Transparencia total",
       "brandText": "Todo el proyecto vive en GitHub: código fuente completo, changelog, builds oficiales y el seguimiento de issues.",

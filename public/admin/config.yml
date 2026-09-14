@@ -360,7 +360,17 @@ collections:
                   - { name: metaDesc, widget: text }
                   - { name: badge, widget: string }
                   - { name: title, widget: string }
-                  - { name: intro, widget: text }
+                  - { name: introLead, label: Intro lead, widget: text }
+                  - { name: introBody, label: Intro paragraphs, widget: list }
+                  - { name: journeyTitle, label: Journey title, widget: string }
+                  - name: journeySteps
+                    label: Journey steps
+                    widget: list
+                    fields:
+                      - { name: icon, label: Icon, widget: string }
+                      - { name: t, label: Title, widget: string }
+                      - { name: d, label: Text, widget: text }
+                  - { name: quickFacts, label: Quick facts, widget: list }
                   - { name: brandBadge, label: Brand badge, widget: string }
                   - { name: brandTitle, label: Brand title, widget: string }
                   - { name: brandText, label: Brand text, widget: text }
@@ -389,7 +399,17 @@ collections:
                   - { name: metaDesc, widget: text }
                   - { name: badge, widget: string }
                   - { name: title, widget: string }
-                  - { name: intro, widget: text }
+                  - { name: introLead, label: Intro principal, widget: text }
+                  - { name: introBody, label: Parrafos intro, widget: list }
+                  - { name: journeyTitle, label: Titulo recorrido, widget: string }
+                  - name: journeySteps
+                    label: Pasos del recorrido
+                    widget: list
+                    fields:
+                      - { name: icon, label: Icono, widget: string }
+                      - { name: t, label: Titulo, widget: string }
+                      - { name: d, label: Texto, widget: text }
+                  - { name: quickFacts, label: Datos rapidos, widget: list }
                   - { name: brandBadge, label: Etiqueta de marca, widget: string }
                   - { name: brandTitle, label: Título de marca, widget: string }
                   - { name: brandText, label: Texto de marca, widget: text }

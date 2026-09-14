@@ -132,23 +132,32 @@ const breadcrumbLd = {
           const dl = downloads[app.slug];
           const inst = dl?.installer ?? null;
           const hasData = Boolean(dl?.tag);
+          const appPage = `${homePath}apps/${app.slug}/`;
+          const detailsAria = en ? `View ${app.name} details` : `Ver detalles de ${app.name}`;
           return (
             <div
               class="dl-card card p-5 flex gap-4 items-start scroll-mt-24"
               id={app.slug}
               data-search={`${app.name} ${app.tagline[lang]} ${app.stack}`.toLowerCase()}
             >
-              <div class="w-11 h-11 rounded-xl flex items-center justify-center text-2xl border border-white/10 shrink-0" style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}33 0%, transparent 60%);`} aria-hidden="true">
+              <a
+                href={appPage}
+                aria-label={detailsAria}
+                class="dl-logo w-11 h-11 rounded-xl flex items-center justify-center text-2xl border border-white/10 shrink-0 transition-transform duration-200 hover:scale-105 hover:border-white/25"
+                style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}33 0%, transparent 60%);`}
+              >
                 {app.icon ? <img src={app.icon} alt="" width="36" height="36" class="h-9 w-9 object-contain" /> : app.emoji}
-              </div>
-              <div class="min-w-0">
+              </a>
+              <div class="min-w-0 flex-1">
                 <div class="flex flex-wrap items-center gap-2">
-                  <h3 class="font-bold">{app.name}</h3>
+                  <h3 class="font-bold">
+                    <a href={appPage} aria-label={detailsAria} class="text-white hover:underline underline-offset-4 decoration-white/40 transition-colors">{app.name}</a>
+                  </h3>
                   {hasData && (
                     <span class="text-[11px] font-bold px-2 py-0.5 rounded-md" style={`color: ${app.accent}; background: ${app.accent}14; border: 1px solid ${app.accent}40;`}>{dl?.tag}</span>
                   )}
                 </div>
-                <p class="text-xs text-[#9a9aa5] truncate">{app.tagline[lang]}</p>
+                <p class="text-xs text-[#9a9aa5] leading-relaxed">{app.tagline[lang]}</p>
                 {hasData && dl && dl.publishedAt && (
                   <p class="mt-0.5 text-[11px] text-[#9a9aa5]">{c.updated} {fmtDate(dl.publishedAt)}</p>
                 )}
@@ -169,7 +178,7 @@ const breadcrumbLd = {
                     </a>
                   ) : (
                     <a
-                      href={`${homePath}apps/${app.slug}/`}
+                      href={appPage}
                       class="font-semibold"
                       style={`color: ${app.accent};`}
                       data-umami-event="download_click"
@@ -178,7 +187,7 @@ const breadcrumbLd = {
                       data-umami-event-source="download-page"
                     >{c.dlLink}</a>
                   )}
-                  <a href={`${homePath}apps/${app.slug}/`} class="text-[#9a9aa5] hover:text-white transition-colors">{en ? 'Details' : 'Detalles'}</a>
+                  <a href={appPage} aria-label={detailsAria} class="dl-details inline-flex items-center gap-1 rounded-md border border-white/10 bg-white/[0.04] px-2 py-1 font-semibold text-[#c9c9d1] hover:text-white hover:border-white/25 transition-colors">{en ? 'Details' : 'Detalles'} <span aria-hidden="true">→</span></a>
                   {dl && dl.portable && (
                     <a
                       href={dl.portable.url}

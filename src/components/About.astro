@@ -9,6 +9,10 @@ const { lang } = Astro.props;
 const en = lang === 'en';
 const c = (pagesData.about as Record<string, any>)[lang];
 const path = en ? '/about' : '/es/about';
+const introLead = c.introLead ?? c.intro ?? '';
+const introBody: string[] = Array.isArray(c.introBody) ? c.introBody : [];
+const journeySteps: Array<{ icon: string; t: string; d: string }> = Array.isArray(c.journeySteps) ? c.journeySteps : [];
+const quickFacts: string[] = Array.isArray(c.quickFacts) ? c.quickFacts : [];
 const toolGroups = [
   {
     title: en ? 'Development & AI' : 'Desarrollo e IA',
@@ -51,8 +55,40 @@ const toolGroups = [
       <h1 class="text-4xl font-extrabold tracking-tight">
         <span class="text-gradient brand-glow">{c.title}</span>
       </h1>
-      <p class="mt-4 text-[#9a9aa5] text-lg leading-relaxed max-w-2xl mx-auto">{c.intro}</p>
+      <p class="mt-4 text-white text-xl font-semibold leading-relaxed max-w-2xl mx-auto text-balance">{introLead}</p>
+      {introBody.length > 0 && (
+        <div class="mt-4 mx-auto max-w-prose space-y-3 text-left sm:text-center">
+          {introBody.map((paragraph: string) => (
+            <p class="text-[#9a9aa5] leading-relaxed">{paragraph}</p>
+          ))}
+        </div>
+      )}
+      {quickFacts.length > 0 && (
+        <ul class="mt-6 flex flex-wrap justify-center gap-2 list-none m-0 p-0" aria-label={en ? 'Quick facts' : 'Datos rápidos'}>
+          {quickFacts.map((fact: string) => (
+            <li class="chip">✦ {fact}</li>
+          ))}
+        </ul>
+      )}
     </header>
+
+    {journeySteps.length > 0 && (
+      <section class="mt-10" aria-label={c.journeyTitle}>
+        <h2 class="text-center text-sm font-bold uppercase tracking-[0.18em] text-[#9a9aa5]">{c.journeyTitle}</h2>
+        <ol class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 list-none m-0 p-0">
+          {journeySteps.map((step, index: number) => (
+            <li class="card relative p-4">
+              <div class="flex items-center gap-2">
+                <span class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-lg" aria-hidden="true">{step.icon}</span>
+                <span class="text-[11px] font-bold uppercase tracking-[0.14em] text-[#00f2ff]">{String(index + 1).padStart(2, '0')}</span>
+              </div>
+              <h3 class="mt-3 font-bold">{step.t}</h3>
+              <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">{step.d}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
 
     <section class="mt-12 card brand-card p-5 sm:p-7">
       <div class="grid gap-7 sm:grid-cols-[minmax(0,220px)_1fr] sm:items-center">
