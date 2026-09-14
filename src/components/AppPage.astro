@@ -348,6 +348,15 @@ const mailUrl = `mailto:?subject=${encodeURIComponent(shareText)}&body=${encodeU
           <span>{lang === 'en' ? 'Releases on GitHub' : 'Lanzamientos en GitHub'}</span>
         </a>
       </div>
+      {app.slug !== 'cyberfeeds' && (
+        <p class="mt-3 text-xs text-[#9a9aa5]">
+          {lang === 'en' ? (
+            <>Tip: follow this feed with <a href="/apps/cyberfeeds/" class="underline hover:text-white">CyberFeeds</a>, our free RSS reader for Windows.</>
+          ) : (
+            <>Consejo: sigue este feed con <a href="/es/apps/cyberfeeds/" class="underline hover:text-white">CyberFeeds</a>, nuestro lector RSS gratuito para Windows.</>
+          )}
+        </p>
+      )}
     </section>
 
     <!-- Related apps -->
