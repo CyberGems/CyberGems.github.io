@@ -11,16 +11,18 @@
     "es": "Un lector RSS y Atom local-first creado para la velocidad, la privacidad y la lectura limpia."
   },
   "description": {
-    "en": "A performance-first, full-featured RSS/Atom feed reader. Subscribe to feeds, read articles with full-content extraction, manage your reading flow with star/read/unread/trash, and get smart notifications when new articles are published — all backed by a local SQLite database.",
-    "es": "Un lector de feeds RSS/Atom completo y orientado al rendimiento. Suscríbete a feeds, lee artículos con extracción de contenido completo, gestiona tu lectura con favoritos/leído/no leído/papelera y recibe notificaciones inteligentes cuando se publiquen artículos — todo respaldado por una base de datos SQLite local."
+    "en": "A performance-first, full-featured RSS/Atom feed reader with in-app YouTube playback, text selection tools, live article updates, and smart notifications, all backed by a local SQLite database.",
+    "es": "Un lector de feeds RSS/Atom completo y orientado al rendimiento, con reproducción de YouTube integrada, herramientas de selección de texto, actualizaciones en vivo y notificaciones inteligentes, todo respaldado por una base de datos SQLite local."
   },
   "features": [
-    { "en": "RSS, Atom, XML, YouTube channels and native Reddit feeds", "es": "RSS, Atom, XML, canales de YouTube y feeds de Reddit nativos" },
+    { "en": "RSS, Atom, XML, YouTube channels/playlists/videos and native Reddit feeds", "es": "RSS, Atom, XML, canales/listas/videos de YouTube y feeds de Reddit nativos" },
     { "en": "Full-content extraction via worker threads", "es": "Extracción de contenido completo mediante worker threads" },
-    { "en": "Smart notifications with keyword filtering and snooze", "es": "Notificaciones inteligentes con filtrado por palabras y posposición" },
+    { "en": "Smart notifications with keyword filtering, snooze and configurable history", "es": "Notificaciones inteligentes con filtrado por palabras, posposición e historial configurable" },
+    { "en": "In-app YouTube playback and floating text selection tools", "es": "Reproducción de YouTube integrada y herramientas flotantes para seleccionar texto" },
+    { "en": "Live article updates that preserve your reading position", "es": "Actualizaciones de artículos en vivo que conservan tu posición de lectura" },
     { "en": "Star/read/unread/trash with virtualized lists", "es": "Favoritos/leído/no leído/papelera con listas virtualizadas" },
     { "en": "OPML import/export with folder structure preserved", "es": "Importación/exportación OPML conservando las carpetas" },
-    { "en": "Local SQLite database — no cloud, no accounts", "es": "Base de datos SQLite local — sin nube, sin cuentas" }
+    { "en": "Local SQLite database, no cloud or accounts", "es": "Base de datos SQLite local, sin nube ni cuentas" }
   ],
   "repo": "https://github.com/CyberGems/CyberFeeds",
   "wiki": "https://github.com/CyberGems/CyberFeeds/wiki",
