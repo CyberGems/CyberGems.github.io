@@ -15,7 +15,7 @@
     "es": "Un lector de feeds RSS/Atom completo y orientado al rendimiento. Suscríbete a feeds, lee artículos con extracción de contenido completo, gestiona tu lectura con favoritos/leído/no leído/papelera y recibe notificaciones inteligentes cuando se publiquen artículos — todo respaldado por una base de datos SQLite local."
   },
   "features": [
-    { "en": "RSS, Atom, XML and native Reddit feeds", "es": "RSS, Atom, XML y feeds de Reddit nativos" },
+    { "en": "RSS, Atom, XML, YouTube channels and native Reddit feeds", "es": "RSS, Atom, XML, canales de YouTube y feeds de Reddit nativos" },
     { "en": "Full-content extraction via worker threads", "es": "Extracción de contenido completo mediante worker threads" },
     { "en": "Smart notifications with keyword filtering and snooze", "es": "Notificaciones inteligentes con filtrado por palabras y posposición" },
     { "en": "Star/read/unread/trash with virtualized lists", "es": "Favoritos/leído/no leído/papelera con listas virtualizadas" },
