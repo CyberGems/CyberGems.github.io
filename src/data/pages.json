@@ -20,11 +20,11 @@
       ],
       "noLabel": "It is not",
       "noItems": [
-        "Not a company, not a team, not funded — a one-man show",
+        "Not a company, not a team, not funded.",
         "No personal data collected, no accounts, no upsells",
-        "No personal identity here by choice — the code is the credential"
+        "No personal identity here by choice. My software is the credential"
       ],
-      "privacyNote": "Privacy note: I keep my personal identity private. Everything verifiable — source, releases, issues — is public on GitHub.",
+      "privacyNote": "Privacy note: I keep my personal identity private. Everything verifiable. Source, releases, issues — is public on GitHub.",
       "principlesTitle": "Principles",
       "principles": [
         {
@@ -81,9 +81,9 @@
       ],
       "noLabel": "No es",
       "noItems": [
-        "No es una empresa, ni un equipo, ni tiene financiación — es un one-man show",
+        "No es una empresa, ni un equipo, ni tiene financiación.",
         "Sin recogida de datos, sin cuentas, sin ventas adicionales",
-        "Sin identidad personal por decisión — el código es la credencial"
+        "Sin identidad personal por decisión — mi software es la credencial"
       ],
       "privacyNote": "Nota de privacidad: mantengo mi identidad personal en privado. Todo lo verificable — código, releases, issues — es público en GitHub.",
       "principlesTitle": "Principios",
