@@ -177,7 +177,7 @@
         {
           "icon": "⚡",
           "t": "Rápido y ligero",
-          "d": "Aplicaciones nativas de escritorio. Sin overhead de navegador, sin electrones pesados."
+          "d": "Aplicaciones nativas de escritorio. Sin overhead de navegador, sin capas pesadas de Electron."
         },
         {
           "icon": "✨",

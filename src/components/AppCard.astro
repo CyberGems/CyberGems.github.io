@@ -13,19 +13,7 @@ interface Props {
 const { app, lang, download } = Astro.props;
 const t = ui[lang];
 const href = lang === 'en' ? `/apps/${app.slug}` : `/es/apps/${app.slug}`;
-const actionAccents: Record<string, string> = {
-  cybersnap: '#F2A65A',
-  cybermanager: '#82D6B0',
-  cybertray: '#F0B35D',
-  cyberfeeds: '#C792EA',
-  cybernotes: '#81C784',
-  cyberpaste: '#E8C86A',
-  cyberwall: '#E57373',
-  cyberviewer: '#BA68C8',
-  cyberlauncher: '#8B9CF6',
-  cyberclock: '#DDA15E',
-};
-const actionAccent = actionAccents[app.slug] ?? '#A8B3CF';
+const actionAccent = app.accent ?? '#A8B3CF';
 const learnMore = lang === 'en' ? 'Learn more' : 'Saber más';
 const downloadHref = download?.installer?.url || download?.releaseUrl || `${app.repo}/releases/latest`;
 const hasDirectInstaller = Boolean(download?.installer?.url);
