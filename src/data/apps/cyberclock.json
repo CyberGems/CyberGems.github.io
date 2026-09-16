@@ -7,13 +7,83 @@
   "stack": "Tauri · Rust",
   "license": "GPLv3",
   "tagline": {
-    "en": "Clock, calendar, timer, stopwatch — plus a relaxation module with ambient soundscapes.",
-    "es": "Reloj, calendario, temporizador, cronómetro — más un módulo de relajación con sonidos ambientales."
+    "en": "Clock, calendar, timer, stopwatch, relaxation, and compact floating time tools for Windows.",
+    "es": "Reloj, calendario, temporizador, cronómetro, relajación y herramientas flotantes compactas para Windows."
   },
   "description": {
-    "en": "A feature-rich desktop clock with a futuristic cyber-neon aesthetic. CyberClock combines practical utilities — analog & digital clock, full calendar, timer and stopwatch — with a wellness module featuring procedural ambient sound synthesis for relaxation and mindfulness.",
-    "es": "Un reloj de escritorio lleno de funciones con una estética cyber-neon futurista. CyberClock combina utilidades prácticas — reloj analógico y digital, calendario completo, temporizador y cronómetro — con un módulo de bienestar que incluye síntesis procedural de sonidos ambientales para relajarse y practicar mindfulness."
+    "en": "A feature-rich desktop clock with a futuristic cyber-neon aesthetic. CyberClock combines an analog and digital clock, full calendar, timer, stopwatch, and independent floating timer and stopwatch windows with a wellness module featuring procedural ambient sound synthesis for relaxation and mindfulness.",
+    "es": "Un reloj de escritorio lleno de funciones con una estética cyber-neon futurista. CyberClock combina reloj analógico y digital, calendario completo, temporizador, cronómetro y ventanas flotantes independientes para medir el tiempo, además de un módulo de bienestar con síntesis procedural de sonidos ambientales para relajarse y practicar mindfulness."
   },
+  "howItWorks": {
+    "title": {
+      "en": "Time your day your way",
+      "es": "Organiza tu tiempo a tu manera"
+    },
+    "steps": [
+      {
+        "icon": "⬇️",
+        "title": { "en": "Install and open", "es": "Instala y abre" },
+        "text": {
+          "en": "Install CyberClock from the latest GitHub release, then open Full Mode or keep the compact clock in Mini Mode.",
+          "es": "Instala CyberClock desde el último release de GitHub, luego abre el modo completo o deja el reloj compacto en Modo Mini."
+        }
+      },
+      {
+        "icon": "⏱️",
+        "title": { "en": "Float a tool", "es": "Flota una herramienta" },
+        "text": {
+          "en": "Launch an independent timer or stopwatch from the tray or Mini Mode menu. Floating timers offer 30s, 1m, 5m, 10m, and 15m quick-add presets.",
+          "es": "Abre un temporizador o cronómetro independiente desde la bandeja o el menú del Modo Mini. Los timers flotantes ofrecen presets rápidos de 30s, 1m, 5m, 10m y 15m."
+        }
+      },
+      {
+        "icon": "✨",
+        "title": { "en": "Make it yours", "es": "Hazlo tuyo" },
+        "text": {
+          "en": "Choose from 12 Mini Mode skins, tune the tint and zoom, select a monitor, and add your name for a welcoming Full Mode greeting.",
+          "es": "Elige entre 12 skins del Modo Mini, ajusta el tinte y el zoom, selecciona un monitor y añade tu nombre para un saludo acogedor en el modo completo."
+        }
+      }
+    ]
+  },
+  "highlights": [
+    {
+      "icon": "⏱️",
+      "color": "#90CAF9",
+      "title": { "en": "Floating time tools", "es": "Herramientas flotantes" },
+      "text": {
+        "en": "Keep an independent timer or stopwatch visible while you work. Each window has its own state and controls.",
+        "es": "Mantén visible un temporizador o cronómetro independiente mientras trabajas. Cada ventana tiene su propio estado y controles."
+      }
+    },
+    {
+      "icon": "🎨",
+      "color": "#A78BFA",
+      "title": { "en": "12 expressive skins", "es": "12 skins expresivas" },
+      "text": {
+        "en": "From Cyber Bar Pro to Glass Orb, Sunset Pulse, and Quantum, every compact window adapts to the selected skin and zoom.",
+        "es": "Desde Cyber Bar Pro hasta Glass Orb, Sunset Pulse y Quantum, cada ventana compacta se adapta al skin y zoom seleccionados."
+      }
+    },
+    {
+      "icon": "➕",
+      "color": "#34D399",
+      "title": { "en": "Quick-add timer presets", "es": "Presets rápidos acumulables" },
+      "text": {
+        "en": "Add 30 seconds to 15 minutes to a floating timer without starting it, then press Start when you are ready.",
+        "es": "Añade de 30 segundos a 15 minutos a un timer flotante sin iniciarlo, y pulsa Iniciar cuando estés listo."
+      }
+    },
+    {
+      "icon": "👋",
+      "color": "#FBBF24",
+      "title": { "en": "A warmer welcome", "es": "Una bienvenida más cálida" },
+      "text": {
+        "en": "Optionally add your name and receive a time-aware greeting beside the CyberClock brand when Full Mode opens.",
+        "es": "Añade tu nombre opcionalmente y recibe un saludo según la hora junto a la marca CyberClock al abrir el modo completo."
+      }
+    }
+  ],
   "features": [
     {
       "en": "Canvas-rendered analog clock + digital display (12H/24H)",
@@ -32,8 +102,20 @@
       "es": "6 paisajes sonoros ambientales sintetizados proceduralmente con guía de respiración"
     },
     {
-      "en": "Mini mode — compact always-on-top clock bar with 12 skins",
-      "es": "Modo mini — barra de reloj compacta siempre visible con 12 skins"
+      "en": "Mini mode: compact always-on-top clock bar with 12 skin-specific designs and zoom",
+      "es": "Modo mini: barra de reloj compacta siempre visible con 12 diseños propios y zoom"
+    },
+    {
+      "en": "Independent floating timer and stopwatch windows with their own state and responsive controls",
+      "es": "Ventanas flotantes independientes de timer y cronómetro con estado propio y controles adaptables"
+    },
+    {
+      "en": "Floating timer presets: 30s, 1m, 5m, 10m, and 15m add time without auto-starting",
+      "es": "Presets del timer flotante: 30s, 1m, 5m, 10m y 15m suman tiempo sin iniciar automáticamente"
+    },
+    {
+      "en": "Personalized time-aware welcome greeting beside the CyberClock brand in Full Mode",
+      "es": "Saludo personalizado según la hora junto a la marca CyberClock en el modo completo"
     },
     {
       "en": "Alarms, chimes, CRT scanlines, transparency and multi-monitor",
