@@ -26,6 +26,25 @@ const hasFiduciary = site.paypal || site.kofi || site.bmc;
         : '10 aplicaciones de escritorio para Windows, cientos de horas cada una, sin anuncios, sin telemetría, sin muros de pago. Las donaciones mantienen el proyecto independiente y los lanzamientos en marcha.'}
     </p>
 
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 text-left" aria-label={en ? 'Why donate?' : '¿Por qué donar?'}>
+      <div class="card p-5 flex items-start gap-3">
+        <div class="text-2xl" aria-hidden="true">☕</div>
+        <p class="text-sm leading-relaxed">{en ? 'Keep development going' : 'Mantener el desarrollo en marcha'}</p>
+      </div>
+      <div class="card p-5 flex items-start gap-3">
+        <div class="text-2xl" aria-hidden="true">🚀</div>
+        <p class="text-sm leading-relaxed">{en ? 'Roll out new features' : 'Lanzar nuevas funciones'}</p>
+      </div>
+      <div class="card p-5 flex items-start gap-3">
+        <div class="text-2xl" aria-hidden="true">⚡</div>
+        <p class="text-sm leading-relaxed">{en ? 'Speed up updates and bug resolution' : 'Acelerar actualizaciones y resolución de errores'}</p>
+      </div>
+      <div class="card p-5 flex items-start gap-3">
+        <div class="text-2xl" aria-hidden="true">📚</div>
+        <p class="text-sm leading-relaxed">{en ? 'Enhance documentation quality' : 'Mejorar la calidad de la documentación'}</p>
+      </div>
+    </div>
+
     <div class="mt-8 grid gap-4 sm:grid-cols-2 text-left">
       <a href={site.sponsors} target="_blank" rel="noopener noreferrer" class="card p-6 block">
         <div class="text-3xl" aria-hidden="true">💜</div>
