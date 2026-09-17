@@ -7,17 +7,17 @@
   "stack": "Electron · TypeScript",
   "license": "GPLv3",
   "tagline": {
-    "en": "A cyberpunk shelf that slides out from your screen edge — launch anything in milliseconds.",
-    "es": "Una estantería cyberpunk que se desliza desde el borde de tu pantalla: lanza cualquier cosa en milisegundos."
+    "en": "High-performance tray launcher with hotspots, system monitoring, process manager and PIN-protected file vault.",
+    "es": "Lanzador en bandeja de alto rendimiento con zonas activas, monitor del sistema, gestor de procesos y bóveda con PIN."
   },
   "description": {
-    "en": "A cyberpunk-themed system tray shortcut launcher and dock for Windows. CyberTray provides a sleek, animated shelf that slides out from the top or bottom of the screen, letting you organize, search and launch applications, files and URLs — plus system monitoring, process management and a secure file vault.",
-    "es": "Un lanzador de accesos y dock para la bandeja del sistema con estética cyberpunk. CyberTray ofrece una estantería animada que se desliza desde la parte superior o inferior de la pantalla para organizar, buscar y lanzar aplicaciones, archivos y URLs — además de monitoreo del sistema, gestión de procesos y una bóveda de archivos segura."
+    "en": "A high-performance system tray launcher and Start Menu alternative with hotspots, system monitoring, process manager and a PIN-protected file vault. CyberTray provides an instant-access launchpad to organize, search and launch applications, files and URLs in milliseconds.",
+    "es": "Un lanzador en la bandeja del sistema de alto rendimiento y alternativa al menú Inicio con zonas activas, monitoreo del sistema, gestor de procesos y bóveda protegida por PIN. CyberTray ofrece un panel de acceso instantáneo para organizar, buscar y lanzar aplicaciones, archivos y URLs en milisegundos."
   },
   "features": [
     {
-      "en": "Animated shelf with search, categories and drag & drop import",
-      "es": "Estantería animada con búsqueda, categorías e importación por arrastre"
+      "en": "Shortcut shelf with search, categories and drag & drop import",
+      "es": "Estantería de accesos con búsqueda, categorías e importación por arrastre"
     },
     {
       "en": "Cyber-Handle bar, hot corners and global hotkey (Alt+T)",
