@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="240" viewBox="0 0 620 240" role="img" aria-label="Windows SmartScreen dialog after clicking More info, showing the Run anyway button">
+  <defs>
+    <filter id="shadow" x="-8%" y="-8%" width="116%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <!-- Dialog window (light Windows 11 style) -->
+  <rect x="10" y="10" width="600" height="220" rx="8" fill="#f3f3f3" stroke="#cfcfcf" filter="url(#shadow)"/>
+  <!-- Defender-style shield icon -->
+  <path d="M72 58 L96 67 V89 C96 104 85.5 113.5 72 119 C58.5 113.5 48 104 48 89 V67 Z" fill="#0067c0"/>
+  <rect x="69.4" y="72" width="5.2" height="20" rx="2.6" fill="#ffffff"/>
+  <circle cx="72" cy="99" r="3.2" fill="#ffffff"/>
+  <!-- Title -->
+  <text x="124" y="76" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="20" font-weight="600" fill="#1b1b1b">Windows protected your PC</text>
+  <!-- Expanded More info details -->
+  <text x="124" y="101" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#1b1b1b">Unrecognized app</text>
+  <text x="124" y="120" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#5c5c5c">Publisher: Unknown publisher</text>
+  <!-- More info link (expanded) -->
+  <text x="124" y="149" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="600" fill="#0067c0" text-decoration="underline">More info</text>
+  <!-- Run anyway button (accent) -->
+  <rect x="368" y="172" width="108" height="30" rx="4" fill="#0067c0"/>
+  <text x="422" y="191.5" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#ffffff" text-anchor="middle">Run anyway</text>
+  <!-- Don't run button -->
+  <rect x="488" y="172" width="100" height="30" rx="4" fill="#fbfbfb" stroke="#d1d1d1"/>
+  <text x="538" y="191.5" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#1b1b1b" text-anchor="middle">Don't run</text>
+</svg>
