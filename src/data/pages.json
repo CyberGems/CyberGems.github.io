@@ -272,13 +272,13 @@
       "metaTitle": "Downloads: CyberGems",
       "metaDesc": "How to install any CyberGems app: Setup .exe installer or portable zip. Windows 10/11 64-bit. Free, no ads, no tracking.",
       "pageTitle": "Downloads",
-      "subtitle": "Every app ships with a Setup .exe, plus a portable zip where available — all builds come from public GitHub releases, no bundled junk.",
+      "subtitle": "Every app ships with a Setup .exe, plus a portable zip where available: all builds come from public GitHub releases, no bundled junk.",
       "m1Title": "1. Setup .exe (recommended)",
       "m1Text": "Double-click installer with auto-update check. The big button on each app page resolves to this file live.",
       "m2Title": "2. Portable (.zip / .exe)",
       "m2Text": "No install, no admin. Unzip or run directly, ideal for USB sticks. Available on the release page where offered.",
       "m3Note": "Scriptable installs and upgrades. The id is on each app page when published.",
-      "reqStack": "Check the stack chip per app (e.g. .NET 9/10 — self-contained where noted).",
+      "reqStack": "Check the stack chip per app (e.g. .NET 9/10, self-contained where noted).",
       "signText": "“Unknown publisher” is expected (no paid certificate yet). Verify with the release SHA / VirusTotal or build from source.",
       "ssAnchor": "smartscreen",
       "ssOpen": "Windows SmartScreen: see how to run the installer (step by step)",
@@ -314,7 +314,7 @@
         {
           "label": "Admin rights",
           "v": [
-            "Usually not — most install per-user; a few ask for admin",
+            "Usually not (most install per-user; a few ask for admin)",
             "Not required",
             "Not required"
           ]
@@ -339,25 +339,25 @@
       "cmpTitle": "Which method should I pick?",
       "copiedBtn": "Copied ✓",
       "copyBtn": "Copy",
-      "dataWarn": "Could not reach the GitHub API while building — showing release links only.",
+      "dataWarn": "Could not reach the GitHub API while building: showing release links only.",
       "noResults": "No apps match your search.",
       "searchPh": "Search apps…",
       "updated": "updated",
       "verLink": "SHA256 ↗",
-      "wingetText": "One command per app, straight from any terminal — scriptable and always the latest published version.",
+      "wingetText": "One command per app, straight from any terminal, scriptable and always the latest published version.",
       "wingetTitle": "Install with winget"
     },
     "es": {
       "metaTitle": "Descargas: CyberGems",
       "metaDesc": "Cómo instalar cualquier app CyberGems: instalador Setup .exe o zip portable. Windows 10/11 64 bits. Gratis, sin anuncios, sin rastreo.",
       "pageTitle": "Descargas",
-      "subtitle": "Cada app incluye un Setup .exe y, donde aplica, un zip portable — todos los builds salen de releases públicos de GitHub, sin basura incluida.",
+      "subtitle": "Cada app incluye un Setup .exe y, donde aplica, un zip portable: todos los builds salen de releases públicos de GitHub, sin basura incluida.",
       "m1Title": "1. Setup .exe (recomendado)",
       "m1Text": "Instalador con doble clic y check de updates. El botón grande de cada app resuelve a este archivo en vivo.",
       "m2Title": "2. Portable (.zip / .exe)",
       "m2Text": "Sin instalación, sin admin. Descomprime o ejecuta directamente, ideal para USB. Disponible en la release donde aplique.",
       "m3Note": "Instalación y upgrades scripteables. El id está en cada página cuando se publica.",
-      "reqStack": "Mira el chip de stack por app (p. ej. .NET 9/10 — autocontenido donde se indique).",
+      "reqStack": "Mira el chip de stack por app (p. ej. .NET 9/10, autocontenido donde se indique).",
       "signText": "“Editor desconocido” es esperado (aún sin certificado de pago). Verifica con el SHA del release / VirusTotal o compilando.",
       "ssAnchor": "smartscreen",
       "ssOpen": "Windows SmartScreen: mira cómo ejecutar el instalador (paso a paso)",
@@ -393,7 +393,7 @@
         {
           "label": "Permisos de admin",
           "v": [
-            "Normalmente no — la mayoría instala por usuario; algunas lo piden",
+            "Normalmente no (la mayoría instala por usuario; algunas lo piden)",
             "No requeridos",
             "No requeridos"
           ]
@@ -418,12 +418,12 @@
       "cmpTitle": "¿Qué método elijo?",
       "copiedBtn": "Copiado ✓",
       "copyBtn": "Copiar",
-      "dataWarn": "No se pudo contactar la API de GitHub al compilar — se muestran solo enlaces de releases.",
+      "dataWarn": "No se pudo contactar la API de GitHub al compilar: se muestran solo enlaces de releases.",
       "noResults": "Ninguna app coincide con tu búsqueda.",
       "searchPh": "Buscar apps…",
       "updated": "actualizada",
       "verLink": "SHA256 ↗",
-      "wingetText": "Un comando por app, directo desde cualquier terminal — scripteable y siempre con la última versión publicada.",
+      "wingetText": "Un comando por app, directo desde cualquier terminal, scripteable y siempre con la última versión publicada.",
       "wingetTitle": "Instala con winget"
     }
   }
