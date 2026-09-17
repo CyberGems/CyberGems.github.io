@@ -50,7 +50,7 @@ export async function fetchAllReleases(): Promise<{ apps: AppReleases[]; failed:
         const json: unknown = await res.json();
         const list = Array.isArray(json) ? json : [];
         const releases: ReleaseInfo[] = list.map((r: any) => ({
-          tag: r.tag_name ?? '',
+          tag: cleanTag(r.tag_name, r.name),
           name: r.name || r.tag_name || '',
           url: r.html_url ?? '',
           publishedAt: r.published_at ?? '',
@@ -92,6 +92,13 @@ function pickAsset(assets: any[], test: RegExp, prefer?: RegExp): ReleaseAsset |
   return { name: chosen.name ?? '', url: chosen.browser_download_url ?? '', size: chosen.size ?? 0 };
 }
 
+function cleanTag(tag?: string, name?: string): string {
+  if (tag && !tag.startsWith('untagged-')) return tag;
+  const match = (name || '').match(/v?\d+\.\d+(\.\d+)?/i);
+  if (match) return match[0].startsWith('v') ? match[0] : `v${match[0]}`;
+  return tag ?? '';
+}
+
 async function fetchLatestDownloadsOnce(): Promise<{
   downloads: Record<string, LatestDownload>;
   failed: boolean;
@@ -118,7 +125,7 @@ async function fetchLatestDownloadsOnce(): Promise<{
         return [
           app.slug,
           {
-            tag: r.tag_name ?? '',
+            tag: cleanTag(r.tag_name, r.name),
             publishedAt: r.published_at ?? '',
             releaseUrl: r.html_url ?? empty.releaseUrl,
             installer: pickAsset(assets, /^(?!.*portable).*\.exe$/i, /setup|install/i),
