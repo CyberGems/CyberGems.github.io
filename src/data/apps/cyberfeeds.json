@@ -21,6 +21,8 @@
     { "en": "In-app YouTube playback preference and floating text selection tools", "es": "Preferencia de reproducción de YouTube integrada y herramientas flotantes para seleccionar texto" },
     { "en": "Multi-monitor display restoration and bidirectional tray polling animation", "es": "Restauración multimonitor de pantalla y animación bidireccional de sondeo en bandeja" },
     { "en": "Live article updates that preserve your reading position", "es": "Actualizaciones de artículos en vivo que conservan tu posición de lectura" },
+    { "en": "In-article text search with live highlight and match navigation", "es": "Búsqueda de texto en artículos con resaltado en vivo y navegación de coincidencias" },
+    { "en": "Sticky header bar on scroll with quick return to top", "es": "Barra de encabezado fija al desplazarse con retorno rápido al inicio" },
     { "en": "Star/read/unread/trash with virtualized lists", "es": "Favoritos/leído/no leído/papelera con listas virtualizadas" },
     { "en": "OPML import/export with folder structure preserved", "es": "Importación/exportación OPML conservando las carpetas" },
     { "en": "Local SQLite database, no cloud or accounts", "es": "Base de datos SQLite local, sin nube ni cuentas" }
