@@ -255,7 +255,7 @@ const breadcrumbLd = {
                       data-umami-event-format="portable"
                       data-umami-event-source="download-page"
                       data-download-start
-                    >Portable .zip</a>
+                    >Portable{dl.portable.name.toLowerCase().endsWith('.exe') ? ' .exe' : (dl.portable.name.toLowerCase().endsWith('.zip') ? ' .zip' : '')}</a>
                   )}
                   {hasData && dl && (
                     <a href={dl.checksum ? dl.checksum.url : dl.releaseUrl} target="_blank" rel="noopener noreferrer" class="text-[#9a9aa5] hover:text-white transition-colors">{c.verLink}</a>

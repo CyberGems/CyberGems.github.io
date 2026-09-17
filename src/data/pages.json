@@ -275,8 +275,8 @@
       "subtitle": "Every app ships with a Setup .exe, plus a portable zip where available — all builds come from public GitHub releases, no bundled junk.",
       "m1Title": "1. Setup .exe (recommended)",
       "m1Text": "Double-click installer with auto-update check. The big button on each app page resolves to this file live.",
-      "m2Title": "2. Portable .zip",
-      "m2Text": "No install, no admin. Unzip and run — ideal for USB sticks. Available on the release page where offered.",
+      "m2Title": "2. Portable (.zip / .exe)",
+      "m2Text": "No install, no admin. Unzip or run directly, ideal for USB sticks. Available on the release page where offered.",
       "m3Note": "Scriptable installs and upgrades. The id is on each app page when published.",
       "reqStack": "Check the stack chip per app (e.g. .NET 9/10 — self-contained where noted).",
       "signText": "“Unknown publisher” is expected (no paid certificate yet). Verify with the release SHA / VirusTotal or build from source.",
@@ -299,7 +299,7 @@
       "relLink": "All releases ↗",
       "cmpCols": [
         "Setup .exe",
-        "Portable .zip",
+        "Portable (.zip / .exe)",
         "winget"
       ],
       "cmpRows": [
@@ -307,7 +307,7 @@
           "label": "Install steps",
           "v": [
             "Double-click the installer",
-            "Unzip and run",
+            "Unzip or run directly",
             "One command"
           ]
         },
@@ -354,8 +354,8 @@
       "subtitle": "Cada app incluye un Setup .exe y, donde aplica, un zip portable — todos los builds salen de releases públicos de GitHub, sin basura incluida.",
       "m1Title": "1. Setup .exe (recomendado)",
       "m1Text": "Instalador con doble clic y check de updates. El botón grande de cada app resuelve a este archivo en vivo.",
-      "m2Title": "2. Portable .zip",
-      "m2Text": "Sin instalación, sin admin. Descomprime y ejecuta — ideal para USB. Disponible en la release donde aplique.",
+      "m2Title": "2. Portable (.zip / .exe)",
+      "m2Text": "Sin instalación, sin admin. Descomprime o ejecuta directamente, ideal para USB. Disponible en la release donde aplique.",
       "m3Note": "Instalación y upgrades scripteables. El id está en cada página cuando se publica.",
       "reqStack": "Mira el chip de stack por app (p. ej. .NET 9/10 — autocontenido donde se indique).",
       "signText": "“Editor desconocido” es esperado (aún sin certificado de pago). Verifica con el SHA del release / VirusTotal o compilando.",
@@ -378,7 +378,7 @@
       "relLink": "Versiones ↗",
       "cmpCols": [
         "Setup .exe",
-        "Portable .zip",
+        "Portable (.zip / .exe)",
         "winget"
       ],
       "cmpRows": [
@@ -386,7 +386,7 @@
           "label": "Pasos de instalación",
           "v": [
             "Doble clic al instalador",
-            "Descomprimir y ejecutar",
+            "Descomprimir o ejecutar directo",
             "Un comando"
           ]
         },

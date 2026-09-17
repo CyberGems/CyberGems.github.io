@@ -121,8 +121,8 @@ async function fetchLatestDownloadsOnce(): Promise<{
             tag: r.tag_name ?? '',
             publishedAt: r.published_at ?? '',
             releaseUrl: r.html_url ?? empty.releaseUrl,
-            installer: pickAsset(assets, /\.exe$/i, /setup|install/i),
-            portable: pickAsset(assets, /\.zip$/i, /portable/i),
+            installer: pickAsset(assets, /^(?!.*portable).*\.exe$/i, /setup|install/i),
+            portable: pickAsset(assets, /portable.*?\.(exe|zip|7z)$/i),
             checksum: pickAsset(assets, /sha2?56|checksum/i),
           },
         ];
