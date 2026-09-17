@@ -80,7 +80,63 @@ const breadcrumbLd = {
 
     <section class="mt-6 card p-5 text-sm text-[#c9c9d1] leading-relaxed text-left">
       <p><strong class="text-white">{'\u{1F9E9}'} {reqLabel}</strong> {c.reqStack}</p>
-      <p class="mt-2"><strong class="text-white">{'\u{1F50F}'} SmartScreen:</strong> {c.signText}</p>
+      <details id={c.ssAnchor} class="ss-details mt-3">
+        <summary>
+          <strong class="text-white">{'\u{1F50F}'} SmartScreen</strong>
+          <span class="ss-hint">{c.ssOpen}</span>
+          <svg class="ss-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </summary>
+        <div class="ss-body">
+          <p>{c.ssIntro}</p>
+          <ol class="ss-steps">
+            <li class="ss-step">
+              <span class="ss-num" aria-hidden="true">1</span>
+              <div class="ss-step-main">
+                <p>{c.ssStep1}</p>
+                <div class="ss-dlg" role="img" aria-label={c.dlg1Title}>
+                  <div class="ss-dlg-body">
+                    <div class="ss-dlg-icon" aria-hidden="true">🛡️</div>
+                    <div>
+                      <p class="ss-dlg-title">{c.dlg1Title}</p>
+                      <p class="ss-dlg-text">{c.dlg1Text}</p>
+                      <p class="ss-dlg-more">{c.dlg1MoreInfo}</p>
+                    </div>
+                  </div>
+                  <div class="ss-dlg-actions">
+                    <span class="ss-dlg-btn">{c.dlg1Cancel}</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="ss-step">
+              <span class="ss-num" aria-hidden="true">2</span>
+              <div class="ss-step-main">
+                <p>{c.ssStep2}</p>
+              </div>
+            </li>
+            <li class="ss-step">
+              <span class="ss-num" aria-hidden="true">3</span>
+              <div class="ss-step-main">
+                <p>{c.ssStep3}</p>
+                <div class="ss-dlg" role="img" aria-label={`${c.dlg1Title}: ${c.dlg2Run}`}>
+                  <div class="ss-dlg-body">
+                    <div class="ss-dlg-icon" aria-hidden="true">🛡️</div>
+                    <div>
+                      <p class="ss-dlg-title">{c.dlg1Title}</p>
+                      <p class="ss-dlg-more">{c.dlg1MoreInfo}</p>
+                    </div>
+                  </div>
+                  <div class="ss-dlg-actions">
+                    <span class="ss-dlg-pub">{c.dlg2Publisher}</span>
+                    <span class="ss-dlg-btn ss-dlg-run">{c.dlg2Run}</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ol>
+          <p class="ss-why"><strong>{c.ssWhyTitle}:</strong> {c.ssWhyText}</p>
+        </div>
+      </details>
     </section>
 
     {wingetApps.length > 0 && (
@@ -217,11 +273,96 @@ const breadcrumbLd = {
   </div>
 </BaseLayout>
 
+<style>
+  .ss-details {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+  }
+  .ss-details summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    transition: background 0.15s ease;
+  }
+  .ss-details summary::-webkit-details-marker { display: none; }
+  .ss-details summary:hover { background: rgba(255, 255, 255, 0.04); }
+  .ss-details[open] summary { border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+  .ss-hint { color: #9a9aa5; font-size: 12px; flex: 1; min-width: 180px; }
+  .ss-chevron { color: #9a9aa5; flex-shrink: 0; transition: transform 0.2s ease; }
+  .ss-details[open] .ss-chevron { transform: rotate(180deg); }
+  .ss-body { padding: 1rem; }
+  .ss-steps { margin: 1rem 0 0; padding: 0; display: grid; gap: 1rem; list-style: none; }
+  .ss-step { display: flex; gap: 0.75rem; align-items: flex-start; }
+  .ss-num {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0.1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border: 1px solid rgba(0, 242, 255, 0.4);
+    color: #00f2ff;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .ss-step-main { min-width: 0; flex: 1; }
+  .ss-step-main > p { margin: 0.2rem 0 0.5rem; }
+  /* Win11-style SmartScreen dialog mockups (illustrative, no copyrighted assets) */
+  .ss-dlg {
+    max-width: 430px;
+    border-radius: 8px;
+    background: #f3f3f3;
+    color: #1b1b1b;
+    border: 1px solid #d0d0d0;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+    font-size: 12px;
+    line-height: 1.45;
+    overflow: hidden;
+  }
+  .ss-dlg-body { display: flex; gap: 12px; padding: 16px 16px 6px; }
+  .ss-dlg-icon { font-size: 24px; line-height: 1; flex-shrink: 0; }
+  .ss-dlg-title { font-weight: 600; color: #1b1b1b; margin: 0; }
+  .ss-dlg-text { color: #5c5c5c; margin: 2px 0 4px; }
+  .ss-dlg-more { color: #0067c0; font-weight: 600; margin: 4px 0 0; text-decoration: underline; text-underline-offset: 2px; }
+  .ss-dlg-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px 14px;
+  }
+  .ss-dlg-pub { color: #5c5c5c; font-size: 11px; margin-right: auto; }
+  .ss-dlg-btn {
+    background: #fbfbfb;
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    padding: 5px 16px;
+    color: #1b1b1b;
+    white-space: nowrap;
+  }
+  .ss-dlg-run { background: #0067c0; border-color: #0067c0; color: #ffffff; }
+  .ss-why { margin: 1.25rem 0 0; color: #9a9aa5; font-size: 12.5px; }
+  .ss-why strong { color: #c9c9d1; }
+</style>
+
 <script is:inline>
   (function () {
     // Download page: live card filter
     var input = document.getElementById('dl-search');
     var empty = document.getElementById('dl-empty');
+    // Auto-open the SmartScreen guide when linked as /download#smartscreen
+    if (window.location.hash === '#smartscreen') {
+      var ss = document.getElementById('smartscreen');
+      if (ss) ss.open = true;
+    }
     if (input) {
       input.addEventListener('input', function () {
         var q = input.value.trim().toLowerCase();

@@ -43,6 +43,18 @@ const path = en ? '/privacy' : '/es/privacy';
         <h2 class="font-bold text-base">🔏 {c.signTitle}</h2>
         <p class="mt-2 text-[#c9c9d1]">{c.signText}</p>
       </section>
+      <section class="card p-6">
+        <h2 class="font-bold text-base">🏪 {c.storeTitle}</h2>
+        <p class="mt-2 text-[#c9c9d1]">{c.storeText}</p>
+      </section>
+      <section class="card p-6">
+        <h2 class="font-bold text-base">✉️ {c.contactTitle}</h2>
+        <p class="mt-2 text-[#c9c9d1]">
+          {c.contactText}{' '}
+          <a href={en ? '/contact' : '/es/contact'} class="text-[#00f2ff] hover:text-white transition-colors">{c.contactLink}</a>
+        </p>
+      </section>
+      <p class="mt-6 text-xs text-[#6b6b76]">{c.lastUpdated}</p>
     </div>
   </div>
 </BaseLayout>
