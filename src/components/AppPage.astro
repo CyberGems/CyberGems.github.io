@@ -340,7 +340,7 @@ const mailUrl = `mailto:?subject=${encodeURIComponent(shareText)}&body=${encodeU
       </p>
       <div class="mt-4 flex flex-wrap items-center gap-3">
         <a href={releasesAtomUrl} target="_blank" rel="noopener noreferrer" class="card flex items-center gap-2 px-4 py-2.5 text-sm font-medium hover:text-white transition-colors" aria-label="Release RSS feed (hosted on GitHub)" title={lang === 'en' ? 'Release RSS feed (hosted on GitHub)' : 'Feed RSS de lanzamientos (alojado en GitHub)'}>
-          <svg viewBox="0 0 24 24" class="h-4 w-4" style="color:#FF8800" fill="currentColor" aria-hidden="true"><path d="M6.18 15.64a2.18 2.18 0 1 1 0 4.36 2.18 2.18 0 0 1 0-4.36M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27zm0 5.66a7.46 7.46 0 0 1 7.46 7.46h-2.83A4.63 4.63 0 0 0 4 12.93z"/></svg>
+          <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0" style="color:#FF8800" fill="currentColor" aria-hidden="true"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 10.1v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9zm0-5.66v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56z"/></svg>
           <span>{lang === 'en' ? 'Release RSS feed' : 'Feed RSS de lanzamientos'}</span>
         </a>
         <a href={releasesUrl} target="_blank" rel="noopener noreferrer" class="card flex items-center gap-2 px-4 py-2.5 text-sm font-medium hover:text-white transition-colors" aria-label="Releases on GitHub">

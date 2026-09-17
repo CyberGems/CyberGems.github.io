@@ -199,10 +199,20 @@ const breadcrumbLd = {
               <a
                 href={appPage}
                 aria-label={detailsAria}
-                class="dl-logo w-11 h-11 rounded-xl flex items-center justify-center text-2xl border border-white/10 shrink-0 transition-transform duration-200 hover:scale-105 hover:border-white/25"
-                style={`background: radial-gradient(120% 120% at 20% 0%, ${app.accent}33 0%, transparent 60%);`}
+                class="dl-logo shrink-0 flex items-center justify-center pt-0.5"
+                style={`--accent-glow: ${app.accent}55; --accent-glow-hover: ${app.accent}99;`}
               >
-                {app.icon ? <img src={app.icon} alt="" width="36" height="36" class="h-9 w-9 object-contain" /> : app.emoji}
+                {app.icon ? (
+                  <img
+                    src={app.icon}
+                    alt=""
+                    width="44"
+                    height="44"
+                    class="dl-logo-icon h-11 w-11 object-contain"
+                  />
+                ) : (
+                  <span class="dl-logo-icon text-3xl select-none">{app.emoji}</span>
+                )}
               </a>
               <div class="min-w-0 flex-1">
                 <div class="flex flex-wrap items-center gap-2">
@@ -255,7 +265,7 @@ const breadcrumbLd = {
                       data-umami-event-format="portable"
                       data-umami-event-source="download-page"
                       data-download-start
-                    >Portable{dl.portable.name.toLowerCase().endsWith('.exe') ? ' .exe' : (dl.portable.name.toLowerCase().endsWith('.zip') ? ' .zip' : '')}</a>
+                    >{dl.portable.name.toLowerCase().endsWith('.exe') ? 'Portable (.exe)' : (dl.portable.name.toLowerCase().endsWith('.zip') ? 'Portable (.zip)' : 'Portable')}</a>
                   )}
                   {hasData && dl && (
                     <a href={dl.checksum ? dl.checksum.url : dl.releaseUrl} target="_blank" rel="noopener noreferrer" class="text-[#9a9aa5] hover:text-white transition-colors">{c.verLink}</a>
@@ -274,6 +284,16 @@ const breadcrumbLd = {
 </BaseLayout>
 
 <style>
+  .dl-logo-icon {
+    filter: drop-shadow(0 0 10px var(--accent-glow));
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .dl-card:hover .dl-logo-icon,
+  .dl-logo:hover .dl-logo-icon {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 16px var(--accent-glow-hover));
+  }
+
   .ss-details {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 0.75rem;
