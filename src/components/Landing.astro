@@ -24,10 +24,6 @@ const strip = [
   { icon: '🔒', label: t.stripNoTrack },
   { icon: '📖', label: t.stripOss },
 ];
-const showcasePositions = [
-  [-365, -64], [-182, -112], [0, -126], [182, -112], [365, -64],
-  [-315, 76], [-105, 112], [105, 112], [315, 76], [0, 156],
-];
 
 const orgLd = {
   '@context': 'https://schema.org',
@@ -67,7 +63,7 @@ const itemListLd = {
     <div class="hero-aura" aria-hidden="true"></div>
     <div class="hero-grid absolute inset-0 cyber-grid" aria-hidden="true"></div>
     <div class="hero-spotlight" aria-hidden="true"></div>
-    <div class="max-w-6xl mx-auto px-5 pt-24 pb-20 text-center relative">
+    <div class="max-w-6xl mx-auto px-5 pt-20 sm:pt-24 pb-0 text-center relative">
       <span class="hero-enter hero-badge chip mb-6">{t.heroBadge}</span>
       <h1 class="hero-enter hero-title text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
         {t.heroTitle1}<br />
@@ -80,33 +76,75 @@ const itemListLd = {
           ★ {t.heroCta2}
         </a>
       </div>
-      <div class="hero-enter suite-showcase mt-16" style="--showcase-delay: 320ms;" aria-label={lang === 'en' ? 'CyberGems apps' : 'Apps de CyberGems'}>
-        <div class="suite-showcase-ring suite-showcase-ring-one" aria-hidden="true"></div>
-        <div class="suite-showcase-ring suite-showcase-ring-two" aria-hidden="true"></div>
-        <div class="suite-showcase-core" aria-hidden="true">
-          <img src="/favicon.svg" alt="" width="44" height="44" />
-          <span>CyberGems</span>
+      <!-- Planet Horizon and Orbital Stage -->
+      <div class="hero-enter hero-stage-container mt-12 sm:mt-16" style="--showcase-delay: 300ms;" aria-label={lang === 'en' ? 'CyberGems apps showcase' : 'Presentación de apps CyberGems'}>
+        <div class="hero-stage">
+          <!-- Orbital Track and Apps -->
+          <div class="orbit-system" aria-hidden="true">
+            <div class="orbit-track">
+              {apps.map((app, index) => {
+                const angle = index * 36;
+                return (
+                  <div
+                    class="orbit-node"
+                    style={`--node-angle: ${angle}deg; --app-accent: ${app.accent};`}
+                  >
+                    <a
+                      href={lang === 'en' ? `/apps/${app.slug}` : `/es/apps/${app.slug}`}
+                      class="orbit-node-body"
+                      aria-label={app.name}
+                      tabindex="0"
+                    >
+                      <div class="orbit-badge">
+                        {app.icon ? (
+                          <img
+                            src={app.icon}
+                            alt=""
+                            width="48"
+                            height="48"
+                            loading="eager"
+                            decoding="async"
+                          />
+                        ) : (
+                          <span class="text-2xl" aria-hidden="true">{app.emoji}</span>
+                        )}
+                      </div>
+                      <span class="orbit-label">{app.name}</span>
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <!-- Luminous Horizon Dome -->
+          <div class="horizon-dome" aria-hidden="true">
+            <div class="horizon-crest-glow"></div>
+            <div class="horizon-inner-aurora"></div>
+            <div class="horizon-center-core">
+              <div class="horizon-core-badge">
+                <img src="/favicon.svg" alt="" width="38" height="38" class="horizon-core-logo" />
+              </div>
+              <span class="horizon-title">CyberGems</span>
+            </div>
+          </div>
         </div>
-        <div class="suite-showcase-apps">
-          {apps.map((app, index) => {
-            const [x, y] = showcasePositions[index] ?? [0, 0];
-            return (
-              <a
-                href={lang === 'en' ? `/apps/${app.slug}` : `/es/apps/${app.slug}`}
-                class="suite-showcase-app"
-                style={`--app-x: ${x}px; --app-y: ${y}px; --app-accent: ${app.accent}; --app-delay: ${index * 55}ms;`}
-                aria-label={app.name}
-              >
-                <span class="suite-showcase-app-body">
-                  <span class="suite-showcase-icon">
-                    {app.icon ? <img src={app.icon} alt="" width="56" height="56" /> : <span aria-hidden="true">{app.emoji}</span>}
-                  </span>
-                  <span class="suite-showcase-name">{app.name}</span>
-                </span>
-              </a>
-            );
-          })}
-        </div>
+      </div>
+    </div>
+
+    <!-- Infinite Marquee Ticker Strip -->
+    <div class="marquee-strip" aria-label={lang === 'en' ? 'Apps ticker' : 'Listado dinámico de apps'}>
+      <div class="marquee-track">
+        {[...apps, ...apps, ...apps].map((app) => (
+          <a
+            href={lang === 'en' ? `/apps/${app.slug}` : `/es/apps/${app.slug}`}
+            class="marquee-item"
+            tabindex="0"
+          >
+            <span class="marquee-spark" aria-hidden="true" style={`color: ${app.accent}`}>✦</span>
+            <span class="marquee-name">{app.name}</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -308,142 +346,360 @@ const itemListLd = {
     to { opacity: 1; transform: translateY(0) scale(1); }
   }
 
-  .suite-showcase {
+  /* Planet Horizon and Orbital Stage */
+  .hero-stage-container {
+    --stage-height: 320px;
+    --dome-top: 500px;
+    --dome-size: 920px;
+    --orbit-radius: 510px;
     position: relative;
-    width: min(100%, 960px);
-    height: 300px;
+    width: 100%;
+    max-width: 1080px;
     margin-inline: auto;
     isolation: isolate;
   }
 
-  .suite-showcase::before {
-    content: '';
-    position: absolute;
-    inset: 24% 18% 6%;
-    z-index: -1;
-    background: radial-gradient(ellipse, rgb(0 242 255 / 0.13), transparent 68%);
-    filter: blur(18px);
+  @media (max-width: 900px) {
+    .hero-stage-container {
+      --stage-height: 290px;
+      --dome-top: 450px;
+      --dome-size: 780px;
+      --orbit-radius: 430px;
+    }
   }
 
-  .suite-showcase-ring {
+  @media (max-width: 600px) {
+    .hero-stage-container {
+      --stage-height: 260px;
+      --dome-top: 390px;
+      --dome-size: 640px;
+      --orbit-radius: 350px;
+    }
+  }
+
+  .hero-stage {
+    position: relative;
+    width: 100%;
+    height: var(--stage-height);
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+
+  /* Celestial Glowing Horizon Dome */
+  .horizon-dome {
     position: absolute;
-    top: 50%;
+    top: var(--dome-top);
     left: 50%;
-    border: 1px solid rgb(0 242 255 / 0.14);
+    width: var(--dome-size);
+    height: var(--dome-size);
+    transform: translate(-50%, -50%);
     border-radius: 50%;
-    transform: translate(-50%, -50%) rotate(-12deg);
+    pointer-events: none;
+    z-index: 2;
+    background: radial-gradient(circle at 50% 0%, #171f38 0%, #101426 32%, #0d0f17 72%);
+    border-top: 2px solid rgba(0, 242, 255, 0.85);
+    border-left: 1px solid rgba(0, 242, 255, 0.25);
+    border-right: 1px solid rgba(122, 92, 255, 0.3);
+    border-bottom: 1px solid transparent;
+    box-shadow:
+      0 -16px 50px -4px rgba(0, 242, 255, 0.45),
+      0 -45px 110px -15px rgba(122, 92, 255, 0.4),
+      inset 0 35px 70px -10px rgba(0, 242, 255, 0.22),
+      inset 0 1px 3px rgba(255, 255, 255, 0.7);
+    mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 95%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 95%);
   }
 
-  .suite-showcase-ring-one { width: 360px; height: 180px; }
-  .suite-showcase-ring-two { width: 610px; height: 230px; border-color: rgb(122 92 255 / 0.13); transform: translate(-50%, -50%) rotate(14deg); }
-
-  .suite-showcase-core {
+  /* Atmospheric Aurora Glow on the crest */
+  .horizon-crest-glow {
     position: absolute;
-    top: 50%;
+    top: -4px;
+    left: 20%;
+    width: 60%;
+    height: 35px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 50% 0%, rgba(0, 242, 255, 0.55), transparent 75%);
+    filter: blur(8px);
+    pointer-events: none;
+  }
+
+  .horizon-inner-aurora {
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    height: 40%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 50% 0%, rgba(122, 92, 255, 0.22), transparent 70%);
+    filter: blur(20px);
+    pointer-events: none;
+  }
+
+  /* Center Nucleus / Brand Core */
+  .horizon-center-core {
+    position: absolute;
+    top: 68px;
     left: 50%;
-    z-index: 2;
+    transform: translateX(-50%);
     display: flex;
-    width: 132px;
-    height: 132px;
     flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    pointer-events: auto;
+  }
+
+  .horizon-core-badge {
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.4rem;
-    border: 1px solid rgb(0 242 255 / 0.32);
-    border-radius: 2rem;
-    background: linear-gradient(145deg, rgb(21 24 36 / 0.96), rgb(13 15 23 / 0.92));
-    box-shadow: 0 0 55px rgb(0 242 255 / 0.16), inset 0 0 26px rgb(0 242 255 / 0.05);
-    color: #fff;
-    font-size: 0.78rem;
+    width: 62px;
+    height: 62px;
+    border-radius: 1.25rem;
+    background: linear-gradient(145deg, rgba(24, 29, 44, 0.95), rgba(13, 15, 23, 0.92));
+    border: 1px solid rgba(0, 242, 255, 0.35);
+    box-shadow: 0 0 35px rgba(0, 242, 255, 0.2), inset 0 0 15px rgba(0, 242, 255, 0.08);
+    transition: transform 220ms ease, border-color 220ms, box-shadow 220ms;
+  }
+
+  .horizon-core-badge:hover {
+    transform: scale(1.06);
+    border-color: #00f2ff;
+    box-shadow: 0 0 45px rgba(0, 242, 255, 0.35), inset 0 0 20px rgba(0, 242, 255, 0.15);
+  }
+
+  .horizon-core-logo {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+  }
+
+  .horizon-title {
+    font-size: 0.8rem;
     font-weight: 800;
-    letter-spacing: 0.02em;
-    transform: translate(-50%, -50%);
+    letter-spacing: 0.04em;
+    color: #fff;
+    text-shadow: 0 0 12px rgba(0, 242, 255, 0.5);
   }
 
-  .suite-showcase-core img { width: 44px; height: 44px; }
-
-  .suite-showcase-apps {
+  /* Orbital System */
+  .orbit-system {
     position: absolute;
-    inset: 0;
-  }
-
-  .suite-showcase-app {
-    position: absolute;
-    top: 50%;
+    top: var(--dome-top);
     left: 50%;
-    display: block;
-    color: #c9c9d1;
-    transform: translate(calc(-50% + var(--app-x)), calc(-50% + var(--app-y)));
+    width: 0;
+    height: 0;
+    z-index: 4;
   }
 
-  .suite-showcase-app-body {
+  .orbit-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    animation: orbit-spin 48s linear infinite;
+  }
+
+  .orbit-node {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    transform: rotate(var(--node-angle)) translateY(calc(-1 * var(--orbit-radius))) rotate(calc(-1 * var(--node-angle)));
+  }
+
+  .orbit-node-body {
+    position: relative;
     display: flex;
-    min-width: 94px;
     flex-direction: column;
     align-items: center;
-    gap: 0.45rem;
-    border-radius: 1rem;
+    gap: 0.35rem;
+    transform: translate(-50%, -50%);
+    animation: orbit-counter-spin 48s linear infinite;
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .orbit-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(16, 20, 32, 0.9);
+    border: 1.5px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(10px);
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.55),
+      0 0 16px rgba(0, 242, 255, 0.15);
+    transition: transform 220ms cubic-bezier(0.2, 0, 0, 1), border-color 220ms, box-shadow 220ms;
+  }
+
+  .orbit-badge img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.25));
+    transition: transform 220ms cubic-bezier(0.2, 0, 0, 1), filter 220ms;
+  }
+
+  .orbit-label {
     font-size: 0.72rem;
     font-weight: 700;
-    text-shadow: 0 1px 12px rgb(0 0 0 / 0.75);
-    transition: color 180ms ease, transform 180ms ease;
-    animation: suite-app-in 650ms cubic-bezier(0.22, 1, 0.36, 1) var(--app-delay) both;
-  }
-
-  .suite-showcase-icon {
-    display: grid;
-    width: 72px;
-    height: 72px;
-    place-items: center;
-    background: transparent;
-  }
-
-  .suite-showcase-icon img { width: 72px; height: 72px; object-fit: contain; filter: drop-shadow(0 0 9px rgb(0 242 255 / 0.28)); transition: filter 180ms ease; }
-  .suite-showcase-icon > span { font-size: 2.1rem; }
-
-  .suite-showcase-app:hover .suite-showcase-app-body,
-  .suite-showcase-app:focus-visible .suite-showcase-app-body {
     color: #fff;
-    transform: translateY(-5px) scale(1.04);
+    background: rgba(13, 15, 23, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 2px 8px;
+    border-radius: 9999px;
+    white-space: nowrap;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7);
+    opacity: 0.88;
+    transition: opacity 180ms ease, transform 180ms ease, color 180ms, border-color 180ms;
   }
 
-  .suite-showcase-app:hover .suite-showcase-icon img,
-  .suite-showcase-app:focus-visible .suite-showcase-icon img {
-    filter: drop-shadow(0 0 14px var(--app-accent));
+  /* Interactive Hover States */
+  .hero-stage-container:hover .orbit-track,
+  .hero-stage-container:hover .orbit-node-body,
+  .hero-stage-container:focus-within .orbit-track,
+  .hero-stage-container:focus-within .orbit-node-body,
+  .marquee-strip:hover .marquee-track,
+  .marquee-strip:focus-within .marquee-track {
+    animation-play-state: paused;
   }
 
-  @keyframes suite-app-in {
-    from { opacity: 0; transform: scale(0.72); }
-    to { opacity: 1; transform: scale(1); }
+  .orbit-node-body:hover .orbit-badge,
+  .orbit-node-body:focus-visible .orbit-badge {
+    transform: scale(1.18);
+    border-color: var(--app-accent, #00f2ff);
+    box-shadow:
+      0 12px 32px rgba(0, 0, 0, 0.7),
+      0 0 25px var(--app-accent, #00f2ff);
   }
 
-  @media (max-width: 760px) {
-    .suite-showcase {
-      height: auto;
-      margin-top: 3rem;
+  .orbit-node-body:hover .orbit-badge img,
+  .orbit-node-body:focus-visible .orbit-badge img {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 14px var(--app-accent, #00f2ff));
+  }
+
+  .orbit-node-body:hover .orbit-label,
+  .orbit-node-body:focus-visible .orbit-label {
+    opacity: 1;
+    color: var(--app-accent, #00f2ff);
+    border-color: var(--app-accent, #00f2ff);
+    transform: translateY(2px) scale(1.05);
+  }
+
+  @keyframes orbit-spin {
+    from {
+      transform: rotate(0deg);
     }
-
-    .suite-showcase-core,
-    .suite-showcase-ring { display: none; }
-
-    .suite-showcase-apps {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.8rem;
+    to {
+      transform: rotate(360deg);
     }
+  }
 
-    .suite-showcase-app {
-      position: relative;
-      top: auto;
-      left: auto;
-      transform: none;
+  @keyframes orbit-counter-spin {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
     }
+    to {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+  }
 
-    .suite-showcase-app-body { min-width: 0; }
+  /* Responsive badge sizes */
+  @media (max-width: 600px) {
+    .orbit-badge {
+      width: 52px;
+      height: 52px;
+    }
+    .orbit-badge img {
+      width: 34px;
+      height: 34px;
+    }
+    .orbit-label {
+      font-size: 0.65rem;
+      padding: 1px 6px;
+    }
+    .horizon-core-badge {
+      width: 50px;
+      height: 50px;
+    }
+    .horizon-core-logo {
+      width: 28px;
+      height: 28px;
+    }
+    .horizon-center-core {
+      top: 36px;
+    }
+  }
+
+  /* Infinite Marquee Ticker Strip */
+  .marquee-strip {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 1.1rem 0;
+    margin-top: 0;
+    border-top: 1px solid rgba(0, 242, 255, 0.16);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(13, 15, 23, 0.75);
+    backdrop-filter: blur(12px);
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+
+  .marquee-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: 2.2rem;
+    animation: marquee-scroll 35s linear infinite;
+  }
+
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-33.333333%);
+    }
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
+    color: #9a9aa5;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: color 180ms ease, transform 180ms ease;
+    white-space: nowrap;
+  }
+
+  .marquee-item:hover,
+  .marquee-item:focus-visible {
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .marquee-spark {
+    font-size: 0.75rem;
+    filter: drop-shadow(0 0 6px currentColor);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .suite-showcase-app-body { animation: none; }
+    .orbit-track,
+    .orbit-node-body,
+    .marquee-track {
+      animation: none !important;
+    }
   }
 </style>
