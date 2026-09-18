@@ -18,9 +18,12 @@
     { "en": "Virtualized grid — 3000+ processes at 144fps, zero lag", "es": "Cuadrícula virtualizada — más de 3000 procesos a 144fps, sin lag" },
     { "en": "NT-native engine (NtQuerySystemInformation, no WMI overhead)", "es": "Motor NT-nativo (NtQuerySystemInformation, sin sobrecarga de WMI)" },
     { "en": "Adaptive CPU/RAM heatmap with live sparklines", "es": "Mapa de calor adaptativo de CPU/RAM con sparklines en vivo" },
+    { "en": "Top-10 heavy-process filter with persistent search history", "es": "Filtro de los 10 procesos más pesados con historial de búsqueda persistente" },
     { "en": "Full process control: end tree, suspend/resume, priority", "es": "Control total de procesos: fin de árbol, suspender/reanudar, prioridad" },
+    { "en": "Friendly process names and detailed Properties dialog", "es": "Nombres amigables y diálogo detallado de Propiedades de procesos" },
     { "en": "System Information window with 4 tabs", "es": "Ventana de Información del sistema con 4 pestañas" },
-    { "en": "System tray, global hotkey, 3 themes, bilingual EN/ES", "es": "Bandeja del sistema, hotkey global, 3 temas, bilingüe EN/ES" }
+    { "en": "Editable Alt+Shift+M hotkey, reliable Windows startup, and factory reset", "es": "Hotkey Alt+Shift+M editable, inicio fiable con Windows y restauración de fábrica" },
+    { "en": "Separate tray behavior for minimizing and closing, with bilingual EN/ES UI", "es": "Comportamiento separado de bandeja al minimizar y cerrar, con UI bilingüe EN/ES" }
   ],
   "repo": "https://github.com/CyberGems/CyberManager",
   "wiki": "https://github.com/CyberGems/CyberManager/wiki",
