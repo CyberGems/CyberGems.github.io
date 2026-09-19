@@ -13,16 +13,16 @@ const { lang } = Astro.props;
 const t = ui[lang];
 const { downloads } = await fetchLatestDownloads();
 const homePath = lang === 'en' ? '/' : '/es/';
-const title = lang === 'en' ? 'CyberGems — Free & open-source Windows apps' : 'CyberGems — Apps gratuitas y de código abierto para Windows';
+const title = lang === 'en' ? 'CyberGems â€” Free & open-source Windows apps' : 'CyberGems â€” Apps gratuitas y de cÃ³digo abierto para Windows';
 const description = lang === 'en'
-  ? '10 free, open-source Windows apps — screen capture, clipboard, notes, firewall and more. No account, no ads, no tracking in the apps, GPLv3.'
-  : '10 apps gratuitas y open-source para Windows — captura, portapapeles, notas, firewall y más. Sin cuenta, sin anuncios, sin rastreo en las apps, GPLv3.';
+  ? '10 free, open-source Windows apps â€” screen capture, clipboard, notes, firewall and more. No account, no ads, no tracking in the apps, GPLv3.'
+  : '10 apps gratuitas y open-source para Windows â€” captura, portapapeles, notas, firewall y mÃ¡s. Sin cuenta, sin anuncios, sin rastreo en las apps, GPLv3.';
 const strip = [
-  { icon: '🎁', label: t.stripFree },
-  { icon: '🚫', label: t.stripNoAds },
-  { icon: '👤', label: t.stripNoAccount },
-  { icon: '🔒', label: t.stripNoTrack },
-  { icon: '📖', label: t.stripOss },
+  { icon: 'ðŸŽ', label: t.stripFree },
+  { icon: 'ðŸš«', label: t.stripNoAds },
+  { icon: 'ðŸ‘¤', label: t.stripNoAccount },
+  { icon: 'ðŸ”’', label: t.stripNoTrack },
+  { icon: 'ðŸ“–', label: t.stripOss },
 ];
 
 const orgLd = {
@@ -71,13 +71,13 @@ const itemListLd = {
       </h1>
       <p class="hero-enter hero-description mt-6 max-w-2xl mx-auto text-[#9a9aa5] text-lg leading-relaxed">{t.heroText}</p>
       <div class="hero-enter hero-actions mt-9 flex flex-wrap items-center justify-center gap-4">
-        <a href="#apps" class="btn-primary">{t.heroCta} ↓</a>
+        <a href="#apps" class="btn-primary">{t.heroCta} â†“</a>
         <a href="https://github.com/CyberGems" target="_blank" rel="noopener noreferrer" class="btn-ghost">
-          ★ {t.heroCta2}
+          â˜… {t.heroCta2}
         </a>
       </div>
       <!-- Planet Horizon and Orbital Stage -->
-      <div class="hero-enter hero-stage-container mt-12 sm:mt-16" style="--showcase-delay: 300ms;" aria-label={lang === 'en' ? 'CyberGems apps showcase' : 'Presentación de apps CyberGems'}>
+      <div class="hero-enter hero-stage-container mt-12 sm:mt-16" style="--showcase-delay: 300ms;" aria-label={lang === 'en' ? 'CyberGems apps showcase' : 'PresentaciÃ³n de apps CyberGems'}>
         <div class="hero-stage">
           <!-- Orbital Track and Apps -->
           <div class="orbit-system" aria-hidden="true">
@@ -136,7 +136,7 @@ const itemListLd = {
     </div>
 
     <!-- Infinite Marquee Ticker Strip -->
-    <div class="marquee-strip" aria-label={lang === 'en' ? 'Apps ticker' : 'Listado dinámico de apps'}>
+    <div class="marquee-strip" aria-label={lang === 'en' ? 'Apps ticker' : 'Listado dinÃ¡mico de apps'}>
       <div class="marquee-track">
         {[...apps, ...apps, ...apps].map((app) => (
           <a
@@ -144,7 +144,7 @@ const itemListLd = {
             class="marquee-item"
             tabindex="0"
           >
-            <span class="marquee-spark" aria-hidden="true" style={`color: ${app.accent}`}>✦</span>
+            <span class="marquee-spark" aria-hidden="true" style={`color: ${app.accent}`}>âœ¦</span>
             <span class="marquee-name">{app.name}</span>
           </a>
         ))}
@@ -181,17 +181,17 @@ const itemListLd = {
   <!-- Principles (same 6 as /about) -->
   <section class="max-w-6xl mx-auto px-5 pb-20">
     <div class="text-center mb-10">
-      <h2 class="text-3xl font-extrabold tracking-tight">{lang === 'en' ? 'Why CyberGems' : 'Por qué CyberGems'}</h2>
-      <p class="mt-3 text-[#9a9aa5]">{lang === 'en' ? 'Built for daily use, with the bloat removed.' : 'Hechas para el día a día, sin la grasa.'}</p>
+      <h2 class="text-3xl font-extrabold tracking-tight">{lang === 'en' ? 'Why CyberGems' : 'Por quÃ© CyberGems'}</h2>
+      <p class="mt-3 text-[#9a9aa5]">{lang === 'en' ? 'Built for daily use, with the bloat removed.' : 'Hechas para el dÃ­a a dÃ­a, sin la grasa.'}</p>
     </div>
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {[
-        { icon: '🔒', t: 'Privacy-first', d: lang === 'en' ? 'Your data never leaves your PC.' : 'Tus datos nunca salen de tu equipo.' },
-        { icon: '💻', t: 'Local-first', d: lang === 'en' ? 'Offline. No accounts, no subscriptions.' : 'Offline. Sin cuentas ni suscripciones.' },
-        { icon: '📖', t: lang === 'en' ? 'Open source' : 'Código abierto', d: 'GPLv3.' },
-        { icon: '🎁', t: lang === 'en' ? '100% Free' : '100% Gratis', d: lang === 'en' ? 'No ads, no paywalls.' : 'Sin anuncios ni muros de pago.' },
-        { icon: '⚡', t: lang === 'en' ? 'Fast & light' : 'Rápido y ligero', d: lang === 'en' ? 'Native desktop, no Electron.' : 'Nativo, sin Electron.' },
-        { icon: '✨', t: lang === 'en' ? 'Sober design' : 'Diseño sobrio', d: lang === 'en' ? 'Clean, purposeful interfaces.' : 'Interfaces limpias y claras.' },
+        { icon: 'ðŸ”’', t: 'Privacy-first', d: lang === 'en' ? 'Your data never leaves your PC.' : 'Tus datos nunca salen de tu equipo.' },
+        { icon: 'ðŸ’»', t: 'Local-first', d: lang === 'en' ? 'Offline. No accounts, no subscriptions.' : 'Offline. Sin cuentas ni suscripciones.' },
+        { icon: 'ðŸ“–', t: lang === 'en' ? 'Open source' : 'CÃ³digo abierto', d: 'GPLv3.' },
+        { icon: 'ðŸŽ', t: lang === 'en' ? '100% Free' : '100% Gratis', d: lang === 'en' ? 'No ads, no paywalls.' : 'Sin anuncios ni muros de pago.' },
+        { icon: 'âš¡', t: lang === 'en' ? 'Fast & light' : 'RÃ¡pido y ligero', d: lang === 'en' ? 'Native desktop, no Electron.' : 'Nativo, sin Electron.' },
+        { icon: 'âœ¨', t: lang === 'en' ? 'Sober design' : 'DiseÃ±o sobrio', d: lang === 'en' ? 'Clean, purposeful interfaces.' : 'Interfaces limpias y claras.' },
       ].map((p) => (
         <div class="card p-5">
           <div class="text-2xl" aria-hidden="true">{p.icon}</div>
@@ -201,10 +201,10 @@ const itemListLd = {
       ))}
     </div>
     <div class="mt-8 flex flex-wrap justify-center gap-3">
-      <a href={lang === 'en' ? '/download' : '/es/download'} class="btn-primary">{lang === 'en' ? 'How to install' : 'Cómo instalar'}</a>
+      <a href={lang === 'en' ? '/download' : '/es/download'} class="btn-primary">{lang === 'en' ? 'How to install' : 'CÃ³mo instalar'}</a>
       <a href={lang === 'en' ? '/about' : '/es/about'} class="btn-ghost">{lang === 'en' ? 'Our story' : 'Nuestra historia'}</a>
       <a href={lang === 'en' ? '/faq' : '/es/faq'} class="btn-ghost">FAQ</a>
-      <a href={lang === 'en' ? '/donate' : '/es/donate'} class="btn-ghost">♥ {lang === 'en' ? 'Donate' : 'Donar'}</a>
+      <a href={lang === 'en' ? '/donate' : '/es/donate'} class="btn-ghost">â™¥ {lang === 'en' ? 'Donate' : 'Donar'}</a>
     </div>
   </section>
 </BaseLayout>
@@ -444,28 +444,30 @@ const itemListLd = {
      bottom fade mask clips it, so the light only shows on the visible horizon. */
   .horizon-rim-sweep {
     position: absolute;
-    inset: -1px;
+    inset: 0;
     border-radius: 50%;
     pointer-events: none;
     background: conic-gradient(
       from 0deg,
       transparent 0deg,
-      transparent 258deg,
-      rgba(0, 242, 255, 0.3) 310deg,
-      rgba(0, 242, 255, 0.85) 352deg,
+      transparent 296deg,
+      rgba(0, 242, 255, 0.35) 340deg,
+      rgba(0, 242, 255, 0.9) 356deg,
       #ffffff 360deg
     );
-    mask-image: radial-gradient(circle, transparent calc(50% - 7px), black calc(50% - 2px));
-    -webkit-mask-image: radial-gradient(circle, transparent calc(50% - 7px), black calc(50% - 2px));
+    /* Thin ring hugging the dome rim: closest-side makes 100% exactly the
+       dome radius, so only a ~5px band over the border line stays visible. */
+    mask-image: radial-gradient(circle closest-side, transparent calc(100% - 7px), black calc(100% - 6px));
+    -webkit-mask-image: radial-gradient(circle closest-side, transparent calc(100% - 7px), black calc(100% - 6px));
   }
 
   .horizon-rim-sweep--violet {
     background: conic-gradient(
       from 0deg,
       transparent 0deg,
-      transparent 304deg,
-      rgba(122, 92, 255, 0.22) 342deg,
-      rgba(122, 92, 255, 0.5) 360deg
+      transparent 320deg,
+      rgba(122, 92, 255, 0.25) 352deg,
+      rgba(122, 92, 255, 0.55) 360deg
     );
   }
 
