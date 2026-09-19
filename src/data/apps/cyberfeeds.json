@@ -11,14 +11,17 @@
     "es": "Un lector RSS y Atom local-first creado para la velocidad, la privacidad y la lectura limpia."
   },
   "description": {
-    "en": "A performance-first, full-featured RSS/Atom feed reader with in-app YouTube playback, text selection tools, live article updates, and smart notifications, all backed by a local SQLite database.",
-    "es": "Un lector de feeds RSS/Atom completo y orientado al rendimiento, con reproducción de YouTube integrada, herramientas de selección de texto, actualizaciones en vivo y notificaciones inteligentes, todo respaldado por una base de datos SQLite local."
+    "en": "A performance-first, full-featured RSS/Atom feed reader with in-app and floating video playback, article search, automatic backups, live updates, and smart notifications, all backed by a local SQLite database.",
+    "es": "Un lector de feeds RSS/Atom completo y orientado al rendimiento, con reproducción de videos integrada y flotante, búsqueda de artículos, copias de seguridad automáticas, actualizaciones en vivo y notificaciones inteligentes, todo respaldado por una base de datos SQLite local."
   },
   "features": [
     { "en": "RSS, Atom, XML, YouTube channels/playlists/videos and native Reddit feeds", "es": "RSS, Atom, XML, canales/listas/videos de YouTube y feeds de Reddit nativos" },
     { "en": "Full-content extraction via worker threads", "es": "Extracción de contenido completo mediante worker threads" },
     { "en": "Smart notifications with keyword filtering, snooze and progressive history rendering", "es": "Notificaciones inteligentes con filtrado por palabras, posposición y renderizado incremental de historial" },
     { "en": "In-app YouTube playback preference and floating text selection tools", "es": "Preferencia de reproducción de YouTube integrada y herramientas flotantes para seleccionar texto" },
+    { "en": "Picture-in-Picture video player with improved embed detection", "es": "Reproductor de video Picture-in-Picture con detección mejorada de embeds" },
+    { "en": "Global article search with Ctrl+F, instant mode, and search history", "es": "Búsqueda global de artículos con Ctrl+F, modo instantáneo e historial" },
+    { "en": "Automatic JSON backups with configurable retention and restore", "es": "Copias JSON automáticas con retención configurable y restauración" },
     { "en": "Multi-monitor display restoration and bidirectional tray polling animation", "es": "Restauración multimonitor de pantalla y animación bidireccional de sondeo en bandeja" },
     { "en": "Live article updates that preserve your reading position", "es": "Actualizaciones de artículos en vivo que conservan tu posición de lectura" },
     { "en": "In-article text search with live highlight and match navigation", "es": "Búsqueda de texto en artículos con resaltado en vivo y navegación de coincidencias" },
