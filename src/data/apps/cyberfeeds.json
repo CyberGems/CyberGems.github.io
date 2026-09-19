@@ -22,6 +22,7 @@
     { "en": "Picture-in-Picture video player with improved embed detection", "es": "Reproductor de video Picture-in-Picture con detección mejorada de embeds" },
     { "en": "Global article search with Ctrl+F, instant mode, and search history", "es": "Búsqueda global de artículos con Ctrl+F, modo instantáneo e historial" },
     { "en": "Automatic JSON backups with configurable retention and restore", "es": "Copias JSON automáticas con retención configurable y restauración" },
+    { "en": "Quick interface scale controls with an independently adjustable reader", "es": "Controles rápidos de escala de interfaz con lector ajustable de forma independiente" },
     { "en": "Multi-monitor display restoration and bidirectional tray polling animation", "es": "Restauración multimonitor de pantalla y animación bidireccional de sondeo en bandeja" },
     { "en": "Live article updates that preserve your reading position", "es": "Actualizaciones de artículos en vivo que conservan tu posición de lectura" },
     { "en": "In-article text search with live highlight and match navigation", "es": "Búsqueda de texto en artículos con resaltado en vivo y navegación de coincidencias" },
