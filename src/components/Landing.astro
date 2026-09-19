@@ -121,6 +121,9 @@ const itemListLd = {
           <div class="horizon-dome" aria-hidden="true">
             <div class="horizon-crest-glow"></div>
             <div class="horizon-inner-aurora"></div>
+            <div class="horizon-rim-sweep"></div>
+            <div class="horizon-rim-sweep horizon-rim-sweep--violet"></div>
+
             <div class="horizon-center-core">
               <div class="horizon-core-badge">
                 <img src="/favicon.svg" alt="" width="38" height="38" class="horizon-core-logo" />
@@ -435,6 +438,53 @@ const itemListLd = {
     filter: blur(20px);
     pointer-events: none;
   }
+
+  /* Travelling light sweep along the planet rim.
+     A conic wedge masked to a thin ring rides the dome crest; the dome's own
+     bottom fade mask clips it, so the light only shows on the visible horizon. */
+  .horizon-rim-sweep {
+    position: absolute;
+    inset: -1px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 258deg,
+      rgba(0, 242, 255, 0.3) 310deg,
+      rgba(0, 242, 255, 0.85) 352deg,
+      #ffffff 360deg
+    );
+    mask-image: radial-gradient(circle, transparent calc(50% - 7px), black calc(50% - 2px));
+    -webkit-mask-image: radial-gradient(circle, transparent calc(50% - 7px), black calc(50% - 2px));
+  }
+
+  .horizon-rim-sweep--violet {
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 304deg,
+      rgba(122, 92, 255, 0.22) 342deg,
+      rgba(122, 92, 255, 0.5) 360deg
+    );
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .horizon-rim-sweep {
+      animation: rim-sweep 11s linear infinite;
+    }
+
+    .horizon-rim-sweep--violet {
+      animation: rim-sweep 17s linear infinite reverse;
+    }
+  }
+
+  @keyframes rim-sweep {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
 
   /* Center Nucleus / Brand Core */
   .horizon-center-core {
