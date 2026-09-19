@@ -6,6 +6,8 @@ import path from 'node:path';
 
 const WIDTH = 1200;
 const HEIGHT = 630;
+const BANNER_WIDTH = 1280;
+const BANNER_HEIGHT = 360;
 const PUBLIC_DIR = path.join(process.cwd(), 'public');
 
 /**
@@ -43,6 +45,26 @@ function wrapText(value: string, maxChars: number): string[] {
   }
   if (line) lines.push(line);
   return lines;
+}
+
+function balanceTwoLines(value: string, singleLineLimit = 52): string[] {
+  if (value.length <= singleLineLimit) return [value];
+
+  const words = value.split(/\s+/);
+  let splitAt = 1;
+  let smallestDifference = Number.POSITIVE_INFINITY;
+
+  for (let index = 1; index < words.length; index += 1) {
+    const firstLength = words.slice(0, index).join(' ').length;
+    const secondLength = words.slice(index).join(' ').length;
+    const difference = Math.abs(firstLength - secondLength);
+    if (difference < smallestDifference) {
+      smallestDifference = difference;
+      splitAt = index;
+    }
+  }
+
+  return [words.slice(0, splitAt).join(' '), words.slice(splitAt).join(' ')];
 }
 
 function appImage(app: CyberApp, x: number, y: number, size: number): string {
@@ -191,6 +213,82 @@ function appCard(app: CyberApp, lang: Lang): string {
     <text x="976" y="449" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="14" text-anchor="middle">${cardLine}</text>
   </g>
   ${footer(lang)}
+</svg>`;
+}
+
+/**
+ * Wide app banner for README headers and other compact placements. It embeds
+ * the canonical app icon at build time, so consumers never need a separate
+ * composited artwork file.
+ */
+export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
+  const accent = app.accent ?? '#00F2FF';
+  const title = escapeXml(app.name);
+  const tagline = balanceTwoLines(app.tagline[lang] ?? app.tagline.en);
+  const longestTaglineLine = Math.max(...tagline.map((line) => line.length));
+  const taglineSize = longestTaglineLine > 62 ? 20 : longestTaglineLine > 55 ? 21 : 23;
+  const eyebrow = lang === 'es' ? 'APP DE CYBERGEMS · WINDOWS' : 'CYBERGEMS APP · WINDOWS';
+  const trust = lang === 'es'
+    ? `GRATIS Y DE CÓDIGO ABIERTO · ${app.stack} · ${app.license}`
+    : `FREE & OPEN SOURCE · ${app.stack} · ${app.license}`;
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" viewBox="0 0 ${BANNER_WIDTH} ${BANNER_HEIGHT}" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="banner-title banner-description">
+  <title id="banner-title">${title}</title>
+  <desc id="banner-description">${escapeXml(app.tagline[lang] ?? app.tagline.en)}</desc>
+  <defs>
+    <linearGradient id="bannerBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0c1119" />
+      <stop offset="0.56" stop-color="#0b0d14" />
+      <stop offset="1" stop-color="#12101f" />
+    </linearGradient>
+    <linearGradient id="bannerAccent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="${accent}" />
+      <stop offset="1" stop-color="#7A5CFF" />
+    </linearGradient>
+    <radialGradient id="bannerGlow" cx="19%" cy="50%" r="42%">
+      <stop offset="0" stop-color="${accent}" stop-opacity="0.26" />
+      <stop offset="1" stop-color="${accent}" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="bannerViolet" cx="100%" cy="110%" r="65%">
+      <stop offset="0" stop-color="#7A5CFF" stop-opacity="0.2" />
+      <stop offset="1" stop-color="#7A5CFF" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="bannerGrid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M 44 0 L 0 0 0 44" fill="none" stroke="${accent}" stroke-opacity="0.09" stroke-width="1" />
+    </pattern>
+    <filter id="bannerShadow" x="-35%" y="-35%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.42" />
+    </filter>
+  </defs>
+
+  <rect width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" rx="24" fill="url(#bannerBg)" />
+  <rect width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" rx="24" fill="url(#bannerGlow)" />
+  <rect width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" rx="24" fill="url(#bannerViolet)" />
+  <rect width="420" height="${BANNER_HEIGHT}" rx="24" fill="url(#bannerGrid)" />
+  <rect x="0.5" y="0.5" width="${BANNER_WIDTH - 1}" height="${BANNER_HEIGHT - 1}" rx="23.5" fill="none" stroke="${accent}" stroke-opacity="0.24" />
+  <rect x="0" y="0" width="${BANNER_WIDTH}" height="4" rx="2" fill="url(#bannerAccent)" />
+
+  <circle cx="214" cy="180" r="126" fill="${accent}" fill-opacity="0.055" stroke="${accent}" stroke-opacity="0.16" stroke-dasharray="5 9" />
+  <circle cx="214" cy="180" r="101" fill="none" stroke="${accent}" stroke-opacity="0.2" />
+  <g filter="url(#bannerShadow)">
+    <rect x="132" y="98" width="164" height="164" rx="38" fill="#0c1119" fill-opacity="0.94" stroke="${accent}" stroke-opacity="0.44" />
+    ${appImage(app, 150, 116, 128)}
+  </g>
+
+  <circle cx="450" cy="65" r="4" fill="${accent}" />
+  <text x="466" y="70" fill="${accent}" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="800" letter-spacing="2.2">${eyebrow}</text>
+  <text x="448" y="158" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="72" font-weight="800" letter-spacing="-2.6">${title}</text>
+  ${tagline.map((line, index) => `<text x="450" y="${212 + index * 34}" fill="#c9c9d1" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
+  <text x="450" y="308" fill="#8f929f" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">${escapeXml(trust)}</text>
+
+  <text x="1218" y="62" fill="#a4a6b0" fill-opacity="0.62" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="800" letter-spacing="2.4" text-anchor="end">CYBERGEMS</text>
+  <text x="1218" y="316" fill="#8f929f" font-family="Segoe UI, system-ui, sans-serif" font-size="14" text-anchor="end">cybergems.org</text>
+
+  <circle cx="54" cy="40" r="1.2" fill="white" fill-opacity="0.65" />
+  <circle cx="392" cy="62" r="1" fill="${accent}" fill-opacity="0.8" />
+  <circle cx="1160" cy="120" r="1.2" fill="white" fill-opacity="0.55" />
+  <circle cx="1030" cy="288" r="1" fill="${accent}" fill-opacity="0.65" />
 </svg>`;
 }
 

@@ -1,0 +1,287 @@
+---
+import type { CyberApp, Lang } from '../data/apps';
+
+interface Props {
+  app: CyberApp;
+  lang: Lang;
+}
+
+const { app, lang } = Astro.props;
+const eyebrow = lang === 'en' ? 'CYBERGEMS APP · WINDOWS' : 'APP DE CYBERGEMS · WINDOWS';
+const openSource = lang === 'en' ? 'Free & open source' : 'Gratis y de código abierto';
+---
+
+<header
+  class="app-hero-banner"
+  style={`--app-accent: ${app.accent};`}
+  aria-labelledby={`app-title-${app.slug}`}
+>
+  <div class="app-hero-banner__atmosphere" aria-hidden="true"></div>
+
+  <div class="app-hero-banner__visual" aria-hidden="true">
+    <div class="app-hero-banner__orbit app-hero-banner__orbit--outer"></div>
+    <div class="app-hero-banner__orbit app-hero-banner__orbit--inner"></div>
+    <div class="app-hero-banner__icon-shell">
+      {app.icon ? (
+        <img
+          src={app.icon}
+          alt=""
+          width="196"
+          height="196"
+          class="app-hero-banner__icon"
+        />
+      ) : (
+        <span class="app-hero-banner__emoji">{app.emoji}</span>
+      )}
+    </div>
+  </div>
+
+  <div class="app-hero-banner__copy">
+    <p class="app-hero-banner__eyebrow">
+      <span class="app-hero-banner__status" aria-hidden="true"></span>
+      {eyebrow}
+    </p>
+    <h1 id={`app-title-${app.slug}`} class="app-hero-banner__title">{app.name}</h1>
+    <p class="app-hero-banner__tagline">{app.tagline[lang]}</p>
+    <div class="app-hero-banner__meta" aria-label={lang === 'en' ? 'App details' : 'Detalles de la app'}>
+      <span>{openSource}</span>
+      <span aria-hidden="true">·</span>
+      <span>{app.stack}</span>
+      <span aria-hidden="true">·</span>
+      <span>{app.license}</span>
+    </div>
+  </div>
+
+  <span class="app-hero-banner__signature" aria-hidden="true">CYBERGEMS</span>
+</header>
+
+<style>
+  .app-hero-banner {
+    isolation: isolate;
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(220px, 0.78fr) minmax(0, 1.6fr);
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 4.75rem);
+    min-height: 316px;
+    margin-top: 2rem;
+    padding: clamp(2rem, 4vw, 3.25rem) clamp(1.5rem, 5vw, 4.5rem);
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--app-accent) 24%, white 8%);
+    border-radius: 1.75rem;
+    background:
+      radial-gradient(circle at 19% 50%, color-mix(in srgb, var(--app-accent) 19%, transparent) 0%, transparent 29%),
+      radial-gradient(circle at 88% 110%, rgba(122, 92, 255, 0.19) 0%, transparent 39%),
+      linear-gradient(112deg, #0c1119 0%, #0b0d14 53%, #11101c 100%);
+    box-shadow:
+      0 28px 80px -45px rgba(0, 0, 0, 0.95),
+      inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  }
+
+  .app-hero-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    opacity: 0.17;
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--app-accent) 28%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--app-accent) 28%, transparent) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: linear-gradient(90deg, black, transparent 67%);
+  }
+
+  .app-hero-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 5% 14%, rgba(255,255,255,.75) 0 1px, transparent 1.5px),
+      radial-gradient(circle at 47% 11%, color-mix(in srgb, var(--app-accent) 78%, white) 0 1px, transparent 1.6px),
+      radial-gradient(circle at 92% 20%, rgba(255,255,255,.7) 0 1px, transparent 1.5px),
+      radial-gradient(circle at 82% 77%, rgba(255,255,255,.5) 0 1px, transparent 1.5px),
+      radial-gradient(circle at 39% 86%, color-mix(in srgb, var(--app-accent) 70%, white) 0 1px, transparent 1.6px);
+    opacity: 0.72;
+  }
+
+  .app-hero-banner__atmosphere {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(105deg, transparent 34%, rgba(255, 255, 255, 0.025) 50%, transparent 66%);
+    transform: translateX(-65%);
+    animation: banner-sheen 8s ease-in-out infinite;
+  }
+
+  .app-hero-banner__visual {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 220px;
+  }
+
+  .app-hero-banner__visual::before {
+    content: '';
+    position: absolute;
+    width: 76%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--app-accent);
+    opacity: 0.11;
+    filter: blur(34px);
+  }
+
+  .app-hero-banner__orbit {
+    position: absolute;
+    aspect-ratio: 1;
+    border: 1px solid color-mix(in srgb, var(--app-accent) 36%, transparent);
+    border-radius: 50%;
+  }
+
+  .app-hero-banner__orbit--outer {
+    width: min(220px, 92%);
+    border-style: dashed;
+    opacity: 0.48;
+    animation: banner-orbit 36s linear infinite;
+  }
+
+  .app-hero-banner__orbit--inner {
+    width: min(182px, 76%);
+    opacity: 0.28;
+  }
+
+  .app-hero-banner__icon-shell {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: min(168px, 72%);
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--app-accent) 40%, white 7%);
+    border-radius: 2.25rem;
+    background: linear-gradient(145deg, rgba(18, 24, 36, 0.92), rgba(8, 11, 18, 0.94));
+    box-shadow:
+      0 24px 50px -26px color-mix(in srgb, var(--app-accent) 58%, transparent),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .app-hero-banner__icon {
+    width: 76%;
+    height: 76%;
+    object-fit: contain;
+    filter: drop-shadow(0 14px 16px rgba(0, 0, 0, 0.34));
+  }
+
+  .app-hero-banner__emoji {
+    font-size: 5.5rem;
+    line-height: 1;
+  }
+
+  .app-hero-banner__copy {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+  }
+
+  .app-hero-banner__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: color-mix(in srgb, var(--app-accent) 76%, white);
+    font-size: 0.73rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+  }
+
+  .app-hero-banner__status {
+    width: 0.46rem;
+    height: 0.46rem;
+    border-radius: 999px;
+    background: var(--app-accent);
+    box-shadow: 0 0 14px var(--app-accent);
+  }
+
+  .app-hero-banner__title {
+    margin-top: 0.8rem;
+    color: #fff;
+    font-size: clamp(2.9rem, 6vw, 5.25rem);
+    font-weight: 850;
+    letter-spacing: -0.055em;
+    line-height: 0.98;
+    text-wrap: balance;
+  }
+
+  .app-hero-banner__tagline {
+    max-width: 43rem;
+    margin-top: 1.2rem;
+    color: #c9c9d1;
+    font-size: clamp(1.02rem, 2vw, 1.24rem);
+    line-height: 1.55;
+    text-wrap: balance;
+  }
+
+  .app-hero-banner__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.65rem;
+    margin-top: 1.2rem;
+    color: #858895;
+    font-size: 0.78rem;
+    font-weight: 650;
+  }
+
+  .app-hero-banner__signature {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    color: rgba(255, 255, 255, 0.28);
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+  }
+
+  @keyframes banner-orbit {
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes banner-sheen {
+    0%, 72%, 100% { transform: translateX(-65%); }
+    86% { transform: translateX(65%); }
+  }
+
+  @media (max-width: 700px) {
+    .app-hero-banner {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      min-height: auto;
+      padding: 2.5rem 1.4rem 2rem;
+      text-align: center;
+    }
+
+    .app-hero-banner::before {
+      mask-image: linear-gradient(black, transparent 70%);
+    }
+
+    .app-hero-banner__visual {
+      min-height: 180px;
+    }
+
+    .app-hero-banner__orbit--outer { width: 180px; }
+    .app-hero-banner__orbit--inner { width: 148px; }
+    .app-hero-banner__icon-shell { width: 136px; border-radius: 1.8rem; }
+    .app-hero-banner__eyebrow,
+    .app-hero-banner__meta { justify-content: center; }
+    .app-hero-banner__title { font-size: clamp(2.5rem, 14vw, 4rem); }
+    .app-hero-banner__tagline { margin-inline: auto; }
+    .app-hero-banner__signature { top: 1rem; right: 1rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .app-hero-banner__orbit--outer,
+    .app-hero-banner__atmosphere {
+      animation: none;
+    }
+  }
+</style>
