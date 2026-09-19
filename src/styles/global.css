@@ -177,6 +177,51 @@ body {
   text-shadow: 0 0 32px rgba(0, 242, 255, 0.45);
 }
 
+/* Quiet GitHub corner mark, intentionally shown only on larger screens so it
+   never competes with the mobile menu or content. */
+.github-corner {
+  display: none;
+}
+
+@media (min-width: 64rem) {
+  .github-corner {
+    display: block;
+    position: fixed;
+    inset: 0 0 auto auto;
+    z-index: 60;
+    width: 5.25rem;
+    height: 5.25rem;
+    color: #f0f0f0;
+    background: linear-gradient(135deg, #00f2ff, #7a5cff);
+    clip-path: polygon(100% 0, 100% 100%, 0 0);
+    opacity: 0.86;
+    transition: opacity 0.2s ease, filter 0.2s ease;
+  }
+
+  .github-corner::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: #12151f;
+    clip-path: polygon(100% 0, 100% 100%, 0 0);
+  }
+
+  .github-corner svg {
+    position: absolute;
+    top: 0.82rem;
+    right: 0.82rem;
+    z-index: 1;
+    width: 1.45rem;
+    height: 1.45rem;
+  }
+
+  .github-corner:hover,
+  .github-corner:focus-visible {
+    opacity: 1;
+    filter: brightness(1.18);
+  }
+}
+
 /* Accessibility — focus visible */
 *:focus-visible {
   outline: 2px solid var(--accent);
