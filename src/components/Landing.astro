@@ -80,7 +80,7 @@ const itemListLd = {
       <div class="hero-enter hero-stage-container mt-12 sm:mt-16" style="--showcase-delay: 300ms;" aria-label={lang === 'en' ? 'CyberGems apps showcase' : 'Presentación de apps CyberGems'}>
         <div class="hero-stage">
           <!-- Orbital Track and Apps -->
-          <div class="orbit-system" aria-hidden="true">
+          <div class="orbit-system">
             <div class="orbit-track">
               {apps.map((app, index) => {
                 const angle = index * 36;
@@ -137,11 +137,11 @@ const itemListLd = {
     <!-- Infinite Marquee Ticker Strip -->
     <div class="marquee-strip" aria-label={lang === 'en' ? 'Apps ticker' : 'Listado dinámico de apps'}>
       <div class="marquee-track">
-        {[...apps, ...apps, ...apps].map((app) => (
+        {[...apps, ...apps, ...apps].map((app, i) => (
           <a
             href={lang === 'en' ? `/apps/${app.slug}` : `/es/apps/${app.slug}`}
             class="marquee-item"
-            tabindex="0"
+            {...(i >= apps.length ? { 'aria-hidden': 'true', tabindex: '-1' } : {})}
           >
             <span class="marquee-spark" aria-hidden="true" style={`color: ${app.accent}`}>✦</span>
             <span class="marquee-name">{app.name}</span>

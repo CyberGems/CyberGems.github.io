@@ -1,6 +1,7 @@
 {
   "en": {
     "tagline": "Free, no ads, no app tracking, no account.",
+    "skipToContent": "Skip to content",
     "navApps": "Apps",
     "navGitHub": "GitHub",
     "heroBadge": "Free & open-source apps for Windows",
@@ -50,6 +51,7 @@
   },
   "es": {
     "tagline": "Gratis, sin anuncios, sin rastreo en apps, sin cuenta.",
+    "skipToContent": "Ir al contenido",
     "navApps": "Apps",
     "navGitHub": "GitHub",
     "heroBadge": "Apps gratuitas y de código abierto para Windows",
