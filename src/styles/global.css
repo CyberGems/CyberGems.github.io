@@ -187,10 +187,13 @@ body {
   .github-corner {
     display: block;
     position: fixed;
-    inset: 0 0 auto auto;
+    /* Sized to the navbar height (4rem) so it never hangs below it, and
+       shifted left of the scrollbar gutter. */
+    top: 0;
+    right: 14px;
     z-index: 60;
-    width: 5.25rem;
-    height: 5.25rem;
+    width: 4rem;
+    height: 4rem;
     color: #f0f0f0;
     background: linear-gradient(135deg, #00f2ff, #7a5cff);
     clip-path: polygon(100% 0, 100% 100%, 0 0);
@@ -206,19 +209,27 @@ body {
     clip-path: polygon(100% 0, 100% 100%, 0 0);
   }
 
+  /* Optical center of a right triangle sits near 2/3 of each leg. */
   .github-corner svg {
     position: absolute;
-    top: 0.82rem;
-    right: 0.82rem;
+    top: 0.5rem;
+    right: 0.5rem;
     z-index: 1;
-    width: 1.45rem;
-    height: 1.45rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    transition: color 0.2s ease, filter 0.2s ease;
   }
 
   .github-corner:hover,
   .github-corner:focus-visible {
     opacity: 1;
     filter: brightness(1.18);
+  }
+
+  .github-corner:hover svg,
+  .github-corner:focus-visible svg {
+    color: #00f2ff;
+    filter: drop-shadow(0 0 6px rgba(0, 242, 255, 0.5));
   }
 }
 
