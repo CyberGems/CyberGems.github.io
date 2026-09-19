@@ -13,16 +13,16 @@ const { lang } = Astro.props;
 const t = ui[lang];
 const { downloads } = await fetchLatestDownloads();
 const homePath = lang === 'en' ? '/' : '/es/';
-const title = lang === 'en' ? 'CyberGems â€” Free & open-source Windows apps' : 'CyberGems â€” Apps gratuitas y de cÃ³digo abierto para Windows';
+const title = lang === 'en' ? 'CyberGems ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Free & open-source Windows apps' : 'CyberGems ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Apps gratuitas y de cÃƒÆ’Ã‚Â³digo abierto para Windows';
 const description = lang === 'en'
-  ? '10 free, open-source Windows apps â€” screen capture, clipboard, notes, firewall and more. No account, no ads, no tracking in the apps, GPLv3.'
-  : '10 apps gratuitas y open-source para Windows â€” captura, portapapeles, notas, firewall y mÃ¡s. Sin cuenta, sin anuncios, sin rastreo en las apps, GPLv3.';
+  ? '10 free, open-source Windows apps ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â screen capture, clipboard, notes, firewall and more. No account, no ads, no tracking in the apps, GPLv3.'
+  : '10 apps gratuitas y open-source para Windows ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â captura, portapapeles, notas, firewall y mÃƒÆ’Ã‚Â¡s. Sin cuenta, sin anuncios, sin rastreo en las apps, GPLv3.';
 const strip = [
-  { icon: 'ðŸŽ', label: t.stripFree },
-  { icon: 'ðŸš«', label: t.stripNoAds },
-  { icon: 'ðŸ‘¤', label: t.stripNoAccount },
-  { icon: 'ðŸ”’', label: t.stripNoTrack },
-  { icon: 'ðŸ“–', label: t.stripOss },
+  { icon: 'ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â', label: t.stripFree },
+  { icon: 'ÃƒÂ°Ã…Â¸Ã…Â¡Ã‚Â«', label: t.stripNoAds },
+  { icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ‚Â¤', label: t.stripNoAccount },
+  { icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬â„¢', label: t.stripNoTrack },
+  { icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã¢â‚¬â€œ', label: t.stripOss },
 ];
 
 const orgLd = {
@@ -71,13 +71,13 @@ const itemListLd = {
       </h1>
       <p class="hero-enter hero-description mt-6 max-w-2xl mx-auto text-[#9a9aa5] text-lg leading-relaxed">{t.heroText}</p>
       <div class="hero-enter hero-actions mt-9 flex flex-wrap items-center justify-center gap-4">
-        <a href="#apps" class="btn-primary">{t.heroCta} â†“</a>
+        <a href="#apps" class="btn-primary">{t.heroCta} ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬Å“</a>
         <a href="https://github.com/CyberGems" target="_blank" rel="noopener noreferrer" class="btn-ghost">
-          â˜… {t.heroCta2}
+          ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦ {t.heroCta2}
         </a>
       </div>
       <!-- Planet Horizon and Orbital Stage -->
-      <div class="hero-enter hero-stage-container mt-12 sm:mt-16" style="--showcase-delay: 300ms;" aria-label={lang === 'en' ? 'CyberGems apps showcase' : 'PresentaciÃ³n de apps CyberGems'}>
+      <div class="hero-enter hero-stage-container mt-12 sm:mt-16" style="--showcase-delay: 300ms;" aria-label={lang === 'en' ? 'CyberGems apps showcase' : 'PresentaciÃƒÆ’Ã‚Â³n de apps CyberGems'}>
         <div class="hero-stage">
           <!-- Orbital Track and Apps -->
           <div class="orbit-system" aria-hidden="true">
@@ -136,7 +136,7 @@ const itemListLd = {
     </div>
 
     <!-- Infinite Marquee Ticker Strip -->
-    <div class="marquee-strip" aria-label={lang === 'en' ? 'Apps ticker' : 'Listado dinÃ¡mico de apps'}>
+    <div class="marquee-strip" aria-label={lang === 'en' ? 'Apps ticker' : 'Listado dinÃƒÆ’Ã‚Â¡mico de apps'}>
       <div class="marquee-track">
         {[...apps, ...apps, ...apps].map((app) => (
           <a
@@ -144,7 +144,7 @@ const itemListLd = {
             class="marquee-item"
             tabindex="0"
           >
-            <span class="marquee-spark" aria-hidden="true" style={`color: ${app.accent}`}>âœ¦</span>
+            <span class="marquee-spark" aria-hidden="true" style={`color: ${app.accent}`}>ÃƒÂ¢Ã…â€œÃ‚Â¦</span>
             <span class="marquee-name">{app.name}</span>
           </a>
         ))}
@@ -181,17 +181,17 @@ const itemListLd = {
   <!-- Principles (same 6 as /about) -->
   <section class="max-w-6xl mx-auto px-5 pb-20">
     <div class="text-center mb-10">
-      <h2 class="text-3xl font-extrabold tracking-tight">{lang === 'en' ? 'Why CyberGems' : 'Por quÃ© CyberGems'}</h2>
-      <p class="mt-3 text-[#9a9aa5]">{lang === 'en' ? 'Built for daily use, with the bloat removed.' : 'Hechas para el dÃ­a a dÃ­a, sin la grasa.'}</p>
+      <h2 class="text-3xl font-extrabold tracking-tight">{lang === 'en' ? 'Why CyberGems' : 'Por quÃƒÆ’Ã‚Â© CyberGems'}</h2>
+      <p class="mt-3 text-[#9a9aa5]">{lang === 'en' ? 'Built for daily use, with the bloat removed.' : 'Hechas para el dÃƒÆ’Ã‚Â­a a dÃƒÆ’Ã‚Â­a, sin la grasa.'}</p>
     </div>
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {[
-        { icon: 'ðŸ”’', t: 'Privacy-first', d: lang === 'en' ? 'Your data never leaves your PC.' : 'Tus datos nunca salen de tu equipo.' },
-        { icon: 'ðŸ’»', t: 'Local-first', d: lang === 'en' ? 'Offline. No accounts, no subscriptions.' : 'Offline. Sin cuentas ni suscripciones.' },
-        { icon: 'ðŸ“–', t: lang === 'en' ? 'Open source' : 'CÃ³digo abierto', d: 'GPLv3.' },
-        { icon: 'ðŸŽ', t: lang === 'en' ? '100% Free' : '100% Gratis', d: lang === 'en' ? 'No ads, no paywalls.' : 'Sin anuncios ni muros de pago.' },
-        { icon: 'âš¡', t: lang === 'en' ? 'Fast & light' : 'RÃ¡pido y ligero', d: lang === 'en' ? 'Native desktop, no Electron.' : 'Nativo, sin Electron.' },
-        { icon: 'âœ¨', t: lang === 'en' ? 'Sober design' : 'DiseÃ±o sobrio', d: lang === 'en' ? 'Clean, purposeful interfaces.' : 'Interfaces limpias y claras.' },
+        { icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬â„¢', t: 'Privacy-first', d: lang === 'en' ? 'Your data never leaves your PC.' : 'Tus datos nunca salen de tu equipo.' },
+        { icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â»', t: 'Local-first', d: lang === 'en' ? 'Offline. No accounts, no subscriptions.' : 'Offline. Sin cuentas ni suscripciones.' },
+        { icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã¢â‚¬â€œ', t: lang === 'en' ? 'Open source' : 'CÃƒÆ’Ã‚Â³digo abierto', d: 'GPLv3.' },
+        { icon: 'ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â', t: lang === 'en' ? '100% Free' : '100% Gratis', d: lang === 'en' ? 'No ads, no paywalls.' : 'Sin anuncios ni muros de pago.' },
+        { icon: 'ÃƒÂ¢Ã…Â¡Ã‚Â¡', t: lang === 'en' ? 'Fast & light' : 'RÃƒÆ’Ã‚Â¡pido y ligero', d: lang === 'en' ? 'Native desktop, no Electron.' : 'Nativo, sin Electron.' },
+        { icon: 'ÃƒÂ¢Ã…â€œÃ‚Â¨', t: lang === 'en' ? 'Sober design' : 'DiseÃƒÆ’Ã‚Â±o sobrio', d: lang === 'en' ? 'Clean, purposeful interfaces.' : 'Interfaces limpias y claras.' },
       ].map((p) => (
         <div class="card p-5">
           <div class="text-2xl" aria-hidden="true">{p.icon}</div>
@@ -201,10 +201,10 @@ const itemListLd = {
       ))}
     </div>
     <div class="mt-8 flex flex-wrap justify-center gap-3">
-      <a href={lang === 'en' ? '/download' : '/es/download'} class="btn-primary">{lang === 'en' ? 'How to install' : 'CÃ³mo instalar'}</a>
+      <a href={lang === 'en' ? '/download' : '/es/download'} class="btn-primary">{lang === 'en' ? 'How to install' : 'CÃƒÆ’Ã‚Â³mo instalar'}</a>
       <a href={lang === 'en' ? '/about' : '/es/about'} class="btn-ghost">{lang === 'en' ? 'Our story' : 'Nuestra historia'}</a>
       <a href={lang === 'en' ? '/faq' : '/es/faq'} class="btn-ghost">FAQ</a>
-      <a href={lang === 'en' ? '/donate' : '/es/donate'} class="btn-ghost">â™¥ {lang === 'en' ? 'Donate' : 'Donar'}</a>
+      <a href={lang === 'en' ? '/donate' : '/es/donate'} class="btn-ghost">ÃƒÂ¢Ã¢â€žÂ¢Ã‚Â¥ {lang === 'en' ? 'Donate' : 'Donar'}</a>
     </div>
   </section>
 </BaseLayout>
@@ -402,11 +402,11 @@ const itemListLd = {
     z-index: 2;
     background: radial-gradient(circle at 50% 0%, #171f38 0%, #101426 32%, #0d0f17 72%);
     border-top: 2px solid rgba(0, 242, 255, 0.85);
-    border-left: 1px solid rgba(0, 242, 255, 0.25);
-    border-right: 1px solid rgba(122, 92, 255, 0.3);
+    border-left: 2px solid rgba(0, 242, 255, 0.85);
+    border-right: 2px solid rgba(0, 242, 255, 0.85);
     border-bottom: 1px solid transparent;
     box-shadow:
-      0 -16px 50px -4px rgba(0, 242, 255, 0.45),
+      0 0 40px -8px rgba(0, 242, 255, 0.4), 0 -16px 50px -4px rgba(0, 242, 255, 0.45),
       0 -45px 110px -15px rgba(122, 92, 255, 0.4),
       inset 0 35px 70px -10px rgba(0, 242, 255, 0.22),
       inset 0 1px 3px rgba(255, 255, 255, 0.7);
@@ -447,28 +447,56 @@ const itemListLd = {
     inset: 0;
     border-radius: 50%;
     pointer-events: none;
-    background: conic-gradient(
-      from 0deg,
-      transparent 0deg,
-      transparent 296deg,
-      rgba(0, 242, 255, 0.35) 340deg,
-      rgba(0, 242, 255, 0.9) 356deg,
-      #ffffff 360deg
-    );
-    /* Thin ring hugging the dome rim: closest-side makes 100% exactly the
-       dome radius, so only a ~5px band over the border line stays visible. */
-    mask-image: radial-gradient(circle closest-side, transparent calc(100% - 7px), black calc(100% - 6px));
-    -webkit-mask-image: radial-gradient(circle closest-side, transparent calc(100% - 7px), black calc(100% - 6px));
   }
 
-  .horizon-rim-sweep--violet {
+  /* Tail: conic wedge masked to a thin ring hugging the dome rim
+     (closest-side makes 100% exactly the dome radius). It fades out
+     before reaching the head so the front is never a flat cut. */
+  .horizon-rim-sweep::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
     background: conic-gradient(
       from 0deg,
       transparent 0deg,
-      transparent 320deg,
-      rgba(122, 92, 255, 0.25) 352deg,
-      rgba(122, 92, 255, 0.55) 360deg
+      transparent 297deg,
+      rgba(0, 242, 255, 0.3) 338deg,
+      rgba(0, 242, 255, 0.85) 354deg,
+      rgba(0, 242, 255, 0) 359deg
     );
+    mask-image: radial-gradient(circle closest-side, transparent calc(100% - 5px), black calc(100% - 4px));
+    -webkit-mask-image: radial-gradient(circle closest-side, transparent calc(100% - 5px), black calc(100% - 4px));
+  }
+
+  /* Head: a soft glowing point riding the rim, tangent to the circle. */
+  .horizon-rim-sweep::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 16px;
+    height: 7px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(ellipse, #ffffff 0%, rgba(0, 242, 255, 0.85) 40%, rgba(0, 242, 255, 0) 75%);
+    filter: blur(1px);
+  }
+
+  .horizon-rim-sweep--violet::before {
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 322deg,
+      rgba(122, 92, 255, 0.25) 352deg,
+      rgba(122, 92, 255, 0) 359deg
+    );
+  }
+
+  .horizon-rim-sweep--violet::after {
+    width: 11px;
+    height: 5px;
+    background: radial-gradient(ellipse, rgba(230, 222, 255, 0.95) 0%, rgba(122, 92, 255, 0.7) 40%, rgba(122, 92, 255, 0) 75%);
   }
 
   @media (prefers-reduced-motion: no-preference) {
