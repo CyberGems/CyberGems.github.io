@@ -187,10 +187,10 @@ body {
   .github-corner {
     display: block;
     position: fixed;
-    /* Sized to the navbar height (4rem) so it never hangs below it, and
-       shifted left of the scrollbar gutter. */
+    /* Sized to the navbar height (4rem) so it never hangs below it,
+       and flush against the top-right window corner. */
     top: 0;
-    right: 14px;
+    right: 0;
     z-index: 60;
     width: 4rem;
     height: 4rem;
