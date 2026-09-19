@@ -13,16 +13,16 @@ const { lang } = Astro.props;
 const t = ui[lang];
 const { downloads } = await fetchLatestDownloads();
 const homePath = lang === 'en' ? '/' : '/es/';
-const title = lang === 'en' ? 'CyberGems ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Free & open-source Windows apps' : 'CyberGems ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Apps gratuitas y de cÃƒÆ’Ã‚Â³digo abierto para Windows';
+const title = lang === 'en' ? 'CyberGems ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Free & open-source Windows apps' : 'CyberGems ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Apps gratuitas y de cÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³digo abierto para Windows';
 const description = lang === 'en'
-  ? '10 free, open-source Windows apps ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â screen capture, clipboard, notes, firewall and more. No account, no ads, no tracking in the apps, GPLv3.'
-  : '10 apps gratuitas y open-source para Windows ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â captura, portapapeles, notas, firewall y mÃƒÆ’Ã‚Â¡s. Sin cuenta, sin anuncios, sin rastreo en las apps, GPLv3.';
+  ? '10 free, open-source Windows apps ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â screen capture, clipboard, notes, firewall and more. No account, no ads, no tracking in the apps, GPLv3.'
+  : '10 apps gratuitas y open-source para Windows ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â captura, portapapeles, notas, firewall y mÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡s. Sin cuenta, sin anuncios, sin rastreo en las apps, GPLv3.';
 const strip = [
-  { icon: 'ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â', label: t.stripFree },
-  { icon: 'ÃƒÂ°Ã…Â¸Ã…Â¡Ã‚Â«', label: t.stripNoAds },
-  { icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ‚Â¤', label: t.stripNoAccount },
-  { icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬â„¢', label: t.stripNoTrack },
-  { icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã¢â‚¬â€œ', label: t.stripOss },
+  { icon: 'ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸Ãƒâ€¦Ã‚Â½Ãƒâ€šÃ‚Â', label: t.stripFree },
+  { icon: 'ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸Ãƒâ€¦Ã‚Â¡Ãƒâ€šÃ‚Â«', label: t.stripNoAds },
+  { icon: 'ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã‹Å“Ãƒâ€šÃ‚Â¤', label: t.stripNoAccount },
+  { icon: 'ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢', label: t.stripNoTrack },
+  { icon: 'ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“', label: t.stripOss },
 ];
 
 const orgLd = {
@@ -71,13 +71,13 @@ const itemListLd = {
       </h1>
       <p class="hero-enter hero-description mt-6 max-w-2xl mx-auto text-[#9a9aa5] text-lg leading-relaxed">{t.heroText}</p>
       <div class="hero-enter hero-actions mt-9 flex flex-wrap items-center justify-center gap-4">
-        <a href="#apps" class="btn-primary">{t.heroCta} ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬Å“</a>
+        <a href="#apps" class="btn-primary">{t.heroCta} ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œ</a>
         <a href="https://github.com/CyberGems" target="_blank" rel="noopener noreferrer" class="btn-ghost">
-          ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦ {t.heroCta2}
+          ÃƒÆ’Ã‚Â¢Ãƒâ€¹Ã…â€œÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ {t.heroCta2}
         </a>
       </div>
       <!-- Planet Horizon and Orbital Stage -->
-      <div class="hero-enter hero-stage-container mt-12 sm:mt-16" style="--showcase-delay: 300ms;" aria-label={lang === 'en' ? 'CyberGems apps showcase' : 'PresentaciÃƒÆ’Ã‚Â³n de apps CyberGems'}>
+      <div class="hero-enter hero-stage-container mt-12 sm:mt-16" style="--showcase-delay: 300ms;" aria-label={lang === 'en' ? 'CyberGems apps showcase' : 'PresentaciÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³n de apps CyberGems'}>
         <div class="hero-stage">
           <!-- Orbital Track and Apps -->
           <div class="orbit-system" aria-hidden="true">
@@ -136,7 +136,7 @@ const itemListLd = {
     </div>
 
     <!-- Infinite Marquee Ticker Strip -->
-    <div class="marquee-strip" aria-label={lang === 'en' ? 'Apps ticker' : 'Listado dinÃƒÆ’Ã‚Â¡mico de apps'}>
+    <div class="marquee-strip" aria-label={lang === 'en' ? 'Apps ticker' : 'Listado dinÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡mico de apps'}>
       <div class="marquee-track">
         {[...apps, ...apps, ...apps].map((app) => (
           <a
@@ -144,7 +144,7 @@ const itemListLd = {
             class="marquee-item"
             tabindex="0"
           >
-            <span class="marquee-spark" aria-hidden="true" style={`color: ${app.accent}`}>ÃƒÂ¢Ã…â€œÃ‚Â¦</span>
+            <span class="marquee-spark" aria-hidden="true" style={`color: ${app.accent}`}>ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã¢â‚¬Å“Ãƒâ€šÃ‚Â¦</span>
             <span class="marquee-name">{app.name}</span>
           </a>
         ))}
@@ -181,17 +181,17 @@ const itemListLd = {
   <!-- Principles (same 6 as /about) -->
   <section class="max-w-6xl mx-auto px-5 pb-20">
     <div class="text-center mb-10">
-      <h2 class="text-3xl font-extrabold tracking-tight">{lang === 'en' ? 'Why CyberGems' : 'Por quÃƒÆ’Ã‚Â© CyberGems'}</h2>
-      <p class="mt-3 text-[#9a9aa5]">{lang === 'en' ? 'Built for daily use, with the bloat removed.' : 'Hechas para el dÃƒÆ’Ã‚Â­a a dÃƒÆ’Ã‚Â­a, sin la grasa.'}</p>
+      <h2 class="text-3xl font-extrabold tracking-tight">{lang === 'en' ? 'Why CyberGems' : 'Por quÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â© CyberGems'}</h2>
+      <p class="mt-3 text-[#9a9aa5]">{lang === 'en' ? 'Built for daily use, with the bloat removed.' : 'Hechas para el dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­a a dÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â­a, sin la grasa.'}</p>
     </div>
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {[
-        { icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬â„¢', t: 'Privacy-first', d: lang === 'en' ? 'Your data never leaves your PC.' : 'Tus datos nunca salen de tu equipo.' },
-        { icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â»', t: 'Local-first', d: lang === 'en' ? 'Offline. No accounts, no subscriptions.' : 'Offline. Sin cuentas ni suscripciones.' },
-        { icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã¢â‚¬â€œ', t: lang === 'en' ? 'Open source' : 'CÃƒÆ’Ã‚Â³digo abierto', d: 'GPLv3.' },
-        { icon: 'ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â', t: lang === 'en' ? '100% Free' : '100% Gratis', d: lang === 'en' ? 'No ads, no paywalls.' : 'Sin anuncios ni muros de pago.' },
-        { icon: 'ÃƒÂ¢Ã…Â¡Ã‚Â¡', t: lang === 'en' ? 'Fast & light' : 'RÃƒÆ’Ã‚Â¡pido y ligero', d: lang === 'en' ? 'Native desktop, no Electron.' : 'Nativo, sin Electron.' },
-        { icon: 'ÃƒÂ¢Ã…â€œÃ‚Â¨', t: lang === 'en' ? 'Sober design' : 'DiseÃƒÆ’Ã‚Â±o sobrio', d: lang === 'en' ? 'Clean, purposeful interfaces.' : 'Interfaces limpias y claras.' },
+        { icon: 'ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢', t: 'Privacy-first', d: lang === 'en' ? 'Your data never leaves your PC.' : 'Tus datos nunca salen de tu equipo.' },
+        { icon: 'ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢Ãƒâ€šÃ‚Â»', t: 'Local-first', d: lang === 'en' ? 'Offline. No accounts, no subscriptions.' : 'Offline. Sin cuentas ni suscripciones.' },
+        { icon: 'ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“', t: lang === 'en' ? 'Open source' : 'CÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³digo abierto', d: 'GPLv3.' },
+        { icon: 'ÃƒÆ’Ã‚Â°Ãƒâ€¦Ã‚Â¸Ãƒâ€¦Ã‚Â½Ãƒâ€šÃ‚Â', t: lang === 'en' ? '100% Free' : '100% Gratis', d: lang === 'en' ? 'No ads, no paywalls.' : 'Sin anuncios ni muros de pago.' },
+        { icon: 'ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã‚Â¡Ãƒâ€šÃ‚Â¡', t: lang === 'en' ? 'Fast & light' : 'RÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¡pido y ligero', d: lang === 'en' ? 'Native desktop, no Electron.' : 'Nativo, sin Electron.' },
+        { icon: 'ÃƒÆ’Ã‚Â¢Ãƒâ€¦Ã¢â‚¬Å“Ãƒâ€šÃ‚Â¨', t: lang === 'en' ? 'Sober design' : 'DiseÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â±o sobrio', d: lang === 'en' ? 'Clean, purposeful interfaces.' : 'Interfaces limpias y claras.' },
       ].map((p) => (
         <div class="card p-5">
           <div class="text-2xl" aria-hidden="true">{p.icon}</div>
@@ -201,10 +201,10 @@ const itemListLd = {
       ))}
     </div>
     <div class="mt-8 flex flex-wrap justify-center gap-3">
-      <a href={lang === 'en' ? '/download' : '/es/download'} class="btn-primary">{lang === 'en' ? 'How to install' : 'CÃƒÆ’Ã‚Â³mo instalar'}</a>
+      <a href={lang === 'en' ? '/download' : '/es/download'} class="btn-primary">{lang === 'en' ? 'How to install' : 'CÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³mo instalar'}</a>
       <a href={lang === 'en' ? '/about' : '/es/about'} class="btn-ghost">{lang === 'en' ? 'Our story' : 'Nuestra historia'}</a>
       <a href={lang === 'en' ? '/faq' : '/es/faq'} class="btn-ghost">FAQ</a>
-      <a href={lang === 'en' ? '/donate' : '/es/donate'} class="btn-ghost">ÃƒÂ¢Ã¢â€žÂ¢Ã‚Â¥ {lang === 'en' ? 'Donate' : 'Donar'}</a>
+      <a href={lang === 'en' ? '/donate' : '/es/donate'} class="btn-ghost">ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢Ãƒâ€šÃ‚Â¥ {lang === 'en' ? 'Donate' : 'Donar'}</a>
     </div>
   </section>
 </BaseLayout>
@@ -475,28 +475,28 @@ const itemListLd = {
     position: absolute;
     top: 0;
     left: 50%;
-    width: 16px;
-    height: 7px;
+    width: 11px;
+    height: 4px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    background: radial-gradient(ellipse, #ffffff 0%, rgba(0, 242, 255, 0.85) 40%, rgba(0, 242, 255, 0) 75%);
-    filter: blur(1px);
+    background: radial-gradient(ellipse, #ffffff 0%, rgba(0, 242, 255, 0.9) 45%, rgba(0, 242, 255, 0) 80%);
   }
 
   .horizon-rim-sweep--violet::before {
     background: conic-gradient(
       from 0deg,
       transparent 0deg,
-      transparent 322deg,
-      rgba(122, 92, 255, 0.25) 352deg,
+      transparent 320deg,
+      rgba(122, 92, 255, 0.4) 348deg,
+      rgba(122, 92, 255, 0.8) 355deg,
       rgba(122, 92, 255, 0) 359deg
     );
   }
 
   .horizon-rim-sweep--violet::after {
-    width: 11px;
-    height: 5px;
-    background: radial-gradient(ellipse, rgba(230, 222, 255, 0.95) 0%, rgba(122, 92, 255, 0.7) 40%, rgba(122, 92, 255, 0) 75%);
+    width: 10px;
+    height: 4px;
+    background: radial-gradient(ellipse, rgba(235, 228, 255, 1) 0%, rgba(150, 120, 255, 0.9) 45%, rgba(122, 92, 255, 0) 80%);
   }
 
   @media (prefers-reduced-motion: no-preference) {
