@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { ui, type Lang } from '../data/ui';
+import NavIcon from '../components/NavIcon.astro';
 
 interface Props {
   title: string;
@@ -33,6 +34,11 @@ const canonicalHref = canonical.href;
 const enPath = normalizedPath.replace(/^\/es/, '') || '/';
 const enHref = lang === 'en' ? canonicalHref : new URL(enPath === '/' ? '/' : `${enPath}/`, Astro.site).href;
 const esHref = lang === 'es' ? canonicalHref : new URL(normalizedPath === '/' ? '/es/' : `/es${normalizedPath}/`, Astro.site).href;
+const isActive = (href: string) => { const target = href.replace(/\/$/, '') || '/'; const current = path.replace(/\/$/, '') || '/'; return current === target; };
+const navLinkClass = (href: string) =>
+  'inline-flex items-center gap-1.5 text-sm transition-colors ' + (isActive(href) ? 'nav-link-active' : 'text-[#9a9aa5] hover:text-white');
+const mobileLinkClass = (href: string) =>
+  'inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm transition-colors ' + (isActive(href) ? 'bg-white/10 text-white font-semibold' : 'text-[#c9c9d1] hover:bg-white/5 hover:text-white');
 const xDefaultHref = new URL('/', Astro.site).href;
 const ogImageUrl = ogImage ? new URL(ogImage, Astro.site).href : new URL('/og.png', Astro.site).href;
 const ogLocale = lang === 'es' ? 'es_ES' : 'en_US';
@@ -113,22 +119,18 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
           <img src="/branding/cybergems-header.svg" alt="CyberGems" width="192" height="32" class="h-6 w-auto sm:h-8" />
         </a>
         <div class="flex items-center gap-2 sm:gap-5">
-          <a href={`${homeHref}#apps`} class="hidden sm:inline text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.navApps}</a>
-          <a href={lang === 'en' ? '/changelog' : '/es/changelog'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden md:inline">{t.navChangelog}</a>
-          <a href={lang === 'en' ? '/docs' : '/es/docs'} class="hidden sm:inline text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.navDocs}</a>
-          <a href={lang === 'en' ? '/about' : '/es/about'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden lg:inline">{t.navAbout}</a>
-          <a href={lang === 'en' ? '/contact' : '/es/contact'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors hidden xl:inline">{t.navContact}</a>
-          <a href={lang === 'en' ? '/donate' : '/es/donate'} class="text-sm font-semibold text-gradient hover:opacity-80 transition-opacity hidden sm:inline">♥ {t.navDonate}</a>
+          <a href={`${homeHref}#apps`} class="hidden sm:inline-flex items-center gap-1.5 text-sm text-[#9a9aa5] hover:text-white transition-colors"><NavIcon name="apps" /><span>{t.navApps}</span></a>
+          <a href={lang === 'en' ? '/changelog' : '/es/changelog'} class={`${navLinkClass(lang === 'en' ? '/changelog' : '/es/changelog')} hidden md:inline-flex`} aria-current={isActive(lang === 'en' ? '/changelog' : '/es/changelog') ? 'page' : undefined}><NavIcon name="newspaper" /><span>{t.navChangelog}</span></a>
+          <a href={lang === 'en' ? '/docs' : '/es/docs'} class={`hidden sm:inline-flex ${navLinkClass(lang === 'en' ? '/docs' : '/es/docs')}`} aria-current={isActive(lang === 'en' ? '/docs' : '/es/docs') ? 'page' : undefined}><NavIcon name="book" /><span>{t.navDocs}</span></a>
+          <a href={lang === 'en' ? '/about' : '/es/about'} class={`hidden lg:inline-flex items-center gap-1.5 text-sm transition-colors ${isActive(lang === 'en' ? '/about' : '/es/about') ? 'nav-link-active' : 'text-[#9a9aa5] hover:text-white'}`} aria-current={isActive(lang === 'en' ? '/about' : '/es/about') ? 'page' : undefined}><NavIcon name="info" /><span>{t.navAbout}</span></a>
+          <a href={lang === 'en' ? '/contact' : '/es/contact'} class={`hidden xl:inline-flex items-center gap-1.5 text-sm transition-colors ${isActive(lang === 'en' ? '/contact' : '/es/contact') ? 'nav-link-active' : 'text-[#9a9aa5] hover:text-white'}`} aria-current={isActive(lang === 'en' ? '/contact' : '/es/contact') ? 'page' : undefined}><NavIcon name="mail" /><span>{t.navContact}</span></a>
+          <a href={lang === 'en' ? '/donate' : '/es/donate'} class="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold hover:opacity-80 transition-opacity" aria-current={isActive(lang === 'en' ? '/donate' : '/es/donate') ? 'page' : undefined}><NavIcon name="heart" class="shrink-0 text-[#00f2ff]" /><span class="text-gradient">{t.navDonate}</span></a>
           <a
             href={lang === 'en' ? '/download' : '/es/download'}
             class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold text-[#0d0f17] bg-[#00f2ff] hover:brightness-105 shadow-[0_0_20px_rgba(0,242,255,0.35)] hover:shadow-[0_0_25px_rgba(0,242,255,0.55)] transition-all shrink-0"
-            aria-label={t.navDownload}
+            aria-current={isActive(lang === 'en' ? '/download' : '/es/download') ? 'page' : undefined}
           >
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" class="shrink-0" aria-hidden="true">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
+            <NavIcon name="download" size={15} class="shrink-0" />
             <span>{t.navDownload}</span>
           </a>
           <div
@@ -171,15 +173,15 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
       </nav>
       <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-[#0d0f17]/95">
         <nav aria-label={lang === 'en' ? 'Mobile navigation' : 'Navegación móvil'} class="max-w-6xl mx-auto px-5 py-3 grid grid-cols-2 gap-2">
-          <a href={`${homeHref}#apps`} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navApps}</a>
-          <a href={lang === 'en' ? '/download' : '/es/download'} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navDownload}</a>
-          <a href={lang === 'en' ? '/changelog' : '/es/changelog'} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navChangelog}</a>
-          <a href={lang === 'en' ? '/docs' : '/es/docs'} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navDocs}</a>
-          <a href={lang === 'en' ? '/about' : '/es/about'} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navAbout}</a>
-          <a href={lang === 'en' ? '/faq' : '/es/faq'} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navFaq}</a>
-          <a href={lang === 'en' ? '/contact' : '/es/contact'} class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navContact}</a>
+          <a href={`${homeHref}#apps`} class="inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link><NavIcon name="apps" /><span>{t.navApps}</span></a>
+          <a href={lang === 'en' ? '/download' : '/es/download'} class={mobileLinkClass(lang === 'en' ? '/download' : '/es/download')} aria-current={isActive(lang === 'en' ? '/download' : '/es/download') ? 'page' : undefined} data-mobile-menu-link><NavIcon name="download" /><span>{t.navDownload}</span></a>
+          <a href={lang === 'en' ? '/changelog' : '/es/changelog'} class={mobileLinkClass(lang === 'en' ? '/changelog' : '/es/changelog')} aria-current={isActive(lang === 'en' ? '/changelog' : '/es/changelog') ? 'page' : undefined} data-mobile-menu-link><NavIcon name="newspaper" /><span>{t.navChangelog}</span></a>
+          <a href={lang === 'en' ? '/docs' : '/es/docs'} class={mobileLinkClass(lang === 'en' ? '/docs' : '/es/docs')} aria-current={isActive(lang === 'en' ? '/docs' : '/es/docs') ? 'page' : undefined} data-mobile-menu-link><NavIcon name="book" /><span>{t.navDocs}</span></a>
+          <a href={lang === 'en' ? '/about' : '/es/about'} class={mobileLinkClass(lang === 'en' ? '/about' : '/es/about')} aria-current={isActive(lang === 'en' ? '/about' : '/es/about') ? 'page' : undefined} data-mobile-menu-link><NavIcon name="info" /><span>{t.navAbout}</span></a>
+          <a href={lang === 'en' ? '/faq' : '/es/faq'} class={mobileLinkClass(lang === 'en' ? '/faq' : '/es/faq')} aria-current={isActive(lang === 'en' ? '/faq' : '/es/faq') ? 'page' : undefined} data-mobile-menu-link><NavIcon name="info" /><span>{t.navFaq}</span></a>
+          <a href={lang === 'en' ? '/contact' : '/es/contact'} class={mobileLinkClass(lang === 'en' ? '/contact' : '/es/contact')} aria-current={isActive(lang === 'en' ? '/contact' : '/es/contact') ? 'page' : undefined} data-mobile-menu-link><NavIcon name="mail" /><span>{t.navContact}</span></a>
           <a href="https://github.com/CyberGems" target="_blank" rel="noopener noreferrer" class="rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link>{t.navGitHub} ↗</a>
-          <a href={lang === 'en' ? '/donate' : '/es/donate'} class="col-span-2 rounded-lg px-3 py-2.5 text-sm font-semibold text-gradient hover:bg-white/5" data-mobile-menu-link>♥ {t.navDonate}</a>
+          <a href={lang === 'en' ? '/donate' : '/es/donate'} class="col-span-2 inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-semibold hover:bg-white/5" data-mobile-menu-link><NavIcon name="heart" class="shrink-0 text-[#00f2ff]" /><span class="text-gradient">{t.navDonate}</span></a>
         </nav>
       </div>
     </header>

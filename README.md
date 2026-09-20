@@ -80,7 +80,7 @@ All pages are static, SEO-friendly and served from a custom domain.
 │   ├── data/
 │   │   ├── apps/             # one JSON per app — editable in the CMS (/admin)
 │   │   ├── apps.ts           # types + loader for the JSON files
-│   │   └── ui.ts             # shared UI strings (EN/ES)
+│   │   ├── ui.json           # shared UI strings (EN/ES) — editable in the CMS
 │   ├── admin/                # public/admin — Decap CMS panel
 │   └── pages/
 │       ├── index.astro       # → /
@@ -97,7 +97,7 @@ All pages are static, SEO-friendly and served from a custom domain.
 ### 🧩 Content Model
 
 * **`src/data/apps/`** — one JSON file per app (`slug`, `name`, `emoji`, `accent`, `stack`, `license`, bilingual `tagline`/`description`/`features`, `repo`, `wiki`, optional `winget`, `screenshot`). Screenshots are optional: set `screenshot` to a file inside `/public/screenshots/<slug>/` (or an absolute `/screenshots/...` path, as written by the CMS) or leave it `null` to render the gradient placeholder.
-* **`src/data/ui.ts`** — shared UI strings for nav, hero, sections and footer (`en` / `es`).
+* **`src/data/ui.json`** — shared UI strings for nav, hero, sections and footer (`en` / `es`), editable in the CMS.
 * **`src/pages/`** — `/` (English) and `/es/` (Spanish), plus `/apps/[slug]` per-app pages in both languages, plus `changelog` and `docs`.
 * **`public/screenshots/`** — static screenshots; absent files fall back to the accent-gradient placeholder.
 * **`wikis/` + `public/wikis/`** — generated; do not edit by hand (see below).
@@ -158,7 +158,7 @@ All CyberGems apps are **GPLv3** — free forever. Contributions, bug reports an
 
 * ⭐ Star this repo or any app you like — it helps a lot
 * 🐛 Open an issue if you find a bug
-* 🔀 PRs are welcome — keep changes focused and bilingual strings in sync (`src/data/apps/` + `src/data/ui.ts`)
+* 🔀 PRs are welcome — keep changes focused and bilingual strings in sync (`src/data/apps/` + `src/data/ui.json`)
 
 <div align="center">
 

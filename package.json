@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "predev": "node scripts/fetch-wikis.mjs",
     "build": "astro build",
-    "prebuild": "node scripts/fetch-wikis.mjs",
+    "prebuild": "node scripts/fetch-wikis.mjs && node scripts/build-suite-json.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

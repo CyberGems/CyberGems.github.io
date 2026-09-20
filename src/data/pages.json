@@ -156,12 +156,12 @@
       "principles": [
         {
           "icon": "🔒",
-          "t": "Privacy-first",
+          "t": "Privacidad primero",
           "d": "Tus datos nunca salen de tu equipo. Sin servidores, sin nube, sin telemetría oculta."
         },
         {
           "icon": "💻",
-          "t": "Local-first",
+          "t": "100% local",
           "d": "Todo funciona offline. No necesitas cuenta, no hay suscripciones, no hay dependencias externas."
         },
         {
