@@ -87,7 +87,7 @@ const itemListLd = {
                 return (
                   <div
                     class="orbit-node"
-                    style={`--node-angle: ${angle}deg; --app-accent: ${app.accent};`}
+                    style={`--node-angle: ${angle}deg;`}
                   >
                     <a
                       href={lang === 'en' ? `/apps/${app.slug}` : `/es/apps/${app.slug}`}
@@ -125,9 +125,8 @@ const itemListLd = {
             <div class="horizon-rim-sweep horizon-rim-sweep--violet"></div>
             <div class="horizon-center-core">
               <div class="horizon-core-badge">
-                <img src="/branding/cybergems-footer.svg" alt="" width="42" height="42" class="horizon-core-logo" />
+                <img src="/branding/cybergems-footer.svg" alt="" width="48" height="48" class="horizon-core-logo" />
               </div>
-              <span class="horizon-title">CyberGems</span>
             </div>
           </div>
         </div>
@@ -520,13 +519,12 @@ const itemListLd = {
   /* Center Nucleus / Brand Core */
   .horizon-center-core {
     position: absolute;
-    top: 82px;
+    top: 90px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.4rem;
     pointer-events: auto;
   }
 
@@ -534,9 +532,9 @@ const itemListLd = {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 62px;
-    height: 62px;
-    border-radius: 1.25rem;
+    width: 68px;
+    height: 68px;
+    border-radius: 1.4rem;
     background: radial-gradient(circle at 50% 32%, rgba(30, 39, 57, 0.96), rgba(13, 15, 23, 0.92) 72%);
     border: 1px solid rgba(0, 242, 255, 0.3);
     box-shadow:
@@ -556,19 +554,11 @@ const itemListLd = {
   }
 
   .horizon-core-logo {
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
     object-fit: contain;
     transform: translateY(1px);
     filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.2));
-  }
-
-  .horizon-title {
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    color: #fff;
-    text-shadow: 0 0 10px rgba(0, 242, 255, 0.32);
   }
 
   /* Orbital System */
@@ -663,23 +653,23 @@ const itemListLd = {
   .orbit-node-body:hover .orbit-badge,
   .orbit-node-body:focus-visible .orbit-badge {
     transform: scale(1.12);
-    border-color: var(--app-accent, #00f2ff);
+    border-color: #00f2ff;
     box-shadow:
       0 10px 28px rgba(0, 0, 0, 0.62),
-      0 0 17px color-mix(in srgb, var(--app-accent, #00f2ff) 52%, transparent);
+      0 0 17px rgba(0, 242, 255, 0.52);
   }
 
   .orbit-node-body:hover .orbit-badge img,
   .orbit-node-body:focus-visible .orbit-badge img {
     transform: scale(1.05);
-    filter: drop-shadow(0 0 8px color-mix(in srgb, var(--app-accent, #00f2ff) 58%, transparent));
+    filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.58));
   }
 
   .orbit-node-body:hover .orbit-label,
   .orbit-node-body:focus-visible .orbit-label {
     opacity: 1;
-    color: var(--app-accent, #00f2ff);
-    border-color: var(--app-accent, #00f2ff);
+    color: #00f2ff;
+    border-color: #00f2ff;
     transform: translateY(2px) scale(1.05);
   }
 
@@ -716,15 +706,15 @@ const itemListLd = {
       padding: 1px 6px;
     }
     .horizon-core-badge {
-      width: 50px;
-      height: 50px;
+      width: 56px;
+      height: 56px;
     }
     .horizon-core-logo {
-      width: 32px;
-      height: 32px;
+      width: 38px;
+      height: 38px;
     }
     .horizon-center-core {
-      top: 48px;
+      top: 54px;
     }
   }
 
