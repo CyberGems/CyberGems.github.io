@@ -36,17 +36,49 @@ const renderNotes = (body: string) => {
   // Downgrade stray h1 to h2 to preserve single h1 per page
   return raw.replace(/<h1(\s|>)/g, '<h2$1').replace(/<\/h1>/g, '</h2>');
 };
-const summarizeNotes = (body: string) => {
-  const plain = body
+const escapeRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const summarizeNotes = (body: string, appName: string, tag: string) => {
+  const appPattern = escapeRegExp(appName);
+  const tagPattern = escapeRegExp(tag);
+  const versionPattern = escapeRegExp(tag.replace(/^v/i, ''));
+  const blocks = body
     .replace(/```[\s\S]*?```/g, ' ')
     .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
-    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/^[#>*+\-\d.\s]+/gm, '')
-    .replace(/[*_~`|]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-  return plain.length > 220 ? `${plain.slice(0, 217).trimEnd()}...` : plain;
+    .split(/\r?\n\s*\r?\n/);
+
+  for (const block of blocks) {
+    const isHeading = /^\s*#{1,6}\s/.test(block);
+    let text = block
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/^\s*#{1,6}\s*/gm, '')
+      .replace(/^\s*>\s?/gm, '')
+      .replace(/^\s*[-*+]\s+/gm, '')
+      .replace(/[*_~`|]/g, '')
+      .replace(/^[^\p{L}\p{N}]+/u, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    if (!text || /^[-–—=]+$/.test(text)) continue;
+    if (isHeading && text.length < 100) continue;
+    if (/release notes|changelog/i.test(text) && new RegExp(`${appPattern}|${tagPattern}`, 'i').test(text) && text.length < 140) continue;
+
+    text = text
+      .replace(new RegExp(`^Welcome\\s+to\\s+(?:the\\s+)?(?:official\\s+)?${appPattern}(?:\\s+${tagPattern})?\\s+release[!.]?\\s*`, 'i'), '')
+      .replace(new RegExp(`^${appPattern}\\s+is\\s+`, 'i'), '')
+      .replace(new RegExp(`^${appPattern}\\s+`, 'i'), '')
+      .replace(new RegExp(`^(?:Version\\s+|v)?${versionPattern}\\s*[-:–—]?\\s*`, 'i'), '')
+      .trim();
+
+    if (text.length < 30) continue;
+    text = text.charAt(0).toUpperCase() + text.slice(1);
+    if (text.length <= 220) return text;
+    const shortened = text.slice(0, 217);
+    const lastSpace = shortened.lastIndexOf(' ');
+    return `${shortened.slice(0, lastSpace > 160 ? lastSpace : 217).trimEnd()}...`;
+  }
+
+  return '';
 };
 const releaseId = (slug: string, tag: string, index: number) =>
   `release-${slug}-${tag.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${index}`;
@@ -92,9 +124,9 @@ const breadcrumbLd = {
         </div>
       </div>
 
-      <div class="release-filter-shell sticky top-16 z-30 mt-5 -mx-2 px-2 py-3">
-        <p class="mb-2 px-1 text-[11px] font-bold uppercase tracking-[0.14em] text-white/50">{t.changelogFilter}</p>
-        <nav aria-label={t.changelogFilter} class="release-filter-list flex gap-2 overflow-x-auto pb-1">
+      <div class="release-filter-shell mt-5 -mx-2 px-2 py-3">
+        <p class="mb-2 px-1 text-center text-[11px] font-bold uppercase tracking-[0.14em] text-white/50">{t.changelogFilter}</p>
+        <nav aria-label={t.changelogFilter} class="release-filter-list flex flex-wrap justify-center gap-2 pb-1">
           <button type="button" class="release-filter" data-release-filter="all" aria-pressed="true">
             <span class="filter-all-icon" aria-hidden="true">✦</span>
             {t.changelogAll}
@@ -113,7 +145,7 @@ const breadcrumbLd = {
       <div class="mt-6 space-y-4" data-release-list>
         {releaseFeed.map(({ app, release }, index) => {
           const headingId = releaseId(app.slug, release.tag, index);
-          const summary = summarizeNotes(release.body);
+          const summary = summarizeNotes(release.body, app.name, release.tag);
           return (
             <article
               class="card release-card p-5 sm:p-6"
@@ -149,7 +181,9 @@ const breadcrumbLd = {
                   <summary>
                     <span class="details-closed">{t.changelogExpand}</span>
                     <span class="details-open">{t.changelogCollapse}</span>
-                    <span class="details-chevron" aria-hidden="true">⌄</span>
+                    <svg class="details-chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="m4 6 4 4 4-4"></path>
+                    </svg>
                   </summary>
                   <div class="release-notes mt-4 border-t border-white/[0.08] pt-4 text-sm text-[#c9c9d1] leading-relaxed" set:html={sanitize(wrapTables(renderNotes(release.body)))} />
                 </details>
@@ -256,9 +290,12 @@ const breadcrumbLd = {
     backdrop-filter: blur(14px);
   }
 
-  .release-filter-list {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 242, 255, 0.28) transparent;
+  @media (min-width: 768px) {
+    .release-filter-shell {
+      position: sticky;
+      top: 4rem;
+      z-index: 30;
+    }
   }
 
   .release-filter {
@@ -339,8 +376,9 @@ const breadcrumbLd = {
   }
 
   .details-chevron {
+    display: block;
+    flex: 0 0 auto;
     color: #00f2ff;
-    font-size: 1rem;
     transition: transform 160ms ease;
   }
 
