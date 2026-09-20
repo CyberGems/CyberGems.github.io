@@ -244,10 +244,6 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
       <stop offset="0.56" stop-color="#0b0d14" />
       <stop offset="1" stop-color="#12101f" />
     </linearGradient>
-    <linearGradient id="bannerAccent" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="${accent}" />
-      <stop offset="1" stop-color="#7A5CFF" />
-    </linearGradient>
     <radialGradient id="bannerGlow" cx="19%" cy="50%" r="42%">
       <stop offset="0" stop-color="${accent}" stop-opacity="0.26" />
       <stop offset="1" stop-color="${accent}" stop-opacity="0" />
@@ -262,6 +258,9 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
     <filter id="bannerShadow" x="-35%" y="-35%" width="170%" height="170%">
       <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.42" />
     </filter>
+    <filter id="bannerIconGlow" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="28" />
+    </filter>
   </defs>
 
   <rect width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" rx="24" fill="url(#bannerBg)" />
@@ -269,12 +268,10 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
   <rect width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" rx="24" fill="url(#bannerViolet)" />
   <rect width="420" height="${BANNER_HEIGHT}" rx="24" fill="url(#bannerGrid)" />
   <rect x="0.5" y="0.5" width="${BANNER_WIDTH - 1}" height="${BANNER_HEIGHT - 1}" rx="23.5" fill="none" stroke="${accent}" stroke-opacity="0.24" />
-  <rect x="0" y="0" width="${BANNER_WIDTH}" height="4" rx="2" fill="url(#bannerAccent)" />
 
-  <circle cx="214" cy="180" r="126" fill="${accent}" fill-opacity="0.055" stroke="${accent}" stroke-opacity="0.16" stroke-dasharray="5 9" />
-  <circle cx="214" cy="180" r="101" fill="none" stroke="${accent}" stroke-opacity="0.2" />
+  <circle cx="214" cy="180" r="92" fill="${accent}" fill-opacity="0.18" filter="url(#bannerIconGlow)" />
   <g filter="url(#bannerShadow)">
-    <rect x="132" y="98" width="164" height="164" rx="38" fill="#0c1119" fill-opacity="0.94" stroke="${accent}" stroke-opacity="0.44" />
+    <rect x="132" y="98" width="164" height="164" rx="38" fill="#0c1119" fill-opacity="0.94" stroke="${accent}" stroke-opacity="0.3" />
     ${appImage(app, 150, 116, 128)}
   </g>
 
