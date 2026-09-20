@@ -62,7 +62,7 @@ const rdUrl = `https://www.reddit.com/submit?url=${encodeURIComponent(pageUrl)}&
 const tgUrl = `https://t.me/share/url?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(shareText)}`;
 const liUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
 const mailUrl = `mailto:?subject=${encodeURIComponent(shareText)}&body=${encodeURIComponent(shareText + ' ' + pageUrl)}`;
-const appsWithHeroBanner = new Set(['cyberpaste', 'cybersnap', 'cyberclock']);
+const appsWithHeroBanner = new Set(['cyberpaste', 'cybersnap', 'cyberclock', 'cyberfeeds']);
 const showHeroBanner = appsWithHeroBanner.has(app.slug);
 ---
 
