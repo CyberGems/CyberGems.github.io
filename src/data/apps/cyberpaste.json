@@ -138,7 +138,7 @@
     { "en": "Full grid and Compact list modes (Ctrl+M), zoom, 4 Mica themes, HUD toasts", "es": "Modos rejilla completa y lista compacta (Ctrl+M), zoom, 4 temas Mica, avisos HUD" },
     { "en": "Global hotkey (Ctrl+Shift+V), auto-paste injection, multi-monitor aware", "es": "Hotkey global (Ctrl+Shift+V), auto-pegado, consciente de multi-monitor" },
     { "en": "Fullscreen image viewer with local Windows Media OCR, save OCR text as a new clip", "es": "Visor de imágenes a pantalla completa con OCR local de Windows, guarda el texto como clip nuevo" },
-    { "en": "Local SQLite, zero telemetry, ignored apps, ghost-clip filter, JSON backup, configurable retention", "es": "SQLite local, cero telemetría, apps ignoradas, filtro de clips fantasma, copia JSON, retención configurable" }
+    { "en": "Local SQLite, zero telemetry, ignored apps, JSON backup and configurable retention", "es": "SQLite local, cero telemetría, apps ignoradas, copia JSON y retención configurable" }
   ],
   "useCases": {
     "roles": [
