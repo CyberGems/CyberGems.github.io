@@ -7,13 +7,12 @@ interface Props {
 }
 
 const { app, lang } = Astro.props;
-const eyebrow = lang === 'en' ? 'CYBERGEMS APP · WINDOWS' : 'APP DE CYBERGEMS · WINDOWS';
 const openSource = lang === 'en' ? 'Free & open source' : 'Gratis y de código abierto';
+const platformLabel = 'Windows 10/11 (64-bit)';
 ---
 
 <header
   class="app-hero-banner"
-  style={`--app-accent: ${app.accent};`}
   aria-labelledby={`app-title-${app.slug}`}
 >
   <div class="app-hero-banner__atmosphere" aria-hidden="true"></div>
@@ -38,8 +37,10 @@ const openSource = lang === 'en' ? 'Free & open source' : 'Gratis y de código a
 
   <div class="app-hero-banner__copy">
     <p class="app-hero-banner__eyebrow">
-      <span class="app-hero-banner__status" aria-hidden="true"></span>
-      {eyebrow}
+      <svg aria-hidden="true" viewBox="0 0 16 16" class="app-hero-banner__windows-icon">
+        <path d="M1 2.3 7 1.5v6H1V2.3Zm8-1.1 6-.8v7.1H9V1.2ZM1 8.5h6v6L1 13.7V8.5Zm8 0h6v7.1l-6-.8V8.5Z" />
+      </svg>
+      {platformLabel}
     </p>
     <h1 id={`app-title-${app.slug}`} class="app-hero-banner__title">{app.name}</h1>
     <p class="app-hero-banner__tagline">{app.tagline[lang]}</p>
@@ -51,12 +52,11 @@ const openSource = lang === 'en' ? 'Free & open source' : 'Gratis y de código a
       <span>{app.license}</span>
     </div>
   </div>
-
-  <span class="app-hero-banner__signature" aria-hidden="true">CYBERGEMS</span>
 </header>
 
 <style>
   .app-hero-banner {
+    --banner-accent: #00f2ff;
     isolation: isolate;
     position: relative;
     display: grid;
@@ -67,10 +67,10 @@ const openSource = lang === 'en' ? 'Free & open source' : 'Gratis y de código a
     margin-top: 2rem;
     padding: clamp(2rem, 4vw, 3.25rem) clamp(1.5rem, 5vw, 4.5rem);
     overflow: hidden;
-    border: 1px solid color-mix(in srgb, var(--app-accent) 24%, white 8%);
+    border: 1px solid color-mix(in srgb, var(--banner-accent) 24%, white 8%);
     border-radius: 1.75rem;
     background:
-      radial-gradient(circle at 19% 50%, color-mix(in srgb, var(--app-accent) 19%, transparent) 0%, transparent 29%),
+      radial-gradient(circle at 19% 50%, color-mix(in srgb, var(--banner-accent) 19%, transparent) 0%, transparent 29%),
       radial-gradient(circle at 88% 110%, rgba(122, 92, 255, 0.19) 0%, transparent 39%),
       linear-gradient(112deg, #0c1119 0%, #0b0d14 53%, #11101c 100%);
     box-shadow:
@@ -85,8 +85,8 @@ const openSource = lang === 'en' ? 'Free & open source' : 'Gratis y de código a
     z-index: -2;
     opacity: 0.17;
     background-image:
-      linear-gradient(color-mix(in srgb, var(--app-accent) 28%, transparent) 1px, transparent 1px),
-      linear-gradient(90deg, color-mix(in srgb, var(--app-accent) 28%, transparent) 1px, transparent 1px);
+      linear-gradient(color-mix(in srgb, var(--banner-accent) 28%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--banner-accent) 28%, transparent) 1px, transparent 1px);
     background-size: 44px 44px;
     mask-image: linear-gradient(90deg, black, transparent 67%);
   }
@@ -99,10 +99,10 @@ const openSource = lang === 'en' ? 'Free & open source' : 'Gratis y de código a
     pointer-events: none;
     background:
       radial-gradient(circle at 5% 14%, rgba(255,255,255,.75) 0 1px, transparent 1.5px),
-      radial-gradient(circle at 47% 11%, color-mix(in srgb, var(--app-accent) 78%, white) 0 1px, transparent 1.6px),
+      radial-gradient(circle at 47% 11%, color-mix(in srgb, var(--banner-accent) 78%, white) 0 1px, transparent 1.6px),
       radial-gradient(circle at 92% 20%, rgba(255,255,255,.7) 0 1px, transparent 1.5px),
       radial-gradient(circle at 82% 77%, rgba(255,255,255,.5) 0 1px, transparent 1.5px),
-      radial-gradient(circle at 39% 86%, color-mix(in srgb, var(--app-accent) 70%, white) 0 1px, transparent 1.6px);
+      radial-gradient(circle at 39% 86%, color-mix(in srgb, var(--banner-accent) 70%, white) 0 1px, transparent 1.6px);
     opacity: 0.72;
   }
 
@@ -128,7 +128,7 @@ const openSource = lang === 'en' ? 'Free & open source' : 'Gratis y de código a
     width: 76%;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: var(--app-accent);
+    background: var(--banner-accent);
     opacity: 0.11;
     filter: blur(34px);
   }
@@ -136,7 +136,7 @@ const openSource = lang === 'en' ? 'Free & open source' : 'Gratis y de código a
   .app-hero-banner__orbit {
     position: absolute;
     aspect-ratio: 1;
-    border: 1px solid color-mix(in srgb, var(--app-accent) 36%, transparent);
+    border: 1px solid color-mix(in srgb, var(--banner-accent) 36%, transparent);
     border-radius: 50%;
   }
 
@@ -159,11 +159,11 @@ const openSource = lang === 'en' ? 'Free & open source' : 'Gratis y de código a
     width: min(168px, 72%);
     aspect-ratio: 1;
     place-items: center;
-    border: 1px solid color-mix(in srgb, var(--app-accent) 40%, white 7%);
+    border: 1px solid color-mix(in srgb, var(--banner-accent) 40%, white 7%);
     border-radius: 2.25rem;
     background: linear-gradient(145deg, rgba(18, 24, 36, 0.92), rgba(8, 11, 18, 0.94));
     box-shadow:
-      0 24px 50px -26px color-mix(in srgb, var(--app-accent) 58%, transparent),
+      0 24px 50px -26px color-mix(in srgb, var(--banner-accent) 58%, transparent),
       inset 0 1px 0 rgba(255, 255, 255, 0.06);
   }
 
@@ -189,18 +189,18 @@ const openSource = lang === 'en' ? 'Free & open source' : 'Gratis y de código a
     display: flex;
     align-items: center;
     gap: 0.65rem;
-    color: color-mix(in srgb, var(--app-accent) 76%, white);
+    color: #c9dff4;
     font-size: 0.73rem;
     font-weight: 800;
     letter-spacing: 0.18em;
   }
 
-  .app-hero-banner__status {
-    width: 0.46rem;
-    height: 0.46rem;
-    border-radius: 999px;
-    background: var(--app-accent);
-    box-shadow: 0 0 14px var(--app-accent);
+  .app-hero-banner__windows-icon {
+    width: 1rem;
+    height: 1rem;
+    flex: 0 0 auto;
+    fill: #4fc3f7;
+    filter: drop-shadow(0 0 7px rgba(0, 242, 255, 0.42));
   }
 
   .app-hero-banner__title {
@@ -230,16 +230,6 @@ const openSource = lang === 'en' ? 'Free & open source' : 'Gratis y de código a
     color: #858895;
     font-size: 0.78rem;
     font-weight: 650;
-  }
-
-  .app-hero-banner__signature {
-    position: absolute;
-    top: 1.25rem;
-    right: 1.5rem;
-    color: rgba(255, 255, 255, 0.28);
-    font-size: 0.64rem;
-    font-weight: 800;
-    letter-spacing: 0.2em;
   }
 
   @keyframes banner-orbit {
@@ -275,7 +265,6 @@ const openSource = lang === 'en' ? 'Free & open source' : 'Gratis y de código a
     .app-hero-banner__meta { justify-content: center; }
     .app-hero-banner__title { font-size: clamp(2.5rem, 14vw, 4rem); }
     .app-hero-banner__tagline { margin-inline: auto; }
-    .app-hero-banner__signature { top: 1rem; right: 1rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -222,12 +222,14 @@ function appCard(app: CyberApp, lang: Lang): string {
  * composited artwork file.
  */
 export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
-  const accent = app.accent ?? '#00F2FF';
+  const accent = '#00F2FF';
   const title = escapeXml(app.name);
   const tagline = balanceTwoLines(app.tagline[lang] ?? app.tagline.en);
   const longestTaglineLine = Math.max(...tagline.map((line) => line.length));
   const taglineSize = longestTaglineLine > 62 ? 20 : longestTaglineLine > 55 ? 21 : 23;
-  const eyebrow = lang === 'es' ? 'APP DE CYBERGEMS · WINDOWS' : 'CYBERGEMS APP · WINDOWS';
+  const eyebrow = lang === 'es'
+    ? 'APP DE CYBERGEMS · WINDOWS 10/11 (64-BIT)'
+    : 'CYBERGEMS APP · WINDOWS 10/11 (64-BIT)';
   const trust = lang === 'es'
     ? `GRATIS Y DE CÓDIGO ABIERTO · ${app.stack} · ${app.license}`
     : `FREE & OPEN SOURCE · ${app.stack} · ${app.license}`;
@@ -276,13 +278,14 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
     ${appImage(app, 150, 116, 128)}
   </g>
 
-  <circle cx="450" cy="65" r="4" fill="${accent}" />
-  <text x="466" y="70" fill="${accent}" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="800" letter-spacing="2.2">${eyebrow}</text>
+  <svg x="446" y="55" width="16" height="16" viewBox="0 0 16 16" fill="#4FC3F7">
+    <path d="M1 2.3 7 1.5v6H1V2.3Zm8-1.1 6-.8v7.1H9V1.2ZM1 8.5h6v6L1 13.7V8.5Zm8 0h6v7.1l-6-.8V8.5Z" />
+  </svg>
+  <text x="472" y="70" fill="${accent}" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="800" letter-spacing="2.2">${eyebrow}</text>
   <text x="448" y="158" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="72" font-weight="800" letter-spacing="-2.6">${title}</text>
   ${tagline.map((line, index) => `<text x="450" y="${212 + index * 34}" fill="#c9c9d1" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
   <text x="450" y="308" fill="#8f929f" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">${escapeXml(trust)}</text>
 
-  <text x="1218" y="62" fill="#a4a6b0" fill-opacity="0.62" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="800" letter-spacing="2.4" text-anchor="end">CYBERGEMS</text>
   <text x="1218" y="316" fill="#8f929f" font-family="Segoe UI, system-ui, sans-serif" font-size="14" text-anchor="end">cybergems.org</text>
 
   <circle cx="54" cy="40" r="1.2" fill="white" fill-opacity="0.65" />
