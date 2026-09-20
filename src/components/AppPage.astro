@@ -62,7 +62,8 @@ const rdUrl = `https://www.reddit.com/submit?url=${encodeURIComponent(pageUrl)}&
 const tgUrl = `https://t.me/share/url?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(shareText)}`;
 const liUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
 const mailUrl = `mailto:?subject=${encodeURIComponent(shareText)}&body=${encodeURIComponent(shareText + ' ' + pageUrl)}`;
-const showBannerPrototype = app.slug === 'cyberpaste';
+const appsWithHeroBanner = new Set(['cyberpaste', 'cybersnap']);
+const showHeroBanner = appsWithHeroBanner.has(app.slug);
 ---
 
 <BaseLayout title={title} description={description} lang={lang} path={lang === 'en' ? `/apps/${app.slug}` : `/es/apps/${app.slug}`} ogImage={ogImage} jsonLd={[breadcrumbLd, appLd]}>
@@ -78,8 +79,8 @@ const showBannerPrototype = app.slug === 'cyberpaste';
   <article class="max-w-5xl mx-auto px-5 pt-6 pb-4">
     <a href={homePath + '#apps'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.backHome}</a>
 
-    <!-- CyberPaste pilots the reusable banner before a suite-wide rollout. -->
-    {showBannerPrototype ? (
+    <!-- Apps migrate to the reusable hero banner one at a time. -->
+    {showHeroBanner ? (
       <AppHeroBanner app={app} lang={lang} />
     ) : (
       <header class="mt-8 flex flex-col sm:flex-row sm:items-center gap-6">
@@ -105,7 +106,7 @@ const showBannerPrototype = app.slug === 'cyberpaste';
     )}
 
     <!-- CTAs -->
-    <div class="mt-8 flex flex-wrap items-center gap-3">
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
       <a
         href={releasesUrl}
         target="_blank"

@@ -72,8 +72,8 @@
       "slug": "cybersnap",
       "name": "CyberSnap",
       "tagline": {
-        "en": "Screen capture and annotation suite with vector tools, high-speed OCR, screen recording and color picker.",
-        "es": "Suite de captura y anotación con herramientas vectoriales, OCR de alta velocidad, grabación de pantalla y selector de color."
+        "en": "Capture, annotate and share anything — screenshots, recordings, text and color — with speed.",
+        "es": "Captura, anota y comparte cualquier cosa — imágenes, grabaciones, texto y color — con rapidez."
       },
       "site": "https://cybergems.org/apps/cybersnap/",
       "repo": "https://github.com/CyberGems/CyberSnap",

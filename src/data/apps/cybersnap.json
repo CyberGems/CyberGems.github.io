@@ -7,12 +7,12 @@
   "stack": "C# · WPF · .NET 9",
   "license": "GPLv3",
   "tagline": {
-    "en": "Screen capture and annotation suite with vector tools, high-speed OCR, screen recording and color picker.",
-    "es": "Suite de captura y anotación con herramientas vectoriales, OCR de alta velocidad, grabación de pantalla y selector de color."
+    "en": "Capture, annotate and share anything — screenshots, recordings, text and color — with speed.",
+    "es": "Captura, anota y comparte cualquier cosa — imágenes, grabaciones, texto y color — con rapidez."
   },
   "description": {
-    "en": "A screen capture and annotation suite with vector tools, high-speed OCR, screen recording, and color picker. Free, open-source, and built for casual and power users, featuring a floating capture widget, rich annotation editor, multilingual text recognition, local searchable gallery, and flexible export options.",
-    "es": "Una suite de captura de pantalla y anotación con herramientas vectoriales, OCR de alta velocidad, grabación de pantalla y selector de color. Gratuita, de código abierto y diseñada para usuarios casuales y avanzados, con widget de captura flotante, editor de anotaciones, reconocimiento multilingüe, galería local con búsqueda y exportación flexible."
+    "en": "A sleek, all-in-one capture suite for Windows. Take area, window, full-screen and scrolling screenshots; record MP4 or GIF; annotate with vector tools; extract and translate text with OCR; and find every capture later in a local searchable gallery. Share through seven destinations or keep everything on your device.",
+    "es": "Una suite de captura elegante y todo en uno para Windows. Captura áreas, ventanas, la pantalla completa o contenido con desplazamiento; graba en MP4 o GIF; anota con herramientas vectoriales; extrae y traduce texto con OCR; y encuentra cada captura en una galería local con búsqueda. Comparte mediante siete destinos o conserva todo en tu dispositivo."
   },
   "features": [
     { "en": "Area, window, full screen & scroll capture", "es": "Captura de área, ventana, pantalla completa y desplazamiento" },
