@@ -37,7 +37,33 @@ const renderNotes = (body: string) => {
   return raw.replace(/<h1(\s|>)/g, '<h2$1').replace(/<\/h1>/g, '</h2>');
 };
 const escapeRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const cleanSummaryText = (value: string) => value
+  .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+  .replace(/<!--[\s\S]*?-->/g, ' ')
+  .replace(/<[^>]+>/g, ' ')
+  .replace(/^\s*#{1,6}\s*/gm, '')
+  .replace(/^\s*>\s?/gm, '')
+  .replace(/^\s*[-*+]\s+/gm, '')
+  .replace(/[*_~`|]/g, '')
+  .replace(/^[^\p{L}\p{N}]+/u, '')
+  .replace(/\s+/g, ' ')
+  .trim();
+const truncateSummary = (value: string) => {
+  const text = value.charAt(0).toUpperCase() + value.slice(1);
+  if (text.length <= 220) return text;
+  const shortened = text.slice(0, 217);
+  const lastSpace = shortened.lastIndexOf(' ');
+  return `${shortened.slice(0, lastSpace > 160 ? lastSpace : 217).trimEnd()}...`;
+};
 const summarizeNotes = (body: string, appName: string, tag: string) => {
+  const markedSummary = body.match(
+    /<!--\s*changelog-summary:start\s*-->([\s\S]*?)<!--\s*changelog-summary:end\s*-->/i,
+  );
+  if (markedSummary) {
+    const summary = cleanSummaryText(markedSummary[1]);
+    if (summary) return truncateSummary(summary);
+  }
+
   const appPattern = escapeRegExp(appName);
   const tagPattern = escapeRegExp(tag);
   const versionPattern = escapeRegExp(tag.replace(/^v/i, ''));
@@ -48,34 +74,21 @@ const summarizeNotes = (body: string, appName: string, tag: string) => {
 
   for (const block of blocks) {
     const isHeading = /^\s*#{1,6}\s/.test(block);
-    let text = block
-      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
-      .replace(/<[^>]+>/g, ' ')
-      .replace(/^\s*#{1,6}\s*/gm, '')
-      .replace(/^\s*>\s?/gm, '')
-      .replace(/^\s*[-*+]\s+/gm, '')
-      .replace(/[*_~`|]/g, '')
-      .replace(/^[^\p{L}\p{N}]+/u, '')
-      .replace(/\s+/g, ' ')
-      .trim();
+    let text = cleanSummaryText(block);
 
     if (!text || /^[-–—=]+$/.test(text)) continue;
     if (isHeading && text.length < 100) continue;
     if (/release notes|changelog/i.test(text) && new RegExp(`${appPattern}|${tagPattern}`, 'i').test(text) && text.length < 140) continue;
+    if (new RegExp(`^Welcome\\s+to\\s+(?:the\\s+)?(?:official\\s+)?${appPattern}(?:\\s+${tagPattern})?\\s+release[!.]?`, 'i').test(text)) continue;
 
     text = text
-      .replace(new RegExp(`^Welcome\\s+to\\s+(?:the\\s+)?(?:official\\s+)?${appPattern}(?:\\s+${tagPattern})?\\s+release[!.]?\\s*`, 'i'), '')
       .replace(new RegExp(`^${appPattern}\\s+is\\s+`, 'i'), '')
       .replace(new RegExp(`^${appPattern}\\s+`, 'i'), '')
       .replace(new RegExp(`^(?:Version\\s+|v)?${versionPattern}\\s*[-:–—]?\\s*`, 'i'), '')
       .trim();
 
     if (text.length < 30) continue;
-    text = text.charAt(0).toUpperCase() + text.slice(1);
-    if (text.length <= 220) return text;
-    const shortened = text.slice(0, 217);
-    const lastSpace = shortened.lastIndexOf(' ');
-    return `${shortened.slice(0, lastSpace > 160 ? lastSpace : 217).trimEnd()}...`;
+    return truncateSummary(text);
   }
 
   return '';
