@@ -71,9 +71,11 @@ All pages are static, SEO-friendly and served from a custom domain.
 .
 ├── public/
 │   ├── favicon.svg
+│   ├── icons/apps/<slug>.png # canonical app icons synchronized at build time
 │   ├── screenshots/<slug>/   # optional per-app screenshots (served as-is)
 │   └── wikis/<slug>/         # wiki assets copied at build time
 ├── wikis/<slug>/             # cloned wiki repos (gitignored, generated)
+├── scripts/sync-app-icons.mjs # fetches official icons from every app repo
 ├── scripts/fetch-wikis.mjs   # clones every <App>.wiki.git before dev/build
 ├── src/
 │   ├── components/Landing.astro
@@ -126,8 +128,30 @@ A content manager is available at **`/admin`** (`https://cybergems.org/admin`):
 | `npm run dev`     | Start local dev server at `localhost:4321`    |
 | `npm run build`   | Build the production site to `./dist/`        |
 | `npm run preview` | Preview the production build locally          |
+| `npm run sync-icons` | Refresh app icons without a full build     |
 
-> `predev` and `prebuild` run `node scripts/fetch-wikis.mjs` automatically — no manual step needed.
+> `predev` and `prebuild` synchronize app icons and wikis automatically. No manual copy step is needed.
+
+---
+
+### 🎨 App Icon Sync
+
+Every app page and generated README banner reads the same file at `public/icons/apps/<slug>.png`. Before local development and production builds, `scripts/sync-app-icons.mjs` refreshes those files from the official PNG tracked in each app repository.
+
+Local builds prefer sibling repositories under `C:\CyberGems`. CI downloads the canonical files directly from GitHub. Every candidate must be a valid square PNG of at least 128×128 pixels; failed or corrupt downloads leave the existing fallback untouched. The hourly Pages workflow means an icon pushed to an app repository reaches both its web hero and README banner without another README or website commit.
+
+| App | Canonical icon |
+|---|---|
+| CyberClock | `master: src/assets/images/icon.png` |
+| CyberFeeds | `main: resources/icon.png` |
+| CyberLauncher | `main: public/icon.png` |
+| CyberManager | `main: src/CyberManager.UI/Assets/CyberManager.png` |
+| CyberNotes | `main: public/icon.png` |
+| CyberPaste | `main: src-tauri/icons/icon.png` |
+| CyberSnap | `main: src/CyberSnap/Assets/CyberSnap_square.png` |
+| CyberTray | `main: public/icon.png` |
+| CyberViewer | `main: assets/icon.png` |
+| CyberWall | `master: src/CyberWall.UI/Assets/CyberWall.png` |
 
 ---
 
@@ -147,7 +171,7 @@ To refresh wikis locally without a full build: `node scripts/fetch-wikis.mjs`.
 ### 🚀 Deploy
 
 * **Output:** static site in `dist/` (`astro build`)
-* **CI:** `.github/workflows/deploy.yml` — `withastro/action@v3` on push to `main`, plus a daily cron `30 4 * * *` to refresh releases and wikis without a manual push, plus `workflow_dispatch`
+* **CI:** `.github/workflows/deploy.yml`: `withastro/action@v3` on push to `main`, plus an hourly scheduled build that refreshes app icons, releases and wikis, plus `workflow_dispatch`
 * **Hosting:** GitHub Pages with custom domain `cybergems.org` (also ready for Cloudflare Pages). No server, no runtime — just static assets.
 
 ---

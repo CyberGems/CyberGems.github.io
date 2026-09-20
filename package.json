@@ -5,9 +5,10 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "predev": "node scripts/fetch-wikis.mjs",
+    "predev": "npm run sync-icons && node scripts/fetch-wikis.mjs",
     "build": "astro build",
-    "prebuild": "node scripts/fetch-wikis.mjs && node scripts/build-suite-json.mjs",
+    "prebuild": "npm run sync-icons && node scripts/fetch-wikis.mjs && node scripts/build-suite-json.mjs",
+    "sync-icons": "node scripts/sync-app-icons.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
