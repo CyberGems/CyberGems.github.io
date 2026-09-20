@@ -227,9 +227,7 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
   const tagline = balanceTwoLines(app.tagline[lang] ?? app.tagline.en);
   const longestTaglineLine = Math.max(...tagline.map((line) => line.length));
   const taglineSize = longestTaglineLine > 62 ? 20 : longestTaglineLine > 55 ? 21 : 23;
-  const eyebrowPrefix = lang === 'es' ? 'APP DE CYBERGEMS ·' : 'CYBERGEMS APP ·';
-  const windowsIconX = lang === 'es' ? 648 : 608;
-  const windowsLabelX = windowsIconX + 26;
+  const cyberGemsMark = assetData('/favicon.svg', 'image/svg+xml');
   const trust = lang === 'es'
     ? 'GRATIS PARA SIEMPRE · SIN ANUNCIOS · SIN CUENTA · CÓDIGO ABIERTO'
     : 'FREE FOREVER · NO ADS · NO ACCOUNT · OPEN SOURCE';
@@ -275,16 +273,16 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
     ${appImage(app, 150, 116, 128)}
   </g>
 
-  <text x="448" y="70" fill="${accent}" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="800" letter-spacing="2.2">${eyebrowPrefix}</text>
-  <svg x="${windowsIconX}" y="55" width="16" height="16" viewBox="0 0 16 16" fill="#4FC3F7">
+  <svg x="448" y="55" width="16" height="16" viewBox="0 0 16 16" fill="#4FC3F7">
     <path d="M1 2.3 7 1.5v6H1V2.3Zm8-1.1 6-.8v7.1H9V1.2ZM1 8.5h6v6L1 13.7V8.5Zm8 0h6v7.1l-6-.8V8.5Z" />
   </svg>
-  <text x="${windowsLabelX}" y="70" fill="${accent}" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="800" letter-spacing="2.2">WINDOWS 10/11 (64-BIT)</text>
+  <text x="474" y="70" fill="${accent}" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="800" letter-spacing="2.2">WINDOWS 10/11 (64-BIT)</text>
   <text x="448" y="158" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="72" font-weight="800" letter-spacing="-2.6">${title}</text>
   ${tagline.map((line, index) => `<text x="450" y="${212 + index * 34}" fill="#c9c9d1" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
   <text x="450" y="308" fill="#8f929f" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">${escapeXml(trust)}</text>
 
-  <text x="1218" y="316" fill="#8f929f" font-family="Segoe UI, system-ui, sans-serif" font-size="14" text-anchor="end">cybergems.org</text>
+  <image href="${cyberGemsMark}" x="1095" y="296" width="20" height="20" opacity="0.48" />
+  <text x="1218" y="316" fill="#8f929f" fill-opacity="0.82" font-family="Segoe UI, system-ui, sans-serif" font-size="14" text-anchor="end">cybergems.org</text>
 
   <circle cx="54" cy="40" r="1.2" fill="white" fill-opacity="0.65" />
   <circle cx="392" cy="62" r="1" fill="${accent}" fill-opacity="0.8" />
