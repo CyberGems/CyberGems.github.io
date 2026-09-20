@@ -11,8 +11,8 @@
     "es": "Recupera todo lo que hayas copiado — texto, código, imágenes, archivos — 100% local."
   },
   "description": {
-    "en": "A beautiful, privacy-focused clipboard history manager for Windows. CyberPaste stores everything you copy — text, code, images, files, URLs — in a local SQLite database, so you can recall any clip at any time. Search, organize, pin, edit and paste instantly, with optional AI-powered actions.",
-    "es": "Un gestor de historial del portapapeles elegante y centrado en la privacidad para Windows. CyberPaste guarda todo lo que copias — texto, código, imágenes, archivos, URLs — en una base de datos SQLite local, para que recuperes cualquier clip en cualquier momento. Busca, organiza, fija, edita y pega al instante, con acciones de IA opcionales."
+    "en": "A sleek, privacy-focused clipboard history manager for Windows. CyberPaste stores everything you copy, including text, code, images, files and URLs, in a local SQLite database, so you can recall any clip at any time. Search, organize, pin, edit and paste instantly, protect the interface with a PIN or password, and use optional AI-powered actions.",
+    "es": "Un gestor de historial del portapapeles elegante y centrado en la privacidad para Windows. CyberPaste guarda todo lo que copias, incluidos texto, código, imágenes, archivos y URLs, en una base de datos SQLite local, para que recuperes cualquier clip en cualquier momento. Busca, organiza, fija, edita y pega al instante, protege la interfaz con un PIN o contraseña y usa acciones de IA opcionales."
   },
   "howItWorks": {
     "title": {
@@ -79,8 +79,8 @@
       "color": "#A78BFA",
       "title": { "en": "Privacy First", "es": "Privacidad primero" },
       "text": {
-        "en": "100% local SQLite, zero telemetry, no account. Ignore sensitive apps by exe or path, filter ghost clips, or run AI offline with local Ollama via the custom endpoint.",
-        "es": "SQLite 100% local, cero telemetría, sin cuentas. Ignora apps sensibles por exe o ruta, filtra clips fantasma o usa IA offline con Ollama local vía endpoint personalizado."
+        "en": "100% local SQLite, zero telemetry, no account. Hide your clipboard history behind an optional PIN or password, ignore sensitive apps, or run AI offline with local Ollama.",
+        "es": "SQLite 100% local, cero telemetría y sin cuentas. Oculta el historial con un PIN o contraseña opcional, ignora apps sensibles o usa IA offline con Ollama local."
       }
     },
     {
@@ -130,6 +130,7 @@
     }
   ],
   "features": [
+    { "en": "Optional app lock with PIN or password, recovery key, lock-on-hide and Windows session lock", "es": "Bloqueo opcional con PIN o contraseña, clave de recuperación, bloqueo al ocultar y al bloquear Windows" },
     { "en": "Rich content: text, code (syntax highlighting), images (OCR), HTML, RTF, files, URLs", "es": "Contenido rico: texto, código (resaltado de sintaxis), imágenes (OCR), HTML, RTF, archivos, URLs" },
     { "en": "Instant FTS5 search with filter chips and live counts (content, OCR text, source app)", "es": "Búsqueda instantánea FTS5 con filtros y conteos en vivo (contenido, OCR, app de origen)" },
     { "en": "AI actions — summarize, translate, explain code, fix grammar — plus custom prompts, any OpenAI-compatible provider", "es": "Acciones de IA — resumir, traducir, explicar código, corregir gramática — más prompts propios, cualquier proveedor compatible con OpenAI" },

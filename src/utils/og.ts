@@ -231,8 +231,8 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
     ? 'APP DE CYBERGEMS · WINDOWS 10/11 (64-BIT)'
     : 'CYBERGEMS APP · WINDOWS 10/11 (64-BIT)';
   const trust = lang === 'es'
-    ? `GRATIS Y DE CÓDIGO ABIERTO · ${app.stack} · ${app.license}`
-    : `FREE & OPEN SOURCE · ${app.stack} · ${app.license}`;
+    ? 'GRATIS PARA SIEMPRE · SIN ANUNCIOS · SIN CUENTA · CÓDIGO ABIERTO'
+    : 'FREE FOREVER · NO ADS · NO ACCOUNT · OPEN SOURCE';
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" viewBox="0 0 ${BANNER_WIDTH} ${BANNER_HEIGHT}" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="banner-title banner-description">

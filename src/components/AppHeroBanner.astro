@@ -7,8 +7,10 @@ interface Props {
 }
 
 const { app, lang } = Astro.props;
-const openSource = lang === 'en' ? 'Free & open source' : 'Gratis y de código abierto';
 const platformLabel = 'Windows 10/11 (64-bit)';
+const benefits = lang === 'en'
+  ? ['Free forever', 'No ads', 'No account', 'Open source']
+  : ['Gratis para siempre', 'Sin anuncios', 'Sin cuenta', 'Código abierto'];
 ---
 
 <header
@@ -45,11 +47,12 @@ const platformLabel = 'Windows 10/11 (64-bit)';
     <h1 id={`app-title-${app.slug}`} class="app-hero-banner__title">{app.name}</h1>
     <p class="app-hero-banner__tagline">{app.tagline[lang]}</p>
     <div class="app-hero-banner__meta" aria-label={lang === 'en' ? 'App details' : 'Detalles de la app'}>
-      <span>{openSource}</span>
-      <span aria-hidden="true">·</span>
-      <span>{app.stack}</span>
-      <span aria-hidden="true">·</span>
-      <span>{app.license}</span>
+      {benefits.map((benefit, index) => (
+        <>
+          {index > 0 && <span aria-hidden="true">·</span>}
+          <span>{benefit}</span>
+        </>
+      ))}
     </div>
   </div>
 </header>
