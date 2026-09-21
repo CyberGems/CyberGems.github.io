@@ -3,28 +3,99 @@
   "name": "CyberManager",
   "emoji": "💻",
   "icon": "/icons/apps/cybermanager.png",
+  "explainer": "manager-flow",
   "accent": "#4FC3F7",
   "stack": "C# · WPF · .NET 10",
   "license": "GPLv3",
   "tagline": {
-    "en": "Lightweight, high-capacity virtualized task manager with instant search and compact mode.",
-    "es": "Gestor de tareas ligero y virtualizado de alta capacidad, con búsqueda instantánea y modo compacto."
+    "en": "See what is slowing your PC down and take action without losing your place.",
+    "es": "Descubre qué ralentiza tu PC y actúa sin perder de vista lo importante."
   },
   "description": {
-    "en": "CyberManager is a lightweight, high-capacity virtualized task manager. Powered by the native NT engine, it offers instant search and a compact mode. The ultimate alternative to Windows Task Manager.",
-    "es": "CyberManager es un gestor de tareas ligero y virtualizado de alta capacidad. Impulsado por el motor NT nativo, ofrece búsqueda instantánea y un modo compacto. La alternativa definitiva al Administrador de tareas de Windows."
+    "en": "CyberManager is a responsive task manager for Windows that helps you make sense of busy processes. Search by name, PID or path; sort by CPU or memory; and use live graphs and color cues to spot what needs attention. Inspect a process before ending it, pause it temporarily, or change its priority. A compact live monitor, system details, tray access and a configurable global shortcut keep those controls close when you need them.",
+    "es": "CyberManager es un gestor de tareas ágil para Windows que te ayuda a entender los procesos en ejecución. Busca por nombre, PID o ruta; ordena por CPU o memoria; y usa gráficas en vivo y señales de color para detectar qué necesita atención. Examina un proceso antes de finalizarlo, páusalo temporalmente o cambia su prioridad. Un monitor compacto, detalles del sistema, acceso desde la bandeja y un atajo global configurable mantienen esos controles a mano."
+  },
+  "highlightsTitle": {
+    "en": "Know what is happening on your PC",
+    "es": "Entiende qué ocurre en tu PC"
+  },
+  "highlights": [
+    {
+      "icon": "@activity",
+      "title": { "en": "Spot resource spikes", "es": "Detecta picos de consumo" },
+      "text": { "en": "Live CPU and memory graphs, heatmap colors and a top-10 filter make heavy processes easier to notice.", "es": "Las gráficas de CPU y memoria en vivo, el mapa de calor y el filtro de los 10 procesos más pesados ayudan a detectar los picos." }
+    },
+    {
+      "icon": "@search",
+      "title": { "en": "Find the right process", "es": "Encuentra el proceso correcto" },
+      "text": { "en": "Search by name, PID or path, then check friendly names and details before making a change.", "es": "Busca por nombre, PID o ruta y consulta nombres reconocibles y detalles antes de hacer un cambio." }
+    },
+    {
+      "icon": "@list-checks",
+      "title": { "en": "Act with more control", "es": "Actúa con más control" },
+      "text": { "en": "End a task or its process tree, suspend and resume it, or adjust its priority from one place.", "es": "Finaliza una tarea o su árbol de procesos, suspéndela y reanúdala, o ajusta su prioridad desde un solo lugar." }
+    }
+  ],
+  "featuresHeading": {
+    "en": "More ways CyberManager helps",
+    "es": "Más formas en que CyberManager te ayuda"
   },
   "features": [
-    { "en": "Virtualized grid — 3000+ processes at 144fps, zero lag", "es": "Cuadrícula virtualizada — más de 3000 procesos a 144fps, sin lag" },
-    { "en": "NT-native engine (NtQuerySystemInformation, no WMI overhead)", "es": "Motor NT-nativo (NtQuerySystemInformation, sin sobrecarga de WMI)" },
-    { "en": "Adaptive CPU/RAM heatmap with live sparklines", "es": "Mapa de calor adaptativo de CPU/RAM con sparklines en vivo" },
-    { "en": "Top-10 heavy-process filter with persistent search history", "es": "Filtro de los 10 procesos más pesados con historial de búsqueda persistente" },
-    { "en": "Full process control: end tree, suspend/resume, priority", "es": "Control total de procesos: fin de árbol, suspender/reanudar, prioridad" },
-    { "en": "Friendly process names and detailed Properties dialog", "es": "Nombres amigables y diálogo detallado de Propiedades de procesos" },
-    { "en": "System Information window with 4 tabs", "es": "Ventana de Información del sistema con 4 pestañas" },
-    { "en": "Editable Alt+Shift+M hotkey, reliable Windows startup, and factory reset", "es": "Hotkey Alt+Shift+M editable, inicio fiable con Windows y restauración de fábrica" },
-    { "en": "Separate tray behavior for minimizing and closing, with bilingual EN/ES UI", "es": "Comportamiento separado de bandeja al minimizar y cerrar, con UI bilingüe EN/ES" }
+    { "en": "Fast scrolling through large process lists with a virtualized grid", "es": "Recorre listas grandes de procesos con fluidez gracias a la cuadrícula virtualizada" },
+    { "en": "Search by name, PID or path, with recent searches saved", "es": "Busca por nombre, PID o ruta, con historial de búsquedas recientes" },
+    { "en": "Sort CPU and memory use, view heatmap colors and filter the 10 heaviest processes", "es": "Ordena el consumo de CPU y memoria, mira el mapa de calor y filtra los 10 procesos más pesados" },
+    { "en": "End a task or process tree, suspend and resume, or set priority", "es": "Finaliza una tarea o árbol de procesos, suspende y reanuda, o cambia la prioridad" },
+    { "en": "Inspect process properties or open its file location", "es": "Examina las propiedades de un proceso o abre la ubicación de su archivo" },
+    { "en": "Live CPU and memory history with a four-tab System Information window", "es": "Historial de CPU y memoria en vivo y ventana de Información del sistema con cuatro pestañas" },
+    { "en": "Compact monitor, system tray and configurable Alt+Shift+M shortcut", "es": "Monitor compacto, bandeja del sistema y atajo Alt+Shift+M configurable" },
+    { "en": "Three themes, adjustable row size and English or Spanish interface", "es": "Tres temas, tamaño de fila ajustable e interfaz en inglés o español" }
   ],
+  "useCases": {
+    "roles": [
+      {
+        "icon": "💻",
+        "title": { "en": "People with busy PCs", "es": "Quienes exigen mucho a su PC" },
+        "text": { "en": "Sort and filter a long process list without losing track of the app consuming resources.", "es": "Ordena y filtra una lista larga de procesos sin perder de vista la app que consume recursos." }
+      },
+      {
+        "icon": "🎮",
+        "title": { "en": "Gamers", "es": "Jugadores" },
+        "text": { "en": "Keep a compact CPU and memory monitor nearby and identify background tasks when performance drops.", "es": "Mantén cerca un monitor compacto de CPU y memoria e identifica tareas de fondo cuando baja el rendimiento." }
+      },
+      {
+        "icon": "🛠️",
+        "title": { "en": "Troubleshooters", "es": "Quienes resuelven problemas" },
+        "text": { "en": "Look up a process, inspect its details and open its file location before deciding what to do.", "es": "Busca un proceso, revisa sus detalles y abre la ubicación de su archivo antes de decidir qué hacer." }
+      },
+      {
+        "icon": "📊",
+        "title": { "en": "Curious users", "es": "Quienes quieren conocer su equipo" },
+        "text": { "en": "Explore CPU, memory and system details in a dedicated information window.", "es": "Explora datos de CPU, memoria y sistema en una ventana dedicada." }
+      }
+    ],
+    "tasks": [
+      {
+        "icon": "🔎",
+        "title": { "en": "Find a slowdown", "es": "Encuentra la causa de una lentitud" },
+        "text": { "en": "Sort by CPU or memory, then compare the busy process with live usage history.", "es": "Ordena por CPU o memoria y compara el proceso más activo con el historial de consumo en vivo." }
+      },
+      {
+        "icon": "🧊",
+        "title": { "en": "Handle a frozen app", "es": "Resuelve una app bloqueada" },
+        "text": { "en": "Search for its name, inspect it and end the task or its process tree when appropriate.", "es": "Busca su nombre, revísala y finaliza la tarea o su árbol de procesos cuando corresponda." }
+      },
+      {
+        "icon": "⏸️",
+        "title": { "en": "Pause a heavy process", "es": "Pausa un proceso pesado" },
+        "text": { "en": "Suspend a process temporarily and resume it later instead of ending it.", "es": "Suspende un proceso temporalmente y reanúdalo después en lugar de finalizarlo." }
+      },
+      {
+        "icon": "🪟",
+        "title": { "en": "Monitor without clutter", "es": "Monitorea sin saturar la pantalla" },
+        "text": { "en": "Switch to compact mode and keep a live view of processes, CPU and memory at hand.", "es": "Cambia al modo compacto y ten a mano procesos, CPU y memoria en vivo." }
+      }
+    ]
+  },
   "repo": "https://github.com/CyberGems/CyberManager",
   "wiki": "https://github.com/CyberGems/CyberManager/wiki",
   "screenshot": null

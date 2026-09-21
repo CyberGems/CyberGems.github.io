@@ -3,7 +3,7 @@ interface Props {
   lang: 'en' | 'es';
   accent: string;
   icon?: string;
-  kind: 'connection-flow' | 'feed-flow' | 'launcher-flow' | 'viewer-flow' | 'tray-flow';
+  kind: 'connection-flow' | 'feed-flow' | 'launcher-flow' | 'viewer-flow' | 'tray-flow' | 'manager-flow';
 }
 
 const { lang, accent, icon, kind } = Astro.props;
@@ -152,7 +152,36 @@ const trayCopy = lang === 'en' ? {
   always: 'Archivos',
   block: 'Enlaces',
 };
-const copy = kind === 'tray-flow' ? trayCopy : kind === 'viewer-flow' ? viewerCopy : kind === 'launcher-flow' ? launcherCopy : kind === 'feed-flow' ? feedCopy : wallCopy;
+const managerCopy = lang === 'en' ? {
+  eyebrow: 'CYBERMANAGER · THE IDEA',
+  note: 'ILLUSTRATION, NOT AN APP SCREENSHOT',
+  title: 'Find the slowdown. Take control.',
+  intro: 'A clear path from a busy PC to an informed decision.',
+  first: 'See what is happening',
+  firstText: 'Check live CPU and memory history, or sort processes by their usage.',
+  second: 'Find the process',
+  secondText: 'Search by name, PID or path and inspect its details before acting.',
+  third: 'Choose the next step',
+  thirdText: 'End a frozen task, pause and resume a process, or change its priority.',
+  once: 'Inspect',
+  always: 'Pause',
+  block: 'End task',
+} : {
+  eyebrow: 'CYBERMANAGER · LA IDEA',
+  note: 'ILUSTRACIÓN, NO CAPTURA DE LA APP',
+  title: 'Encuentra la causa. Toma el control.',
+  intro: 'Un camino claro desde un PC lento hasta una decisión informada.',
+  first: 'Observa qué ocurre',
+  firstText: 'Consulta el historial de CPU y memoria en vivo u ordena los procesos por consumo.',
+  second: 'Encuentra el proceso',
+  secondText: 'Busca por nombre, PID o ruta y revisa sus detalles antes de actuar.',
+  third: 'Elige el siguiente paso',
+  thirdText: 'Finaliza una tarea bloqueada, pausa y reanuda un proceso o cambia su prioridad.',
+  once: 'Inspeccionar',
+  always: 'Pausar',
+  block: 'Finalizar',
+};
+const copy = kind === 'manager-flow' ? managerCopy : kind === 'tray-flow' ? trayCopy : kind === 'viewer-flow' ? viewerCopy : kind === 'launcher-flow' ? launcherCopy : kind === 'feed-flow' ? feedCopy : wallCopy;
 ---
 
 <div class="explainer relative w-full min-h-[550px] sm:min-h-[480px] lg:min-h-[495px] overflow-hidden p-5 sm:p-8 lg:p-10" style={`--explainer-accent: ${accent};`}>
@@ -171,7 +200,9 @@ const copy = kind === 'tray-flow' ? trayCopy : kind === 'viewer-flow' ? viewerCo
       <li class="step-card relative rounded-2xl border border-white/10 p-4 sm:p-5">
         <span class="step-number">01</span>
         <div class="step-icon" aria-hidden="true">
-          {kind === 'tray-flow' ? (
+          {kind === 'manager-flow' ? (
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="38" height="34" rx="4"/><path d="M10 31h5l5-11 6 16 5-10h7M11 14h10"/></svg>
+          ) : kind === 'tray-flow' ? (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="38" height="32" rx="4"/><path d="M5 17h38M14 25h8M27 25h8M14 32h8M27 32h8"/></svg>
           ) : kind === 'feed-flow' ? (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="29" height="25" rx="3"/><path d="M5 14h29M12 21h10M12 26h15M29 38h14M36 31v14"/></svg>
@@ -197,7 +228,9 @@ const copy = kind === 'tray-flow' ? trayCopy : kind === 'viewer-flow' ? viewerCo
       <li class="step-card relative rounded-2xl border border-white/10 p-4 sm:p-5">
         <span class="step-number">03</span>
         <div class="step-icon" aria-hidden="true">
-          {kind === 'tray-flow' ? (
+          {kind === 'manager-flow' ? (
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8h24v32H12zM18 16h12M18 24h12M18 32h5"/><path d="m28 31 3 3 6-7"/></svg>
+          ) : kind === 'tray-flow' ? (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 27v10a4 4 0 0 0 4 4h24a4 4 0 0 0 4-4V27M15 20l9 9 9-9M24 29V6"/></svg>
           ) : kind === 'feed-flow' ? (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 10c-5-4-12-4-18-2v30c6-2 13-2 18 2 5-4 12-4 18-2V8c-6-2-13-2-18 2ZM24 10v30"/><path d="M11 17h8M29 17h8M11 23h8M29 23h8"/></svg>
