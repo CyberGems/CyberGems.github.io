@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { ui, type Lang } from '../data/ui';
 import NavIcon from '../components/NavIcon.astro';
+import { apps } from '../data/apps';
 
 interface Props {
   title: string;
@@ -41,6 +42,7 @@ const mobileLinkClass = (href: string) =>
   'inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm transition-colors ' + (isActive(href) ? 'bg-white/10 text-white font-semibold' : 'text-[#c9c9d1] hover:bg-white/5 hover:text-white');
 const donateHref = lang === 'en' ? '/donate' : '/es/donate';
 const donateActive = isActive(donateHref);
+const appsActive = /^\/(?:es\/)?apps\//.test(path);
 const xDefaultHref = new URL('/', Astro.site).href;
 const ogImageUrl = ogImage ? new URL(ogImage, Astro.site).href : new URL('/og.png', Astro.site).href;
 const ogLocale = lang === 'es' ? 'es_ES' : 'en_US';
@@ -121,7 +123,25 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
           <img src="/branding/cybergems-header.svg" alt="CyberGems" width="192" height="32" class="h-6 w-auto sm:h-8" />
         </a>
         <div class="flex items-center gap-2 sm:gap-5">
-          <a href={`${homeHref}#apps`} class="hidden sm:inline-flex items-center gap-1.5 text-sm text-[#9a9aa5] hover:text-white transition-colors"><NavIcon name="apps" /><span>{t.navApps}</span></a>
+          <div class="relative hidden sm:inline-flex items-center gap-0.5" data-apps-dropdown>
+            <a href={`${homeHref}#apps`} class:list={['inline-flex items-center gap-1.5 text-sm transition-colors hover:text-white', appsActive ? 'nav-link-active' : 'text-[#9a9aa5]']}><NavIcon name="apps" /><span>{t.navApps}</span></a>
+            <button type="button" class="rounded p-1 text-[#9a9aa5] hover:bg-white/5 hover:text-white focus-visible:outline-2 focus-visible:outline-[#00f2ff]" aria-label={lang === 'en' ? 'Show app shortcuts' : 'Mostrar accesos a las apps'} aria-controls="desktop-apps-menu" aria-expanded="false" data-apps-toggle>
+              <svg class="h-3.5 w-3.5 transition-transform" data-apps-chevron viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m3 6 5 5 5-5" /></svg>
+            </button>
+            <div id="desktop-apps-menu" class="hidden absolute left-1/2 top-full z-50 mt-3 w-[440px] max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-2xl border border-white/10 bg-[#151a24] p-3 shadow-[0_22px_60px_#0009]" data-apps-panel>
+              <p class="px-2 pb-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#8e98a8]">{lang === 'en' ? 'Explore the apps' : 'Explora las apps'}</p>
+              <div class="grid grid-cols-2 gap-1">
+                {apps.map((app) => {
+                  const href = `${lang === 'en' ? '' : '/es'}/apps/${app.slug}`;
+                  return <a href={href} class:list={['flex min-w-0 items-center gap-2.5 rounded-lg px-2 py-2 text-sm transition-colors hover:bg-white/7 hover:text-white focus-visible:bg-white/7 focus-visible:outline-2 focus-visible:outline-[#00f2ff]', isActive(href) ? 'bg-white/10 font-semibold text-white' : 'text-[#c9c9d1]']} aria-current={isActive(href) ? 'page' : undefined}>
+                    <img src={app.icon} alt="" width="28" height="28" class="h-7 w-7 shrink-0 object-contain" loading="lazy" />
+                    <span class="truncate">{app.name}</span>
+                  </a>;
+                })}
+              </div>
+              <a href={`${homeHref}#apps`} class="mt-2 flex items-center justify-between border-t border-white/10 px-2 pt-3 text-sm font-semibold text-[#72dff5] hover:text-white">{lang === 'en' ? 'See all apps' : 'Ver todas las apps'}<span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
           <a href={lang === 'en' ? '/changelog' : '/es/changelog'} class={`${navLinkClass(lang === 'en' ? '/changelog' : '/es/changelog')} hidden md:inline-flex`} aria-current={isActive(lang === 'en' ? '/changelog' : '/es/changelog') ? 'page' : undefined}><NavIcon name="newspaper" /><span>{t.navChangelog}</span></a>
           <a href={lang === 'en' ? '/docs' : '/es/docs'} class={`hidden sm:inline-flex ${navLinkClass(lang === 'en' ? '/docs' : '/es/docs')}`} aria-current={isActive(lang === 'en' ? '/docs' : '/es/docs') ? 'page' : undefined}><NavIcon name="book" size={19} /><span>{t.navDocs}</span></a>
           <a href={lang === 'en' ? '/about' : '/es/about'} class={`hidden lg:inline-flex items-center gap-1.5 text-sm transition-colors ${isActive(lang === 'en' ? '/about' : '/es/about') ? 'nav-link-active' : 'text-[#9a9aa5] hover:text-white'}`} aria-current={isActive(lang === 'en' ? '/about' : '/es/about') ? 'page' : undefined}><NavIcon name="info" /><span>{t.navAbout}</span></a>
@@ -173,10 +193,24 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
           </button>
         </div>
       </nav>
-      <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-[#0d0f17]/95">
+      <div id="mobile-menu" class="hidden max-h-[calc(100dvh-4rem)] overflow-y-auto md:hidden border-t border-white/5 bg-[#0d0f17]/95">
         <nav aria-label={lang === 'en' ? 'Mobile navigation' : 'Navegación móvil'} class="max-w-6xl mx-auto px-5 py-3 grid grid-cols-2 gap-2">
-          <a href={`${homeHref}#apps`} class="inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm text-[#c9c9d1] hover:bg-white/5 hover:text-white" data-mobile-menu-link><NavIcon name="apps" /><span>{t.navApps}</span></a>
+          <div class="flex min-w-0 items-center rounded-lg text-sm text-[#c9c9d1] hover:bg-white/5">
+            <a href={`${homeHref}#apps`} class="inline-flex min-w-0 flex-1 items-center gap-2 rounded-l-lg px-3 py-2.5 hover:text-white" data-mobile-menu-link><NavIcon name="apps" /><span>{t.navApps}</span></a>
+            <button type="button" class="shrink-0 rounded-r-lg px-2 py-2.5 hover:text-white focus-visible:outline-2 focus-visible:outline-[#00f2ff]" aria-label={lang === 'en' ? 'Show app shortcuts' : 'Mostrar accesos a las apps'} aria-controls="mobile-apps-list" aria-expanded="false" data-mobile-apps-toggle>
+              <svg class="h-4 w-4 transition-transform" data-mobile-apps-chevron viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m3 6 5 5 5-5" /></svg>
+            </button>
+          </div>
           <a href={lang === 'en' ? '/download' : '/es/download'} class={mobileLinkClass(lang === 'en' ? '/download' : '/es/download')} aria-current={isActive(lang === 'en' ? '/download' : '/es/download') ? 'page' : undefined} data-mobile-menu-link><NavIcon name="download" /><span>{t.navDownload}</span></a>
+          <div id="mobile-apps-list" class="hidden col-span-2 grid grid-cols-2 gap-1 rounded-xl border border-white/10 bg-white/[0.03] p-2" data-mobile-apps-list>
+            {apps.map((app) => {
+              const href = `${lang === 'en' ? '' : '/es'}/apps/${app.slug}`;
+              return <a href={href} class:list={['flex min-w-0 items-center gap-2 rounded-lg px-2 py-2 text-xs transition-colors hover:bg-white/7 hover:text-white', isActive(href) ? 'bg-white/10 font-semibold text-white' : 'text-[#c9c9d1]']} aria-current={isActive(href) ? 'page' : undefined} data-mobile-menu-link>
+                <img src={app.icon} alt="" width="24" height="24" class="h-6 w-6 shrink-0 object-contain" loading="lazy" />
+                <span class="truncate">{app.name}</span>
+              </a>;
+            })}
+          </div>
           <a href={lang === 'en' ? '/changelog' : '/es/changelog'} class={mobileLinkClass(lang === 'en' ? '/changelog' : '/es/changelog')} aria-current={isActive(lang === 'en' ? '/changelog' : '/es/changelog') ? 'page' : undefined} data-mobile-menu-link><NavIcon name="newspaper" /><span>{t.navChangelog}</span></a>
           <a href={lang === 'en' ? '/docs' : '/es/docs'} class={mobileLinkClass(lang === 'en' ? '/docs' : '/es/docs')} aria-current={isActive(lang === 'en' ? '/docs' : '/es/docs') ? 'page' : undefined} data-mobile-menu-link><NavIcon name="book" size={19} /><span>{t.navDocs}</span></a>
           <a href={lang === 'en' ? '/about' : '/es/about'} class={mobileLinkClass(lang === 'en' ? '/about' : '/es/about')} aria-current={isActive(lang === 'en' ? '/about' : '/es/about') ? 'page' : undefined} data-mobile-menu-link><NavIcon name="info" /><span>{t.navAbout}</span></a>
@@ -232,18 +266,64 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
     </footer>
     <script is:inline>
       (() => {
+        const dropdown = document.querySelector('[data-apps-dropdown]');
+        const toggle = dropdown?.querySelector('[data-apps-toggle]');
+        const panel = dropdown?.querySelector('[data-apps-panel]');
+        if (!dropdown || !toggle || !panel) return;
+        const setOpen = (open) => {
+          panel.classList.toggle('hidden', !open);
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.querySelector('[data-apps-chevron]')?.classList.toggle('rotate-180', open);
+        };
+        toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+        dropdown.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+            setOpen(false);
+            toggle.focus();
+          }
+        });
+        dropdown.addEventListener('focusout', (event) => {
+          if (!dropdown.contains(event.relatedTarget)) setOpen(false);
+        });
+        document.addEventListener('pointerdown', (event) => {
+          if (!dropdown.contains(event.target)) setOpen(false);
+        });
+      })();
+    </script>
+    <script is:inline>
+      (() => {
         const toggle = document.querySelector('[data-mobile-menu-toggle]');
         const menu = document.getElementById('mobile-menu');
         if (!toggle || !menu) return;
         const icon = toggle.querySelector('[data-mobile-menu-icon]');
+        const appsToggle = menu.querySelector('[data-mobile-apps-toggle]');
+        const appsList = menu.querySelector('[data-mobile-apps-list]');
+        const setAppsOpen = (open) => {
+          if (!appsToggle || !appsList) return;
+          appsList.classList.toggle('hidden', !open);
+          appsToggle.setAttribute('aria-expanded', String(open));
+          appsToggle.querySelector('[data-mobile-apps-chevron]')?.classList.toggle('rotate-180', open);
+        };
         const setOpen = (open) => {
           menu.classList.toggle('hidden', !open);
           toggle.setAttribute('aria-expanded', String(open));
           toggle.setAttribute('aria-label', toggle.getAttribute(open ? 'data-close-label' : 'data-open-label') || 'Menu');
           if (icon) icon.textContent = open ? '×' : '☰';
+          if (!open) setAppsOpen(false);
         };
         toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+        appsToggle?.addEventListener('click', () => setAppsOpen(appsToggle.getAttribute('aria-expanded') !== 'true'));
         menu.querySelectorAll('[data-mobile-menu-link]').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+        menu.addEventListener('keydown', (event) => {
+          if (event.key !== 'Escape') return;
+          if (appsToggle?.getAttribute('aria-expanded') === 'true') {
+            setAppsOpen(false);
+            appsToggle.focus();
+          } else {
+            setOpen(false);
+            toggle.focus();
+          }
+        });
         window.addEventListener('resize', () => {
           if (window.innerWidth >= 768) setOpen(false);
         });
