@@ -3,25 +3,99 @@
   "name": "CyberLauncher",
   "emoji": "🚀",
   "icon": "/icons/apps/cyberlauncher.png",
+  "explainer": "launcher-flow",
   "accent": "#8B9CF6",
   "stack": "Electron · React · TypeScript",
   "license": "GPLv3",
   "tagline": {
-    "en": "Windows application launcher with hot corners, scheduler, system monitor, glassmorphic UI and integrated terminal.",
-    "es": "Lanzador de aplicaciones con esquinas activas, programador, monitor del sistema, interfaz glassmórfica y terminal integrada."
+    "en": "Find apps and files, launch favorites and get back to work in seconds.",
+    "es": "Encuentra apps y archivos, abre tus favoritos y vuelve a lo tuyo en segundos."
   },
   "description": {
-    "en": "A Windows application launcher with hot corners, scheduler, system monitor, glassmorphic UI and integrated terminal. Free, open-source and fast, featuring instant fuzzy search, system-wide file indexing, UWP app support and keyboard-driven app launching.",
-    "es": "Un lanzador de aplicaciones para Windows con esquinas activas, programador, monitor del sistema, interfaz glassmórfica y terminal integrada. Gratuito, de código abierto y rápido, con búsqueda difusa instantánea, indexación de archivos en todo el sistema, soporte para apps UWP y lanzamiento ágil mediante teclado."
+    "en": "CyberLauncher is a customizable Windows command center for opening the things you use every day. Bring it up with a keyboard shortcut or hot corner, type part of a name to find an app or file, and press Enter to launch it. Organize favorites and categories for even faster access, schedule recurring launches, or run commands when you need them. System information and appearance controls make the full-screen launcher feel at home on your desktop.",
+    "es": "CyberLauncher es un centro de acceso personalizable para abrir lo que usas cada día en Windows. Invócalo con un atajo de teclado o una esquina activa, escribe parte del nombre para encontrar una app o archivo y pulsa Enter para abrirlo. Organiza favoritos y categorías para llegar aún más rápido, programa aperturas recurrentes o ejecuta comandos cuando los necesites. La información del sistema y los ajustes de apariencia hacen que el lanzador a pantalla completa se adapte a tu escritorio."
+  },
+  "highlightsTitle": {
+    "en": "Less searching, more doing",
+    "es": "Menos búsqueda, más acción"
+  },
+  "highlights": [
+    {
+      "icon": "@search",
+      "title": { "en": "Find it without the exact name", "es": "Encuéntralo sin saber el nombre exacto" },
+      "text": { "en": "Search apps, shortcuts and indexed files with fast, forgiving results as you type.", "es": "Busca apps, accesos directos y archivos indexados con resultados rápidos aunque escribas solo parte del nombre." }
+    },
+    {
+      "icon": "@keyboard",
+      "title": { "en": "Launch from anywhere", "es": "Abre desde cualquier lugar" },
+      "text": { "en": "Summon the launcher with a global shortcut or hot corner, then use the keyboard to open a result.", "es": "Invoca el lanzador con un atajo global o una esquina activa y abre un resultado con el teclado." }
+    },
+    {
+      "icon": "@grid",
+      "title": { "en": "Make your own workspace", "es": "Organiza tu espacio" },
+      "text": { "en": "Arrange favorites and color-coded categories, then tailor the background, glass effect and scale.", "es": "Ordena favoritos y categorías por color y ajusta el fondo, el efecto de cristal y la escala." }
+    }
+  ],
+  "featuresHeading": {
+    "en": "More ways CyberLauncher helps",
+    "es": "Más formas en que CyberLauncher te ayuda"
   },
   "features": [
-    { "en": "Full-screen, keyboard-driven launcher with instant fuzzy search", "es": "Lanzador a pantalla completa guiado por teclado con búsqueda difusa instantánea" },
-    { "en": "Hybrid indexing engine: system-wide file search across all drives", "es": "Motor de indexación híbrido: búsqueda de archivos en todo el sistema y todas las unidades" },
-    { "en": "UWP / Microsoft Store apps supported natively", "es": "Apps UWP / Microsoft Store soportadas de forma nativa" },
-    { "en": "Color-coded categories, favorites bar, taskbar pins", "es": "Categorías con colores, barra de favoritos, fijados en la barra" },
-    { "en": "Console mode: type > to run shell commands directly", "es": "Modo consola: escribe > para ejecutar comandos shell directamente" },
-    { "en": "Hot corners, per-app global shortcuts, multi-monitor", "es": "Esquinas activas, atajos globales por app, multi-monitor" }
+    { "en": "Search apps, files and folders across your drives", "es": "Busca apps, archivos y carpetas en tus unidades" },
+    { "en": "Open Microsoft Store apps, shortcuts and web links", "es": "Abre apps de Microsoft Store, accesos directos y enlaces web" },
+    { "en": "Pin frequently used apps and organize them in categories", "es": "Fija tus apps frecuentes y organízalas en categorías" },
+    { "en": "Assign custom shortcuts to individual apps", "es": "Asigna atajos personalizados a cada app" },
+    { "en": "Schedule app launches or commands for a later time", "es": "Programa la apertura de apps o comandos para más tarde" },
+    { "en": "Type > to run a shell command from the search field", "es": "Escribe > para ejecutar un comando desde el buscador" },
+    { "en": "Check CPU, memory and disk usage at a glance", "es": "Consulta el uso de CPU, memoria y disco de un vistazo" },
+    { "en": "Adjust background, glass effect, opacity and interface scale", "es": "Ajusta fondo, efecto de cristal, opacidad y escala de la interfaz" }
   ],
+  "useCases": {
+    "roles": [
+      {
+        "icon": "⚡",
+        "title": { "en": "Frequent multitaskers", "es": "Quienes hacen varias tareas" },
+        "text": { "en": "Switch quickly between the tools you use all day without browsing the Start Menu.", "es": "Cambia rápidamente entre las herramientas que usas a diario sin recorrer el menú Inicio." }
+      },
+      {
+        "icon": "🧑‍💻",
+        "title": { "en": "Developers and power users", "es": "Desarrolladores y usuarios avanzados" },
+        "text": { "en": "Find project files, run a command and create shortcuts for favorite tools.", "es": "Encuentra archivos de proyectos, ejecuta comandos y crea atajos para tus herramientas favoritas." }
+      },
+      {
+        "icon": "📚",
+        "title": { "en": "Students and researchers", "es": "Estudiantes e investigadores" },
+        "text": { "en": "Find notes and documents across drives and keep your study apps together.", "es": "Encuentra notas y documentos entre unidades y mantén juntas tus apps de estudio." }
+      },
+      {
+        "icon": "🎨",
+        "title": { "en": "Desktop customizers", "es": "Quienes personalizan su escritorio" },
+        "text": { "en": "Build a launcher with your own categories, favorites and visual style.", "es": "Crea un lanzador con tus propias categorías, favoritos y estilo visual." }
+      }
+    ],
+    "tasks": [
+      {
+        "icon": "⌨️",
+        "title": { "en": "Open an app in a few keys", "es": "Abre una app con pocas teclas" },
+        "text": { "en": "Call up the launcher, type part of a name and press Enter.", "es": "Invoca el lanzador, escribe parte del nombre y pulsa Enter." }
+      },
+      {
+        "icon": "🔎",
+        "title": { "en": "Find a buried file", "es": "Encuentra un archivo perdido" },
+        "text": { "en": "Search indexed files and folders without navigating through multiple windows.", "es": "Busca archivos y carpetas indexados sin recorrer varias ventanas." }
+      },
+      {
+        "icon": "🗓️",
+        "title": { "en": "Start a routine on time", "es": "Inicia una rutina a tiempo" },
+        "text": { "en": "Schedule an app or command to launch when your workflow needs it.", "es": "Programa una app o comando para que se abra cuando tu rutina lo necesite." }
+      },
+      {
+        "icon": "📌",
+        "title": { "en": "Keep essentials close", "es": "Ten lo esencial a mano" },
+        "text": { "en": "Pin the tools you rely on and organize them into recognizable categories.", "es": "Fija tus herramientas habituales y organízalas en categorías fáciles de reconocer." }
+      }
+    ]
+  },
   "repo": "https://github.com/CyberGems/CyberLauncher",
   "wiki": "https://github.com/CyberGems/CyberLauncher/wiki",
   "screenshot": null
