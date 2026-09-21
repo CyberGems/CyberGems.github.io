@@ -12,8 +12,8 @@
     "es": "Encuentra apps y archivos, abre tus favoritos y vuelve a lo tuyo en segundos."
   },
   "description": {
-    "en": "CyberLauncher is a customizable Windows command center for opening the things you use every day. Bring it up with a keyboard shortcut or hot corner, type part of a name to find an app or file, and press Enter to launch it. Organize favorites and categories for even faster access, schedule recurring launches, or run commands when you need them. System information and appearance controls make the full-screen launcher feel at home on your desktop.",
-    "es": "CyberLauncher es un centro de acceso personalizable para abrir lo que usas cada día en Windows. Invócalo con un atajo de teclado o una esquina activa, escribe parte del nombre para encontrar una app o archivo y pulsa Enter para abrirlo. Organiza favoritos y categorías para llegar aún más rápido, programa aperturas recurrentes o ejecuta comandos cuando los necesites. La información del sistema y los ajustes de apariencia hacen que el lanzador a pantalla completa se adapte a tu escritorio."
+    "en": "CyberLauncher is a customizable Windows command center for opening the things you use every day. Bring it up with a keyboard shortcut or hot corner, type a few letters to find an app, or switch to system search for indexed files. Organize favorites and categories for faster access, schedule recurring launches, or run commands when you need them. System information and appearance controls make the full-screen launcher feel at home on your desktop.",
+    "es": "CyberLauncher es un centro de acceso personalizable para abrir lo que usas cada día en Windows. Invócalo con un atajo de teclado o una esquina activa, escribe unas letras para encontrar una app o cambia a la búsqueda del sistema para hallar archivos indexados. Organiza favoritos y categorías para llegar más rápido, programa aperturas recurrentes o ejecuta comandos cuando los necesites. La información del sistema y los ajustes de apariencia hacen que el lanzador a pantalla completa se adapte a tu escritorio."
   },
   "highlightsTitle": {
     "en": "Less searching, more doing",
@@ -22,8 +22,8 @@
   "highlights": [
     {
       "icon": "@search",
-      "title": { "en": "Find it without the exact name", "es": "Encuéntralo sin saber el nombre exacto" },
-      "text": { "en": "Search apps, shortcuts and indexed files with fast, forgiving results as you type.", "es": "Busca apps, accesos directos y archivos indexados con resultados rápidos aunque escribas solo parte del nombre." }
+      "title": { "en": "Find apps from a few letters", "es": "Encuentra apps con unas letras" },
+      "text": { "en": "Fuzzy matching finds an app when you remember only part of its name. System search handles indexed files.", "es": "La búsqueda aproximada encuentra una app aunque solo recuerdes parte del nombre. La búsqueda del sistema se encarga de los archivos indexados." }
     },
     {
       "icon": "@keyboard",
@@ -41,7 +41,7 @@
     "es": "Más formas en que CyberLauncher te ayuda"
   },
   "features": [
-    { "en": "Search apps, files and folders across your drives", "es": "Busca apps, archivos y carpetas en tus unidades" },
+    { "en": "Search apps and indexed files in your configured locations", "es": "Busca apps y archivos indexados en las ubicaciones configuradas" },
     { "en": "Open Microsoft Store apps, shortcuts and web links", "es": "Abre apps de Microsoft Store, accesos directos y enlaces web" },
     { "en": "Pin frequently used apps and organize them in categories", "es": "Fija tus apps frecuentes y organízalas en categorías" },
     { "en": "Assign custom shortcuts to individual apps", "es": "Asigna atajos personalizados a cada app" },
