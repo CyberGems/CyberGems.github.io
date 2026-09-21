@@ -3,7 +3,7 @@ interface Props {
   lang: 'en' | 'es';
   accent: string;
   icon?: string;
-  kind: 'connection-flow' | 'feed-flow' | 'launcher-flow';
+  kind: 'connection-flow' | 'feed-flow' | 'launcher-flow' | 'viewer-flow';
 }
 
 const { lang, accent, icon, kind } = Astro.props;
@@ -94,7 +94,36 @@ const launcherCopy = lang === 'en' ? {
   always: 'Archivos',
   block: 'Comandos',
 };
-const copy = kind === 'launcher-flow' ? launcherCopy : kind === 'feed-flow' ? feedCopy : wallCopy;
+const viewerCopy = lang === 'en' ? {
+  eyebrow: 'CYBERVIEWER · THE IDEA',
+  note: 'ILLUSTRATION, NOT AN APP SCREENSHOT',
+  title: 'Open. Explore. Refine.',
+  intro: 'A clear path from viewing an image to making it yours.',
+  first: 'Open an image or folder',
+  firstText: 'Drop it in, paste from the clipboard, or open it from Windows Explorer.',
+  second: 'Explore every detail',
+  secondText: 'Browse thumbnails, zoom and pan, or switch to fullscreen and slideshow.',
+  third: 'Make a quick edit',
+  thirdText: 'Rotate, crop, resize or adjust color, then save your result.',
+  once: 'Crop',
+  always: 'Rotate',
+  block: 'Resize',
+} : {
+  eyebrow: 'CYBERVIEWER · LA IDEA',
+  note: 'ILUSTRACIÓN, NO CAPTURA DE LA APP',
+  title: 'Abre. Explora. Ajusta.',
+  intro: 'Un camino claro desde ver una imagen hasta dejarla a tu gusto.',
+  first: 'Abre una imagen o carpeta',
+  firstText: 'Arrástrala, pégala desde el portapapeles o ábrela desde el Explorador.',
+  second: 'Explora cada detalle',
+  secondText: 'Recorre miniaturas, haz zoom y paneo, o usa pantalla completa y diapositivas.',
+  third: 'Haz un ajuste rápido',
+  thirdText: 'Rota, recorta, redimensiona o ajusta el color y guarda el resultado.',
+  once: 'Recortar',
+  always: 'Rotar',
+  block: 'Tamaño',
+};
+const copy = kind === 'viewer-flow' ? viewerCopy : kind === 'launcher-flow' ? launcherCopy : kind === 'feed-flow' ? feedCopy : wallCopy;
 ---
 
 <div class="explainer relative w-full min-h-[550px] sm:min-h-[480px] lg:min-h-[495px] overflow-hidden p-5 sm:p-8 lg:p-10" style={`--explainer-accent: ${accent};`}>
@@ -115,6 +144,8 @@ const copy = kind === 'launcher-flow' ? launcherCopy : kind === 'feed-flow' ? fe
         <div class="step-icon" aria-hidden="true">
           {kind === 'feed-flow' ? (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="29" height="25" rx="3"/><path d="M5 14h29M12 21h10M12 26h15M29 38h14M36 31v14"/></svg>
+          ) : kind === 'viewer-flow' ? (
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="40" height="34" rx="4"/><circle cx="15" cy="18" r="4"/><path d="m7 36 12-11 7 6 6-5 9 10"/></svg>
           ) : kind === 'launcher-flow' ? (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="10" width="42" height="28" rx="4"/><path d="M9 17h3M17 17h3M25 17h3M33 17h6M9 24h3M17 24h3M25 24h3M33 24h6M14 31h20"/></svg>
           ) : (
@@ -137,6 +168,8 @@ const copy = kind === 'launcher-flow' ? launcherCopy : kind === 'feed-flow' ? fe
         <div class="step-icon" aria-hidden="true">
           {kind === 'feed-flow' ? (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 10c-5-4-12-4-18-2v30c6-2 13-2 18 2 5-4 12-4 18-2V8c-6-2-13-2-18 2ZM24 10v30"/><path d="M11 17h8M29 17h8M11 23h8M29 23h8"/></svg>
+          ) : kind === 'viewer-flow' ? (
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7H8a2 2 0 0 0-2 2v9M31 7h9a2 2 0 0 1 2 2v9M6 30v9a2 2 0 0 0 2 2h9M42 30v9a2 2 0 0 1-2 2h-9"/><path d="M13 34 34 13"/></svg>
           ) : kind === 'launcher-flow' ? (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="9" width="32" height="30" rx="5"/><path d="M19 29 30 18M20 18h10v10"/></svg>
           ) : (

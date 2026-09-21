@@ -3,25 +3,99 @@
   "name": "CyberViewer",
   "emoji": "💫",
   "icon": "/icons/apps/cyberviewer.png",
+  "explainer": "viewer-flow",
   "accent": "#BA68C8",
   "stack": "Electron · JavaScript",
   "license": "GPLv3",
   "tagline": {
-    "en": "A fast, lightweight image viewer with the essential editing tools built in.",
-    "es": "Un visor de imágenes rápido y ligero con las herramientas de edición esenciales integradas."
+    "en": "Open images quickly, explore whole folders and make the edits you need.",
+    "es": "Abre imágenes rápido, recorre carpetas y haz los ajustes que necesitas."
   },
   "description": {
-    "en": "A fast, lightweight Windows image viewer — open, browse folders, zoom/pan and perform light edits (rotate, crop, resize, adjust colors). Built with Electron and vanilla JavaScript, it delivers instant loading, smooth browsing and a sleek, distraction-free interface.",
-    "es": "Un visor de imágenes rápido y ligero para Windows: abre, navega por carpetas, haz zoom/pan y realiza ediciones ligeras (rotar, recortar, redimensionar, ajustar colores). Construido con Electron y JavaScript vanilla, ofrece apertura instantánea, navegación fluida y una interfaz elegante sin distracciones."
+    "en": "CyberViewer keeps viewing and everyday editing in one focused Windows app. Open an image or drop in a folder, move through thumbnails, zoom into details, and enjoy fullscreen viewing or a slideshow. When a picture needs a quick fix, rotate, crop, resize, flip or adjust its colors without switching to a full editor. Favorites, recent files, clipboard tools, PDF export and Windows Explorer integration help the result fit back into your workflow.",
+    "es": "CyberViewer reúne la visualización y los ajustes cotidianos en una app enfocada para Windows. Abre una imagen o arrastra una carpeta, recorre sus miniaturas, amplía los detalles y disfruta la pantalla completa o una presentación de diapositivas. Si una imagen necesita un retoque rápido, rota, recorta, redimensiona, voltea o ajusta sus colores sin cambiar a un editor completo. Favoritos, archivos recientes, herramientas de portapapeles, exportación a PDF e integración con el Explorador ayudan a continuar tu trabajo."
+  },
+  "highlightsTitle": {
+    "en": "Everything you need for everyday images",
+    "es": "Lo que necesitas para tus imágenes de cada día"
+  },
+  "highlights": [
+    {
+      "icon": "@image",
+      "title": { "en": "Open large images smoothly", "es": "Abre imágenes grandes con fluidez" },
+      "text": { "en": "A streaming approach starts displaying large files without loading the entire image into memory first.", "es": "La carga por streaming empieza a mostrar archivos grandes sin cargar antes toda la imagen en memoria." }
+    },
+    {
+      "icon": "@folder",
+      "title": { "en": "See the whole folder", "es": "Recorre toda la carpeta" },
+      "text": { "en": "Move through thumbnail previews, mark favorites, or start a fullscreen slideshow.", "es": "Navega entre miniaturas, marca favoritos o inicia una presentación a pantalla completa." }
+    },
+    {
+      "icon": "@sliders",
+      "title": { "en": "Make a quick fix in place", "es": "Haz un retoque sin salir" },
+      "text": { "en": "Crop, rotate, resize and adjust colors with a live preview before saving.", "es": "Recorta, rota, redimensiona y ajusta colores con vista previa antes de guardar." }
+    }
+  ],
+  "featuresHeading": {
+    "en": "More ways CyberViewer helps",
+    "es": "Más formas en que CyberViewer te ayuda"
   },
   "features": [
-    { "en": "Lightning-fast open — custom streaming protocol, no full RAM load", "es": "Apertura ultrarrápida — protocolo de streaming propio, sin cargar todo en RAM" },
-    { "en": "Folder browsing with lazy-loading thumbnails", "es": "Navegación de carpetas con miniaturas de carga diferida" },
-    { "en": "Zoom 5%–2000%, pan, animated GIF playback", "es": "Zoom 5%–2000%, paneo, reproducción de GIF animados" },
-    { "en": "Rotate, crop, resize, flip and color adjustments with live preview", "es": "Rotar, recortar, redimensionar, voltear y ajustes de color con vista previa en vivo" },
-    { "en": "Fullscreen immersive mode and slideshow with loop", "es": "Modo inmersivo a pantalla completa y diapositivas con bucle" },
-    { "en": "System tray, auto-start, global hotkey, Explorer context menu", "es": "Bandeja del sistema, auto-inicio, hotkey global, menú contextual del Explorer" }
+    { "en": "Open images or folders by dragging, pasting or using Windows Explorer", "es": "Abre imágenes o carpetas al arrastrar, pegar o usar el Explorador de Windows" },
+    { "en": "Browse thumbnails and jump between images with keyboard shortcuts", "es": "Recorre miniaturas y cambia entre imágenes con atajos de teclado" },
+    { "en": "Zoom from 5% to 2000%, pan and play animated GIFs", "es": "Amplía del 5 % al 2000 %, desplázate y reproduce GIF animados" },
+    { "en": "Crop, rotate, flip, resize and adjust color with live preview", "es": "Recorta, rota, voltea, redimensiona y ajusta colores con vista previa" },
+    { "en": "Show a folder as a fullscreen, looping slideshow", "es": "Muestra una carpeta como diapositivas a pantalla completa y en bucle" },
+    { "en": "Mark favorites and return to recent images and folders", "es": "Marca favoritos y vuelve a imágenes y carpetas recientes" },
+    { "en": "Copy an image, print it or export it to PDF", "es": "Copia una imagen, imprímela o expórtala a PDF" },
+    { "en": "Set an image as wallpaper in Fill, Fit, Center or Span mode", "es": "Usa una imagen como fondo de escritorio en modo Rellenar, Ajustar, Centrar o Extender" }
   ],
+  "useCases": {
+    "roles": [
+      {
+        "icon": "📷",
+        "title": { "en": "Photo organizers", "es": "Quienes organizan fotos" },
+        "text": { "en": "Review a whole folder, mark the keepers and return to them from favorites.", "es": "Revisa una carpeta entera, marca las mejores imágenes y vuelve a ellas desde favoritos." }
+      },
+      {
+        "icon": "🎨",
+        "title": { "en": "Creators", "es": "Creadores" },
+        "text": { "en": "Inspect details and make quick crops, rotations or color adjustments between projects.", "es": "Inspecciona detalles y haz recortes, rotaciones o ajustes de color rápidos entre proyectos." }
+      },
+      {
+        "icon": "📄",
+        "title": { "en": "Office users", "es": "Usuarios de oficina" },
+        "text": { "en": "Open screenshots and scans, resize or rotate them, then copy, print or export to PDF.", "es": "Abre capturas y escaneos, cambia su tamaño u orientación y luego copia, imprime o exporta a PDF." }
+      },
+      {
+        "icon": "🖥️",
+        "title": { "en": "Presenters", "es": "Quienes presentan imágenes" },
+        "text": { "en": "Run a fullscreen slideshow from a folder without setting up a separate presentation.", "es": "Inicia diapositivas a pantalla completa desde una carpeta sin preparar otra presentación." }
+      }
+    ],
+    "tasks": [
+      {
+        "icon": "🗂️",
+        "title": { "en": "Browse a photo folder", "es": "Recorre una carpeta de fotos" },
+        "text": { "en": "Drag in a folder, scan thumbnails and move with the arrow keys.", "es": "Arrastra una carpeta, mira sus miniaturas y avanza con las flechas." }
+      },
+      {
+        "icon": "🔍",
+        "title": { "en": "Check a small detail", "es": "Examina un detalle" },
+        "text": { "en": "Zoom and pan without losing your place in the folder.", "es": "Amplía y desplázate sin perder tu lugar en la carpeta." }
+      },
+      {
+        "icon": "✂️",
+        "title": { "en": "Fix an image quickly", "es": "Corrige una imagen rápido" },
+        "text": { "en": "Rotate, crop or adjust it with a preview before saving.", "es": "Rota, recorta o ajusta la imagen con vista previa antes de guardar." }
+      },
+      {
+        "icon": "📤",
+        "title": { "en": "Get it ready to share", "es": "Prepárala para compartir" },
+        "text": { "en": "Resize, copy, print or export an image to PDF from the same viewer.", "es": "Cambia el tamaño, copia, imprime o exporta una imagen a PDF desde el mismo visor." }
+      }
+    ]
+  },
   "repo": "https://github.com/CyberGems/CyberViewer",
   "wiki": "https://github.com/CyberGems/CyberViewer/wiki",
   "screenshot": null

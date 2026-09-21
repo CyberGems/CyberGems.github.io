@@ -36,4 +36,13 @@ const { name } = Astro.props;
   {name === 'grid' && <>
     <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" />
   </>}
+  {name === 'image' && <>
+    <rect x="2" y="3" width="20" height="18" rx="2" /><circle cx="8" cy="9" r="2" /><path d="m4 18 6-6 4 3 3-2 5 5" />
+  </>}
+  {name === 'folder' && <>
+    <path d="M3 6a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6Z" /><path d="M3 10h18" />
+  </>}
+  {name === 'sliders' && <>
+    <path d="M4 6h8M17 6h3M4 12h3M12 12h8M4 18h10M19 18h1" /><circle cx="14.5" cy="6" r="2" /><circle cx="9.5" cy="12" r="2" /><circle cx="16.5" cy="18" r="2" />
+  </>}
 </svg>
