@@ -3,7 +3,7 @@ interface Props {
   lang: 'en' | 'es';
   accent: string;
   icon?: string;
-  kind: 'connection-flow' | 'feed-flow' | 'launcher-flow' | 'viewer-flow';
+  kind: 'connection-flow' | 'feed-flow' | 'launcher-flow' | 'viewer-flow' | 'tray-flow';
 }
 
 const { lang, accent, icon, kind } = Astro.props;
@@ -123,7 +123,36 @@ const viewerCopy = lang === 'en' ? {
   always: 'Rotar',
   block: 'Tamaño',
 };
-const copy = kind === 'viewer-flow' ? viewerCopy : kind === 'launcher-flow' ? launcherCopy : kind === 'feed-flow' ? feedCopy : wallCopy;
+const trayCopy = lang === 'en' ? {
+  eyebrow: 'CYBERTRAY · THE IDEA',
+  note: 'ILLUSTRATION, NOT AN APP SCREENSHOT',
+  title: 'Your tools, one gesture away.',
+  intro: 'A shortcut shelf that stays out of sight until you need it.',
+  first: 'Fill your shelf',
+  firstText: 'Add apps, files, folders and links. Organize them in categories and favorites.',
+  second: 'Call it up anywhere',
+  secondText: 'Open CyberTray with Alt+T, a screen corner or its tray icon.',
+  third: 'Get on with your work',
+  thirdText: 'Search and launch a shortcut, then let the shelf get out of your way.',
+  once: 'Apps',
+  always: 'Files',
+  block: 'Links',
+} : {
+  eyebrow: 'CYBERTRAY · LA IDEA',
+  note: 'ILUSTRACIÓN, NO CAPTURA DE LA APP',
+  title: 'Tus herramientas, a un gesto.',
+  intro: 'Una estantería de accesos que se oculta hasta que la necesitas.',
+  first: 'Llena tu estantería',
+  firstText: 'Añade apps, archivos, carpetas y enlaces. Ordénalos en categorías y favoritos.',
+  second: 'Ábrela desde cualquier lugar',
+  secondText: 'Invoca CyberTray con Alt+T, una esquina activa o su icono en la bandeja.',
+  third: 'Sigue con tu trabajo',
+  thirdText: 'Busca y abre un acceso; después, deja que la estantería vuelva a apartarse.',
+  once: 'Apps',
+  always: 'Archivos',
+  block: 'Enlaces',
+};
+const copy = kind === 'tray-flow' ? trayCopy : kind === 'viewer-flow' ? viewerCopy : kind === 'launcher-flow' ? launcherCopy : kind === 'feed-flow' ? feedCopy : wallCopy;
 ---
 
 <div class="explainer relative w-full min-h-[550px] sm:min-h-[480px] lg:min-h-[495px] overflow-hidden p-5 sm:p-8 lg:p-10" style={`--explainer-accent: ${accent};`}>
@@ -142,7 +171,9 @@ const copy = kind === 'viewer-flow' ? viewerCopy : kind === 'launcher-flow' ? la
       <li class="step-card relative rounded-2xl border border-white/10 p-4 sm:p-5">
         <span class="step-number">01</span>
         <div class="step-icon" aria-hidden="true">
-          {kind === 'feed-flow' ? (
+          {kind === 'tray-flow' ? (
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="38" height="32" rx="4"/><path d="M5 17h38M14 25h8M27 25h8M14 32h8M27 32h8"/></svg>
+          ) : kind === 'feed-flow' ? (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="29" height="25" rx="3"/><path d="M5 14h29M12 21h10M12 26h15M29 38h14M36 31v14"/></svg>
           ) : kind === 'viewer-flow' ? (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="40" height="34" rx="4"/><circle cx="15" cy="18" r="4"/><path d="m7 36 12-11 7 6 6-5 9 10"/></svg>
@@ -166,7 +197,9 @@ const copy = kind === 'viewer-flow' ? viewerCopy : kind === 'launcher-flow' ? la
       <li class="step-card relative rounded-2xl border border-white/10 p-4 sm:p-5">
         <span class="step-number">03</span>
         <div class="step-icon" aria-hidden="true">
-          {kind === 'feed-flow' ? (
+          {kind === 'tray-flow' ? (
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 27v10a4 4 0 0 0 4 4h24a4 4 0 0 0 4-4V27M15 20l9 9 9-9M24 29V6"/></svg>
+          ) : kind === 'feed-flow' ? (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 10c-5-4-12-4-18-2v30c6-2 13-2 18 2 5-4 12-4 18-2V8c-6-2-13-2-18 2ZM24 10v30"/><path d="M11 17h8M29 17h8M11 23h8M29 23h8"/></svg>
           ) : kind === 'viewer-flow' ? (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7H8a2 2 0 0 0-2 2v9M31 7h9a2 2 0 0 1 2 2v9M6 30v9a2 2 0 0 0 2 2h9M42 30v9a2 2 0 0 1-2 2h-9"/><path d="M13 34 34 13"/></svg>

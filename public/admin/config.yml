@@ -209,6 +209,7 @@ collections:
           - { label: CyberFeeds reading flow, value: feed-flow }
           - { label: CyberLauncher search flow, value: launcher-flow }
           - { label: CyberViewer image flow, value: viewer-flow }
+          - { label: CyberTray shortcut shelf flow, value: tray-flow }
         hint: Optional. A screenshot always takes precedence.
 
   - name: faqs

@@ -3,16 +3,42 @@
   "name": "CyberTray",
   "emoji": "⚡",
   "icon": "/icons/apps/cybertray.png",
-  "accent": "#FFB74D",
+  "explainer": "tray-flow",
+  "accent": "#34D6E9",
   "stack": "Electron · TypeScript",
   "license": "GPLv3",
   "tagline": {
-    "en": "High-performance tray launcher with hotspots, system monitoring, process manager and PIN-protected file vault.",
-    "es": "Lanzador en bandeja de alto rendimiento con zonas activas, monitor del sistema, gestor de procesos y bóveda con PIN."
+    "en": "Your favorite apps, files and links, one gesture away without a crowded taskbar.",
+    "es": "Tus apps, archivos y enlaces favoritos a un gesto, sin saturar la barra de tareas."
   },
   "description": {
-    "en": "A high-performance system tray launcher and Start Menu alternative with hotspots, system monitoring, process manager and a PIN-protected file vault. CyberTray provides an instant-access launchpad to organize, search and launch applications, files and URLs in milliseconds.",
-    "es": "Un lanzador en la bandeja del sistema de alto rendimiento y alternativa al menú Inicio con zonas activas, monitoreo del sistema, gestor de procesos y bóveda protegida por PIN. CyberTray ofrece un panel de acceso instantáneo para organizar, buscar y lanzar aplicaciones, archivos y URLs en milisegundos."
+    "en": "CyberTray gives your frequent apps, files, folders and links a dedicated shortcut shelf without filling the taskbar. Keep it tucked away, then bring it up with Alt+T, a screen corner or the tray icon to search and launch what you need. Categories and favorites keep things organized. Live system information, a process viewer and a PIN-protected file vault add useful desktop controls in the same place.",
+    "es": "CyberTray reúne tus apps, archivos, carpetas y enlaces frecuentes en una estantería de accesos sin llenar la barra de tareas. Mantenla oculta y ábrela con Alt+T, una esquina activa o el icono de la bandeja para buscar y lanzar lo que necesitas. Las categorías y los favoritos mantienen el orden. La información del sistema en vivo, un visor de procesos y una bóveda de archivos protegida con PIN añaden controles útiles en el mismo lugar."
+  },
+  "highlightsTitle": {
+    "en": "A command center that stays out of your way",
+    "es": "Un centro de control que no estorba"
+  },
+  "highlights": [
+    {
+      "icon": "@grid",
+      "title": { "en": "Keep shortcuts close", "es": "Ten tus accesos a mano" },
+      "text": { "en": "Build a searchable shelf for apps, files, folders and URLs, grouped in categories and favorites.", "es": "Crea una estantería con búsqueda para apps, archivos, carpetas y enlaces, agrupados en categorías y favoritos." }
+    },
+    {
+      "icon": "@activity",
+      "title": { "en": "Check your PC at a glance", "es": "Consulta tu PC de un vistazo" },
+      "text": { "en": "See live memory and disk information, plus CPU, VRAM and uptime details, without opening another dashboard.", "es": "Consulta memoria y disco en vivo, además de detalles de CPU, VRAM y tiempo de actividad, sin abrir otro panel." }
+    },
+    {
+      "icon": "@shield-check",
+      "title": { "en": "Put files behind a PIN", "es": "Protege archivos con un PIN" },
+      "text": { "en": "Move files into Cyber-Vault, lock it with a PIN and choose when it locks again.", "es": "Mueve archivos a Cyber-Vault, bloquéala con un PIN y elige cuándo volverá a bloquearse." }
+    }
+  ],
+  "featuresHeading": {
+    "en": "More ways CyberTray helps",
+    "es": "Más formas en que CyberTray te ayuda"
   },
   "features": [
     {
@@ -20,12 +46,12 @@
       "es": "Estantería de accesos con búsqueda, categorías e importación por arrastre"
     },
     {
-      "en": "Cyber-Handle bar, hot corners and global hotkey (Alt+T)",
-      "es": "Barra Cyber-Handle, esquinas activas y hotkey global (Alt+T)"
+      "en": "Tray icon, hot corners and global hotkey (Alt+T)",
+      "es": "Icono en la bandeja, esquinas activas y atajo global (Alt+T)"
     },
     {
-      "en": "Real-time RAM, CPU, disk and VRAM telemetry",
-      "es": "Telemetría en tiempo real de RAM, CPU, disco y VRAM"
+      "en": "Live RAM and disk status, plus CPU, VRAM and uptime details",
+      "es": "Estado de RAM y disco en vivo, más datos de CPU, VRAM y tiempo de actividad"
     },
     {
       "en": "Process viewer with kill functionality",
@@ -36,10 +62,56 @@
       "es": "Cyber-Vault protegido con PIN y barrido del escritorio"
     },
     {
-      "en": "5 neon themes, custom backgrounds, multi-monitor",
-      "es": "5 temas neón, fondos personalizados, multi-monitor"
+      "en": "5 accent colors, custom backgrounds and grid or list layout",
+      "es": "5 colores de acento, fondos personalizados y vista de cuadrícula o lista"
     }
   ],
+  "useCases": {
+    "roles": [
+      {
+        "icon": "🧑‍💻",
+        "title": { "en": "Busy multitaskers", "es": "Quienes hacen varias cosas a la vez" },
+        "text": { "en": "Keep work apps and project folders together without pinning everything to the taskbar.", "es": "Reúne apps de trabajo y carpetas de proyectos sin fijarlo todo a la barra de tareas." }
+      },
+      {
+        "icon": "🎨",
+        "title": { "en": "Creators", "es": "Creadores" },
+        "text": { "en": "Group editing tools, asset folders and reference links for quick access during a project.", "es": "Agrupa herramientas de edición, carpetas de recursos y enlaces de referencia para acceder a ellos durante un proyecto." }
+      },
+      {
+        "icon": "🗂️",
+        "title": { "en": "Desktop organizers", "es": "Quienes organizan su escritorio" },
+        "text": { "en": "Give frequently used files a home in the shelf and move sensitive ones into a PIN-protected vault.", "es": "Da un lugar a tus archivos frecuentes en la estantería y mueve los sensibles a una bóveda protegida con PIN." }
+      },
+      {
+        "icon": "🖥️",
+        "title": { "en": "Power users", "es": "Usuarios avanzados" },
+        "text": { "en": "Open tools from a hot corner and check system details or running processes nearby.", "es": "Abre herramientas desde una esquina activa y consulta cerca los datos del sistema o los procesos en ejecución." }
+      }
+    ],
+    "tasks": [
+      {
+        "icon": "⚡",
+        "title": { "en": "Launch without hunting", "es": "Abre sin buscar entre menús" },
+        "text": { "en": "Press Alt+T, type a few letters and launch a shortcut from the shelf.", "es": "Pulsa Alt+T, escribe unas letras y abre un acceso desde la estantería." }
+      },
+      {
+        "icon": "📁",
+        "title": { "en": "Organize a project", "es": "Organiza un proyecto" },
+        "text": { "en": "Put its apps, folders and links in one category, then launch the group when you need it.", "es": "Reúne sus apps, carpetas y enlaces en una categoría y abre el grupo cuando lo necesites." }
+      },
+      {
+        "icon": "📊",
+        "title": { "en": "Check what is running", "es": "Revisa lo que está activo" },
+        "text": { "en": "Glance at system information or find a running process and end it if needed.", "es": "Consulta los datos del sistema o encuentra un proceso en ejecución y finalízalo si hace falta." }
+      },
+      {
+        "icon": "🔐",
+        "title": { "en": "Clear a cluttered desktop", "es": "Despeja un escritorio cargado" },
+        "text": { "en": "Use Desktop Sweep to move desktop files and folders into Cyber-Vault behind your PIN.", "es": "Usa el barrido del escritorio para mover archivos y carpetas a Cyber-Vault detrás de tu PIN." }
+      }
+    ]
+  },
   "repo": "https://github.com/CyberGems/CyberTray",
   "wiki": "https://github.com/CyberGems/CyberTray/wiki",
   "screenshot": null
