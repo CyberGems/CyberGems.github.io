@@ -3,34 +3,99 @@
   "name": "CyberFeeds",
   "emoji": "📢",
   "icon": "/icons/apps/cyberfeeds.png",
+  "explainer": "feed-flow",
   "accent": "#29B6F6",
   "stack": "Electron · React · TypeScript",
   "license": "GPLv3",
   "tagline": {
-    "en": "A local-first RSS & Atom reader built for speed, privacy and clean reading.",
-    "es": "Un lector RSS y Atom local-first creado para la velocidad, la privacidad y la lectura limpia."
+    "en": "Follow websites, YouTube and Reddit in one calm, private reading space.",
+    "es": "Sigue sitios web, YouTube y Reddit en un espacio de lectura tranquilo y privado."
   },
   "description": {
-    "en": "A performance-first, full-featured RSS/Atom feed reader with in-app and floating video playback, article search, automatic backups, live updates, and smart notifications, all backed by a local SQLite database.",
-    "es": "Un lector de feeds RSS/Atom completo y orientado al rendimiento, con reproducción de videos integrada y flotante, búsqueda de artículos, copias de seguridad automáticas, actualizaciones en vivo y notificaciones inteligentes, todo respaldado por una base de datos SQLite local."
+    "en": "CyberFeeds brings updates from the websites, YouTube channels and Reddit communities you follow into one desktop app. Add RSS or Atom feeds, or import your subscriptions from an OPML file. Catch up in a focused reader, find articles later with search, and choose which new posts deserve a notification. Folders, favorites and read states help you stay organized, while automatic backups and a local SQLite database keep your library on your PC without an account.",
+    "es": "CyberFeeds reúne las novedades de los sitios web, canales de YouTube y comunidades de Reddit que sigues en una sola app de escritorio. Añade feeds RSS o Atom, o importa tus suscripciones desde un archivo OPML. Ponte al día en un lector enfocado, encuentra artículos con la búsqueda y elige qué publicaciones nuevas merecen un aviso. Las carpetas, favoritos y estados de lectura te ayudan a organizarte; las copias de seguridad automáticas y una base de datos SQLite local mantienen tu biblioteca en tu PC, sin necesidad de cuenta."
+  },
+  "highlightsTitle": {
+    "en": "A better way to keep up",
+    "es": "Una forma más cómoda de estar al día"
+  },
+  "highlights": [
+    {
+      "icon": "@sources",
+      "title": { "en": "One home for your sources", "es": "Todas tus fuentes en un lugar" },
+      "text": { "en": "Bring websites, YouTube channels and Reddit feeds into one organized reading list.", "es": "Reúne sitios web, canales de YouTube y feeds de Reddit en una lista de lectura organizada." }
+    },
+    {
+      "icon": "@book-open",
+      "title": { "en": "Read the whole story", "es": "Lee la historia completa" },
+      "text": { "en": "Open articles in a focused reader and extract full text when the source allows it.", "es": "Abre artículos en un lector enfocado y extrae el texto completo cuando la fuente lo permite." }
+    },
+    {
+      "icon": "@database",
+      "title": { "en": "Keep your library local", "es": "Tu biblioteca se queda contigo" },
+      "text": { "en": "Your articles live in a local database, with backups and OPML export to help you keep control.", "es": "Tus artículos viven en una base de datos local, con copias de seguridad y exportación OPML para conservar el control." }
+    }
+  ],
+  "featuresHeading": {
+    "en": "More ways CyberFeeds helps",
+    "es": "Más formas en que CyberFeeds te ayuda"
   },
   "features": [
-    { "en": "RSS, Atom, XML, YouTube channels/playlists/videos and native Reddit feeds", "es": "RSS, Atom, XML, canales/listas/videos de YouTube y feeds de Reddit nativos" },
-    { "en": "Full-content extraction via worker threads", "es": "Extracción de contenido completo mediante worker threads" },
-    { "en": "Smart notifications with keyword filtering, snooze and progressive history rendering", "es": "Notificaciones inteligentes con filtrado por palabras, posposición y renderizado incremental de historial" },
-    { "en": "In-app YouTube playback preference and floating text selection tools", "es": "Preferencia de reproducción de YouTube integrada y herramientas flotantes para seleccionar texto" },
-    { "en": "Picture-in-Picture video player with improved embed detection", "es": "Reproductor de video Picture-in-Picture con detección mejorada de embeds" },
-    { "en": "Global article search with Ctrl+F, instant mode, and search history", "es": "Búsqueda global de artículos con Ctrl+F, modo instantáneo e historial" },
-    { "en": "Automatic JSON backups with configurable retention and restore", "es": "Copias JSON automáticas con retención configurable y restauración" },
-    { "en": "Quick interface scale controls with an independently adjustable reader", "es": "Controles rápidos de escala de interfaz con lector ajustable de forma independiente" },
-    { "en": "Multi-monitor display restoration and bidirectional tray polling animation", "es": "Restauración multimonitor de pantalla y animación bidireccional de sondeo en bandeja" },
-    { "en": "Live article updates that preserve your reading position", "es": "Actualizaciones de artículos en vivo que conservan tu posición de lectura" },
-    { "en": "In-article text search with live highlight and match navigation", "es": "Búsqueda de texto en artículos con resaltado en vivo y navegación de coincidencias" },
-    { "en": "Sticky header bar on scroll with quick return to top", "es": "Barra de encabezado fija al desplazarse con retorno rápido al inicio" },
-    { "en": "Star/read/unread/trash with virtualized lists", "es": "Favoritos/leído/no leído/papelera con listas virtualizadas" },
-    { "en": "OPML import/export with folder structure preserved", "es": "Importación/exportación OPML conservando las carpetas" },
-    { "en": "Local SQLite database, no cloud or accounts", "es": "Base de datos SQLite local, sin nube ni cuentas" }
+    { "en": "Subscribe to RSS, Atom, YouTube and Reddit sources", "es": "Suscríbete a fuentes RSS, Atom, YouTube y Reddit" },
+    { "en": "Import and export OPML while keeping your folder structure", "es": "Importa y exporta OPML conservando la estructura de carpetas" },
+    { "en": "Find articles across your library or search within an open article", "es": "Encuentra artículos en tu biblioteca o busca dentro de uno abierto" },
+    { "en": "Filter notifications by keyword and snooze them when you need focus", "es": "Filtra los avisos por palabras clave y posponlos cuando necesites concentrarte" },
+    { "en": "Organize with folders, favorites, read states and trash", "es": "Organiza con carpetas, favoritos, estados de lectura y papelera" },
+    { "en": "Watch videos in the app or use a floating Picture-in-Picture player", "es": "Mira videos en la app o usa un reproductor flotante Picture-in-Picture" },
+    { "en": "See new articles without losing your place in the reading list", "es": "Consulta artículos nuevos sin perder tu lugar en la lista de lectura" },
+    { "en": "Back up and restore your local library automatically", "es": "Crea y restaura copias automáticas de tu biblioteca local" }
   ],
+  "useCases": {
+    "roles": [
+      {
+        "icon": "☕",
+        "title": { "en": "Curious readers", "es": "Lectores curiosos" },
+        "text": { "en": "Catch up with favorite publications in one place instead of opening the same tabs every day.", "es": "Ponte al día con tus publicaciones favoritas en un solo lugar sin abrir las mismas pestañas cada día." }
+      },
+      {
+        "icon": "🔬",
+        "title": { "en": "Researchers", "es": "Investigadores" },
+        "text": { "en": "Follow specialist sources, save useful articles and find them again with search.", "es": "Sigue fuentes especializadas, guarda artículos útiles y vuelve a encontrarlos con la búsqueda." }
+      },
+      {
+        "icon": "🎬",
+        "title": { "en": "Video followers", "es": "Seguidores de video" },
+        "text": { "en": "Keep track of YouTube channels and playlists alongside the rest of your reading.", "es": "Sigue canales y listas de YouTube junto con el resto de tus lecturas." }
+      },
+      {
+        "icon": "🔐",
+        "title": { "en": "Privacy-minded people", "es": "Personas que cuidan su privacidad" },
+        "text": { "en": "Build a reading library on your own PC without signing in to a cloud reader.", "es": "Crea una biblioteca de lectura en tu propio PC sin iniciar sesión en un lector en la nube." }
+      }
+    ],
+    "tasks": [
+      {
+        "icon": "📥",
+        "title": { "en": "Bring your subscriptions", "es": "Trae tus suscripciones" },
+        "text": { "en": "Import an OPML file with its folders or add a new feed directly.", "es": "Importa un archivo OPML con sus carpetas o añade un feed directamente." }
+      },
+      {
+        "icon": "📰",
+        "title": { "en": "Catch up without tab hopping", "es": "Ponte al día sin saltar entre pestañas" },
+        "text": { "en": "Read new posts from different sources in a single organized list.", "es": "Lee publicaciones nuevas de distintas fuentes en una sola lista organizada." }
+      },
+      {
+        "icon": "🔎",
+        "title": { "en": "Find something you read", "es": "Encuentra algo que leíste" },
+        "text": { "en": "Search your article library or look for a phrase inside the article you have open.", "es": "Busca en tu biblioteca de artículos o encuentra una frase dentro del artículo abierto." }
+      },
+      {
+        "icon": "🔔",
+        "title": { "en": "Tune your alerts", "es": "Ajusta tus avisos" },
+        "text": { "en": "Use keyword filters and snooze to hear about the updates that matter to you.", "es": "Usa filtros por palabras clave y posposición para recibir solo los avisos que te importan." }
+      }
+    ]
+  },
   "repo": "https://github.com/CyberGems/CyberFeeds",
   "wiki": "https://github.com/CyberGems/CyberFeeds/wiki",
   "screenshot": null

@@ -3,10 +3,11 @@ interface Props {
   lang: 'en' | 'es';
   accent: string;
   icon?: string;
+  kind: 'connection-flow' | 'feed-flow';
 }
 
-const { lang, accent, icon } = Astro.props;
-const copy = lang === 'en' ? {
+const { lang, accent, icon, kind } = Astro.props;
+const wallCopy = lang === 'en' ? {
   eyebrow: 'CYBERWALL · THE IDEA',
   note: 'ILLUSTRATION, NOT AN APP SCREENSHOT',
   title: 'Your network, your call.',
@@ -35,6 +36,36 @@ const copy = lang === 'en' ? {
   always: 'Permitir siempre',
   block: 'Bloquear',
 };
+const feedCopy = lang === 'en' ? {
+  eyebrow: 'CYBERFEEDS · THE IDEA',
+  note: 'ILLUSTRATION, NOT AN APP SCREENSHOT',
+  title: 'Follow more. Browse less.',
+  intro: 'The updates you care about, together in one reading space.',
+  first: 'Choose your sources',
+  firstText: 'Add websites, YouTube channels and Reddit feeds, or import your subscriptions.',
+  second: 'New stories arrive',
+  secondText: 'CyberFeeds checks for updates and keeps your article library on your PC.',
+  third: 'Read on your terms',
+  thirdText: 'Read full articles when available, search your library and save favorites.',
+  once: 'Read',
+  always: 'Search',
+  block: 'Star',
+} : {
+  eyebrow: 'CYBERFEEDS · LA IDEA',
+  note: 'ILUSTRACIÓN, NO CAPTURA DE LA APP',
+  title: 'Sigue más. Navega menos.',
+  intro: 'Las novedades que te importan, reunidas en un mismo espacio de lectura.',
+  first: 'Elige tus fuentes',
+  firstText: 'Añade sitios web, canales de YouTube y feeds de Reddit, o importa tus suscripciones.',
+  second: 'Llegan novedades',
+  secondText: 'CyberFeeds busca actualizaciones y guarda tu biblioteca de artículos en tu PC.',
+  third: 'Lee a tu ritmo',
+  thirdText: 'Lee artículos completos cuando estén disponibles, busca y guarda tus favoritos.',
+  once: 'Leer',
+  always: 'Buscar',
+  block: 'Favoritos',
+};
+const copy = kind === 'feed-flow' ? feedCopy : wallCopy;
 ---
 
 <div class="explainer relative w-full min-h-[550px] sm:min-h-[480px] lg:min-h-[495px] overflow-hidden p-5 sm:p-8 lg:p-10" style={`--explainer-accent: ${accent};`}>
@@ -53,7 +84,11 @@ const copy = lang === 'en' ? {
       <li class="step-card relative rounded-2xl border border-white/10 p-4 sm:p-5">
         <span class="step-number">01</span>
         <div class="step-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="6" y="8" width="36" height="28" rx="4"/><path d="M6 16h36M18 41h12M24 36v5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
+          {kind === 'feed-flow' ? (
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="29" height="25" rx="3"/><path d="M5 14h29M12 21h10M12 26h15M29 38h14M36 31v14"/></svg>
+          ) : (
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="6" y="8" width="36" height="28" rx="4"/><path d="M6 16h36M18 41h12M24 36v5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
+          )}
         </div>
         <h3 class="mt-4 font-bold text-white text-base sm:text-lg leading-tight">{copy.first}</h3>
         <p class="mt-2 text-sm leading-relaxed text-[#aeb6c4]">{copy.firstText}</p>
@@ -69,7 +104,11 @@ const copy = lang === 'en' ? {
       <li class="step-card relative rounded-2xl border border-white/10 p-4 sm:p-5">
         <span class="step-number">03</span>
         <div class="step-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 24 10 10L40 13"/><circle cx="24" cy="24" r="21"/></svg>
+          {kind === 'feed-flow' ? (
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 10c-5-4-12-4-18-2v30c6-2 13-2 18 2 5-4 12-4 18-2V8c-6-2-13-2-18 2ZM24 10v30"/><path d="M11 17h8M29 17h8M11 23h8M29 23h8"/></svg>
+          ) : (
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 24 10 10L40 13"/><circle cx="24" cy="24" r="21"/></svg>
+          )}
         </div>
         <h3 class="mt-4 font-bold text-white text-base sm:text-lg leading-tight">{copy.third}</h3>
         <p class="mt-2 text-sm leading-relaxed text-[#aeb6c4]">{copy.thirdText}</p>

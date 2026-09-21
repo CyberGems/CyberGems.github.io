@@ -118,7 +118,7 @@ collections:
         widget: list
         required: false
         fields:
-          - { name: icon, label: Icon, widget: string, hint: 'Emoji, or reusable outline symbol @shield-check, @list-checks, @activity' }
+          - { name: icon, label: Icon, widget: string, hint: 'Emoji, or reusable outline symbol @shield-check, @list-checks, @activity, @sources, @book-open, @database' }
           - { name: color, label: Color, widget: string, required: false, hint: 'Hex, e.g. #22C55E — empty = app accent' }
           - name: title
             label: Title
@@ -206,6 +206,7 @@ collections:
         required: false
         options:
           - { label: CyberWall connection flow, value: connection-flow }
+          - { label: CyberFeeds reading flow, value: feed-flow }
         hint: Optional. A screenshot always takes precedence.
 
   - name: faqs

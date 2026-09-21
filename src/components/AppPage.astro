@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AppHeroBanner from './AppHeroBanner.astro';
 import FeatureSymbol from './FeatureSymbol.astro';
-import ConnectionExplainer from './ConnectionExplainer.astro';
+import AppFlowExplainer from './AppFlowExplainer.astro';
 import { ui, type Lang } from '../data/ui';
 import { apps, type CyberApp } from '../data/apps';
 
@@ -148,8 +148,8 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
     >
       {shotSrc ? (
         <img src={shotSrc} alt={`${app.name} — ${app.tagline[lang]}`} class="w-full h-full object-cover" loading="lazy" decoding="async" width="1280" height="720" />
-      ) : app.explainer === 'connection-flow' ? (
-        <ConnectionExplainer lang={lang} accent={app.accent} icon={app.icon} />
+      ) : app.explainer ? (
+        <AppFlowExplainer lang={lang} accent={app.accent} icon={app.icon} kind={app.explainer} />
       ) : (
         <div class="text-center select-none" aria-hidden="true">
           {app.icon ? <img src={app.icon} alt="" width="112" height="112" class="h-28 w-28 object-contain mb-3 opacity-95" /> : <div class="text-7xl mb-3 opacity-90">{app.emoji}</div>}
@@ -160,6 +160,13 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
 
     <!-- Description -->
     <p class="mt-10 text-lg leading-relaxed text-[#c9c9d1]">{app.description[lang]}</p>
+
+    <!-- Once a real screenshot is available, keep the conceptual explanation below it. -->
+    {shotSrc && app.explainer && (
+      <section class="mt-14 overflow-hidden rounded-2xl border border-white/10" aria-label={lang === 'en' ? `How ${app.name} works` : `Cómo funciona ${app.name}`}>
+        <AppFlowExplainer lang={lang} accent={app.accent} icon={app.icon} kind={app.explainer} />
+      </section>
+    )}
 
     <!-- How it works (optional per app: 3-step strip) -->
     {app.howItWorks && (
