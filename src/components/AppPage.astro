@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AppHeroBanner from './AppHeroBanner.astro';
+import FeatureSymbol from './FeatureSymbol.astro';
 import { ui, type Lang } from '../data/ui';
 import { apps, type CyberApp } from '../data/apps';
 
@@ -188,7 +189,8 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
 
     <!-- Highlights (optional per app: icon cards grid) -->
     {app.highlights && (
-      <section class="mt-14" aria-label={t.featuresTitle + ' ' + app.name}>
+      <section class="mt-14" aria-label={app.highlightsTitle?.[lang] ?? `${t.featuresTitle} ${app.name}`}>
+        {app.highlightsTitle && <h2 class="mb-6 text-2xl font-bold tracking-tight">{app.highlightsTitle[lang]}</h2>}
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {app.highlights.map((h) => (
             <div class="card p-6 text-left">
@@ -197,7 +199,7 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
                 style={`background: ${(h.color ?? app.accent)}14; color: ${h.color ?? app.accent};`}
                 aria-hidden="true"
               >
-                {h.icon}
+                {h.icon.startsWith('@') ? <FeatureSymbol name={h.icon.slice(1)} /> : h.icon}
               </div>
               <p class="mt-4 font-bold text-lg">{h.title[lang]}</p>
               <p class="mt-2 text-[15px] leading-relaxed text-[#9a9aa5]">{h.text[lang]}</p>
@@ -209,7 +211,7 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
 
     <!-- Features -->
     <h2 class="mt-12 text-2xl font-bold tracking-tight">
-      {t.featuresTitle} {app.name}
+      {app.featuresHeading ? app.featuresHeading[lang] : `${t.featuresTitle} ${app.name}`}
     </h2>
     <ul class="mt-6 grid gap-4 sm:grid-cols-2">
       {app.features.map((feature) => (

@@ -57,6 +57,9 @@ export interface CyberApp {
   };
   /** Optional highlight cards grid (icon tile + title + text) */
   highlights?: HighlightCard[];
+  /** Optional editorial headings for the highlights grid and supporting feature list */
+  highlightsTitle?: LocalizedText;
+  featuresHeading?: LocalizedText;
   /** Screenshot: bare filename resolved to /screenshots/<slug>/, or an
       absolute public path (as written by the CMS), or null for the placeholder */
   screenshot: string | null;

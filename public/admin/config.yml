@@ -118,7 +118,7 @@ collections:
         widget: list
         required: false
         fields:
-          - { name: icon, label: Icon, widget: string }
+          - { name: icon, label: Icon, widget: string, hint: 'Emoji, or reusable outline symbol @shield-check, @list-checks, @activity' }
           - { name: color, label: Color, widget: string, required: false, hint: 'Hex, e.g. #22C55E — empty = app accent' }
           - name: title
             label: Title
@@ -132,6 +132,20 @@ collections:
             fields:
               - { name: en, label: English, widget: text }
               - { name: es, label: Español, widget: text }
+      - name: highlightsTitle
+        label: Highlights section heading (optional)
+        widget: object
+        required: false
+        fields:
+          - { name: en, label: English, widget: string }
+          - { name: es, label: Español, widget: string }
+      - name: featuresHeading
+        label: Supporting features heading (optional)
+        widget: object
+        required: false
+        fields:
+          - { name: en, label: English, widget: string }
+          - { name: es, label: Español, widget: string }
       - name: useCases
         label: Use cases (By Role / By Task)
         widget: object
