@@ -12,8 +12,8 @@
     "es": "Tus apps, archivos y enlaces favoritos a un gesto, sin saturar la barra de tareas."
   },
   "description": {
-    "en": "CyberTray gives your frequent apps, files, folders and links a dedicated shortcut shelf without filling the taskbar. Keep it tucked away, then bring it up with Alt+T, a screen corner or the tray icon to search and launch what you need. Categories and favorites keep things organized. Live system information, a process viewer and a PIN-protected file vault add useful desktop controls in the same place.",
-    "es": "CyberTray reúne tus apps, archivos, carpetas y enlaces frecuentes en una estantería de accesos sin llenar la barra de tareas. Mantenla oculta y ábrela con Alt+T, una esquina activa o el icono de la bandeja para buscar y lanzar lo que necesitas. Las categorías y los favoritos mantienen el orden. La información del sistema en vivo, un visor de procesos y una bóveda de archivos protegida con PIN añaden controles útiles en el mismo lugar."
+    "en": "CyberTray gives your frequent apps, files, folders and links a dedicated shortcut shelf without filling the taskbar. Keep it tucked away, then bring it up with Alt+Shift+T, a screen corner or the tray icon to search and launch what you need. Categories and favorites keep things organized. Live system information, a process viewer and a PIN-protected file vault add useful desktop controls in the same place.",
+    "es": "CyberTray reúne tus apps, archivos, carpetas y enlaces frecuentes en una estantería de accesos sin llenar la barra de tareas. Mantenla oculta y ábrela con Alt+Shift+T, una esquina activa o el icono de la bandeja para buscar y lanzar lo que necesitas. Las categorías y los favoritos mantienen el orden. La información del sistema en vivo, un visor de procesos y una bóveda de archivos protegida con PIN añaden controles útiles en el mismo lugar."
   },
   "highlightsTitle": {
     "en": "A command center that stays out of your way",
@@ -46,8 +46,8 @@
       "es": "Estantería de accesos con búsqueda, categorías e importación por arrastre"
     },
     {
-      "en": "Tray icon, hot corners and global hotkey (Alt+T)",
-      "es": "Icono en la bandeja, esquinas activas y atajo global (Alt+T)"
+      "en": "Tray icon, hot corners and global hotkey (Alt+Shift+T)",
+      "es": "Icono en la bandeja, esquinas activas y atajo global (Alt+Shift+T)"
     },
     {
       "en": "Live RAM and disk status, plus CPU, VRAM and uptime details",
@@ -93,7 +93,7 @@
       {
         "icon": "⚡",
         "title": { "en": "Launch without hunting", "es": "Abre sin buscar entre menús" },
-        "text": { "en": "Press Alt+T, type a few letters and launch a shortcut from the shelf.", "es": "Pulsa Alt+T, escribe unas letras y abre un acceso desde la estantería." }
+        "text": { "en": "Press Alt+Shift+T, type a few letters and launch a shortcut from the shelf.", "es": "Pulsa Alt+Shift+T, escribe unas letras y abre un acceso desde la estantería." }
       },
       {
         "icon": "📁",
