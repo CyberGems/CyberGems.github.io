@@ -1,0 +1,104 @@
+---
+interface Props {
+  lang: 'en' | 'es';
+  accent: string;
+  icon?: string;
+}
+
+const { lang, accent, icon } = Astro.props;
+const copy = lang === 'en' ? {
+  eyebrow: 'CYBERWALL · THE IDEA',
+  note: 'ILLUSTRATION, NOT AN APP SCREENSHOT',
+  title: 'Your network, your call.',
+  intro: 'A simple way to see what a per-app firewall does.',
+  first: 'An app tries to connect',
+  firstText: 'An unfamiliar program requests network access.',
+  second: 'CyberWall lets you know',
+  secondText: 'The connection starts blocked while you review the request.',
+  third: 'You make the decision',
+  thirdText: 'Choose what happens now and whether to keep that rule.',
+  once: 'Allow once',
+  always: 'Allow always',
+  block: 'Block',
+} : {
+  eyebrow: 'CYBERWALL · LA IDEA',
+  note: 'ILUSTRACIÓN, NO CAPTURA DE LA APP',
+  title: 'Tu red, tu decisión.',
+  intro: 'Una forma sencilla de entender qué hace un firewall por aplicación.',
+  first: 'Una app intenta conectarse',
+  firstText: 'Un programa desconocido solicita acceso a la red.',
+  second: 'CyberWall te avisa',
+  secondText: 'La conexión empieza bloqueada mientras revisas la solicitud.',
+  third: 'Tú tomas la decisión',
+  thirdText: 'Elige qué hacer ahora y si quieres conservar esa regla.',
+  once: 'Permitir una vez',
+  always: 'Permitir siempre',
+  block: 'Bloquear',
+};
+---
+
+<div class="explainer relative w-full min-h-[550px] sm:min-h-[480px] lg:min-h-[495px] overflow-hidden p-5 sm:p-8 lg:p-10" style={`--explainer-accent: ${accent};`}>
+  <div class="explainer-grid" aria-hidden="true"></div>
+  <div class="relative z-10">
+    <div class="flex flex-wrap items-center justify-between gap-3 text-[10px] sm:text-xs font-bold tracking-[0.18em]">
+      <span class="text-[var(--explainer-accent)]">{copy.eyebrow}</span>
+      <span class="text-[#8f96a7]">{copy.note}</span>
+    </div>
+    <div class="mt-6 text-center">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">{copy.title}</h2>
+      <p class="mt-2 text-sm sm:text-base text-[#aeb6c4]">{copy.intro}</p>
+    </div>
+
+    <ol class="mt-8 lg:mt-11 grid gap-3 sm:grid-cols-3 sm:gap-4">
+      <li class="step-card relative rounded-2xl border border-white/10 p-4 sm:p-5">
+        <span class="step-number">01</span>
+        <div class="step-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="6" y="8" width="36" height="28" rx="4"/><path d="M6 16h36M18 41h12M24 36v5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <h3 class="mt-4 font-bold text-white text-base sm:text-lg leading-tight">{copy.first}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-[#aeb6c4]">{copy.firstText}</p>
+      </li>
+      <li class="step-card relative rounded-2xl border border-white/10 p-4 sm:p-5">
+        <span class="step-number">02</span>
+        <div class="step-icon" aria-hidden="true">
+          {icon ? <img src={icon} alt="" width="48" height="48" class="w-12 h-12 object-contain" /> : <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><path d="M24 4 40 10v12c0 12-16 21-16 21S8 34 8 22V10L24 4Z"/></svg>}
+        </div>
+        <h3 class="mt-4 font-bold text-white text-base sm:text-lg leading-tight">{copy.second}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-[#aeb6c4]">{copy.secondText}</p>
+      </li>
+      <li class="step-card relative rounded-2xl border border-white/10 p-4 sm:p-5">
+        <span class="step-number">03</span>
+        <div class="step-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 24 10 10L40 13"/><circle cx="24" cy="24" r="21"/></svg>
+        </div>
+        <h3 class="mt-4 font-bold text-white text-base sm:text-lg leading-tight">{copy.third}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-[#aeb6c4]">{copy.thirdText}</p>
+        <div class="mt-4 flex flex-wrap gap-1.5 text-[10px] font-semibold">
+          <span class="choice">{copy.once}</span><span class="choice">{copy.always}</span><span class="choice">{copy.block}</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<style>
+  .explainer {
+    background: radial-gradient(ellipse 55% 70% at 50% 35%, color-mix(in srgb, var(--explainer-accent) 18%, transparent), transparent 75%), linear-gradient(120deg, #111923, #11131d 60%, #1c1a2c);
+  }
+  .explainer-grid {
+    position: absolute;
+    inset: 0;
+    opacity: .5;
+    background-image: linear-gradient(#ffffff0a 1px, transparent 1px), linear-gradient(90deg, #ffffff0a 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to bottom, #000, transparent 90%);
+  }
+  .step-card { background: linear-gradient(145deg, #1d2530e8, #131722eb); box-shadow: 0 16px 45px #0003; }
+  .step-number { position: absolute; top: 16px; right: 18px; color: #98a2b4; font-size: 11px; font-weight: 800; letter-spacing: .18em; }
+  .step-icon { display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border: 1px solid color-mix(in srgb, var(--explainer-accent) 42%, transparent); border-radius: 16px; color: var(--explainer-accent); background: color-mix(in srgb, var(--explainer-accent) 12%, #151a24); }
+  .step-icon svg { width: 30px; height: 30px; }
+  .choice { padding: 5px 7px; border: 1px solid #ffffff20; border-radius: 6px; color: #cbd3dd; background: #ffffff0b; }
+  @media (min-width: 640px) {
+    .step-card:not(:last-child)::after { content: '→'; position: absolute; z-index: 2; top: 46%; right: -20px; color: var(--explainer-accent); font-size: 24px; font-weight: 700; }
+  }
+</style>

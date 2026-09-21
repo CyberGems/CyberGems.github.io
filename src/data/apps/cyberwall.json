@@ -3,6 +3,7 @@
   "name": "CyberWall",
   "emoji": "🛡️",
   "icon": "/icons/apps/cyberwall.png",
+  "explainer": "connection-flow",
   "accent": "#E57373",
   "stack": "C# · WPF · .NET 10",
   "license": "GPLv3",

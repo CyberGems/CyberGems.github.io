@@ -199,7 +199,14 @@ collections:
         label: Screenshot
         widget: file
         required: false
-        hint: Leave empty to show the gradient placeholder
+        hint: A real screenshot replaces the conceptual explainer (when configured) or the gradient placeholder
+      - name: explainer
+        label: Conceptual visual while no screenshot exists
+        widget: select
+        required: false
+        options:
+          - { label: CyberWall connection flow, value: connection-flow }
+        hint: Optional. A screenshot always takes precedence.
 
   - name: faqs
     label: '❓ FAQs'

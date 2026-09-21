@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AppHeroBanner from './AppHeroBanner.astro';
 import FeatureSymbol from './FeatureSymbol.astro';
+import ConnectionExplainer from './ConnectionExplainer.astro';
 import { ui, type Lang } from '../data/ui';
 import { apps, type CyberApp } from '../data/apps';
 
@@ -140,13 +141,15 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
       </p>
     )}
 
-    <!-- Screenshot / placeholder -->
+    <!-- Screenshot / conceptual explainer / placeholder -->
     <div
-      class="mt-10 rounded-2xl border border-white/10 overflow-hidden aspect-video flex items-center justify-center relative"
+      class:list={['mt-10 rounded-2xl border border-white/10 overflow-hidden flex items-center justify-center relative', { 'aspect-video': !app.explainer || !!shotSrc }]}
       style={`background: radial-gradient(100% 100% at 50% 0%, ${app.accent}1f 0%, transparent 60%), #10131c;`}
     >
       {shotSrc ? (
         <img src={shotSrc} alt={`${app.name} — ${app.tagline[lang]}`} class="w-full h-full object-cover" loading="lazy" decoding="async" width="1280" height="720" />
+      ) : app.explainer === 'connection-flow' ? (
+        <ConnectionExplainer lang={lang} accent={app.accent} icon={app.icon} />
       ) : (
         <div class="text-center select-none" aria-hidden="true">
           {app.icon ? <img src={app.icon} alt="" width="112" height="112" class="h-28 w-28 object-contain mb-3 opacity-95" /> : <div class="text-7xl mb-3 opacity-90">{app.emoji}</div>}

@@ -60,6 +60,8 @@ export interface CyberApp {
   /** Optional editorial headings for the highlights grid and supporting feature list */
   highlightsTitle?: LocalizedText;
   featuresHeading?: LocalizedText;
+  /** Conceptual visual shown only until a real screenshot is available */
+  explainer?: 'connection-flow';
   /** Screenshot: bare filename resolved to /screenshots/<slug>/, or an
       absolute public path (as written by the CMS), or null for the placeholder */
   screenshot: string | null;
