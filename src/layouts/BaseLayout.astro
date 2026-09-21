@@ -270,23 +270,50 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
         const toggle = dropdown?.querySelector('[data-apps-toggle]');
         const panel = dropdown?.querySelector('[data-apps-panel]');
         if (!dropdown || !toggle || !panel) return;
+        const hoverEnabled = window.matchMedia('(hover: hover) and (pointer: fine)');
+        let openTimer;
+        let closeTimer;
+        const clearTimers = () => {
+          window.clearTimeout(openTimer);
+          window.clearTimeout(closeTimer);
+        };
         const setOpen = (open) => {
           panel.classList.toggle('hidden', !open);
           toggle.setAttribute('aria-expanded', String(open));
           toggle.querySelector('[data-apps-chevron]')?.classList.toggle('rotate-180', open);
         };
-        toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+        dropdown.addEventListener('pointerenter', (event) => {
+          if (!hoverEnabled.matches || event.pointerType !== 'mouse') return;
+          window.clearTimeout(closeTimer);
+          openTimer = window.setTimeout(() => setOpen(true), 180);
+        });
+        dropdown.addEventListener('pointerleave', (event) => {
+          if (!hoverEnabled.matches || event.pointerType !== 'mouse') return;
+          window.clearTimeout(openTimer);
+          closeTimer = window.setTimeout(() => setOpen(false), 260);
+        });
+        toggle.addEventListener('click', (event) => {
+          clearTimers();
+          setOpen(hoverEnabled.matches && event.detail > 0 ? true : toggle.getAttribute('aria-expanded') !== 'true');
+        });
         dropdown.addEventListener('keydown', (event) => {
           if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+            clearTimers();
             setOpen(false);
             toggle.focus();
           }
         });
         dropdown.addEventListener('focusout', (event) => {
-          if (!dropdown.contains(event.relatedTarget)) setOpen(false);
+          if (!dropdown.contains(event.relatedTarget)) {
+            clearTimers();
+            setOpen(false);
+          }
         });
         document.addEventListener('pointerdown', (event) => {
-          if (!dropdown.contains(event.target)) setOpen(false);
+          if (!dropdown.contains(event.target)) {
+            clearTimers();
+            setOpen(false);
+          }
         });
       })();
     </script>
