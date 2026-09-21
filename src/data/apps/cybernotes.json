@@ -15,11 +15,12 @@
     "es": "Una aplicación de notas para escritorio centrada en la privacidad con texto enriquecido, carpetas, multi-pestañas, notas flotantes y almacenamiento local protegido con bcrypt. Gratuita, de código abierto y 100% sin conexión con SQLite local para que tus notas nunca salgan de tu dispositivo."
   },
   "features": [
-    { "en": "TipTap rich editor with markdown shortcuts and code blocks", "es": "Editor rico TipTap con atajos markdown y bloques de código" },
+    { "en": "TipTap rich editor with markdown shortcuts, code blocks and Word-style font sizes", "es": "Editor rico TipTap con atajos markdown, bloques de código y tamaños de letra estilo Word" },
     { "en": "Folders with icons & colors, multi-tabs, floating notes, drag & drop", "es": "Carpetas con iconos y colores, multi-pestañas, notas flotantes, arrastrar y soltar" },
-    { "en": "Master password (bcrypt) with auto-lock and privacy shield", "es": "Contraseña maestra (bcrypt) con bloqueo automático y escudo de privacidad" },
+    { "en": "Master password or PIN (bcrypt) with auto-lock, privacy shield and offline recovery", "es": "Contraseña maestra o PIN (bcrypt) con bloqueo automático, escudo de privacidad y recuperación sin conexión" },
     { "en": "Instant full-text search across titles and content", "es": "Búsqueda instantánea de texto completo en títulos y contenido" },
     { "en": "Autosave, session restore, global hotkey and system tray", "es": "Autoguardado, restauración de sesión, hotkey global y bandeja del sistema" },
+    { "en": "Optional local usage statistics with streaks, plus suite recommendations", "es": "Estadísticas locales opcionales con rachas, más recomendaciones de la suite" },
     { "en": "6 themes, custom backgrounds, glass effects, UI scaling", "es": "6 temas, fondos personalizados, efectos glass y escala de la interfaz" }
   ],
   "repo": "https://github.com/CyberGems/CyberNotes",
