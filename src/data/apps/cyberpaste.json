@@ -3,7 +3,8 @@
   "name": "CyberPaste",
   "emoji": "⚡",
   "icon": "/icons/apps/cyberpaste.png",
-  "accent": "#FFD54F",
+  "explainer": "paste-flow",
+  "accent": "#49BFD5",
   "stack": "Tauri · React · Rust",
   "license": "GPLv3",
   "tagline": {
@@ -16,32 +17,32 @@
   },
   "howItWorks": {
     "title": {
-      "en": "Up and running in minutes",
-      "es": "Listo en minutos"
+      "en": "Make CyberPaste yours in minutes",
+      "es": "Prepara CyberPaste a tu manera"
     },
     "steps": [
       {
         "icon": "⬇️",
-        "title": { "en": "Download & Install", "es": "Descarga e instala" },
+        "title": { "en": "Install or go portable", "es": "Instala o usa la versión portable" },
         "text": {
-          "en": "Install with the NSIS setup, or run the portable zip — no installation needed. Enable Start with Windows if you want it always on.",
-          "es": "Instala con el setup NSIS, o ejecuta el zip portable — sin instalación. Activa Iniciar con Windows si lo quieres siempre activo."
+          "en": "Use the installer or run the portable zip. Enable Start with Windows if you want it ready when you sign in.",
+          "es": "Usa el instalador o ejecuta el zip portable. Activa Iniciar con Windows si quieres tenerlo listo al entrar."
         }
       },
       {
-        "icon": "📋",
-        "title": { "en": "Copy Anything", "es": "Copia lo que sea" },
+        "icon": "🛡️",
+        "title": { "en": "Set your history rules", "es": "Define las reglas del historial" },
         "text": {
-          "en": "Work normally — CyberPaste silently captures text, code, HTML, images, links and files (even Ctrl+X cuts) into local SQLite.",
-          "es": "Trabaja con normalidad — CyberPaste captura en silencio texto, código, HTML, imágenes, enlaces y archivos (incluso cortes Ctrl+X) en SQLite local."
+          "en": "Choose how long to keep clips, exclude sensitive apps and set up local backups if you want them.",
+          "es": "Elige cuánto conservar los clips, excluye apps sensibles y configura copias locales si las deseas."
         }
       },
       {
-        "icon": "⌨️",
-        "title": { "en": "Press Ctrl+Shift+V", "es": "Pulsa Ctrl+Shift+V" },
+        "icon": "🎛️",
+        "title": { "en": "Pick your view", "es": "Elige tu vista" },
         "text": {
-          "en": "Your history appears instantly. Search or filter, then Enter, click or double-click to paste. Space previews, P pins.",
-          "es": "Tu historial aparece al instante. Busca o filtra y pulsa Enter, clic o doble clic para pegar. Espacio previsualiza, P fija."
+          "en": "Use the full grid or compact list, choose a theme and change the global shortcut if the default does not suit you.",
+          "es": "Usa la rejilla completa o la lista compacta, elige un tema y cambia el atajo global si el predeterminado no te conviene."
         }
       }
     ]

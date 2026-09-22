@@ -213,6 +213,7 @@ collections:
           - { label: CyberManager process flow, value: manager-flow }
           - { label: CyberNotes writing flow, value: notes-flow }
           - { label: CyberSnap capture flow, value: snap-flow }
+          - { label: CyberPaste clipboard flow, value: paste-flow }
         hint: Optional. A screenshot always takes precedence.
 
   - name: faqs
