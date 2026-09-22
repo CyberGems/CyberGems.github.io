@@ -211,6 +211,7 @@ collections:
           - { label: CyberViewer image flow, value: viewer-flow }
           - { label: CyberTray shortcut shelf flow, value: tray-flow }
           - { label: CyberManager process flow, value: manager-flow }
+          - { label: CyberNotes writing flow, value: notes-flow }
         hint: Optional. A screenshot always takes precedence.
 
   - name: faqs

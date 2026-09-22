@@ -3,26 +3,98 @@
   "name": "CyberNotes",
   "emoji": "📝",
   "icon": "/icons/apps/cybernotes.png",
-  "accent": "#81C784",
+  "explainer": "notes-flow",
+  "accent": "#49BFD5",
   "stack": "Electron · React · TypeScript",
   "license": "GPLv3",
   "tagline": {
-    "en": "Privacy-focused note-taking app with rich text, folders, tabs and floating notes.",
-    "es": "App de notas centrada en la privacidad con texto enriquecido, carpetas, pestañas y notas flotantes."
+    "en": "Catch ideas, organize your thoughts and keep useful notes close, all on your PC.",
+    "es": "Captura ideas, ordena tus pensamientos y ten tus notas a mano, todo en tu PC."
   },
   "description": {
-    "en": "A privacy-focused desktop note-taking application with rich text, folders, multi-tabs, floating notes, and bcrypt-protected local storage. Free, open-source, and 100% offline with local SQLite, ensuring your notes never leave your device.",
-    "es": "Una aplicación de notas para escritorio centrada en la privacidad con texto enriquecido, carpetas, multi-pestañas, notas flotantes y almacenamiento local protegido con bcrypt. Gratuita, de código abierto y 100% sin conexión con SQLite local para que tus notas nunca salgan de tu dispositivo."
+    "en": "CyberNotes is a flexible writing space for Windows that keeps your notes on your device without an account or built-in cloud sync. Capture quick thoughts or build longer documents with formatting, lists, code and images. Colorful folders, tabs, favorites and full-text search help you return to an idea, while floating notes keep a reference in view as you work. Autosave and session restore help you pick up where you left off. An optional password or PIN locks access to the app; the stored notes themselves are not encrypted.",
+    "es": "CyberNotes es un espacio de escritura flexible para Windows que guarda tus notas en tu dispositivo, sin cuenta ni sincronización en la nube integrada. Captura ideas rápidas o crea documentos más largos con formato, listas, código e imágenes. Las carpetas de colores, pestañas, favoritos y búsqueda de texto completo te ayudan a retomar una idea; las notas flotantes mantienen una referencia visible mientras trabajas. El autoguardado y la restauración de sesión te permiten continuar donde lo dejaste. Una contraseña o un PIN opcional bloquean el acceso a la app; las notas almacenadas no están cifradas."
+  },
+  "highlightsTitle": {
+    "en": "A place for ideas that grow with you",
+    "es": "Un lugar para ideas que crecen contigo"
+  },
+  "highlights": [
+    {
+      "icon": "@book-open",
+      "title": { "en": "Write the way you think", "es": "Escribe a tu manera" },
+      "text": { "en": "Go from a one-line thought to a formatted note with headings, checklists, links, images and code blocks.", "es": "Pasa de una idea de una línea a una nota con títulos, listas de tareas, enlaces, imágenes y bloques de código." }
+    },
+    {
+      "icon": "@folder",
+      "title": { "en": "Keep things connected", "es": "Mantén las ideas conectadas" },
+      "text": { "en": "Group notes in colorful folders, open several tabs and pin favorites you revisit often.", "es": "Agrupa notas en carpetas de colores, abre varias pestañas y marca tus favoritas para volver a ellas." }
+    },
+    {
+      "icon": "@search",
+      "title": { "en": "Find it when you need it", "es": "Encuéntrala cuando haga falta" },
+      "text": { "en": "Search titles and content instantly, revisit recent notes or float an important note over other windows.", "es": "Busca al instante en títulos y contenido, vuelve a notas recientes o deja una nota importante flotando sobre otras ventanas." }
+    }
+  ],
+  "featuresHeading": {
+    "en": "More ways CyberNotes helps",
+    "es": "Más formas en que CyberNotes te ayuda"
   },
   "features": [
-    { "en": "TipTap rich editor with markdown shortcuts, code blocks and Word-style font sizes", "es": "Editor rico TipTap con atajos markdown, bloques de código y tamaños de letra estilo Word" },
-    { "en": "Folders with icons & colors, multi-tabs, floating notes, drag & drop", "es": "Carpetas con iconos y colores, multi-pestañas, notas flotantes, arrastrar y soltar" },
-    { "en": "Master password or PIN (bcrypt) with auto-lock, privacy shield and offline recovery", "es": "Contraseña maestra o PIN (bcrypt) con bloqueo automático, escudo de privacidad y recuperación sin conexión" },
-    { "en": "Instant full-text search across titles and content", "es": "Búsqueda instantánea de texto completo en títulos y contenido" },
-    { "en": "Autosave, session restore, global hotkey and system tray", "es": "Autoguardado, restauración de sesión, hotkey global y bandeja del sistema" },
-    { "en": "Optional local usage statistics with streaks, plus suite recommendations", "es": "Estadísticas locales opcionales con rachas, más recomendaciones de la suite" },
-    { "en": "6 themes, custom backgrounds, glass effects, UI scaling", "es": "6 temas, fondos personalizados, efectos glass y escala de la interfaz" }
+    { "en": "Rich editing with headings, lists, links, images, code blocks and markdown shortcuts", "es": "Edición enriquecida con títulos, listas, enlaces, imágenes, bloques de código y atajos markdown" },
+    { "en": "Colorful folders, drag and drop, favorites, tabs and floating notes", "es": "Carpetas de colores, arrastrar y soltar, favoritos, pestañas y notas flotantes" },
+    { "en": "Full-text search across titles and content, plus recent-note history", "es": "Búsqueda de texto completo en títulos y contenido, más historial de notas recientes" },
+    { "en": "Autosave, session restore and export to Markdown, HTML or JSON backup", "es": "Autoguardado, restauración de sesión y exportación a Markdown, HTML o copia JSON" },
+    { "en": "Optional password or PIN access lock, auto-lock and privacy shield (notes are not encrypted)", "es": "Bloqueo opcional con contraseña o PIN, bloqueo automático y escudo de privacidad (notas sin cifrar)" },
+    { "en": "Local notes without an account or built-in cloud sync; configurable Alt+Shift+N shortcut", "es": "Notas locales sin cuenta ni sincronización en la nube integrada; atajo Alt+Shift+N configurable" },
+    { "en": "Six themes, custom backgrounds, glass effects and interface scaling", "es": "Seis temas, fondos personalizados, efectos de cristal y escala de la interfaz" }
   ],
+  "useCases": {
+    "roles": [
+      {
+        "icon": "✍️",
+        "title": { "en": "Writers and students", "es": "Escritores y estudiantes" },
+        "text": { "en": "Build longer notes with headings, lists, images and code, then return to several drafts in tabs.", "es": "Crea notas extensas con títulos, listas, imágenes y código, y vuelve a varios borradores en pestañas." }
+      },
+      {
+        "icon": "💻",
+        "title": { "en": "Developers", "es": "Desarrolladores" },
+        "text": { "en": "Keep snippets, links and project notes together, with code blocks and search across their contents.", "es": "Reúne fragmentos, enlaces y notas de proyectos con bloques de código y búsqueda en su contenido." }
+      },
+      {
+        "icon": "📋",
+        "title": { "en": "Organizers", "es": "Quienes organizan su día" },
+        "text": { "en": "Collect checklists and plans in folders, then mark the notes you open most as favorites.", "es": "Guarda listas de tareas y planes en carpetas, y marca como favoritas las notas que más consultas." }
+      },
+      {
+        "icon": "🖥️",
+        "title": { "en": "Multitaskers", "es": "Quienes hacen varias cosas a la vez" },
+        "text": { "en": "Float a reference note over another app while you write, study or follow instructions.", "es": "Mantén una nota de referencia sobre otra app mientras escribes, estudias o sigues instrucciones." }
+      }
+    ],
+    "tasks": [
+      {
+        "icon": "💡",
+        "title": { "en": "Catch an idea", "es": "Captura una idea" },
+        "text": { "en": "Open CyberNotes with Alt+Shift+N, type a thought and let autosave preserve it.", "es": "Abre CyberNotes con Alt+Shift+N, escribe una idea y deja que se guarde automáticamente." }
+      },
+      {
+        "icon": "🗂️",
+        "title": { "en": "Sort a growing collection", "es": "Ordena una colección creciente" },
+        "text": { "en": "Drag notes into color-coded folders and pin important ones for quick access.", "es": "Arrastra notas a carpetas de colores y fija las importantes para acceder rápido." }
+      },
+      {
+        "icon": "🔎",
+        "title": { "en": "Find that detail again", "es": "Vuelve a encontrar ese detalle" },
+        "text": { "en": "Search words in a title or note body instead of remembering which folder held it.", "es": "Busca palabras en el título o contenido sin tener que recordar en qué carpeta estaba." }
+      },
+      {
+        "icon": "📌",
+        "title": { "en": "Keep a note in sight", "es": "Ten una nota a la vista" },
+        "text": { "en": "Detach a note into an always-on-top window and keep working in another app.", "es": "Separa una nota en una ventana siempre visible y sigue trabajando en otra app." }
+      }
+    ]
+  },
   "repo": "https://github.com/CyberGems/CyberNotes",
   "wiki": "https://github.com/CyberGems/CyberNotes/wiki",
   "screenshot": null
