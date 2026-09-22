@@ -12,8 +12,8 @@
     "es": "Recupera todo lo que hayas copiado — texto, código, imágenes, archivos — 100% local."
   },
   "description": {
-    "en": "A sleek, privacy-focused clipboard history manager for Windows. CyberPaste stores everything you copy, including text, code, images, files and URLs, in a local SQLite database, so you can recall any clip at any time. Search, organize, pin, edit and paste instantly, protect the interface with a PIN or password, and use optional AI-powered actions.",
-    "es": "Un gestor de historial del portapapeles elegante y centrado en la privacidad para Windows. CyberPaste guarda todo lo que copias, incluidos texto, código, imágenes, archivos y URLs, en una base de datos SQLite local, para que recuperes cualquier clip en cualquier momento. Busca, organiza, fija, edita y pega al instante, protege la interfaz con un PIN o contraseña y usa acciones de IA opcionales."
+    "en": "A sleek, privacy-focused clipboard history manager for Windows. CyberPaste stores everything you copy, including text, code, images, files and URLs, in a local SQLite database, so you can recall any clip at any time. Search, organize, pin, edit and paste instantly, protect the interface with a PIN or password, track optional local achievements, use quiet hours, export clips, and run AI-powered actions.",
+    "es": "Un gestor de historial del portapapeles elegante y centrado en la privacidad para Windows. CyberPaste guarda todo lo que copias, incluidos texto, código, imágenes, archivos y URLs, en una base de datos SQLite local, para que recuperes cualquier clip en cualquier momento. Busca, organiza, fija, edita y pega al instante, protege la interfaz con un PIN o contraseña, sigue logros locales opcionales, usa horario silencioso, exporta clips y ejecuta acciones de IA."
   },
   "howItWorks": {
     "title": {
@@ -33,8 +33,8 @@
         "icon": "🛡️",
         "title": { "en": "Set your history rules", "es": "Define las reglas del historial" },
         "text": {
-          "en": "Choose how long to keep clips, exclude sensitive apps and set up local backups if you want them.",
-          "es": "Elige cuánto conservar los clips, excluye apps sensibles y configura copias locales si las deseas."
+          "en": "Choose how long to keep clips, exclude sensitive apps, set up local backups and quiet hours, and enable long-term achievements if you want them.",
+          "es": "Elige cuánto conservar los clips, excluye apps sensibles, configura copias locales y horario silencioso, y activa logros a largo plazo si los deseas."
         }
       },
       {
@@ -89,8 +89,8 @@
       "color": "#38BDF8",
       "title": { "en": "Smart History", "es": "Historial inteligente" },
       "text": {
-        "en": "300 clips and 30-day retention by default — both configurable up to unlimited. Oldest unpinned go first, plus JSON export/import.",
-        "es": "300 clips y 30 días por defecto — ambos configurables hasta ilimitado. Se borran primero los más antiguos no fijados, más exportar/importar JSON."
+        "en": "300 clips and 30-day retention by default — both configurable up to 1,000 clips. Oldest unpinned go first, with persistent search history and JSON backup export/import.",
+        "es": "300 clips y 30 días por defecto — configurables hasta 1.000 clips. Se borran primero los más antiguos no fijados, con historial de búsqueda persistente y exportar/importar copias JSON."
       }
     },
     {
@@ -100,6 +100,15 @@
       "text": {
         "en": "Tauri + Rust build (~50 MB) that lives quietly in your tray. NSIS setup or portable, optional Start with Windows and GitHub auto-updates.",
         "es": "Compilado Tauri + Rust (~50 MB) que vive discreto en la bandeja. Setup NSIS o portable, inicio con Windows opcional y auto-actualización desde GitHub."
+      }
+    },
+    {
+      "icon": "🏆",
+      "color": "#F472B6",
+      "title": { "en": "Achievements & Progress", "es": "Logros y progreso" },
+      "text": {
+        "en": "Optional local-only statistics celebrate long-term clipboard use with active days, profile age and milestones up to 25,000 captured clips. Progress travels safely in backups.",
+        "es": "Las estadísticas locales opcionales celebran el uso prolongado con días activos, antigüedad del perfil y metas de hasta 25.000 clips capturados. El progreso viaja seguro en las copias."
       }
     },
     {
@@ -139,7 +148,10 @@
     { "en": "Full grid and Compact list modes (Ctrl+M), zoom, 4 Mica themes, HUD toasts", "es": "Modos rejilla completa y lista compacta (Ctrl+M), zoom, 4 temas Mica, avisos HUD" },
     { "en": "Global hotkey (Ctrl+Shift+V), auto-paste injection, multi-monitor aware", "es": "Hotkey global (Ctrl+Shift+V), auto-pegado, consciente de multi-monitor" },
     { "en": "Fullscreen image viewer with local Windows Media OCR, save OCR text as a new clip", "es": "Visor de imágenes a pantalla completa con OCR local de Windows, guarda el texto como clip nuevo" },
-    { "en": "Local SQLite, zero telemetry, ignored apps, JSON backup and configurable retention", "es": "SQLite local, cero telemetría, apps ignoradas, copia JSON y retención configurable" }
+    { "en": "Save As exports from clip menus and viewers for images, text, HTML, RTF, URLs, original files and multi-file clips", "es": "Exportaciones Guardar como desde menús y visores para imágenes, texto, HTML, RTF, URLs, archivos originales y clips de varios archivos" },
+    { "en": "Persistent local search history, literal wildcard handling and a dedicated no-results state", "es": "Historial de búsqueda local persistente, comodines tratados literalmente y estado dedicado sin resultados" },
+    { "en": "Configurable quiet hours suppress routine notifications and associated sounds while critical alerts remain available", "es": "El horario silencioso configurable suprime avisos rutinarios y sus sonidos, mientras las alertas críticas siguen disponibles" },
+    { "en": "Local SQLite, zero telemetry, ignored apps, JSON backup with progress and configurable retention", "es": "SQLite local, cero telemetría, apps ignoradas, copia JSON con progreso y retención configurable" }
   ],
   "useCases": {
     "roles": [
