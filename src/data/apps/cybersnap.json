@@ -3,6 +3,7 @@
   "name": "CyberSnap",
   "emoji": "📸",
   "icon": "/icons/apps/cybersnap.png",
+  "explainer": "snap-flow",
   "accent": "#00F2FF",
   "stack": "C# · WPF · .NET 9",
   "license": "GPLv3",
@@ -13,6 +14,31 @@
   "description": {
     "en": "A sleek, all-in-one capture suite for Windows. Take area, window, full-screen and scrolling screenshots; record MP4 or GIF; annotate with vector tools; extract and translate text with OCR; and find every capture later in a local searchable gallery. Share through seven destinations or keep everything on your device.",
     "es": "Una suite de captura elegante y todo en uno para Windows. Captura áreas, ventanas, la pantalla completa o contenido con desplazamiento; graba en MP4 o GIF; anota con herramientas vectoriales; extrae y traduce texto con OCR; y encuentra cada captura en una galería local con búsqueda. Comparte mediante siete destinos o conserva todo en tu dispositivo."
+  },
+  "highlightsTitle": {
+    "en": "From a screen moment to something useful",
+    "es": "De un momento en pantalla a algo útil"
+  },
+  "highlights": [
+    {
+      "icon": "@image",
+      "title": { "en": "Capture in the right format", "es": "Captura en el formato adecuado" },
+      "text": { "en": "Pick an area, window, full screen or scrolling page, or record a short MP4 or GIF.", "es": "Elige un área, ventana, pantalla completa o página larga, o graba un MP4 o GIF breve." }
+    },
+    {
+      "icon": "@sliders",
+      "title": { "en": "Show exactly what matters", "es": "Señala justo lo importante" },
+      "text": { "en": "Use arrows, text and blur to explain a capture, or extract words from an image with OCR.", "es": "Usa flechas, texto y difuminado para explicar una captura, o extrae palabras de una imagen con OCR." }
+    },
+    {
+      "icon": "@search",
+      "title": { "en": "Find it or send it later", "es": "Encuéntrala o envíala después" },
+      "text": { "en": "Search your local gallery, copy a result or choose an upload destination when you want to share.", "es": "Busca en tu galería local, copia el resultado o elige un destino de subida cuando quieras compartir." }
+    }
+  ],
+  "featuresHeading": {
+    "en": "More ways CyberSnap helps",
+    "es": "Más formas en que CyberSnap te ayuda"
   },
   "features": [
     { "en": "Area, window, full screen & scroll capture", "es": "Captura de área, ventana, pantalla completa y desplazamiento" },

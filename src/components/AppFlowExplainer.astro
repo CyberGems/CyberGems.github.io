@@ -3,7 +3,7 @@ interface Props {
   lang: 'en' | 'es';
   accent: string;
   icon?: string;
-  kind: 'connection-flow' | 'feed-flow' | 'launcher-flow' | 'viewer-flow' | 'tray-flow' | 'manager-flow' | 'notes-flow';
+  kind: 'connection-flow' | 'feed-flow' | 'launcher-flow' | 'viewer-flow' | 'tray-flow' | 'manager-flow' | 'notes-flow' | 'snap-flow';
 }
 
 const { lang, accent, icon, kind } = Astro.props;
@@ -210,7 +210,36 @@ const notesCopy = lang === 'en' ? {
   always: 'Favoritos',
   block: 'Flotante',
 };
-const copy = kind === 'notes-flow' ? notesCopy : kind === 'manager-flow' ? managerCopy : kind === 'tray-flow' ? trayCopy : kind === 'viewer-flow' ? viewerCopy : kind === 'launcher-flow' ? launcherCopy : kind === 'feed-flow' ? feedCopy : wallCopy;
+const snapCopy = lang === 'en' ? {
+  eyebrow: 'CYBERSNAP · THE IDEA',
+  note: 'ILLUSTRATION, NOT AN APP SCREENSHOT',
+  title: 'See it. Explain it. Keep it.',
+  intro: 'Take a moment on screen from capture to a useful result.',
+  first: 'Capture what matters',
+  firstText: 'Grab an area, window or long page, or record a short MP4 or GIF.',
+  second: 'Make your point clear',
+  secondText: 'Add arrows, labels or blur; extract text with OCR when words matter.',
+  third: 'Save or share',
+  thirdText: 'Keep it in your searchable local gallery, copy it or upload when you choose.',
+  once: 'Save',
+  always: 'Copy',
+  block: 'Upload',
+} : {
+  eyebrow: 'CYBERSNAP · LA IDEA',
+  note: 'ILUSTRACIÓN, NO CAPTURA DE LA APP',
+  title: 'Captura. Explica. Conserva.',
+  intro: 'Convierte un momento de pantalla en un resultado útil.',
+  first: 'Captura lo importante',
+  firstText: 'Toma un área, ventana o página larga, o graba un MP4 o GIF breve.',
+  second: 'Haz clara tu idea',
+  secondText: 'Añade flechas, texto o difuminado; extrae palabras con OCR si hace falta.',
+  third: 'Guarda o comparte',
+  thirdText: 'Consérvalo en tu galería local con búsqueda, cópialo o súbelo si decides hacerlo.',
+  once: 'Guardar',
+  always: 'Copiar',
+  block: 'Subir',
+};
+const copy = kind === 'snap-flow' ? snapCopy : kind === 'notes-flow' ? notesCopy : kind === 'manager-flow' ? managerCopy : kind === 'tray-flow' ? trayCopy : kind === 'viewer-flow' ? viewerCopy : kind === 'launcher-flow' ? launcherCopy : kind === 'feed-flow' ? feedCopy : wallCopy;
 ---
 
 <div class="explainer relative w-full min-h-[550px] sm:min-h-[480px] lg:min-h-[495px] overflow-hidden p-5 sm:p-8 lg:p-10" style={`--explainer-accent: ${accent};`}>
@@ -229,7 +258,9 @@ const copy = kind === 'notes-flow' ? notesCopy : kind === 'manager-flow' ? manag
       <li class="step-card relative rounded-2xl border border-white/10 p-4 sm:p-5">
         <span class="step-number">01</span>
         <div class="step-icon" aria-hidden="true">
-          {kind === 'notes-flow' ? (
+          {kind === 'snap-flow' ? (
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 6H8a2 2 0 0 0-2 2v8M32 6h8a2 2 0 0 1 2 2v8M6 32v8a2 2 0 0 0 2 2h8M42 32v8a2 2 0 0 1-2 2h-8"/><rect x="15" y="15" width="18" height="18" rx="3"/><circle cx="24" cy="24" r="4"/></svg>
+          ) : kind === 'notes-flow' ? (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6h24l4 4v32H10zM34 6v6h6M16 18h16M16 25h16M16 32h11"/></svg>
           ) : kind === 'manager-flow' ? (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="38" height="34" rx="4"/><path d="M10 31h5l5-11 6 16 5-10h7M11 14h10"/></svg>
@@ -259,7 +290,9 @@ const copy = kind === 'notes-flow' ? notesCopy : kind === 'manager-flow' ? manag
       <li class="step-card relative rounded-2xl border border-white/10 p-4 sm:p-5">
         <span class="step-number">03</span>
         <div class="step-icon" aria-hidden="true">
-          {kind === 'notes-flow' ? (
+          {kind === 'snap-flow' ? (
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="38" height="34" rx="4"/><path d="M11 33h26M12 25l7-7 6 6 5-5 7 7"/><path d="M34 11v12M29 18l5 5 5-5"/></svg>
+          ) : kind === 'notes-flow' ? (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="10" width="27" height="29" rx="3"/><path d="M16 17h15M16 23h11M16 29h8M30 6v8M7 14V7h18"/></svg>
           ) : kind === 'manager-flow' ? (
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8h24v32H12zM18 16h12M18 24h12M18 32h5"/><path d="m28 31 3 3 6-7"/></svg>
