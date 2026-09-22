@@ -214,6 +214,7 @@ collections:
           - { label: CyberNotes writing flow, value: notes-flow }
           - { label: CyberSnap capture flow, value: snap-flow }
           - { label: CyberPaste clipboard flow, value: paste-flow }
+          - { label: CyberClock daily time flow, value: clock-flow }
         hint: Optional. A screenshot always takes precedence.
 
   - name: faqs

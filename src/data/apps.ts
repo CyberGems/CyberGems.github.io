@@ -61,7 +61,7 @@ export interface CyberApp {
   highlightsTitle?: LocalizedText;
   featuresHeading?: LocalizedText;
   /** Conceptual visual shown only until a real screenshot is available */
-  explainer?: 'connection-flow' | 'feed-flow' | 'launcher-flow' | 'viewer-flow' | 'tray-flow' | 'manager-flow' | 'notes-flow' | 'snap-flow' | 'paste-flow';
+  explainer?: 'connection-flow' | 'feed-flow' | 'launcher-flow' | 'viewer-flow' | 'tray-flow' | 'manager-flow' | 'notes-flow' | 'snap-flow' | 'paste-flow' | 'clock-flow';
   /** Screenshot: bare filename resolved to /screenshots/<slug>/, or an
       absolute public path (as written by the CMS), or null for the placeholder */
   screenshot: string | null;

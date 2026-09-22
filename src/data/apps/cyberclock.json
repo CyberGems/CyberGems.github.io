@@ -3,6 +3,7 @@
   "name": "CyberClock",
   "emoji": "🕐",
   "icon": "/icons/apps/cyberclock.png",
+  "explainer": "clock-flow",
   "accent": "#90CAF9",
   "stack": "Tauri · Rust",
   "license": "GPLv3",
@@ -46,6 +47,10 @@
       }
     ]
   },
+  "highlightsTitle": {
+    "en": "Time tools that fit around your day",
+    "es": "Herramientas de tiempo que se adaptan a tu día"
+  },
   "highlights": [
     {
       "icon": "⏱️",
@@ -84,6 +89,10 @@
       }
     }
   ],
+  "featuresHeading": {
+    "en": "More ways CyberClock helps",
+    "es": "Más formas en que CyberClock te ayuda"
+  },
   "features": [
     {
       "en": "Canvas-rendered analog clock + digital display (12H/24H)",
@@ -130,6 +139,52 @@
       "es": "Atajo global (Alt+Shift+C), selección automática de monitor y alertas de precisión horaria NTP"
     }
   ],
+  "useCases": {
+    "roles": [
+      {
+        "icon": "📚",
+        "title": { "en": "Students", "es": "Estudiantes" },
+        "text": { "en": "Time a study block, take a short break and keep the next task on the calendar.", "es": "Mide un bloque de estudio, toma una pausa y deja la siguiente tarea en el calendario." }
+      },
+      {
+        "icon": "💻",
+        "title": { "en": "Desk workers", "es": "Quienes trabajan en el escritorio" },
+        "text": { "en": "Keep a small clock in sight and open a floating timer without covering the app you are using.", "es": "Deja un reloj pequeño a la vista y abre un temporizador flotante sin tapar la app que usas." }
+      },
+      {
+        "icon": "🍳",
+        "title": { "en": "Home multitaskers", "es": "Quienes hacen varias cosas en casa" },
+        "text": { "en": "Run an independent kitchen countdown while another timer tracks something else.", "es": "Usa una cuenta regresiva independiente para la cocina mientras otro temporizador mide algo más." }
+      },
+      {
+        "icon": "🧘",
+        "title": { "en": "People seeking a pause", "es": "Quienes buscan una pausa" },
+        "text": { "en": "Set a gentle ambient session and follow a breathing pattern after a busy stretch.", "es": "Programa una sesión de sonido ambiental y sigue un ritmo de respiración tras un rato intenso." }
+      }
+    ],
+    "tasks": [
+      {
+        "icon": "📅",
+        "title": { "en": "See what is ahead", "es": "Mira lo que viene" },
+        "text": { "en": "Check the month, add a note to a day and glance at the agenda.", "es": "Consulta el mes, añade una nota a un día y revisa la agenda." }
+      },
+      {
+        "icon": "⏱️",
+        "title": { "en": "Time a focused task", "es": "Pon tiempo a una tarea" },
+        "text": { "en": "Start a countdown or add time to a floating timer without opening Full Mode.", "es": "Inicia una cuenta regresiva o suma tiempo a un temporizador flotante sin abrir el modo completo." }
+      },
+      {
+        "icon": "🏃",
+        "title": { "en": "Track a round or lap", "es": "Mide una ronda o vuelta" },
+        "text": { "en": "Use the stopwatch, mark laps and compare your times.", "es": "Usa el cronómetro, marca vueltas y compara tus tiempos." }
+      },
+      {
+        "icon": "🌧️",
+        "title": { "en": "Wind down gently", "es": "Baja el ritmo" },
+        "text": { "en": "Play rain or another soundscape, blend tracks and set an automatic fade-out.", "es": "Escucha lluvia u otro paisaje sonoro, combina pistas y programa un desvanecimiento automático." }
+      }
+    ]
+  },
   "repo": "https://github.com/CyberGems/CyberClock",
   "wiki": "https://github.com/CyberGems/CyberClock/wiki",
   "screenshot": null
