@@ -41,8 +41,8 @@
         "icon": "✨",
         "title": { "en": "Make it yours", "es": "Hazlo tuyo" },
         "text": {
-          "en": "Choose from 12 Mini Mode skins, tune the tint and zoom, select a monitor, and add your name for a welcoming Full Mode greeting.",
-          "es": "Elige entre 12 skins del Modo Mini, ajusta el tinte y el zoom, selecciona un monitor y añade tu nombre para un saludo acogedor en el modo completo."
+          "en": "Choose from 15 Mini Mode skins, tune the tint and zoom, select a monitor, and add your name for a welcoming Full Mode greeting.",
+          "es": "Elige entre 15 skins del Modo Mini, ajusta el tinte y el zoom, selecciona un monitor y añade tu nombre para un saludo acogedor en el modo completo."
         }
       }
     ]
@@ -64,10 +64,10 @@
     {
       "icon": "🎨",
       "color": "#A78BFA",
-      "title": { "en": "12 expressive skins", "es": "12 skins expresivas" },
+      "title": { "en": "15 expressive skins", "es": "15 skins expresivas" },
       "text": {
-        "en": "From Cyber Bar Pro to Glass Orb, Sunset Pulse, and Quantum, every compact window adapts to the selected skin and zoom.",
-        "es": "Desde Cyber Bar Pro hasta Glass Orb, Sunset Pulse y Quantum, cada ventana compacta se adapta al skin y zoom seleccionados."
+        "en": "From Cyber Bar Pro to Glass Orb, Sunset Pulse, Cyber Deck, and Quantum, every compact window adapts to the selected skin and zoom.",
+        "es": "Desde Cyber Bar Pro hasta Glass Orb, Sunset Pulse, Cyber Deck y Quantum, cada ventana compacta se adapta al skin y zoom seleccionados."
       }
     },
     {
@@ -99,8 +99,8 @@
       "es": "Reloj analógico renderizado en canvas + pantalla digital (12H/24H)"
     },
     {
-      "en": "8 selectable analog dial designs, including the multicolor Gem Crown dial",
-      "es": "8 diseños de esfera analógica seleccionables, incluida la esfera multicolor Corona de Gemas"
+      "en": "10 selectable analog dial designs, including the multicolor Gem Crown dial",
+      "es": "10 diseños de esfera analógica seleccionables, incluida la esfera multicolor Corona de Gemas"
     },
     {
       "en": "Full calendar with agenda, day notes, statistics and moon phase",
@@ -115,12 +115,12 @@
       "es": "6 paisajes sonoros ambientales sintetizados proceduralmente con guía de respiración"
     },
     {
-      "en": "Mini mode: compact always-on-top clock bar with 12 skin-specific designs and zoom",
-      "es": "Modo mini: barra de reloj compacta siempre visible con 12 diseños propios y zoom"
+      "en": "Mini mode: compact always-on-top clock bar with 15 skin-specific designs, visual skin gallery, and zoom",
+      "es": "Modo mini: barra de reloj compacta siempre visible con 15 diseños propios, galería visual de skins y zoom"
     },
     {
-      "en": "Independent floating timer and stopwatch windows with their own state and responsive controls",
-      "es": "Ventanas flotantes independientes de timer y cronómetro con estado propio y controles adaptables"
+      "en": "Standalone floating desktop widgets (timers, stopwatches, calendar, analog clock) with persistence across restarts",
+      "es": "Widgets flotantes independientes (timers, cronómetros, calendario, reloj analógico) con persistencia entre reinicios"
     },
     {
       "en": "Floating timer presets: 30s, 1m, 5m, 10m, and 15m add time without auto-starting",
