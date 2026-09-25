@@ -134,8 +134,8 @@
       "color": "#FACC15",
       "title": { "en": "Organize Your Way", "es": "Organiza a tu manera" },
       "text": {
-        "en": "Folders with drag & drop, bulk select, editable clips and detail view. Full grid or Compact list (Ctrl+M), 4 Mica themes and HUD toasts.",
-        "es": "Carpetas con arrastrar y soltar, selección múltiple, clips editables y vista detalle. Rejilla completa o lista compacta (Ctrl+M), 4 temas Mica y avisos HUD."
+        "en": "Folders with drag & drop, bulk select, editable clips and detail view. Full grid or Compact list (Ctrl+M), Light, Dark, and CyberPaste themes plus System, and HUD toasts.",
+        "es": "Carpetas con arrastrar y soltar, selección múltiple, clips editables y vista detalle. Rejilla completa o lista compacta (Ctrl+M), temas Claro, Oscuro y CyberPaste más Sistema, y avisos HUD."
       }
     }
   ],
@@ -145,7 +145,7 @@
     { "en": "Instant FTS5 search with filter chips and live counts (content, OCR text, source app)", "es": "Búsqueda instantánea FTS5 con filtros y conteos en vivo (contenido, OCR, app de origen)" },
     { "en": "AI actions — summarize, translate, explain code, fix grammar — plus custom prompts, any OpenAI-compatible provider", "es": "Acciones de IA — resumir, traducir, explicar código, corregir gramática — más prompts propios, cualquier proveedor compatible con OpenAI" },
     { "en": "Folders, pinning, favorites, bulk management, editable clips and detail panel", "es": "Carpetas, fijados, favoritos, gestión por lotes, clips editables y panel de detalle" },
-    { "en": "Full grid and Compact list modes (Ctrl+M), zoom, 4 Mica themes, HUD toasts", "es": "Modos rejilla completa y lista compacta (Ctrl+M), zoom, 4 temas Mica, avisos HUD" },
+    { "en": "Full grid and Compact list modes (Ctrl+M), zoom, Light, Dark, and CyberPaste themes plus System, HUD toasts", "es": "Modos rejilla completa y lista compacta (Ctrl+M), zoom, temas Claro, Oscuro y CyberPaste más Sistema, avisos HUD" },
     { "en": "Global hotkey (Ctrl+Shift+V), auto-paste injection, multi-monitor aware", "es": "Hotkey global (Ctrl+Shift+V), auto-pegado, consciente de multi-monitor" },
     { "en": "Fullscreen image viewer with local Windows Media OCR, save OCR text as a new clip", "es": "Visor de imágenes a pantalla completa con OCR local de Windows, guarda el texto como clip nuevo" },
     { "en": "Save As exports from clip menus and viewers for images, text, HTML, RTF, URLs, original files and multi-file clips", "es": "Exportaciones Guardar como desde menús y visores para imágenes, texto, HTML, RTF, URLs, archivos originales y clips de varios archivos" },
