@@ -135,6 +135,14 @@
       "es": "Alarmas, campanadas, líneas CRT, transparencia y multi-monitor"
     },
     {
+      "en": "Voice Time Announcer (Talking Clock) with system voice selection, natural/cyber styles, pre-chimes, and quiet hours",
+      "es": "Locutor de hora por voz (Reloj Parlante) con selección de voces del sistema, estilos natural/cyber, pre-timbre y horas de silencio"
+    },
+    {
+      "en": "Mini Mode Auto-Fade (inactivity dimming at 70%, 50%, 30%, 15%) and independent widget position locks",
+      "es": "Atenuación automática por inactividad en Modo Mini (70%, 50%, 30%, 15%) y bloqueo de posición independiente por widget"
+    },
+    {
       "en": "Global hotkey (Alt+Shift+C), automatic monitor selection and NTP clock-accuracy alerts",
       "es": "Atajo global (Alt+Shift+C), selección automática de monitor y alertas de precisión horaria NTP"
     }
