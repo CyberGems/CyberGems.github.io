@@ -34,7 +34,7 @@
         "title": { "en": "Float a tool", "es": "Flota una herramienta" },
         "text": {
           "en": "Launch an independent timer or stopwatch from the tray or Mini Mode menu. Floating timers offer 30s, 1m, 5m, 10m, and 15m quick-add presets.",
-          "es": "Abre un temporizador o cronómetro independiente desde la bandeja o el menú del Modo Mini. Los timers flotantes ofrecen presets rápidos de 30s, 1m, 5m, 10m y 15m."
+          "es": "Abre un temporizador o cronómetro independiente desde la bandeja o el menú del Modo Mini. Los temporizadores flotantes ofrecen preajustes rápidos de 30s, 1m, 5m, 10m y 15m."
         }
       },
       {
@@ -67,16 +67,16 @@
       "title": { "en": "15 expressive skins", "es": "15 skins expresivas" },
       "text": {
         "en": "From Cyber Bar Pro to Glass Orb, Sunset Pulse, Cyber Deck, and Quantum, every compact window adapts to the selected skin and zoom.",
-        "es": "Desde Cyber Bar Pro hasta Glass Orb, Sunset Pulse, Cyber Deck y Quantum, cada ventana compacta se adapta al skin y zoom seleccionados."
+        "es": "Desde Cyber Bar Pro hasta Glass Orb, Sunset Pulse, Cyber Deck y Quantum, cada ventana compacta se adapta a la skin y el zoom seleccionados."
       }
     },
     {
       "icon": "➕",
       "color": "#34D399",
-      "title": { "en": "Quick-add timer presets", "es": "Presets rápidos acumulables" },
+      "title": { "en": "Quick-add timer presets", "es": "Preajustes rápidos acumulables" },
       "text": {
         "en": "Add 30 seconds to 15 minutes to a floating timer without starting it, then press Start when you are ready.",
-        "es": "Añade de 30 segundos a 15 minutos a un timer flotante sin iniciarlo, y pulsa Iniciar cuando estés listo."
+        "es": "Añade de 30 segundos a 15 minutos a un temporizador flotante sin iniciarlo, y pulsa Iniciar cuando estés listo."
       }
     },
     {
@@ -108,7 +108,7 @@
     },
     {
       "en": "Countdown timer with presets + precision stopwatch with laps",
-      "es": "Temporizador con presets + cronómetro de precisión con vueltas"
+      "es": "Temporizador con preajustes + cronómetro de precisión con vueltas"
     },
     {
       "en": "6 procedurally-synthesized ambient soundscapes with breathing guide",
@@ -116,15 +116,15 @@
     },
     {
       "en": "Mini mode: compact always-on-top clock bar with 15 skin-specific designs, visual skin gallery, and zoom",
-      "es": "Modo mini: barra de reloj compacta siempre visible con 15 diseños propios, galería visual de skins y zoom"
+      "es": "Modo Mini: barra de reloj compacta siempre visible con 15 diseños propios, galería visual de skins y zoom"
     },
     {
       "en": "Standalone floating desktop widgets (timers, stopwatches, calendar, analog clock) with persistence across restarts",
-      "es": "Widgets flotantes independientes (timers, cronómetros, calendario, reloj analógico) con persistencia entre reinicios"
+      "es": "Widgets flotantes independientes (temporizadores, cronómetros, calendario, reloj analógico) con persistencia entre reinicios"
     },
     {
       "en": "Floating timer presets: 30s, 1m, 5m, 10m, and 15m add time without auto-starting",
-      "es": "Presets del timer flotante: 30s, 1m, 5m, 10m y 15m suman tiempo sin iniciar automáticamente"
+      "es": "Preajustes del temporizador flotante: 30s, 1m, 5m, 10m y 15m suman tiempo sin iniciar automáticamente"
     },
     {
       "en": "Personalized time-aware welcome greeting beside the CyberClock brand in Full Mode",
