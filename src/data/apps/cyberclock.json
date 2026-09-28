@@ -145,6 +145,14 @@
     {
       "en": "Global hotkey (Alt+Shift+C), automatic monitor selection and NTP clock-accuracy alerts",
       "es": "Atajo global (Alt+Shift+C), selección automática de monitor y alertas de precisión horaria NTP"
+    },
+    {
+      "en": "Backup & Data tab: export/import all settings, notes and alarms as JSON, open the data folder, or factory reset",
+      "es": "Pestaña Respaldo y Datos: exporta/importa configuración, notas y alarmas como JSON, abre la carpeta de datos o restablece a valores de fábrica"
+    },
+    {
+      "en": "About window: 5 random CyberGems suite apps with inline More badge, concise description, and context-menu entry in all widgets",
+      "es": "Ventana Acerca de: 5 apps aleatorias de la suite CyberGems con insignia Más en línea, descripción concisa y entrada en todos los menús contextuales"
     }
   ],
   "useCases": {
