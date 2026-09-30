@@ -66,8 +66,8 @@
       "color": "#A78BFA",
       "title": { "en": "15 expressive skins", "es": "15 skins expresivas" },
       "text": {
-        "en": "From Cyber Bar Pro to Glass Orb, Sunset Pulse, Cyber Deck, and Quantum, every compact window adapts to the selected skin and zoom.",
-        "es": "Desde Cyber Bar Pro hasta Glass Orb, Sunset Pulse, Cyber Deck y Quantum, cada ventana compacta se adapta a la skin y el zoom seleccionados."
+        "en": "From Titanium Mech to Glass Orb, Sunset Pulse, Cyber Deck, and Quantum, every compact window adapts to the selected skin and zoom.",
+        "es": "Desde Titanium Mech hasta Glass Orb, Sunset Pulse, Cyber Deck y Quantum, cada ventana compacta se adapta a la skin y el zoom seleccionados."
       }
     },
     {
@@ -143,8 +143,8 @@
       "es": "Volumen dedicado de campanadas, líneas CRT, transparencia y opciones flexibles de cierre"
     },
     {
-      "en": "Voice Time Announcer (Talking Clock) with system voice selection, natural/cyber styles, pre-chimes, and quiet hours",
-      "es": "Locutor de hora por voz (Reloj Parlante) con selección de voces del sistema, estilos natural/cyber, pre-timbre y horas de silencio"
+      "en": "Voice Time Announcer (Talking Clock) speaks each announcement once, with system voice selection, natural/cyber styles, pre-chimes, and quiet hours",
+      "es": "Locutor de hora por voz (Reloj Parlante): dice cada aviso una sola vez, con voces del sistema, estilos natural/cyber, pre-timbre y horas de silencio"
     },
     {
       "en": "Mini Mode Auto-Fade (inactivity dimming at 70%, 50%, 30%, 15%) and independent widget position locks",
