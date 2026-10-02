@@ -43,9 +43,11 @@
   "features": [
     { "en": "Search apps and indexed files in your configured locations", "es": "Busca apps y archivos indexados en las ubicaciones configuradas" },
     { "en": "Open Microsoft Store apps, shortcuts and web links", "es": "Abre apps de Microsoft Store, accesos directos y enlaces web" },
-    { "en": "Pin frequently used apps and organize them in categories", "es": "Fija tus apps frecuentes y organízalas en categorías" },
+    { "en": "Pin frequently used apps and organize them in categories with collapsible icon rail", "es": "Fija tus apps frecuentes y organízalas en categorías con riel de iconos colapsable" },
+    { "en": "Access launcher actions and navigation instantly with Ctrl+K command palette", "es": "Accede a acciones y navegación del lanzador al instante con la paleta Ctrl+K" },
     { "en": "Assign custom shortcuts to individual apps", "es": "Asigna atajos personalizados a cada app" },
-    { "en": "Schedule app launches or commands for a later time", "es": "Programa la apertura de apps o comandos para más tarde" },
+    { "en": "Schedule app launches or commands with standalone desktop alerts", "es": "Programa la apertura de apps o comandos con alertas flotantes en el escritorio" },
+    { "en": "Manage system power actions with a 10-second confirmation safety countdown", "es": "Gestiona acciones de energía del sistema con cuenta regresiva de seguridad de 10 segundos" },
     { "en": "Type > to run a shell command from the search field", "es": "Escribe > para ejecutar un comando desde el buscador" },
     { "en": "Check CPU, memory and disk usage at a glance", "es": "Consulta el uso de CPU, memoria y disco de un vistazo" },
     { "en": "Adjust background, glass effect, opacity and interface scale", "es": "Ajusta fondo, efecto de cristal, opacidad y escala de la interfaz" }
