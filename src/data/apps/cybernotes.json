@@ -41,13 +41,14 @@
     "es": "Más formas en que CyberNotes te ayuda"
   },
   "features": [
-    { "en": "Rich editing with headings, lists, links, images, code blocks and markdown shortcuts", "es": "Edición enriquecida con títulos, listas, enlaces, imágenes, bloques de código y atajos markdown" },
-    { "en": "Colorful folders, drag and drop, favorites, tabs and floating notes", "es": "Carpetas de colores, arrastrar y soltar, favoritos, pestañas y notas flotantes" },
+    { "en": "Rich editing with headings, lists, links, images, code blocks and markdown shortcuts, plus five text case transformations with Shift+F3", "es": "Edición enriquecida con títulos, listas, enlaces, imágenes, bloques de código y atajos markdown, más cinco transformaciones de mayúsculas y minúsculas con Mayús+F3" },
+    { "en": "Colorful folders, drag and drop, favorites, tabs and floating notes with mouse-wheel access to hidden toolbar actions", "es": "Carpetas de colores, arrastrar y soltar, favoritos, pestañas y notas flotantes; desplaza su barra con la rueda del mouse para llegar a las acciones ocultas" },
     { "en": "Full-text search across titles and content, plus recent-note history", "es": "Búsqueda de texto completo en títulos y contenido, más historial de notas recientes" },
-    { "en": "Autosave, session restore and export to Markdown, HTML or JSON backup", "es": "Autoguardado, restauración de sesión y exportación a Markdown, HTML o copia JSON" },
+    { "en": "Autosave, session restore, timestamped save feedback in the editor and floating notes, plus export to Markdown, HTML or JSON backup", "es": "Autoguardado, restauración de sesión, estados de guardado con hora en el editor y las notas flotantes, y exportación a Markdown, HTML o copia JSON" },
+    { "en": "Optional Caps Lock shutoff after keyboard inactivity, title-bar countdown and keyboard status indicators", "es": "Apagado opcional de Bloq Mayús por inactividad, cuenta regresiva en la barra de título e indicadores de estado del teclado" },
     { "en": "Optional password or PIN access lock, auto-lock and privacy shield (notes are not encrypted)", "es": "Bloqueo opcional con contraseña o PIN, bloqueo automático y escudo de privacidad (notas sin cifrar)" },
     { "en": "Local notes without an account or built-in cloud sync; configurable Alt+Shift+N shortcut", "es": "Notas locales sin cuenta ni sincronización en la nube integrada; atajo Alt+Shift+N configurable" },
-    { "en": "Six themes, custom backgrounds, glass effects and interface scaling", "es": "Seis temas, fondos personalizados, efectos de cristal y escala de la interfaz" }
+    { "en": "Six themes, custom backgrounds, glass effects and interface scaling for menus and controls", "es": "Seis temas, fondos personalizados, efectos de cristal y escala de interfaz para menús y controles" }
   ],
   "useCases": {
     "roles": [
