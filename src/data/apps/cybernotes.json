@@ -23,7 +23,7 @@
     {
       "icon": "@book-open",
       "title": { "en": "Write the way you think", "es": "Escribe a tu manera" },
-      "text": { "en": "Go from a one-line thought to a formatted note with headings, checklists, links, images and code blocks.", "es": "Pasa de una idea de una línea a una nota con títulos, listas de tareas, enlaces, imágenes y bloques de código." }
+      "text": { "en": "Go from a one-line thought to a formatted note with headings, checklists, links, images and code, or search and batch-insert symbols and emojis.", "es": "Pasa de una idea breve a una nota con títulos, listas, enlaces, imágenes y código, o busca e inserta símbolos y emojis incluso en grupo." }
     },
     {
       "icon": "@folder",
@@ -48,7 +48,10 @@
     { "en": "Optional Caps Lock shutoff after keyboard inactivity, title-bar countdown and keyboard status indicators", "es": "Apagado opcional de Bloq Mayús por inactividad, cuenta regresiva en la barra de título e indicadores de estado del teclado" },
     { "en": "Optional password or PIN access lock, auto-lock and privacy shield (notes are not encrypted)", "es": "Bloqueo opcional con contraseña o PIN, bloqueo automático y escudo de privacidad (notas sin cifrar)" },
     { "en": "Local notes without an account or built-in cloud sync; configurable Alt+Shift+N shortcut", "es": "Notas locales sin cuenta ni sincronización en la nube integrada; atajo Alt+Shift+N configurable" },
-    { "en": "Six themes, custom backgrounds, glass effects and interface scaling for menus and controls", "es": "Seis temas, fondos personalizados, efectos de cristal y escala de interfaz para menús y controles" }
+    { "en": "Six themes, custom backgrounds, glass effects and interface scaling for menus and controls", "es": "Seis temas, fondos personalizados, efectos de cristal y escala de interfaz para menús y controles" },
+    { "en": "Search Unicode symbols and Emoji 18.0 by category; insert one or queue multiple characters for batch insertion", "es": "Busca símbolos Unicode y emojis 18.0 por categoría; inserta uno o prepara varios para agregarlos juntos" },
+    { "en": "Follow long notes with aligned line numbers and continuation markers", "es": "Sigue notas largas con números de línea e indicadores de continuación alineados" },
+    { "en": "Collapse the sidebar or line-number gutter; the More menu adapts to the screen and interface scale", "es": "Contrae la barra lateral o la columna de números de línea; el menú Más se adapta a la pantalla y a la escala de interfaz" }
   ],
   "useCases": {
     "roles": [
