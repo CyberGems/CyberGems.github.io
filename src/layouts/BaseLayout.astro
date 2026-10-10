@@ -37,7 +37,7 @@ const enHref = lang === 'en' ? canonicalHref : new URL(enPath === '/' ? '/' : `$
 const esHref = lang === 'es' ? canonicalHref : new URL(normalizedPath === '/' ? '/es/' : `/es${normalizedPath}/`, Astro.site).href;
 const isActive = (href: string) => { const target = href.replace(/\/$/, '') || '/'; const current = path.replace(/\/$/, '') || '/'; return current === target; };
 const navLinkClass = (href: string) =>
-  'inline-flex items-center gap-1.5 text-sm transition-colors ' + (isActive(href) ? 'nav-link-active' : 'text-[#9a9aa5] hover:text-white');
+  'items-center gap-1.5 text-sm transition-colors ' + (isActive(href) ? 'nav-link-active' : 'text-[#9a9aa5] hover:text-white');
 const mobileLinkClass = (href: string) =>
   'inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm transition-colors ' + (isActive(href) ? 'bg-white/10 text-white font-semibold' : 'text-[#c9c9d1] hover:bg-white/5 hover:text-white');
 const donateHref = lang === 'en' ? '/donate' : '/es/donate';
@@ -119,11 +119,11 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
     </a>
     <header class="sticky top-0 z-50 backdrop-blur-md bg-[#0d0f17]/80 border-b border-white/5">
       <nav aria-label="Primary" class="max-w-6xl mx-auto px-5 lg:pr-24 h-16 flex items-center justify-between">
-        <a href={homeHref} class="inline-flex min-w-0 shrink items-center" aria-label="CyberGems">
+        <a href={homeHref} class="inline-flex min-w-0 shrink-0 md:shrink items-center" aria-label="CyberGems">
           <img src="/branding/cybergems-header.svg" alt="CyberGems" width="192" height="32" class="h-6 w-auto sm:h-8" />
         </a>
         <div class="flex items-center gap-2 sm:gap-5">
-          <div class="relative hidden sm:inline-flex items-center gap-0.5" data-apps-dropdown>
+          <div class="relative hidden md:inline-flex items-center gap-0.5" data-apps-dropdown>
             <a href={`${homeHref}#apps`} class:list={['inline-flex items-center gap-1.5 text-sm transition-colors hover:text-white', appsActive ? 'nav-link-active' : 'text-[#9a9aa5]']}><NavIcon name="apps" /><span>{t.navApps}</span></a>
             <button type="button" class="rounded p-1 text-[#9a9aa5] hover:bg-white/5 hover:text-white focus-visible:outline-2 focus-visible:outline-[#00f2ff]" aria-label={lang === 'en' ? 'Show app shortcuts' : 'Mostrar accesos a las apps'} aria-controls="desktop-apps-menu" aria-expanded="false" data-apps-toggle>
               <svg class="h-3.5 w-3.5 transition-transform" data-apps-chevron viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m3 6 5 5 5-5" /></svg>
@@ -143,13 +143,13 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
             </div>
           </div>
           <a href={lang === 'en' ? '/changelog' : '/es/changelog'} class={`${navLinkClass(lang === 'en' ? '/changelog' : '/es/changelog')} hidden md:inline-flex`} aria-current={isActive(lang === 'en' ? '/changelog' : '/es/changelog') ? 'page' : undefined}><NavIcon name="newspaper" /><span>{t.navChangelog}</span></a>
-          <a href={lang === 'en' ? '/docs' : '/es/docs'} class={`hidden sm:inline-flex ${navLinkClass(lang === 'en' ? '/docs' : '/es/docs')}`} aria-current={isActive(lang === 'en' ? '/docs' : '/es/docs') ? 'page' : undefined}><NavIcon name="book" size={19} /><span>{t.navDocs}</span></a>
+          <a href={lang === 'en' ? '/docs' : '/es/docs'} class={`hidden md:inline-flex ${navLinkClass(lang === 'en' ? '/docs' : '/es/docs')}`} aria-current={isActive(lang === 'en' ? '/docs' : '/es/docs') ? 'page' : undefined}><NavIcon name="book" size={19} /><span>{t.navDocs}</span></a>
           <a href={lang === 'en' ? '/about' : '/es/about'} class={`hidden lg:inline-flex items-center gap-1.5 text-sm transition-colors ${isActive(lang === 'en' ? '/about' : '/es/about') ? 'nav-link-active' : 'text-[#9a9aa5] hover:text-white'}`} aria-current={isActive(lang === 'en' ? '/about' : '/es/about') ? 'page' : undefined}><NavIcon name="info" /><span>{t.navAbout}</span></a>
           <a href={lang === 'en' ? '/contact' : '/es/contact'} class={`hidden xl:inline-flex items-center gap-1.5 text-sm transition-colors ${isActive(lang === 'en' ? '/contact' : '/es/contact') ? 'nav-link-active' : 'text-[#9a9aa5] hover:text-white'}`} aria-current={isActive(lang === 'en' ? '/contact' : '/es/contact') ? 'page' : undefined}><NavIcon name="mail" /><span>{t.navContact}</span></a>
-          <a href={donateHref} class={`hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold hover:opacity-80 transition-opacity ${donateActive ? 'nav-link-active' : ''}`} aria-current={donateActive ? 'page' : undefined}><NavIcon name="heart" class="shrink-0 text-[#00f2ff]" /><span class="text-gradient">{t.navDonate}</span></a>
+          <a href={donateHref} class={`hidden md:inline-flex items-center gap-1.5 text-sm font-semibold hover:opacity-80 transition-opacity ${donateActive ? 'nav-link-active' : ''}`} aria-current={donateActive ? 'page' : undefined}><NavIcon name="heart" class="shrink-0 text-[#00f2ff]" /><span class="text-gradient">{t.navDonate}</span></a>
           <a
             href={lang === 'en' ? '/download' : '/es/download'}
-            class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold text-[#0d0f17] bg-[#00f2ff] hover:brightness-105 shadow-[0_0_20px_rgba(0,242,255,0.35)] hover:shadow-[0_0_25px_rgba(0,242,255,0.55)] transition-all shrink-0"
+            class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold text-[#0d0f17] bg-[#00f2ff] hover:brightness-105 shadow-[0_0_20px_rgba(0,242,255,0.35)] hover:shadow-[0_0_25px_rgba(0,242,255,0.55)] transition-all shrink-0"
             aria-current={isActive(lang === 'en' ? '/download' : '/es/download') ? 'page' : undefined}
           >
             <NavIcon name="download" size={15} class="shrink-0" />
