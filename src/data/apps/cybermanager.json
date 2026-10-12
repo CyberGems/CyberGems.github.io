@@ -33,7 +33,7 @@
     {
       "icon": "@list-checks",
       "title": { "en": "Act with more control", "es": "Actúa con más control" },
-      "text": { "en": "End a task or its process tree, suspend and resume it, or adjust its priority from one place.", "es": "Finaliza una tarea o su árbol de procesos, suspéndela y reanúdala, o ajusta su prioridad desde un solo lugar." }
+      "text": { "en": "End a task or its process tree, select several processes and end them together, restart an app, suspend and resume, or adjust its priority from one place.", "es": "Finaliza una tarea o su árbol de procesos, selecciona varios procesos y finalízalos juntos, reinicia una app, suspende y reanuda, o ajusta su prioridad desde un solo lugar." }
     }
   ],
   "featuresHeading": {
@@ -45,6 +45,10 @@
     { "en": "Search by name, PID or path, with recent searches saved", "es": "Busca por nombre, PID o ruta, con historial de búsquedas recientes" },
     { "en": "Sort CPU and memory use, view heatmap colors and filter the 10 heaviest processes", "es": "Ordena el consumo de CPU y memoria, mira el mapa de calor y filtra los 10 procesos más pesados" },
     { "en": "End a task or process tree, suspend and resume, or set priority", "es": "Finaliza una tarea o árbol de procesos, suspende y reanuda, o cambia la prioridad" },
+    { "en": "Select several processes and end them together with one confirmation", "es": "Selecciona varios procesos y finalízalos juntos con una sola confirmación" },
+    { "en": "Restart a process from its executable without hunting for the shortcut", "es": "Reinicia un proceso desde su ejecutable sin buscar el acceso directo" },
+    { "en": "Pause detection to freeze the list while CPU and memory graphs keep updating", "es": "Pausa la detección para congelar la lista mientras las gráficas de CPU y memoria siguen actualizándose" },
+    { "en": "Show or hide columns, keep your sorting, and hide system processes on request", "es": "Muestra u oculta columnas, conserva tu orden y oculta procesos del sistema a petición" },
     { "en": "Inspect process properties or open its file location", "es": "Examina las propiedades de un proceso o abre la ubicación de su archivo" },
     { "en": "Live CPU and memory history with a four-tab System Information window", "es": "Historial de CPU y memoria en vivo y ventana de Información del sistema con cuatro pestañas" },
     { "en": "Compact monitor, system tray and configurable Alt+Shift+M shortcut", "es": "Monitor compacto, bandeja del sistema y atajo Alt+Shift+M configurable" },
