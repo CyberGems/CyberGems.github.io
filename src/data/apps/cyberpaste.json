@@ -145,13 +145,13 @@
     { "en": "Instant FTS5 search with filter chips and live counts (content, OCR text, source app)", "es": "Búsqueda instantánea FTS5 con filtros y conteos en vivo (contenido, OCR, app de origen)" },
     { "en": "AI actions — summarize, translate, explain code, fix grammar — plus custom prompts, any OpenAI-compatible provider", "es": "Acciones de IA — resumir, traducir, explicar código, corregir gramática — más prompts propios, cualquier proveedor compatible con OpenAI" },
     { "en": "Folders, pinning, favorites, bulk management, editable clips and detail panel", "es": "Carpetas, fijados, favoritos, gestión por lotes, clips editables y panel de detalle" },
-    { "en": "Full grid and Compact list modes (Ctrl+M), zoom, Light, Dark, and CyberPaste themes plus System, HUD toasts", "es": "Modos rejilla completa y lista compacta (Ctrl+M), zoom, temas Claro, Oscuro y CyberPaste más Sistema, avisos HUD" },
+    { "en": "Full grid (panoramic cards, marquee drag selection) and Compact list modes (Ctrl+M), Light, Dark, and CyberPaste themes plus System", "es": "Rejilla completa (tarjetas panorámicas, selección múltiple por arrastre) y lista compacta (Ctrl+M), temas Claro, Oscuro y CyberPaste más Sistema" },
     { "en": "Global hotkey (Ctrl+Shift+V), auto-paste injection, multi-monitor aware", "es": "Hotkey global (Ctrl+Shift+V), auto-pegado, consciente de multi-monitor" },
-    { "en": "Fullscreen image viewer with local Windows Media OCR, save OCR text as a new clip", "es": "Visor de imágenes a pantalla completa con OCR local de Windows, guarda el texto como clip nuevo" },
+    { "en": "Universal Visor for text, code, images, HTML and files with local Windows Media OCR and export tools", "es": "Visor universal para texto, código, imágenes, HTML y archivos con OCR local de Windows y exportación" },
     { "en": "Save As exports from clip menus and viewers for images, text, HTML, RTF, URLs, original files and multi-file clips", "es": "Exportaciones Guardar como desde menús y visores para imágenes, texto, HTML, RTF, URLs, archivos originales y clips de varios archivos" },
     { "en": "Persistent local search history with Ctrl+H keyboard navigation, literal wildcard handling and a dedicated no-results state", "es": "Historial de búsqueda local persistente con navegación por teclado mediante Ctrl+H, comodines tratados literalmente y estado dedicado sin resultados" },
     { "en": "Configurable quiet hours suppress routine notifications and associated sounds while critical alerts remain available", "es": "El horario silencioso configurable suprime avisos rutinarios y sus sonidos, mientras las alertas críticas siguen disponibles" },
-    { "en": "Local SQLite, zero telemetry, ignored apps, JSON backup with progress and configurable retention", "es": "SQLite local, cero telemetría, apps ignoradas, copia JSON con progreso y retención configurable" }
+    { "en": "Local SQLite, zero telemetry, ignored apps, background auto-delete expiration policy and JSON backup with progress", "es": "SQLite local, cero telemetría, apps ignoradas, política de expiración automática de historial y copia JSON con progreso" }
   ],
   "useCases": {
     "roles": [
