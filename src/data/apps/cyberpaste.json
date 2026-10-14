@@ -151,6 +151,7 @@
     { "en": "Save As exports from clip menus and viewers for images, text, HTML, RTF, URLs, original files and multi-file clips", "es": "Exportaciones Guardar como desde menús y visores para imágenes, texto, HTML, RTF, URLs, archivos originales y clips de varios archivos" },
     { "en": "Persistent local search history with Ctrl+H keyboard navigation, literal wildcard handling and a dedicated no-results state", "es": "Historial de búsqueda local persistente con navegación por teclado mediante Ctrl+H, comodines tratados literalmente y estado dedicado sin resultados" },
     { "en": "Configurable quiet hours suppress routine notifications and associated sounds while critical alerts remain available", "es": "El horario silencioso configurable suprime avisos rutinarios y sus sonidos, mientras las alertas críticas siguen disponibles" },
+    { "en": "Dedicated Emoji Mode with bilingual search (English/Spanish), category tabs, isolated history and pinned multi-injection", "es": "Modo Emojis dedicado con búsqueda bilingüe (inglés/español), pestañas por categoría, historial aislado y multi-inyección al anclar" },
     { "en": "Local SQLite, zero telemetry, ignored apps, background auto-delete expiration policy and JSON backup with progress", "es": "SQLite local, cero telemetría, apps ignoradas, política de expiración automática de historial y copia JSON con progreso" }
   ],
   "useCases": {
