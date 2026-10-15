@@ -39,11 +39,18 @@ function hasMarkdown(dir) {
     && fs.readdirSync(dir).some((filename) => filename.toLowerCase().endsWith('.md'));
 }
 
+// Local wiki checkouts can contain private, gitignored control files.
+// Exclude them from both generated Markdown input and publicly served assets.
+const wikiCopyOptions = {
+  recursive: true,
+  filter: source => !['.git', 'agents.md', 'artifacts'].includes(path.basename(source).toLowerCase()),
+};
+
 function copyWiki(source, dest, target) {
   fs.rmSync(dest, { recursive: true, force: true });
   fs.rmSync(target, { recursive: true, force: true });
-  fs.cpSync(source, dest, { recursive: true });
-  fs.cpSync(source, target, { recursive: true });
+  fs.cpSync(source, dest, wikiCopyOptions);
+  fs.cpSync(source, target, wikiCopyOptions);
   // Git metadata is useful in the local source repo, but must never be published.
   fs.rmSync(path.join(target, '.git'), { recursive: true, force: true });
 }
@@ -72,7 +79,7 @@ for (const { slug, repoName } of appEntries) {
     execFileSync('git', ['clone', '--quiet', '--depth', '1', wikiUrl, dest], { stdio: 'pipe' });
 
     // Serve non-markdown files (images, attachments) as static assets.
-    fs.cpSync(dest, target, { recursive: true });
+    fs.cpSync(dest, target, wikiCopyOptions);
     fs.rmSync(path.join(target, '.git'), { recursive: true, force: true });
 
     stats.cloned += 1;
