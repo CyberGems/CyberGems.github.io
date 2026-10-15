@@ -23,7 +23,7 @@
     {
       "icon": "@activity",
       "title": { "en": "Spot resource spikes", "es": "Detecta picos de consumo" },
-      "text": { "en": "Live CPU and memory graphs, heatmap colors and a top-10 filter make heavy processes easier to notice.", "es": "Las gráficas de CPU y memoria en vivo, el mapa de calor y el filtro de los 10 procesos más pesados ayudan a detectar los picos." }
+      "text": { "en": "Smoothly animated CPU and memory graphs, heatmap colors and a top-10 filter make heavy processes easier to notice.", "es": "Las gráficas de CPU y memoria con animación suave, el mapa de calor y el filtro de los 10 procesos más pesados ayudan a detectar los picos." }
     },
     {
       "icon": "@search",
@@ -41,7 +41,7 @@
     "es": "Más formas en que CyberManager te ayuda"
   },
   "features": [
-    { "en": "Fast scrolling through large process lists with a virtualized grid", "es": "Recorre listas grandes de procesos con fluidez gracias a la cuadrícula virtualizada" },
+    { "en": "Smoother scrolling through large process lists with background icon loading and animated scrollbar arrows", "es": "Recorre listas grandes de procesos con mayor fluidez, iconos en segundo plano y flechas de desplazamiento animadas" },
     { "en": "Search by name, PID or path, with recent searches saved", "es": "Busca por nombre, PID o ruta, con historial de búsquedas recientes" },
     { "en": "Sort CPU and memory use, view heatmap colors and filter the 10 heaviest processes", "es": "Ordena el consumo de CPU y memoria, mira el mapa de calor y filtra los 10 procesos más pesados" },
     { "en": "End a task or process tree, suspend and resume, or set priority", "es": "Finaliza una tarea o árbol de procesos, suspende y reanuda, o cambia la prioridad" },
@@ -50,9 +50,9 @@
     { "en": "Pause detection to freeze the list while CPU and memory graphs keep updating", "es": "Pausa la detección para congelar la lista mientras las gráficas de CPU y memoria siguen actualizándose" },
     { "en": "Show or hide columns, keep your sorting, and hide system processes on request", "es": "Muestra u oculta columnas, conserva tu orden y oculta procesos del sistema a petición" },
     { "en": "Inspect process properties or open its file location", "es": "Examina las propiedades de un proceso o abre la ubicación de su archivo" },
-    { "en": "Live CPU and memory history with a floating, pinnable widget and detailed metric tooltips", "es": "Historial de CPU y memoria en vivo con un widget flotante y fijable, y tooltips detallados de métricas" },
+    { "en": "Smoothly animated CPU and memory history with a floating, pinnable widget and detailed metric tooltips", "es": "Historial de CPU y memoria con animación suave, un widget flotante y fijable, y tooltips detallados de métricas" },
     { "en": "Persistent update notices in the title bar and notification-area menu", "es": "Avisos persistentes de actualización en la barra de título y el menú de la bandeja del sistema" },
-    { "en": "Compact monitor and configurable Alt+Shift+M shortcut", "es": "Monitor compacto y atajo Alt+Shift+M configurable" },
+    { "en": "Compact monitor, configurable Alt+Shift+M shortcut, and one instance per session", "es": "Monitor compacto, atajo Alt+Shift+M configurable y una instancia por sesión" },
     { "en": "Three themes, adjustable row size and English or Spanish interface", "es": "Tres temas, tamaño de fila ajustable e interfaz en inglés o español" }
   ],
   "useCases": {
@@ -75,7 +75,7 @@
       {
         "icon": "📊",
         "title": { "en": "Curious users", "es": "Quienes quieren conocer su equipo" },
-        "text": { "en": "Explore CPU, memory and system details in a dedicated information window.", "es": "Explora datos de CPU, memoria y sistema en una ventana dedicada." }
+        "text": { "en": "Explore CPU, memory and system activity in the integrated Performance view.", "es": "Explora datos de CPU, memoria y actividad del sistema en la vista Rendimiento integrada." }
       }
     ],
     "tasks": [
