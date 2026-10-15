@@ -12,8 +12,8 @@
     "es": "Encuentra apps y archivos, abre tus favoritos y vuelve a lo tuyo en segundos."
   },
   "description": {
-    "en": "CyberLauncher is a customizable Windows command center for opening the things you use every day. Its animated CyberBot companion shares contextual launch feedback, system notices, scheduled-task countdowns, and tips. Bring it up with a keyboard shortcut or hot corner, find apps or indexed files, organize favorites, schedule recurring launches, or run commands. System information and appearance controls make the full-screen launcher feel at home on your desktop.",
-    "es": "CyberLauncher es un centro de acceso personalizable para abrir lo que usas cada día en Windows. Su compañero animado CyberBot comparte comentarios contextuales al abrir apps, avisos del sistema, cuentas regresivas de tareas programadas y consejos. Invoca el lanzador con un atajo o una esquina activa, encuentra apps o archivos indexados, organiza favoritos, programa aperturas recurrentes o ejecuta comandos. La información del sistema y los ajustes de apariencia hacen que el lanzador se adapte a tu escritorio."
+    "en": "CyberLauncher is a customizable Windows command center for opening the things you use every day. Its refined CyberBot companion shares typed launch feedback, system notices, scheduled-task countdowns and tips, with inline naming and calmer contextual behavior. Bring it up with a keyboard shortcut or hot corner, find apps or indexed files, organize favorites, schedule recurring launches, or run commands. System information and appearance controls make the full-screen launcher feel at home on your desktop.",
+    "es": "CyberLauncher es un centro de acceso personalizable para abrir lo que usas cada día en Windows. Su compañero CyberBot comparte comentarios progresivos al abrir apps, avisos del sistema, cuentas regresivas y consejos, con entrada del nombre en el globo y un comportamiento contextual más tranquilo. Invoca el lanzador con un atajo o una esquina activa, encuentra apps o archivos indexados, organiza favoritos, programa aperturas recurrentes o ejecuta comandos. La información del sistema y los ajustes de apariencia hacen que el lanzador se adapte a tu escritorio."
   },
   "highlightsTitle": {
     "en": "Less searching, more doing",
@@ -51,7 +51,8 @@
     { "en": "Type > to run a shell command from the search field", "es": "Escribe > para ejecutar un comando desde el buscador" },
     { "en": "Check CPU, memory and disk usage at a glance", "es": "Consulta el uso de CPU, memoria y disco de un vistazo" },
     { "en": "Adjust background, glass effect, opacity and interface scale", "es": "Ajusta fondo, efecto de cristal, opacidad y escala de la interfaz" },
-    { "en": "Personalize CyberBot, the animated companion for launch feedback, system notices, scheduled-task countdowns, and tips", "es": "Personaliza CyberBot, el compañero animado que comparte avisos al abrir apps, novedades del sistema, cuentas regresivas y consejos" }
+    { "en": "Personalize CyberBot with inline naming, typed messages, quiet hours and focus/scan hover reactions", "es": "Personaliza CyberBot con entrada del nombre en el globo, mensajes progresivos, horario silencioso y reacciones de enfoque y escaneo" },
+    { "en": "CyberBot steps aside in dialogs and the terminal, returns with useful context and gives a brief farewell when disabled", "es": "CyberBot se retira en diálogos y la terminal, regresa con contexto útil y se despide brevemente al desactivarlo" }
   ],
   "useCases": {
     "roles": [
