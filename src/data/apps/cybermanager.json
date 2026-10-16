@@ -56,7 +56,9 @@
     { "en": "Read/write activity LEDs in both window layouts and the widget open disk performance with a click or Ctrl+4", "es": "Los LED de lectura/escritura de ambos modos de ventana y del widget abren el rendimiento de discos con un clic o Ctrl+4" },
     { "en": "Title-bar keyboard shortcuts with tooltip badges, arrow-key navigation in More, roomier settings and a compact About dialog", "es": "Atajos de la barra de título con badges en los tooltips, navegación con flechas en More, Configuración más amplia y Acerca de compacto" },
     { "en": "Persistent update notices in the title bar and notification-area menu", "es": "Avisos persistentes de actualización en la barra de título y el menú de la bandeja del sistema" },
-    { "en": "Compact monitor, configurable Alt+Shift+M shortcut, and one instance per session", "es": "Monitor compacto, atajo Alt+Shift+M configurable y una instancia por sesión" },
+    { "en": "Filter processes by category chips in Full mode or dropdown in Compact mode, and inspect process owner user names", "es": "Filtra procesos por categorías en modo Completo o con menú desplegable en modo Compacto y consulta el usuario propietario" },
+    { "en": "Track process lifecycle state with a dedicated Status column and smooth animated fade highlights for new and exited processes", "es": "Sigue el ciclo de vida con la columna Estado y suaves animaciones de desvanecimiento para procesos nuevos y finalizados" },
+    { "en": "Redesigned context menu with native Windows Acrylic blur, centered hairline dividers and quick access to End Task", "es": "Menú contextual rediseñado con desenfoque Acrylic nativo de Windows, separadores centrados y acceso inmediato a Finalizar tarea" },
     { "en": "Three themes, adjustable row size and English or Spanish interface", "es": "Tres temas, tamaño de fila ajustable e interfaz en inglés o español" }
   ],
   "useCases": {
