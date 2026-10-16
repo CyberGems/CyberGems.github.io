@@ -47,6 +47,7 @@
     { "en": "Filter notifications by keyword and snooze them when you need focus", "es": "Filtra los avisos por palabras clave y posponlos cuando necesites concentrarte" },
     { "en": "Organize with folders, favorites, read states and trash", "es": "Organiza con carpetas, favoritos, estados de lectura y papelera" },
     { "en": "Watch videos in the app or use a floating Picture-in-Picture player", "es": "Mira videos en la app o usa un reproductor flotante Picture-in-Picture" },
+    { "en": "Open articles in tabs with session restore and quick switcher", "es": "Abre artículos en pestañas con restauración de sesión y selector rápido" },
     { "en": "See new articles without losing your place in the reading list", "es": "Consulta artículos nuevos sin perder tu lugar en la lista de lectura" },
     { "en": "Back up and restore your local library automatically", "es": "Crea y restaura copias automáticas de tu biblioteca local" }
   ],
