@@ -12,8 +12,8 @@
     "es": "Descubre qué ralentiza tu PC y actúa sin perder de vista lo importante."
   },
   "description": {
-    "en": "CyberManager is a responsive task manager for Windows that helps you make sense of busy processes. Search by name, PID or path; sort by CPU or memory; and use live graphs and color cues to spot what needs attention. Inspect a process before ending it, pause it temporarily, or change its priority. A compact live monitor, system details, tray access and a configurable global shortcut keep those controls close when you need them.",
-    "es": "CyberManager es un gestor de tareas ágil para Windows que te ayuda a entender los procesos en ejecución. Busca por nombre, PID o ruta; ordena por CPU o memoria; y usa gráficas en vivo y señales de color para detectar qué necesita atención. Examina un proceso antes de finalizarlo, páusalo temporalmente o cambia su prioridad. Un monitor compacto, detalles del sistema, acceso desde la bandeja y un atajo global configurable mantienen esos controles a mano."
+    "en": "CyberManager is a responsive task manager for Windows that helps you make sense of busy processes. Search by name, PID or path; sort by CPU or memory; and use live graphs and color cues to spot what needs attention. Monitor all disks together or one physical disk, and open programs or resources from a reusable task history. Inspect, end, restart, suspend or reprioritize processes. A compact monitor, floating metrics widget, system details, tray access and keyboard shortcuts keep those controls close.",
+    "es": "CyberManager es un gestor de tareas ágil para Windows que te ayuda a entender los procesos en ejecución. Busca por nombre, PID o ruta; ordena por CPU o memoria; y usa gráficas en vivo y señales de color para detectar qué necesita atención. Monitoriza todos los discos juntos o uno físico y abre programas o recursos desde un historial de tareas reutilizable. Examina, finaliza, reinicia, suspende o cambia la prioridad de los procesos. El monitor compacto, el widget flotante, los detalles del sistema, la bandeja y los atajos mantienen esos controles a mano."
   },
   "highlightsTitle": {
     "en": "Know what is happening on your PC",
@@ -23,7 +23,7 @@
     {
       "icon": "@activity",
       "title": { "en": "Spot resource spikes", "es": "Detecta picos de consumo" },
-      "text": { "en": "Smoothly animated CPU and memory graphs, heatmap colors and a top-10 filter make heavy processes easier to notice.", "es": "Las gráficas de CPU y memoria con animación suave, el mapa de calor y el filtro de los 10 procesos más pesados ayudan a detectar los picos." }
+      "text": { "en": "Animated CPU and memory graphs, combined or individual disk histories, heatmap colors and a top-10 filter help reveal busy resources.", "es": "Las gráficas de CPU y memoria, los historiales de discos combinados o individuales, el mapa de calor y el filtro de los 10 procesos más pesados ayudan a detectar el consumo." }
     },
     {
       "icon": "@search",
@@ -33,7 +33,7 @@
     {
       "icon": "@list-checks",
       "title": { "en": "Act with more control", "es": "Actúa con más control" },
-      "text": { "en": "End a task or its process tree, select several processes and end them together, restart an app, suspend and resume, or adjust its priority from one place.", "es": "Finaliza una tarea o su árbol de procesos, selecciona varios procesos y finalízalos juntos, reinicia una app, suspende y reanuda, o ajusta su prioridad desde un solo lugar." }
+      "text": { "en": "Run a new task with reusable history, end a process or tree, act on several processes, restart an app, suspend and resume, or adjust priority.", "es": "Ejecuta una tarea nueva con historial reutilizable, finaliza un proceso o árbol, actúa sobre varios procesos, reinicia una app, suspende y reanuda, o ajusta la prioridad." }
     }
   ],
   "featuresHeading": {
@@ -43,6 +43,7 @@
   "features": [
     { "en": "Smoother scrolling through large process lists with background icon loading and animated scrollbar arrows", "es": "Recorre listas grandes de procesos con mayor fluidez, iconos en segundo plano y flechas de desplazamiento animadas" },
     { "en": "Search by name, PID or path, with recent searches saved", "es": "Busca por nombre, PID o ruta, con historial de búsquedas recientes" },
+    { "en": "Run programs with arguments, folders, documents or URLs with Ctrl+N, a file picker, optional administrator privileges and a persistent 20-command history", "es": "Ejecuta programas con argumentos, carpetas, documentos o URL con Ctrl+N, selector de archivos, opción de administrador e historial persistente de 20 comandos" },
     { "en": "Sort CPU and memory use, view heatmap colors and filter the 10 heaviest processes", "es": "Ordena el consumo de CPU y memoria, mira el mapa de calor y filtra los 10 procesos más pesados" },
     { "en": "End a task or process tree, suspend and resume, or set priority", "es": "Finaliza una tarea o árbol de procesos, suspende y reanuda, o cambia la prioridad" },
     { "en": "Select several processes and end them together with one confirmation", "es": "Selecciona varios procesos y finalízalos juntos con una sola confirmación" },
@@ -51,6 +52,9 @@
     { "en": "Show or hide columns, keep your sorting, and hide system processes on request", "es": "Muestra u oculta columnas, conserva tu orden y oculta procesos del sistema a petición" },
     { "en": "Inspect process properties or open its file location", "es": "Examina las propiedades de un proceso o abre la ubicación de su archivo" },
     { "en": "Smoothly animated CPU and memory history with a floating, pinnable widget and detailed metric tooltips", "es": "Historial de CPU y memoria con animación suave, un widget flotante y fijable, y tooltips detallados de métricas" },
+    { "en": "Monitor combined or individual physical disks with 500 ms activity and read/write histories, transfer rates, response time, queues and session totals", "es": "Monitoriza discos físicos combinados o individuales con historiales de actividad y lectura/escritura cada 500 ms, velocidades, tiempo de respuesta, colas y totales de sesión" },
+    { "en": "Read/write activity LEDs in both window layouts and the widget open disk performance with a click or Ctrl+4", "es": "Los LED de lectura/escritura de ambos modos de ventana y del widget abren el rendimiento de discos con un clic o Ctrl+4" },
+    { "en": "Title-bar keyboard shortcuts with tooltip badges, arrow-key navigation in More, roomier settings and a compact About dialog", "es": "Atajos de la barra de título con badges en los tooltips, navegación con flechas en More, Configuración más amplia y Acerca de compacto" },
     { "en": "Persistent update notices in the title bar and notification-area menu", "es": "Avisos persistentes de actualización en la barra de título y el menú de la bandeja del sistema" },
     { "en": "Compact monitor, configurable Alt+Shift+M shortcut, and one instance per session", "es": "Monitor compacto, atajo Alt+Shift+M configurable y una instancia por sesión" },
     { "en": "Three themes, adjustable row size and English or Spanish interface", "es": "Tres temas, tamaño de fila ajustable e interfaz en inglés o español" }
@@ -75,7 +79,7 @@
       {
         "icon": "📊",
         "title": { "en": "Curious users", "es": "Quienes quieren conocer su equipo" },
-        "text": { "en": "Explore CPU, memory and system activity in the integrated Performance view.", "es": "Explora datos de CPU, memoria y actividad del sistema en la vista Rendimiento integrada." }
+        "text": { "en": "Explore CPU, memory, system activity and combined or individual disks in the integrated Performance view.", "es": "Explora datos de CPU, memoria, actividad del sistema y discos combinados o individuales en la vista Rendimiento integrada." }
       }
     ],
     "tasks": [
