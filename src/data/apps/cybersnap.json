@@ -41,6 +41,7 @@
     "es": "Más formas en que CyberSnap te ayuda"
   },
   "features": [
+    { "en": "Independent auto-copy for screenshots, OCR, QR/barcodes, MP4, GIF and colors", "es": "Autocopia independiente para capturas, OCR, QR/códigos de barras, MP4, GIF y colores" },
     { "en": "Area, window, full screen & scroll capture", "es": "Captura de área, ventana, pantalla completa y desplazamiento" },
     { "en": "Screen recording to MP4 or GIF with built-in trimming", "es": "Grabación de pantalla a MP4 o GIF con recorte integrado" },
     { "en": "Annotation editor with shapes, text, rulers and frames", "es": "Editor de anotaciones con formas, texto, reglas y marcos" },
