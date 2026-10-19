@@ -39,6 +39,8 @@ This repository powers **[cybergems.org](https://cybergems.org)** — the offici
 | **Changelog** | `/changelog` · `/es/changelog` | Latest releases aggregated from GitHub Releases across the suite |
 | **Docs** | `/docs` · `/docs/[app]` · `/es/docs/...` | Wiki guides synced at build time, with a collapsible mobile menu, desktop sidebar and article-language labels |
 
+The homepage planet and its orbit share ellipse radii and a common center. Icons stay upright and move at equal path-distance intervals based on the published app count. Reduced-motion preferences show a static arrangement.
+
 All pages are static, SEO-friendly and served from a custom domain. The website uses aggregate Umami analytics and respects Do Not Track and Global Privacy Control signals; see the [privacy page](https://cybergems.org/privacy/).
 
 ---

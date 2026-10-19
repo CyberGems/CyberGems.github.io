@@ -60,7 +60,7 @@ const jsonLd = [
         <img src="/branding/cybergems-footer.svg" alt="" width="48" height="48" class="hero-core" />
         <div class="hero-orbit">
           {apps.map((app, index) => (
-            <div class="hero-node" style={`--angle: ${index * 36}deg;`}>
+            <div class="hero-node" style={`--orbit-start: ${75 + index * 100 / apps.length}%;`}>
               <span class="hero-node-icon">{app.icon && <img src={app.icon} alt="" width="40" height="40" loading="eager" decoding="async" />}</span>
             </div>
           ))}
@@ -152,16 +152,50 @@ const jsonLd = [
   [data-catalog-filter][aria-pressed="true"] { border-color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 9%, var(--color-base-100)); color: var(--color-accent); }
   .trust-icon { display: inline-flex; flex-shrink: 0; color: var(--color-accent); }
   .trust-icon :global(svg) { width: 1rem; height: 1rem; }
-  .hero-stage { position: relative; height: 170px; overflow: hidden; mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent); }
-  .hero-horizon { position: absolute; top: 74px; left: 50%; width: 1000px; height: 600px; transform: translateX(-50%); border-radius: 50%; border: 1px solid #00f2ff77; background: radial-gradient(ellipse at 50% 0%, #1d3150, #101426 45%, #0d0f17 70%); box-shadow: 0 -12px 60px -12px #00f2ff55; }
-  .hero-core { position: absolute; top: 115px; left: calc(50% - 24px); }
-  .hero-orbit { position: absolute; top: 455px; left: 50%; }
-  .hero-node { position: absolute; transform: rotate(var(--angle)) translateY(-420px) rotate(calc(-1 * var(--angle))); }
-  .hero-node-icon { display: grid; place-items: center; width: 60px; height: 60px; margin: -30px; border: 1px solid #ffffff24; border-radius: 50%; background: #101420; box-shadow: 0 4px 20px #0007; }
+  .hero-stage {
+    --planet-radius-x: 500px;
+    --planet-radius-y: 300px;
+    --planet-center-y: calc(var(--planet-radius-y) + 74px);
+    --orbit-gap: 40px;
+    position: relative;
+    height: 170px;
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+  }
+  .hero-horizon {
+    position: absolute;
+    top: calc(var(--planet-center-y) - var(--planet-radius-y));
+    left: 50%;
+    width: calc(var(--planet-radius-x) * 2);
+    height: calc(var(--planet-radius-y) * 2);
+    transform: translateX(-50%);
+    border-radius: 50%;
+    border: 1px solid #00f2ff77;
+    background: radial-gradient(ellipse at 50% 0%, #1d3150, #101426 45%, #0d0f17 70%);
+    box-shadow: 0 -12px 60px -12px #00f2ff55;
+  }
+  .hero-core { position: absolute; top: calc(var(--planet-center-y) - var(--planet-radius-y) + 41px); left: calc(50% - 24px); }
+  .hero-orbit { position: absolute; inset: 0; }
+  .hero-node {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    /* One shared ellipse keeps the orbit parallel to the planet's rim.
+       Equal path-distance intervals keep any published app count evenly spaced. */
+    offset-path: ellipse(calc(var(--planet-radius-x) + var(--orbit-gap)) calc(var(--planet-radius-y) + var(--orbit-gap)) at 50% var(--planet-center-y));
+    offset-distance: var(--orbit-start);
+    offset-anchor: center;
+    offset-rotate: 0deg;
+  }
+  .hero-node-icon { display: grid; place-items: center; width: 60px; height: 60px; border: 1px solid #ffffff24; border-radius: 50%; background: #101420; box-shadow: 0 4px 20px #0007; }
   .hero-node-icon img { width: 40px; height: 40px; object-fit: contain; }
   @media (prefers-reduced-motion: no-preference) {
-    .hero-orbit { animation: orbit 72s linear infinite; }
-    .hero-node-icon { animation: orbit 72s linear infinite reverse; }
+    .hero-node { animation: orbit 72s linear infinite; }
   }
-  @keyframes orbit { to { rotate: 360deg; } }
+  @keyframes orbit {
+    from { offset-distance: var(--orbit-start); }
+    to { offset-distance: calc(var(--orbit-start) + 100%); }
+  }
 </style>
