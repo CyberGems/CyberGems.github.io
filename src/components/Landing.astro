@@ -69,12 +69,16 @@ const jsonLd = [
             </div>
           </div>
           <div class="hero-orbit">
-            {apps.map((app, index) => (
-              <div class="hero-node" style={`--orbit-start: ${75 + index * 100 / apps.length}%;`}>
-                <span class="hero-node-icon">{app.icon ? <img src={app.icon} alt="" width="44" height="44" loading="eager" decoding="async" /> : app.emoji}</span>
-                <span class="hero-node-label">{app.name}</span>
-              </div>
-            ))}
+            <div class="hero-orbit-track">
+              {apps.map((app, index) => (
+                <div class="hero-node" style={`--node-angle: ${index * 360 / apps.length}deg;`}>
+                  <div class="hero-node-body">
+                    <span class="hero-node-icon">{app.icon ? <img src={app.icon} alt="" width="44" height="44" loading="eager" decoding="async" /> : app.emoji}</span>
+                    <span class="hero-node-label">{app.name}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -165,7 +169,7 @@ const jsonLd = [
   .trust-icon { display: inline-flex; flex-shrink: 0; color: var(--color-accent); }
   .trust-icon :global(svg) { width: 1rem; height: 1rem; }
   .hero-stage-container {
-    --stage-height: 380px;
+    --stage-height: 300px;
     --stage-headroom: 34px;
     --planet-radius: 500px;
     --planet-center-y: calc(600px + var(--stage-headroom));
@@ -252,7 +256,7 @@ const jsonLd = [
   }
   .horizon-center-core {
     position: absolute;
-    top: 90px;
+    top: 70px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -281,18 +285,23 @@ const jsonLd = [
     height: 0;
     z-index: 4;
   }
-  .hero-node {
+  .hero-orbit-track, .hero-node {
     position: absolute;
     top: 0;
     left: 0;
+    width: 0;
+    height: 0;
+  }
+  .hero-node {
+    /* Use the original transform orbit with a shared planet radius.
+       The angle is computed from the published app count, never a fixed slot size. */
+    transform: rotate(var(--node-angle)) translateY(calc(-1 * (var(--planet-radius) + var(--orbit-gap)))) rotate(calc(-1 * var(--node-angle)));
+  }
+  .hero-node-body {
+    position: relative;
     width: var(--node-size);
     height: var(--node-size);
-    /* The planet and orbit share a center and radius at every breakpoint.
-       Equal path-distance intervals keep any published app count evenly spaced. */
-    offset-path: circle(calc(var(--planet-radius) + var(--orbit-gap)) at 0px 0px);
-    offset-distance: var(--orbit-start);
-    offset-anchor: center;
-    offset-rotate: 0deg;
+    transform: translate(-50%, -50%);
   }
   .hero-node-icon {
     display: grid;
@@ -323,14 +332,14 @@ const jsonLd = [
     box-shadow: 0 4px 14px #000b;
     opacity: 0.88;
   }
-  .hero-stage:hover .hero-node { animation-play-state: paused; }
+  .hero-stage:hover .hero-orbit-track, .hero-stage:hover .hero-node-body { animation-play-state: paused; }
   .hero-node:hover .hero-node-icon { transform: scale(1.12); border-color: #00f2ff; box-shadow: 0 10px 28px #000a, 0 0 17px #00f2ff85; }
   .hero-node:hover .hero-node-label { opacity: 1; color: #00f2ff; border-color: #00f2ff; }
   @media (max-width: 900px) {
-    .hero-stage-container { --stage-height: 330px; --planet-radius: 410px; --planet-center-y: calc(520px + var(--stage-headroom)); --orbit-gap: 50px; }
+    .hero-stage-container { --stage-height: 280px; --planet-radius: 410px; --planet-center-y: calc(520px + var(--stage-headroom)); --orbit-gap: 50px; }
   }
   @media (max-width: 600px) {
-    .hero-stage-container { --stage-height: 290px; --planet-radius: 340px; --planet-center-y: calc(440px + var(--stage-headroom)); --orbit-gap: 50px; --node-size: 52px; }
+    .hero-stage-container { --stage-height: 230px; --planet-radius: 340px; --planet-center-y: calc(440px + var(--stage-headroom)); --orbit-gap: 50px; --node-size: 52px; }
     .hero-node-icon img { width: 34px; height: 34px; }
     .hero-node-label { font-size: 0.65rem; padding: 1px 6px; }
     .horizon-center-core { top: 54px; }
@@ -338,13 +347,18 @@ const jsonLd = [
     .horizon-core-logo { width: 38px; height: 38px; }
   }
   @media (prefers-reduced-motion: no-preference) {
-    .hero-node { animation: orbit 48s linear infinite; }
+    .hero-orbit-track { animation: orbit-spin 48s linear infinite; }
+    .hero-node-body { animation: orbit-counter-spin 48s linear infinite; }
     .horizon-rim-sweep { animation: rim-sweep 11s linear infinite; }
     .horizon-rim-sweep--violet { animation: rim-sweep 17s linear infinite reverse; }
   }
-  @keyframes orbit {
-    from { offset-distance: var(--orbit-start); }
-    to { offset-distance: calc(var(--orbit-start) + 100%); }
+  @keyframes orbit-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes orbit-counter-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(-360deg); }
   }
   @keyframes rim-sweep {
     to { transform: rotate(360deg); }
