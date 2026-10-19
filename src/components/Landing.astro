@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import AppCard from './AppCard.astro';
 import FeatureSymbol from './FeatureSymbol.astro';
 import NavIcon from './NavIcon.astro';
+import Starfield from './Starfield.astro';
 import { apps } from '../data/apps';
 import { catalogGroups } from '../data/catalog';
 import { ui, type Lang } from '../data/ui';
@@ -43,9 +44,9 @@ const jsonLd = [
 ---
 
 <BaseLayout title={title} description={description} lang={lang} path={homePath} ogImage={lang === 'es' ? '/og/es.png' : '/og.png'} jsonLd={jsonLd}>
-  <section class="landing-hero relative overflow-hidden">
-    <div class="absolute inset-0 cyber-grid pointer-events-none" aria-hidden="true"></div>
-    <div class="max-w-6xl mx-auto px-5 pt-10 sm:pt-14 text-center relative">
+  <section class="landing-hero relative overflow-hidden" data-space-hero>
+    <Starfield />
+    <div class="max-w-6xl mx-auto px-5 pt-10 sm:pt-14 text-center relative z-10">
       <span class="chip mb-5">{t.heroBadge}</span>
       <h1 class="hero-title mx-auto max-w-5xl text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
         {t.heroTitle1}<br /><span class="text-gradient">{t.heroTitle2}</span>
@@ -164,7 +165,7 @@ const jsonLd = [
   if (controls) controls.hidden = false;
 </script>
 <style>
-  .landing-hero { background: radial-gradient(ellipse at 25% 20%, #00f2ff0d, transparent 65%), radial-gradient(ellipse at 80% 60%, #7a5cff16, transparent 65%); }
+  .landing-hero { isolation: isolate; background: var(--color-base-100); }
   [data-catalog-filter][aria-pressed="true"] { border-color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 9%, var(--color-base-100)); color: var(--color-accent); }
   .trust-icon { display: inline-flex; flex-shrink: 0; color: var(--color-accent); }
   .trust-icon :global(svg) { width: 1rem; height: 1rem; }

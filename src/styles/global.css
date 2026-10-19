@@ -65,15 +65,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Subtle cyber grid backdrop */
-.cyber-grid {
-  background-image:
-    linear-gradient(rgba(0, 242, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 242, 255, 0.04) 1px, transparent 1px);
-  background-size: 44px 44px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 75%);
-}
-
 .card {
   background-color: var(--card);
   border: 1px solid var(--border-color);

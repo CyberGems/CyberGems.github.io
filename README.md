@@ -41,6 +41,8 @@ This repository powers **[cybergems.org](https://cybergems.org)** — the offici
 
 The homepage features a cropped circular planet with atmospheric glow, app labels and cyan/violet light sweeps along its rim. A rotating track and counter-rotating icons share the planet's center, with a fixed gap from its responsive radius. Angles are calculated from the published app count, keeping icons upright and evenly spaced without CSS motion paths. Reduced-motion preferences show a static arrangement.
 
+The hero's neutral starfield uses three SVG layers with gentle twinkling, pointer parallax and brighter stars near the cursor. It stays static without JavaScript or with reduced motion enabled, ignores touch gestures and pauses outside the viewport or in a hidden tab. The sky adds no image downloads or dependencies.
+
 All pages are static, SEO-friendly and served from a custom domain. The website uses aggregate Umami analytics and respects Do Not Track and Global Privacy Control signals; see the [privacy page](https://cybergems.org/privacy/).
 
 ---
