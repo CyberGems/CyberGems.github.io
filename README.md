@@ -34,12 +34,12 @@ This repository powers **[cybergems.org](https://cybergems.org)** — the offici
 
 | Area | Route | Description |
 |---|---|---|
-| **Landing** | `/` (EN) · `/es/` (ES) | Compact hero, searchable suite grid with task filters, principles and download links |
+| **Landing** | `/` (EN) · `/es/` (ES) | Planet showcase, searchable suite grid with task filters, principles and download links |
 | **App pages** | `/apps/[slug]` · `/es/apps/[slug]` | Six leading highlights, expandable features and use cases, conceptual explainers or optional screenshots, download and documentation links |
 | **Changelog** | `/changelog` · `/es/changelog` | Latest releases aggregated from GitHub Releases across the suite |
 | **Docs** | `/docs` · `/docs/[app]` · `/es/docs/...` | Wiki guides synced at build time, with a collapsible mobile menu, desktop sidebar and article-language labels |
 
-The homepage planet and its orbit share ellipse radii and a common center. Icons stay upright and move at equal path-distance intervals based on the published app count. Reduced-motion preferences show a static arrangement.
+The homepage features a circular planet showcase with atmospheric glow, app labels and cyan/violet light sweeps along its rim. The planet and orbit share a center and responsive radius. Icons stay upright and move at equal path-distance intervals based on the published app count. Reduced-motion preferences show a static arrangement.
 
 All pages are static, SEO-friendly and served from a custom domain. The website uses aggregate Umami analytics and respects Do Not Track and Global Privacy Control signals; see the [privacy page](https://cybergems.org/privacy/).
 
