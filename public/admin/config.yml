@@ -290,6 +290,10 @@ collections:
               - { name: stripOss, widget: string }
               - { name: appsTitle, widget: string }
               - { name: appsSubtitle, widget: string }
+              - { name: catalogFilter, widget: string }
+              - { name: catalogSearch, widget: string }
+              - { name: catalogCount, widget: string }
+              - { name: catalogEmpty, widget: string }
               - { name: featuresTitle, widget: string }
               - { name: useCasesTitle, widget: string }
               - { name: downloadCta, widget: string }
@@ -340,6 +344,10 @@ collections:
               - { name: stripOss, widget: string }
               - { name: appsTitle, widget: string }
               - { name: appsSubtitle, widget: string }
+              - { name: catalogFilter, widget: string }
+              - { name: catalogSearch, widget: string }
+              - { name: catalogCount, widget: string }
+              - { name: catalogEmpty, widget: string }
               - { name: featuresTitle, widget: string }
               - { name: useCasesTitle, widget: string }
               - { name: downloadCta, widget: string }

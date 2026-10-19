@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ReleaseDate from './ReleaseDate.astro';
+import NavIcon from './NavIcon.astro';
+import FeatureSymbol from './FeatureSymbol.astro';
+import { appTask } from '../data/catalog';
 import { apps } from '../data/apps';
 import type { Lang } from '../data/ui';
 import { fetchLatestDownloads } from '../data/releases';
@@ -38,16 +41,17 @@ const breadcrumbLd = {
 ---
 
 <BaseLayout title={c.metaTitle} description={c.metaDesc} lang={lang} path={path} jsonLd={breadcrumbLd}>
-  <div class="max-w-5xl mx-auto px-5 pt-16 pb-4">
+  <div class="max-w-5xl mx-auto px-5 pt-10 sm:pt-14 pb-4">
     <header class="text-center">
       <h1 class="text-4xl font-extrabold tracking-tight"><span class="text-gradient brand-glow">{c.pageTitle}</span></h1>
       <p class="mt-3 text-[#9a9aa5] max-w-2xl mx-auto">{c.subtitle}</p>
       <div class="mt-4 flex flex-wrap justify-center gap-2">
-        <span class="chip">{'\u{1FA9F}'} Windows 10 / 11</span>
-        <span class="chip">{'\u2699\uFE0F'} 64-bit</span>
-        <span class="chip">{'\u{1F4C4}'} GPLv3</span>
-        <span class="chip">{'\u2665'} {en ? '100% free' : '100% gratis'}</span>
+        <span class="chip">Windows 10 / 11</span>
+        <span class="chip">64-bit</span>
+        <span class="chip">GPLv3</span>
+        <span class="chip">{en ? '100% free' : '100% gratis'}</span>
       </div>
+      <a href="#install-help" class="mt-4 inline-flex min-h-11 items-center gap-2 text-sm text-accent hover:text-white"><NavIcon name="info" />{en ? 'Need help installing?' : '¿Necesitas ayuda para instalar?'}</a>
     </header>
 
     {failed && (
@@ -56,19 +60,132 @@ const breadcrumbLd = {
       </div>
     )}
 
+    <section class="mt-10">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <h2 class="text-xl font-bold">{c.allTitle}</h2>
+        <input
+          id="dl-search"
+          type="search"
+          placeholder={c.searchPh}
+          aria-label={c.searchPh}
+          class="cg-input w-full sm:w-72 bg-base-100"
+        />
+      </div>
+      <p id="dl-count" data-label={en ? '{count} apps shown' : '{count} apps disponibles'} class="mt-3 text-sm text-[var(--text-dim)]" aria-live="polite" aria-atomic="true">{apps.length} {en ? 'apps shown' : 'apps disponibles'}</p>
+      <div id="dl-grid" class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {apps.map((app) => {
+          const dl = downloads[app.slug];
+          const inst = dl?.installer ?? null;
+          const hasData = Boolean(dl?.tag);
+          const appPage = `${homePath}apps/${app.slug}/`;
+          const detailsAria = en ? `View ${app.name} details` : `Ver detalles de ${app.name}`;
+          return (
+            <div
+              class="dl-card card min-w-0 p-5 flex gap-3 sm:gap-4 items-start scroll-mt-24"
+              id={app.slug}
+              data-search={`${app.name} ${app.tagline[lang]} ${appTask(app.slug).label[lang]}`}
+            >
+              <a
+                href={appPage}
+                aria-label={detailsAria}
+                class="dl-logo shrink-0 flex items-center justify-center pt-0.5"
+              >
+                {app.icon ? (
+                  <img
+                    src={app.icon}
+                    alt=""
+                    width="44"
+                    height="44"
+                    class="dl-logo-icon h-11 w-11 object-contain"
+                  />
+                ) : (
+                  <span class="dl-logo-icon text-3xl select-none">{app.emoji}</span>
+                )}
+              </a>
+              <div class="min-w-0 flex-1">
+                <div class="flex flex-wrap items-center gap-2">
+                  <h3 class="font-bold">
+                    <a href={appPage} aria-label={detailsAria} class="text-white hover:underline underline-offset-4 decoration-white/40 transition-colors">{app.name}</a>
+                  </h3>
+                  {hasData && (
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md text-[#00f2ff] bg-[#00f2ff]/[0.08] border border-[#00f2ff]/25">{dl?.tag}</span>
+                  )}
+                </div>
+                <p class="mt-1 text-sm text-[var(--text-dim)] leading-relaxed">{app.tagline[lang]}</p>
+                {hasData && dl && dl.publishedAt && (
+                  <div class="mt-2">
+                    <ReleaseDate publishedAt={dl.publishedAt} lang={lang} label={c.updated.charAt(0).toUpperCase() + c.updated.slice(1)} />
+                  </div>
+                )}
+                <div class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
+                  {inst ? (
+                    <a
+                      href={inst.url}
+                      aria-label={`${c.dlLink} ${app.name}`}
+                      class="inline-flex min-h-11 items-center gap-2 font-bold px-3 py-2 rounded-lg text-primary-content bg-primary hover:brightness-95 transition"
+                      data-umami-event="download_click"
+                      data-umami-event-app={app.slug}
+                      data-umami-event-format="installer"
+                      data-umami-event-source="download-page"
+                      data-download-start
+                    >
+                      <NavIcon name="download" />{c.dlLink} {'\u00B7'} {fmtSize(inst.size)}
+                    </a>
+                  ) : (
+                    <a
+                      href={appPage}
+                      class="font-semibold text-[#00f2ff] hover:text-white transition-colors"
+                      data-umami-event="download_click"
+                      data-umami-event-app={app.slug}
+                      data-umami-event-format="installer"
+                      data-umami-event-source="download-page"
+                    >{c.dlLink}</a>
+                  )}
+                  <a href={appPage} aria-label={detailsAria} class="dl-details inline-flex items-center gap-1 rounded-md border border-white/10 bg-white/[0.04] px-2 py-1 font-semibold text-[#c9c9d1] hover:text-white hover:border-white/25 transition-colors">{en ? 'Details' : 'Detalles'} <span aria-hidden="true">→</span></a>
+                  {dl && dl.portable && (
+                    <a
+                      href={dl.portable.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-[#9a9aa5] hover:text-white transition-colors"
+                      data-umami-event="download_click"
+                      data-umami-event-app={app.slug}
+                      data-umami-event-format="portable"
+                      data-umami-event-source="download-page"
+                      data-download-start
+                    >{dl.portable.name.toLowerCase().endsWith('.exe') ? 'Portable (.exe)' : (dl.portable.name.toLowerCase().endsWith('.zip') ? 'Portable (.zip)' : 'Portable')}</a>
+                  )}
+                  {hasData && dl && (
+                    <a href={dl.checksum ? dl.checksum.url : dl.releaseUrl} target="_blank" rel="noopener noreferrer" class="text-[#9a9aa5] hover:text-white transition-colors">{c.verLink}</a>
+                  )}
+                  <a href={`${app.repo}/releases`} target="_blank" rel="noopener noreferrer" class="text-[#9a9aa5] hover:text-white transition-colors">{c.relLink}</a>
+                  {app.winget && <code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[#00f2ff]">winget install {app.winget}</code>}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <p id="dl-empty" class="hidden mt-6 text-center text-sm text-[#9a9aa5]">{c.noResults}</p>
+    </section>
+
+
+    <details class="cg-collapse cg-collapse-arrow mt-10 scroll-mt-20" id="install-help">
+      <summary class="cg-collapse-title">{en ? "Installation help and requirements" : "Ayuda de instalación y requisitos"}</summary>
+      <div class="cg-collapse-content">
     <div class:list={["mt-8 grid gap-4 text-left", hasWinget ? "sm:grid-cols-3" : "sm:grid-cols-2"]}>
       <div class="card p-5">
-        <div class="text-2xl" aria-hidden="true">{'\u{1F4E6}'}</div>
+        <span class="inline-flex text-accent"><NavIcon name="download" size={24} /></span>
         <h2 class="mt-2 font-bold">{c.m1Title}</h2>
         <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">{c.m1Text}</p>
       </div>
       <div class="card p-5">
-        <div class="text-2xl" aria-hidden="true">{'\u{1F4BC}'}</div>
+        <span class="inline-flex text-accent"><FeatureSymbol name="folder" /></span>
         <h2 class="mt-2 font-bold">{c.m2Title}</h2>
         <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">{c.m2Text}</p>
       </div>
       {hasWinget && <div class="card p-5">
-        <div class="text-2xl" aria-hidden="true">{'\u2328\uFE0F'}</div>
+        <span class="inline-flex text-accent"><FeatureSymbol name="keyboard" /></span>
         <h2 class="mt-2 font-bold">3. winget</h2>
         <p class="mt-1.5 text-sm text-[#9a9aa5] leading-relaxed">
           <code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[#00f2ff] text-xs">winget install &lt;id&gt;</code>
@@ -151,114 +268,6 @@ const breadcrumbLd = {
       </section>
     )}
 
-    <section class="mt-10">
-      <div class="flex flex-wrap items-center justify-between gap-3">
-        <h2 class="text-xl font-bold">{c.allTitle}</h2>
-        <input
-          id="dl-search"
-          type="search"
-          placeholder={c.searchPh}
-          aria-label={c.searchPh}
-          class="w-full sm:w-64 px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder-[#6b6b76] focus:outline-none focus:border-[#00f2ff]/60"
-        />
-      </div>
-      <div id="dl-grid" class="mt-4 grid gap-4 sm:grid-cols-2">
-        {apps.map((app) => {
-          const dl = downloads[app.slug];
-          const inst = dl?.installer ?? null;
-          const hasData = Boolean(dl?.tag);
-          const appPage = `${homePath}apps/${app.slug}/`;
-          const detailsAria = en ? `View ${app.name} details` : `Ver detalles de ${app.name}`;
-          return (
-            <div
-              class="dl-card card p-5 flex gap-4 items-start scroll-mt-24"
-              id={app.slug}
-              data-search={`${app.name} ${app.tagline[lang]} ${app.stack}`.toLowerCase()}
-            >
-              <a
-                href={appPage}
-                aria-label={detailsAria}
-                class="dl-logo shrink-0 flex items-center justify-center pt-0.5"
-              >
-                {app.icon ? (
-                  <img
-                    src={app.icon}
-                    alt=""
-                    width="44"
-                    height="44"
-                    class="dl-logo-icon h-11 w-11 object-contain"
-                  />
-                ) : (
-                  <span class="dl-logo-icon text-3xl select-none">{app.emoji}</span>
-                )}
-              </a>
-              <div class="min-w-0 flex-1">
-                <div class="flex flex-wrap items-center gap-2">
-                  <h3 class="font-bold">
-                    <a href={appPage} aria-label={detailsAria} class="text-white hover:underline underline-offset-4 decoration-white/40 transition-colors">{app.name}</a>
-                  </h3>
-                  {hasData && (
-                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md text-[#00f2ff] bg-[#00f2ff]/[0.08] border border-[#00f2ff]/25">{dl?.tag}</span>
-                  )}
-                </div>
-                <p class="text-xs text-[#9a9aa5] leading-relaxed">{app.tagline[lang]}</p>
-                {hasData && dl && dl.publishedAt && (
-                  <div class="mt-2">
-                    <ReleaseDate publishedAt={dl.publishedAt} lang={lang} label={c.updated.charAt(0).toUpperCase() + c.updated.slice(1)} />
-                  </div>
-                )}
-                <div class="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs">
-                  {inst ? (
-                    <a
-                      href={inst.url}
-                      aria-label={`${c.dlLink} ${app.name}`}
-                      class="inline-flex items-center gap-1.5 font-bold px-3 py-1.5 rounded-lg text-[#0d0f17] bg-[#00f2ff] hover:brightness-95 transition"
-                      data-umami-event="download_click"
-                      data-umami-event-app={app.slug}
-                      data-umami-event-format="installer"
-                      data-umami-event-source="download-page"
-                      data-download-start
-                    >
-                      {'\u2B07'} {c.dlLink} {'\u00B7'} {fmtSize(inst.size)}
-                    </a>
-                  ) : (
-                    <a
-                      href={appPage}
-                      class="font-semibold text-[#00f2ff] hover:text-white transition-colors"
-                      data-umami-event="download_click"
-                      data-umami-event-app={app.slug}
-                      data-umami-event-format="installer"
-                      data-umami-event-source="download-page"
-                    >{c.dlLink}</a>
-                  )}
-                  <a href={appPage} aria-label={detailsAria} class="dl-details inline-flex items-center gap-1 rounded-md border border-white/10 bg-white/[0.04] px-2 py-1 font-semibold text-[#c9c9d1] hover:text-white hover:border-white/25 transition-colors">{en ? 'Details' : 'Detalles'} <span aria-hidden="true">→</span></a>
-                  {dl && dl.portable && (
-                    <a
-                      href={dl.portable.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-[#9a9aa5] hover:text-white transition-colors"
-                      data-umami-event="download_click"
-                      data-umami-event-app={app.slug}
-                      data-umami-event-format="portable"
-                      data-umami-event-source="download-page"
-                      data-download-start
-                    >{dl.portable.name.toLowerCase().endsWith('.exe') ? 'Portable (.exe)' : (dl.portable.name.toLowerCase().endsWith('.zip') ? 'Portable (.zip)' : 'Portable')}</a>
-                  )}
-                  {hasData && dl && (
-                    <a href={dl.checksum ? dl.checksum.url : dl.releaseUrl} target="_blank" rel="noopener noreferrer" class="text-[#9a9aa5] hover:text-white transition-colors">{c.verLink}</a>
-                  )}
-                  <a href={`${app.repo}/releases`} target="_blank" rel="noopener noreferrer" class="text-[#9a9aa5] hover:text-white transition-colors">{c.relLink}</a>
-                  {app.winget && <code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[#00f2ff]">winget install {app.winget}</code>}
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      <p id="dl-empty" class="hidden mt-6 text-center text-sm text-[#9a9aa5]">{c.noResults}</p>
-    </section>
-
     <section class="mt-10 card p-5 text-left overflow-x-auto">
       <h2 class="font-bold">{c.cmpTitle}</h2>
       <table class="mt-4 w-full text-sm min-w-[540px]">
@@ -278,6 +287,8 @@ const breadcrumbLd = {
         </tbody>
       </table>
     </section>
+      </div>
+    </details>
   </div>
 </BaseLayout>
 
@@ -376,21 +387,31 @@ const breadcrumbLd = {
     // Download page: live card filter
     var input = document.getElementById('dl-search');
     var empty = document.getElementById('dl-empty');
-    // Auto-open the SmartScreen guide when linked as /download#smartscreen
-    if (window.location.hash === '#smartscreen') {
-      var ss = document.getElementById('smartscreen');
-      if (ss) ss.open = true;
-    }
+    const revealHelp = () => {
+      const target = document.getElementById(window.location.hash.slice(1));
+      if (!target || !['install-help', 'smartscreen'].includes(target.id)) return;
+      let details = target.closest('details');
+      while (details) {
+        details.open = true;
+        details = details.parentElement?.closest('details');
+      }
+      requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
+    };
+    revealHelp();
+    window.addEventListener('hashchange', revealHelp);
     if (input) {
       input.addEventListener('input', function () {
-        var q = input.value.trim().toLowerCase();
+        var normalize = (value) => value.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+        var q = normalize(input.value.trim());
         var visible = 0;
         document.querySelectorAll('.dl-card').forEach(function (card) {
-          var show = !q || (card.getAttribute('data-search') || '').indexOf(q) !== -1;
+          var show = !q || normalize(card.getAttribute('data-search') || '').indexOf(q) !== -1;
           card.style.display = show ? '' : 'none';
           if (show) visible++;
         });
-        if (empty) empty.classList.toggle('hidden', visible === 0);
+        if (empty) empty.classList.toggle('hidden', visible !== 0);
+        var count = document.getElementById('dl-count');
+        if (count) count.textContent = count.dataset.label.replace('{count}', String(visible));
       });
     }
 

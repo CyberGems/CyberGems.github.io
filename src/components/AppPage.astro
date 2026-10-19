@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import AppHeroBanner from './AppHeroBanner.astro';
 import FeatureSymbol from './FeatureSymbol.astro';
 import AppFlowExplainer from './AppFlowExplainer.astro';
+import AppDownloadButton from './AppDownloadButton.astro';
+import NavIcon from './NavIcon.astro';
 import { ui, type Lang } from '../data/ui';
 import { apps, type CyberApp } from '../data/apps';
 
@@ -79,7 +81,6 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
     </ol>
   </nav>
   <article class="max-w-5xl mx-auto px-5 pt-6 pb-4">
-    <a href={homePath + '#apps'} class="text-sm text-[#9a9aa5] hover:text-white transition-colors">{t.backHome}</a>
 
     <!-- Apps migrate to the reusable hero banner one at a time. -->
     {showHeroBanner ? (
@@ -109,29 +110,18 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
 
     <!-- CTAs -->
     <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-      <a
-        href={releasesUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-primary"
-        data-gh-repo={`CyberGems/${app.slug}`}
-        data-umami-event="download_click"
-        data-umami-event-app={app.slug}
-        data-umami-event-format="installer"
-        data-umami-event-source="app-page"
-        data-download-start
-      >
-        ⬇ {t.downloadCta}<span data-gh-version></span>
-      </a>
-      <a href={`${app.repo}/releases`} target="_blank" rel="noopener noreferrer" class="btn-ghost">{t.releasesCta} ↗</a>
-      <a href={app.repo} target="_blank" rel="noopener noreferrer" class="btn-ghost">⌨ {t.repoCta} ↗</a>
+      <AppDownloadButton app={app} lang={lang} />
       {docsAvailable ? (
-        <a href={`${homePath}docs/${app.slug}/`} class="btn-ghost">📖 {t.wikiCta}</a>
+        <a href={`${homePath}docs/${app.slug}/`} class="btn-ghost"><NavIcon name="book" />{t.wikiCta}</a>
       ) : (
         app.wiki && (
-          <a href={app.wiki} target="_blank" rel="noopener noreferrer" class="btn-ghost">📖 {t.wikiCta} ↗</a>
+          <a href={app.wiki} target="_blank" rel="noopener noreferrer" class="btn-ghost"><NavIcon name="book" />{t.wikiCta} ↗</a>
         )
       )}
+    </div>
+    <div class="mt-3 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-[var(--text-dim)]">
+      <a href={`${app.repo}/releases`} target="_blank" rel="noopener noreferrer" class="py-2 hover:text-white">{t.releasesCta} ↗</a>
+      <a href={app.repo} target="_blank" rel="noopener noreferrer" class="py-2 hover:text-white">{t.repoCta} ↗</a>
     </div>
 
     {app.winget && (
@@ -200,9 +190,9 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
     <!-- Highlights (optional per app: icon cards grid) -->
     {app.highlights && (
       <section class="mt-14" aria-label={app.highlightsTitle?.[lang] ?? `${t.featuresTitle} ${app.name}`}>
-        {app.highlightsTitle && <h2 class="mb-6 text-2xl font-bold tracking-tight">{app.highlightsTitle[lang]}</h2>}
+        <h2 class="mb-6 text-2xl font-bold tracking-tight">{app.highlightsTitle?.[lang] ?? (lang === 'en' ? `What you can do with ${app.name}` : `Qué puedes hacer con ${app.name}`)}</h2>
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {app.highlights.map((h) => (
+          {app.highlights.slice(0, 6).map((h) => (
             <div class="card p-6 text-left">
               <div
                 class="w-11 h-11 rounded-xl flex items-center justify-center text-xl border border-white/10"
@@ -220,10 +210,15 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
     )}
 
     <!-- Features -->
-    <h2 class="mt-12 text-2xl font-bold tracking-tight">
-      {app.featuresHeading ? app.featuresHeading[lang] : `${t.featuresTitle} ${app.name}`}
-    </h2>
-    <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+    <details class="cg-collapse cg-collapse-arrow mt-10" open={!app.highlights?.length}>
+    <summary class="cg-collapse-title">
+      {app.featuresHeading?.[lang] ?? (lang === 'en' ? 'All features' : 'Todas las funciones')}
+    </summary>
+    <div class="cg-collapse-content">
+    {(app.highlights?.length ?? 0) > 6 && <div class="mb-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
+      {app.highlights!.slice(6).map((highlight) => <div><h3 class="font-bold text-white">{highlight.title[lang]}</h3><p class="mt-2 text-sm leading-relaxed">{highlight.text[lang]}</p></div>)}
+    </div>}
+    <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
       {app.features.map((feature) => (
         <li class="card flex items-start gap-3 p-4">
           <span
@@ -235,14 +230,17 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
         </li>
       ))}
     </ul>
+    </div>
+    </details>
 
     <!-- Use cases (optional per app: "By Role" / "By Task") -->
     {app.useCases && (
-      <section class="mt-12">
-        <h2 class="text-2xl font-bold tracking-tight">
+      <details class="cg-collapse cg-collapse-arrow mt-5">
+        <summary class="cg-collapse-title">
           {t.useCasesTitle}
-        </h2>
-        <div class="mt-6 grid gap-10 lg:grid-cols-5">
+        </summary>
+        <div class="cg-collapse-content">
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-5">
         <div class="lg:col-span-3">
           <h3 class="text-xl font-bold" style={`color: ${app.accent};`}>
             {lang === 'en' ? 'By Role' : 'Por rol'}
@@ -276,14 +274,21 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
           </div>
         </div>
         </div>
-      </section>
+        </div>
+      </details>
     )}
+
+    <section class="mt-10 rounded-2xl border border-base-300 bg-base-200 p-6 text-center">
+      <h2 class="text-xl font-bold">{lang === 'en' ? `Try ${app.name}` : `Prueba ${app.name}`}</h2>
+      <p class="mt-2 mb-5 text-sm text-[var(--text-dim)]">{lang === 'en' ? 'Free for Windows 10 and 11. No account required.' : 'Gratis para Windows 10 y 11. Sin necesidad de cuenta.'}</p>
+      <AppDownloadButton app={app} lang={lang} source="app-page-bottom" />
+    </section>
 
     <!-- Requirements & safety -->
     <section class="mt-12 card p-6 text-sm leading-relaxed">
       <h2 class="font-bold text-base">🖥️ {lang === 'en' ? 'Requirements & safety' : 'Requisitos y seguridad'}</h2>
       <ul class="mt-3 space-y-1.5 text-[#c9c9d1]">
-        <li>· Windows 10 / 11, 64-bit — {app.stack}</li>
+        <li>· Windows 10 / 11, 64-bit. {app.stack}</li>
         <li>
           · {app.winget
             ? (lang === 'en' ? 'Installer, portable or' : 'Instalador, portable o')
@@ -303,8 +308,9 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
     </section>
 
     <!-- Share -->
-    <section class="mt-12">
-      <h2 class="text-xl font-bold">{lang === 'en' ? 'Share' : 'Compartir'}</h2>
+    <details class="cg-collapse cg-collapse-arrow mt-8">
+      <summary class="cg-collapse-title">{lang === 'en' ? 'Share' : 'Compartir'} {app.name}</summary>
+      <div class="cg-collapse-content">
       <p class="mt-2 text-sm text-[#9a9aa5]">
         {lang === 'en'
           ? `Enjoying ${app.name}? Help other people discover it:`
@@ -347,7 +353,8 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
           <span>{lang === 'en' ? 'Copy link' : 'Copiar enlace'}</span>
         </button>
       </div>
-    </section>
+      </div>
+    </details>
 
     <!-- Follow releases -->
     <section class="mt-12">
@@ -380,7 +387,7 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
 
     <!-- Related apps -->
     <section class="mt-12">
-      <h2 class="text-xl font-bold">{lang === 'en' ? 'Pairs well with' : 'Combina bien con'}</h2>
+      <h2 class="text-xl font-bold">{lang === 'en' ? 'Explore more apps' : 'Explora más apps'}</h2>
       <div class="mt-4 grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-3">
         {related.map((r) => (
           <a href={lang === 'en' ? `/apps/${r.slug}` : `/es/apps/${r.slug}`} class="card min-w-0 p-4 block">
@@ -402,6 +409,7 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
   // resolved URL for 10 minutes to stay well within the API rate limit.
   (function () {
     var TTL = 10 * 60 * 1000;
+    var requests = {};
 
     function pickInstaller(assets) {
       var exe = (assets || []).filter(function (a) {
@@ -426,11 +434,11 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
         }
       } catch (e) { /* ignore cache errors */ }
 
-      fetch('https://api.github.com/repos/' + repo + '/releases/latest', {
+      var request = requests[repo] || (requests[repo] = fetch('https://api.github.com/repos/' + repo + '/releases/latest', {
         headers: { Accept: 'application/vnd.github+json' },
       })
-        .then(function (res) { return res.ok ? res.json() : null; })
-        .then(function (release) {
+        .then(function (res) { return res.ok ? res.json() : null; }));
+      request.then(function (release) {
           if (!release || !release.assets) return;
           var asset = pickInstaller(release.assets);
           if (!asset) return;

@@ -22,9 +22,9 @@
 
 ### ✨ About
 
-> **CyberGems** crafts free and open-source Windows applications that respect your privacy. No ads, no telemetry, no cloud lock-in — just fast, native, beautiful tools. All projects are **GPLv3** licensed.
+> **CyberGems** crafts free and open-source Windows applications that respect your privacy. The apps use local storage and have no hidden telemetry. Optional online features remain under your control. All projects are **GPLv3** licensed.
 
-This repository powers **[cybergems.org](https://cybergems.org)** — the official landing for the suite. It showcases all 10 apps, per-app detail pages, a cross-repo changelog and auto-synced documentation, fully bilingual (English / Spanish on the site).
+This repository powers **[cybergems.org](https://cybergems.org)** — the official landing for the suite. It showcases all 10 apps, per-app detail pages, a cross-repo changelog and auto-synced documentation, with English and Spanish site navigation. Wiki articles use available Spanish translations and show their source language.
 
 🌐 **Live site:** [cybergems.org](https://cybergems.org) &nbsp;|&nbsp; 👨‍💻 **Org:** [github.com/CyberGems](https://github.com/CyberGems) &nbsp;|&nbsp; 📦 **Profile repo:** [CyberGems/CyberGems](https://github.com/CyberGems/CyberGems)
 
@@ -34,12 +34,12 @@ This repository powers **[cybergems.org](https://cybergems.org)** — the offici
 
 | Area | Route | Description |
 |---|---|---|
-| **Landing** | `/` (EN) · `/es/` (ES) | Hero, suite grid (10 apps from `src/data/apps/`), highlights and CTAs |
-| **App pages** | `/apps/[slug]` · `/es/apps/[slug]` | Tagline, description, feature list, screenshot or gradient placeholder, download / releases / source / wiki links |
+| **Landing** | `/` (EN) · `/es/` (ES) | Compact hero, searchable suite grid with task filters, principles and download links |
+| **App pages** | `/apps/[slug]` · `/es/apps/[slug]` | Six leading highlights, expandable features and use cases, conceptual explainers or optional screenshots, download and documentation links |
 | **Changelog** | `/changelog` · `/es/changelog` | Latest releases aggregated from GitHub Releases across the suite |
-| **Docs** | `/docs` · `/docs/[app]` · `/es/docs/...` | Guides rendered from each repo's GitHub wiki, synced at build time |
+| **Docs** | `/docs` · `/docs/[app]` · `/es/docs/...` | Wiki guides synced at build time, with a collapsible mobile menu, desktop sidebar and article-language labels |
 
-All pages are static, SEO-friendly and served from a custom domain.
+All pages are static, SEO-friendly and served from a custom domain. The website uses aggregate Umami analytics and respects Do Not Track and Global Privacy Control signals; see the [privacy page](https://cybergems.org/privacy/).
 
 ---
 
@@ -58,7 +58,7 @@ All pages are static, SEO-friendly and served from a custom domain.
 </div>
 
 * **Framework:** [Astro 5](https://astro.build) with file-based routing
-* **Styling:** [Tailwind CSS v4](https://tailwindcss.com) via `@tailwindcss/vite`
+* **Styling:** [Tailwind CSS v4](https://tailwindcss.com) via `@tailwindcss/vite`, with prefixed daisyUI 5 controls and the custom CyberGems dark theme
 * **Language:** TypeScript (`astro.config.mjs`, `src/data/*`, `src/components/*`)
 * **Markdown:** [`marked`](https://github.com/markedjs/marked) for wiki rendering
 * **Hosting:** GitHub Pages (custom domain `cybergems.org`), also compatible with Cloudflare Pages
@@ -98,10 +98,11 @@ All pages are static, SEO-friendly and served from a custom domain.
 
 ### 🧩 Content Model
 
-* **`src/data/apps/`** — one JSON file per app (`slug`, `name`, `emoji`, `accent`, `stack`, `license`, bilingual `tagline`/`description`/`features`, `repo`, `wiki`, optional `winget`, `screenshot`). Screenshots are optional: set `screenshot` to a file inside `/public/screenshots/<slug>/` (or an absolute `/screenshots/...` path, as written by the CMS) or leave it `null` to render the gradient placeholder.
+* **`src/data/apps/`** — one JSON file per app (`slug`, `name`, `emoji`, `accent`, `stack`, `license`, bilingual `tagline`/`description`/`features`, `repo`, `wiki`, optional `winget`, `screenshot`). Screenshots are optional: set `screenshot` to a file inside `/public/screenshots/<slug>/` (or an absolute `/screenshots/...` path, as written by the CMS) or leave it `null` to render its conceptual explainer, when configured, or the gradient placeholder.
+* **`src/data/catalog.ts`** defines the task labels and discovery groups for the ten apps. Update this presentation mapping when adding an app.
 * **`src/data/ui.json`** — shared UI strings for nav, hero, sections and footer (`en` / `es`), editable in the CMS.
 * **`src/pages/`** — `/` (English) and `/es/` (Spanish), plus `/apps/[slug]` per-app pages in both languages, plus `changelog` and `docs`.
-* **`public/screenshots/`** — static screenshots; absent files fall back to the accent-gradient placeholder.
+* **`public/screenshots/`** contains optional static screenshots. A configured conceptual explainer is used until a real screenshot is supplied.
 * **`wikis/` + `public/wikis/`** — generated; do not edit by hand (see below).
 
 To update an app: edit its JSON in `src/data/apps/` or use the visual CMS at `/admin` — the landing, app pages, changelog and docs pick it up automatically.
@@ -162,7 +163,8 @@ Wikis live as separate git repos (`https://github.com/CyberGems/<slug>.wiki.git`
 1. `scripts/fetch-wikis.mjs` reads slugs from `src/data/apps/*.json`
 2. Uses the sibling `<App>.wiki` repository when it exists locally (for example `../CyberViewer.wiki`); in CI, shallow-clones the wiki from GitHub into `wikis/<slug>/`
 3. Copies non-markdown assets into `public/wikis/<slug>/` so images referenced in markdown are served as static files
-4. Astro renders the markdown via `marked` into `/docs` routes
+4. Astro renders the markdown via `marked` into `/docs` routes through the shared `DocsPage.astro` and `DocsNav.astro` components
+5. Spanish routes prefer matching `*-es.md` articles when available. Otherwise, the guide displays an English-language notice. Existing wiki URLs remain available; translations share one navigation entry
 
 To refresh wikis locally without a full build: `node scripts/fetch-wikis.mjs`.
 

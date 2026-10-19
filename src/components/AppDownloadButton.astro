@@ -1,0 +1,12 @@
+---
+import type { CyberApp } from '../data/apps';
+import { ui, type Lang } from '../data/ui';
+import NavIcon from './NavIcon.astro';
+interface Props { app: CyberApp; lang: Lang; source?: string; }
+const { app, lang, source = 'app-page' } = Astro.props;
+---
+<a href={`${app.repo}/releases/latest`} target="_blank" rel="noopener noreferrer" class="btn-primary"
+  data-gh-repo={`CyberGems/${app.slug}`} data-umami-event="download_click" data-umami-event-app={app.slug}
+  data-umami-event-format="installer" data-umami-event-source={source} data-download-start>
+  <NavIcon name="download" />{ui[lang].downloadCta}<span data-gh-version></span>
+</a>

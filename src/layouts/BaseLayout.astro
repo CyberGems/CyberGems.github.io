@@ -120,7 +120,7 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
     <header class="sticky top-0 z-50 backdrop-blur-md bg-[#0d0f17]/80 border-b border-white/5">
       <nav aria-label="Primary" class="max-w-6xl mx-auto px-5 lg:pr-24 h-16 flex items-center justify-between">
         <a href={homeHref} class="inline-flex min-w-0 shrink-0 md:shrink items-center" aria-label="CyberGems">
-          <img src="/branding/cybergems-header.svg" alt="CyberGems" width="192" height="32" class="h-6 w-auto sm:h-8" />
+          <img src="/branding/cybergems-header.svg" alt="CyberGems" width="192" height="32" class="h-5 w-auto min-[360px]:h-6 sm:h-8" />
         </a>
         <div class="flex items-center gap-2 sm:gap-5">
           <div class="relative hidden md:inline-flex items-center gap-0.5" data-apps-dropdown>
@@ -165,7 +165,7 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
               lang="en"
               aria-current={lang === 'en' ? 'page' : undefined}
               class:list={[
-                'rounded-full px-2.5 py-1 text-[11px] font-bold tracking-wide transition-colors',
+                'inline-flex min-h-8 min-w-9 items-center justify-center rounded-full px-2 py-1 text-xs font-bold tracking-wide transition-colors',
                 lang === 'en' ? 'bg-[#00f2ff] text-[#0d0f17]' : 'text-[#9a9aa5] hover:text-white',
               ]}
             >EN</a>
@@ -174,14 +174,14 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
               lang="es"
               aria-current={lang === 'es' ? 'page' : undefined}
               class:list={[
-                'rounded-full px-2.5 py-1 text-[11px] font-bold tracking-wide transition-colors',
+                'inline-flex min-h-8 min-w-9 items-center justify-center rounded-full px-2 py-1 text-xs font-bold tracking-wide transition-colors',
                 lang === 'es' ? 'bg-[#00f2ff] text-[#0d0f17]' : 'text-[#9a9aa5] hover:text-white',
               ]}
             >ES</a>
           </div>
           <button
             type="button"
-            class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-white/10 text-[#c9c9d1] hover:border-[#00f2ff] hover:text-white transition-colors"
+            class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-white/10 text-[#c9c9d1] hover:border-[#00f2ff] hover:text-white transition-colors"
             data-mobile-menu-toggle
             aria-controls="mobile-menu"
             aria-expanded="false"
@@ -189,7 +189,10 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
             data-open-label={lang === 'en' ? 'Open navigation' : 'Abrir navegación'}
             data-close-label={lang === 'en' ? 'Close navigation' : 'Cerrar navegación'}
           >
-            <span data-mobile-menu-icon aria-hidden="true">☰</span>
+            <span data-mobile-menu-icon aria-hidden="true">
+              <span data-menu-open-icon><NavIcon name="menu" size={20} /></span>
+              <span data-menu-close-icon class="hidden"><NavIcon name="close" size={20} /></span>
+            </span>
           </button>
         </div>
       </nav>
@@ -335,7 +338,8 @@ const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
           menu.classList.toggle('hidden', !open);
           toggle.setAttribute('aria-expanded', String(open));
           toggle.setAttribute('aria-label', toggle.getAttribute(open ? 'data-close-label' : 'data-open-label') || 'Menu');
-          if (icon) icon.textContent = open ? '×' : '☰';
+          icon?.querySelector('[data-menu-open-icon]')?.classList.toggle('hidden', open);
+          icon?.querySelector('[data-menu-close-icon]')?.classList.toggle('hidden', !open);
           if (!open) setAppsOpen(false);
         };
         toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
