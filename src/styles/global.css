@@ -1,13 +1,55 @@
 @import "tailwindcss";
 
+@plugin "daisyui" {
+  themes: false;
+  prefix: cg-;
+  include: button, input, badge, collapse;
+  logs: false;
+}
+
+@plugin "daisyui/theme" {
+  name: "cybergems";
+  default: true;
+  prefersdark: true;
+  color-scheme: dark;
+  --color-base-100: #0d0f17;
+  --color-base-200: #12151f;
+  --color-base-300: #242938;
+  --color-base-content: #f0f0f0;
+  --color-primary: #00f2ff;
+  --color-primary-content: #0d0f17;
+  --color-secondary: #7a5cff;
+  --color-secondary-content: #ffffff;
+  --color-accent: #72dff5;
+  --color-accent-content: #0d0f17;
+  --color-neutral: #151824;
+  --color-neutral-content: #d3d5df;
+  --color-info: #72dff5;
+  --color-info-content: #0d0f17;
+  --color-success: #86efac;
+  --color-success-content: #0d0f17;
+  --color-warning: #ffd8a8;
+  --color-warning-content: #0d0f17;
+  --color-error: #fca5a5;
+  --color-error-content: #0d0f17;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.75rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
 :root {
   --bg: #0d0f17;
   --bg-soft: #12151f;
   --card: #151824;
-  --border: rgba(255, 255, 255, 0.08);
+  --border-color: rgba(255, 255, 255, 0.1);
   --border-strong: rgba(255, 255, 255, 0.14);
   --text: #f0f0f0;
-  --text-dim: #9a9aa5;
+  --text-dim: #a9abb8;
   --accent: #00f2ff;
   --accent-2: #7a5cff;
 }
@@ -34,15 +76,16 @@ body {
 
 .card {
   background-color: var(--card);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
   border-radius: 1rem;
   transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card:hover {
+.card:is(a, button):hover,
+.app-card:hover {
   border-color: var(--border-strong);
   transform: translateY(-3px);
-  box-shadow: 0 12px 40px -18px rgba(0, 242, 255, 0.25);
+  box-shadow: 0 12px 40px -18px rgba(0, 242, 255, 0.1);
 }
 
 .btn-primary {
@@ -83,11 +126,11 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
   color: var(--text-dim);
   background-color: rgba(255, 255, 255, 0.03);
 }
@@ -119,14 +162,14 @@ body {
 .release-notes a { color: var(--accent); }
 .release-notes code {
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   padding: 0.1em 0.4em;
   font-size: 0.85em;
 }
 .release-notes pre {
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 0.8em;
   overflow-x: auto;
@@ -140,7 +183,7 @@ body {
   margin: 0.6em 0;
   color: var(--text-dim);
 }
-.release-notes hr { border: none; border-top: 1px solid var(--border); margin: 1em 0; }
+.release-notes hr { border: none; border-top: 1px solid var(--border-color); margin: 1em 0; }
 .release-notes > :first-child { margin-top: 0; }
 
 /* Markdown tables (GitHub-like) — tables are wrapped in .table-wrap for
@@ -174,7 +217,21 @@ body {
 .release-notes td > :last-child, .release-notes th > :last-child { margin-bottom: 0; }
 
 .brand-glow {
-  text-shadow: 0 0 32px rgba(0, 242, 255, 0.45);
+  text-shadow: 0 0 32px rgba(0, 242, 255, 0.18);
+}
+
+.cg-collapse {
+  border: 1px solid var(--border-color);
+  background: var(--card);
+}
+
+.cg-collapse-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.cg-collapse-content {
+  color: var(--text-dim);
 }
 
 /* Active navbar link: white text with a gradient underline. */

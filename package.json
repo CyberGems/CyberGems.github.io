@@ -22,6 +22,7 @@
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
+    "daisyui": "^5.7.50",
     "sharp": "^0.35.4"
   }
 }

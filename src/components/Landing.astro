@@ -1,784 +1,167 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AppCard from './AppCard.astro';
+import FeatureSymbol from './FeatureSymbol.astro';
+import NavIcon from './NavIcon.astro';
 import { apps } from '../data/apps';
+import { catalogGroups } from '../data/catalog';
 import { ui, type Lang } from '../data/ui';
 import { fetchLatestDownloads } from '../data/releases';
+import pagesData from '../data/pages.json';
 
-interface Props {
-  lang: Lang;
-}
-
+interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const t = ui[lang];
 const { downloads } = await fetchLatestDownloads();
 const homePath = lang === 'en' ? '/' : '/es/';
-const title = lang === 'en' ? 'CyberGems — Free & open-source Windows apps' : 'CyberGems — Apps gratuitas y de código abierto para Windows';
+const title = lang === 'en' ? 'CyberGems: Free & open-source Windows apps' : 'CyberGems: Apps gratuitas y de código abierto para Windows';
 const description = lang === 'en'
-  ? '10 free, open-source Windows apps — screen capture, clipboard, notes, firewall and more. No account, no ads, no tracking in the apps, GPLv3.'
-  : '10 apps gratuitas y open-source para Windows — captura, portapapeles, notas, firewall y más. Sin cuenta, sin anuncios, sin rastreo en las apps, GPLv3.';
+  ? '10 free, open-source Windows apps for screen capture, clipboard history, notes, security and more. No ads or account required.'
+  : '10 apps gratuitas y de código abierto para Windows: capturas, portapapeles, notas, seguridad y más. Sin anuncios ni cuenta.';
 const strip = [
-  { icon: '🎁', label: t.stripFree },
-  { icon: '🚫', label: t.stripNoAds },
-  { icon: '👤', label: t.stripNoAccount },
-  { icon: '🔒', label: t.stripNoTrack },
-  { icon: '📖', label: t.stripOss },
+  { icon: 'gift', label: t.stripFree },
+  { icon: 'ban', label: t.stripNoAds },
+  { icon: 'user', label: t.stripNoAccount },
+  { icon: 'shield-check', label: t.stripNoTrack },
+  { icon: 'book-open', label: t.stripOss },
 ];
-
-const orgLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'CyberGems',
-  url: 'https://cybergems.org',
-  logo: 'https://cybergems.org/favicon.svg',
-  sameAs: ['https://github.com/CyberGems'],
-};
-const websiteLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'CyberGems',
-  url: 'https://cybergems.org',
-  inLanguage: lang,
-  description,
-};
-const itemListLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: t.appsTitle,
-  itemListElement: apps.map((app, i) => ({
-    '@type': 'SoftwareApplication',
-    position: i + 1,
-    name: app.name,
-    url: `https://cybergems.org${lang === 'es' ? '/es' : ''}/apps/${app.slug}/`,
-    applicationCategory: 'UtilitiesApplication',
-    operatingSystem: 'Windows 10, Windows 11',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-  })),
-};
+const principles = pagesData.about[lang].principles;
+const principleIcons = ['shield-check', 'database', 'book-open', 'gift', 'activity', 'sliders'];
+const jsonLd = [
+  { '@context': 'https://schema.org', '@type': 'Organization', name: 'CyberGems', url: 'https://cybergems.org', logo: 'https://cybergems.org/favicon.svg', sameAs: ['https://github.com/CyberGems'] },
+  { '@context': 'https://schema.org', '@type': 'WebSite', name: 'CyberGems', url: 'https://cybergems.org', inLanguage: lang, description },
+  {
+    '@context': 'https://schema.org', '@type': 'ItemList', name: t.appsTitle,
+    itemListElement: apps.map((app, i) => ({
+      '@type': 'SoftwareApplication', position: i + 1, name: app.name,
+      url: `https://cybergems.org${lang === 'es' ? '/es' : ''}/apps/${app.slug}/`,
+      applicationCategory: 'UtilitiesApplication', operatingSystem: 'Windows 10, Windows 11',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    })),
+  },
+];
 ---
 
-<BaseLayout title={title} description={description} lang={lang} path={homePath} ogImage={lang === 'es' ? '/og/es.png' : '/og.png'} jsonLd={[orgLd, websiteLd, itemListLd]}>
-  <!-- Hero -->
+<BaseLayout title={title} description={description} lang={lang} path={homePath} ogImage={lang === 'es' ? '/og/es.png' : '/og.png'} jsonLd={jsonLd}>
   <section class="landing-hero relative overflow-hidden">
-    <div class="hero-aura" aria-hidden="true"></div>
-    <div class="hero-grid absolute inset-0 cyber-grid" aria-hidden="true"></div>
-    <div class="hero-spotlight" aria-hidden="true"></div>
-    <div class="max-w-6xl mx-auto px-5 pt-20 sm:pt-24 pb-0 text-center relative">
-      <span class="hero-enter hero-badge chip mb-6">{t.heroBadge}</span>
-      <h1 class="hero-enter hero-title text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
-        {t.heroTitle1}<br />
-        <span class="text-gradient brand-glow">{t.heroTitle2}</span>
+    <div class="absolute inset-0 cyber-grid pointer-events-none" aria-hidden="true"></div>
+    <div class="max-w-6xl mx-auto px-5 pt-10 sm:pt-14 pb-10 sm:pb-0 text-center relative">
+      <span class="chip mb-5">{t.heroBadge}</span>
+      <h1 class="hero-title mx-auto max-w-5xl text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+        {t.heroTitle1}<br /><span class="text-gradient">{t.heroTitle2}</span>
       </h1>
-      <p class="hero-enter hero-description mt-6 max-w-2xl mx-auto text-[#9a9aa5] text-lg leading-relaxed">{t.heroText}</p>
-      <div class="hero-enter hero-actions mt-9 flex flex-wrap items-center justify-center gap-4">
-        <a href="#apps" class="btn-primary">{t.heroCta} ↓</a>
-        <a href="https://github.com/CyberGems" target="_blank" rel="noopener noreferrer" class="btn-ghost">
-          ★ {t.heroCta2}
-        </a>
+      <p class="mt-5 max-w-2xl mx-auto text-[var(--text-dim)] text-base sm:text-lg leading-relaxed">{t.heroText}</p>
+      <div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#apps" class="btn-primary">{t.heroCta}<span aria-hidden="true">↓</span></a>
+        <a href="https://github.com/CyberGems" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-[var(--text-dim)] hover:text-white py-2">{t.heroCta2}<span aria-hidden="true"> ↗</span></a>
       </div>
-      <!-- Planet Horizon and Orbital Stage -->
-      <div class="hero-enter hero-stage-container mt-12 sm:mt-16" style="--showcase-delay: 300ms;" aria-label={lang === 'en' ? 'CyberGems apps showcase' : 'Presentación de apps CyberGems'}>
-        <div class="hero-stage">
-          <!-- Orbital Track and Apps -->
-          <div class="orbit-system">
-            <div class="orbit-track">
-              {apps.map((app, index) => {
-                const angle = index * 36;
-                return (
-                  <div
-                    class="orbit-node"
-                    style={`--node-angle: ${angle}deg;`}
-                  >
-                    <a
-                      href={lang === 'en' ? `/apps/${app.slug}` : `/es/apps/${app.slug}`}
-                      class="orbit-node-body"
-                      aria-label={app.name}
-                      tabindex="0"
-                    >
-                      <div class="orbit-badge">
-                        {app.icon ? (
-                          <img
-                            src={app.icon}
-                            alt=""
-                            width="48"
-                            height="48"
-                            loading="eager"
-                            decoding="async"
-                          />
-                        ) : (
-                          <span class="text-2xl" aria-hidden="true">{app.emoji}</span>
-                        )}
-                      </div>
-                      <span class="orbit-label">{app.name}</span>
-                    </a>
-                  </div>
-                );
-              })}
+      <div class="hero-stage hidden sm:block mt-6" aria-hidden="true">
+        <div class="hero-horizon"></div>
+        <img src="/branding/cybergems-footer.svg" alt="" width="48" height="48" class="hero-core" />
+        <div class="hero-orbit">
+          {apps.map((app, index) => (
+            <div class="hero-node" style={`--angle: ${index * 36}deg;`}>
+              <span class="hero-node-icon">{app.icon && <img src={app.icon} alt="" width="40" height="40" loading="eager" decoding="async" />}</span>
             </div>
-          </div>
-
-          <!-- Luminous Horizon Dome -->
-          <div class="horizon-dome" aria-hidden="true">
-            <div class="horizon-crest-glow"></div>
-            <div class="horizon-inner-aurora"></div>
-            <div class="horizon-rim-sweep"></div>
-            <div class="horizon-rim-sweep horizon-rim-sweep--violet"></div>
-            <div class="horizon-center-core">
-              <div class="horizon-core-badge">
-                <img src="/branding/cybergems-footer.svg" alt="" width="48" height="48" class="horizon-core-logo" />
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
-
-    <!-- Infinite Marquee Ticker Strip -->
-    <div class="marquee-strip" aria-label={lang === 'en' ? 'Apps ticker' : 'Listado dinámico de apps'}>
-      <div class="marquee-track">
-        {[...apps, ...apps, ...apps].map((app, i) => (
-          <a
-            href={lang === 'en' ? `/apps/${app.slug}` : `/es/apps/${app.slug}`}
-            class="marquee-item"
-            {...(i >= apps.length ? { 'aria-hidden': 'true', tabindex: '-1' } : {})}
-          >
-            <span class="marquee-spark text-[#00f2ff]" aria-hidden="true">✦</span>
-            <span class="marquee-name">{app.name}</span>
-          </a>
-        ))}
-      </div>
-    </div>
   </section>
-
-  <!-- Trust strip -->
-  <section class="border-y border-white/5 bg-[#12151f]" aria-label="Features">
-    <ul class="max-w-6xl mx-auto px-5 py-5 grid grid-cols-2 sm:grid-cols-5 gap-4 list-none m-0 p-0">
+  <section class="border-y border-white/5 bg-base-200" aria-label={lang === 'en' ? 'Our commitments' : 'Nuestros compromisos'}>
+    <ul class="max-w-6xl mx-auto px-5 py-4 grid grid-cols-2 sm:grid-cols-5 gap-3 list-none m-0">
       {strip.map((item, index) => (
-        <li class:list={[
-          'flex items-center justify-center gap-2 text-sm text-[#9a9aa5]',
-          index === strip.length - 1 && 'col-span-2 sm:col-span-1',
-        ]}>
-          <span aria-hidden="true">{item.icon}</span>
-          <span class="font-medium">{item.label}</span>
+        <li class:list={['flex items-center justify-center gap-2 text-sm text-[var(--text-dim)]', index === strip.length - 1 && 'col-span-2 sm:col-span-1']}>
+          <span class="trust-icon"><FeatureSymbol name={item.icon} /></span><span>{item.label}</span>
         </li>
       ))}
     </ul>
   </section>
-
-  <!-- Apps grid -->
-  <section id="apps" class="max-w-6xl mx-auto px-5 py-20 scroll-mt-20">
-    <div class="text-center mb-12">
+  <section id="apps" class="max-w-6xl mx-auto px-5 py-12 sm:py-16 scroll-mt-20">
+    <div class="text-center mb-7">
       <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">{t.appsTitle}</h2>
-      <p class="mt-3 text-[#9a9aa5]">{t.appsSubtitle}</p>
+      <p class="mt-3 text-[var(--text-dim)]">{t.appsSubtitle}</p>
     </div>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div data-catalog-controls hidden class="mb-7">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div class="flex flex-wrap gap-2" role="group" aria-label={t.catalogFilter}>
+          {catalogGroups.map((group) => (
+            <button type="button" class="cg-btn cg-btn-sm min-h-11 font-medium" data-catalog-filter={group.id} aria-pressed={group.id === 'all'} aria-controls="catalog-grid">{group.label[lang]}</button>
+          ))}
+        </div>
+        <input type="search" class="cg-input w-full lg:w-64 bg-base-100" aria-label={t.catalogSearch} placeholder={t.catalogSearch} data-catalog-search aria-controls="catalog-grid" />
+      </div>
+      <p class="mt-3 text-sm text-[var(--text-dim)]" data-catalog-count data-label={t.catalogCount} aria-live="polite" aria-atomic="true">{t.catalogCount.replace('{count}', String(apps.length))}</p>
+    </div>
+    <div id="catalog-grid" class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {apps.map((app) => <AppCard app={app} lang={lang} download={downloads[app.slug]} />)}
     </div>
+    <p data-catalog-empty hidden class="py-10 text-center text-[var(--text-dim)]">{t.catalogEmpty}</p>
   </section>
-
-  <!-- Principles (same 6 as /about) -->
-  <section class="max-w-6xl mx-auto px-5 pb-20">
-    <div class="text-center mb-10">
+  <section class="max-w-6xl mx-auto px-5 pb-8">
+    <div class="text-center mb-8">
       <h2 class="text-3xl font-extrabold tracking-tight">{lang === 'en' ? 'Why CyberGems' : 'Por qué CyberGems'}</h2>
-      <p class="mt-3 text-[#9a9aa5]">{lang === 'en' ? 'Built for daily use, with the bloat removed.' : 'Hechas para el día a día, sin la grasa.'}</p>
+      <p class="mt-3 text-[var(--text-dim)]">{lang === 'en' ? 'Useful tools, with respect for your time and privacy.' : 'Herramientas útiles que respetan tu tiempo y tu privacidad.'}</p>
     </div>
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {[
-        { icon: '🔒', t: 'Privacy-first', d: lang === 'en' ? 'Your data never leaves your PC.' : 'Tus datos nunca salen de tu equipo.' },
-        { icon: '💻', t: 'Local-first', d: lang === 'en' ? 'Offline. No accounts, no subscriptions.' : 'Offline. Sin cuentas ni suscripciones.' },
-        { icon: '📖', t: lang === 'en' ? 'Open source' : 'Código abierto', d: 'GPLv3.' },
-        { icon: '🎁', t: lang === 'en' ? '100% Free' : '100% Gratis', d: lang === 'en' ? 'No ads, no paywalls.' : 'Sin anuncios ni muros de pago.' },
-        { icon: '⚡', t: lang === 'en' ? 'Fast & light' : 'Rápido y ligero', d: lang === 'en' ? 'Native desktop, no Electron.' : 'Nativo, sin Electron.' },
-        { icon: '✨', t: lang === 'en' ? 'Sober design' : 'Diseño sobrio', d: lang === 'en' ? 'Clean, purposeful interfaces.' : 'Interfaces limpias y claras.' },
-      ].map((p) => (
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {principles.map((principle, index) => (
         <div class="card p-5">
-          <div class="text-2xl" aria-hidden="true">{p.icon}</div>
-          <h3 class="mt-2 font-bold">{p.t}</h3>
-          <p class="mt-1 text-sm text-[#9a9aa5]">{p.d}</p>
+          <span class="inline-flex text-accent"><FeatureSymbol name={principleIcons[index]} /></span>
+          <h3 class="mt-3 font-bold">{principle.t}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-[var(--text-dim)]">{principle.d}</p>
         </div>
       ))}
     </div>
     <div class="mt-8 flex flex-wrap justify-center gap-3">
-      <a href={lang === 'en' ? '/download' : '/es/download'} class="btn-primary">{lang === 'en' ? 'How to install' : 'Cómo instalar'}</a>
+      <a href={lang === 'en' ? '/download' : '/es/download'} class="btn-ghost"><NavIcon name="download" />{lang === 'en' ? 'How to install' : 'Cómo instalar'}</a>
       <a href={lang === 'en' ? '/about' : '/es/about'} class="btn-ghost">{lang === 'en' ? 'Our story' : 'Nuestra historia'}</a>
-      <a href={lang === 'en' ? '/faq' : '/es/faq'} class="btn-ghost">FAQ</a>
-      <a href={lang === 'en' ? '/donate' : '/es/donate'} class="btn-ghost">♥ {lang === 'en' ? 'Donate' : 'Donar'}</a>
+      <a href={lang === 'en' ? '/faq' : '/es/faq'} class="btn-ghost">{lang === 'en' ? 'Common questions' : 'Preguntas frecuentes'}</a>
     </div>
   </section>
 </BaseLayout>
-
 <script>
-  const hero = document.querySelector<HTMLElement>('.landing-hero');
-  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
-  const motion = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
-
-  if (hero) {
-    let frame = 0;
-    let cursorX = 0;
-    let cursorY = 0;
-
-    const reset = () => {
-      cancelAnimationFrame(frame);
-      frame = 0;
-      hero.classList.remove('is-pointer-active');
-      hero.style.setProperty('--grid-x', '0px');
-      hero.style.setProperty('--grid-y', '0px');
-    };
-
-    hero.addEventListener('pointermove', (event) => {
-      if (!canHover.matches || event.pointerType === 'touch') return;
-      cursorX = event.clientX;
-      cursorY = event.clientY;
-      // Coalesce pointer events; no render loop runs while the cursor is idle.
-      if (frame) return;
-      frame = requestAnimationFrame(() => {
-        frame = 0;
-        const bounds = hero.getBoundingClientRect();
-        const x = cursorX - bounds.left;
-        const y = cursorY - bounds.top;
-        hero.style.setProperty('--cursor-x', `${x}px`);
-        hero.style.setProperty('--cursor-y', `${y}px`);
-        // Grid parallax is ambient motion: keep it behind reduced-motion.
-        if (motion.matches) {
-          hero.style.setProperty('--grid-x', `${(x / bounds.width - 0.5) * 20}px`);
-          hero.style.setProperty('--grid-y', `${(y / bounds.height - 0.5) * 16}px`);
-        }
-        hero.classList.add('is-pointer-active');
-      });
-    }, { passive: true });
-
-    hero.addEventListener('pointerleave', reset);
-    hero.addEventListener('pointercancel', reset);
-    window.addEventListener('blur', reset);
-    window.addEventListener('scroll', reset, { passive: true });
-    motion.addEventListener('change', reset);
-    canHover.addEventListener('change', reset);
-  }
+  const controls = document.querySelector<HTMLElement>('[data-catalog-controls]');
+  const search = document.querySelector<HTMLInputElement>('[data-catalog-search]');
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-catalog-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('[data-app-group]');
+  const count = document.querySelector<HTMLElement>('[data-catalog-count]');
+  const empty = document.querySelector<HTMLElement>('[data-catalog-empty]');
+  const normalize = (value: string) => value.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+  let group = 'all';
+  const filter = () => {
+    const query = normalize(search?.value.trim() ?? '');
+    let visible = 0;
+    cards.forEach((card) => {
+      const matches = (group === 'all' || card.dataset.appGroup === group) && normalize(card.dataset.appSearch ?? '').includes(query);
+      card.hidden = !matches;
+      if (matches) visible++;
+    });
+    if (count) count.textContent = (count.dataset.label ?? '{count}').replace('{count}', String(visible));
+    if (empty) empty.hidden = visible > 0;
+  };
+  buttons.forEach((button) => button.addEventListener('click', () => {
+    group = button.dataset.catalogFilter ?? 'all';
+    buttons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+    filter();
+  }));
+  search?.addEventListener('input', filter);
+  if (controls) controls.hidden = false;
 </script>
-
 <style>
-  .landing-hero {
-    isolation: isolate;
-  }
-
-  .hero-grid {
-    inset: -12px;
-    pointer-events: none;
-  }
-
-  .hero-spotlight {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 440px;
-    height: 440px;
-    pointer-events: none;
-    opacity: 0;
-    background: radial-gradient(circle, rgb(0 242 255 / 0.16), rgb(122 92 255 / 0.09) 38%, transparent 70%);
-    transform: translate(calc(var(--cursor-x, 0px) - 50%), calc(var(--cursor-y, 0px) - 50%));
-  }
-
-  /* Cursor halo follows the pointer (user-driven, not autonomous motion),
-     so it is not gated behind reduced-motion. Grid parallax stays gated. */
-  @media (hover: hover) and (pointer: fine) {
-    .hero-spotlight {
-      display: block;
-      transition: opacity 250ms ease;
-    }
-
-    .is-pointer-active .hero-spotlight { opacity: 1; }
-  }
-
-  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-    .hero-grid {
-      transform: translate(var(--grid-x, 0px), var(--grid-y, 0px));
-      transition: transform 350ms ease-out;
-    }
-  }
-
-  /* Static gradients need no blur filter, images, or animation runtime. */
-  .hero-aura {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background:
-      radial-gradient(ellipse 42% 65% at 28% 35%, rgb(0 242 255 / 0.085), transparent 75%),
-      radial-gradient(ellipse 42% 70% at 75% 45%, rgb(122 92 255 / 0.12), transparent 75%);
-  }
-
-  .landing-hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 15%;
-    width: 70%;
-    height: 1px;
-    pointer-events: none;
-    background: linear-gradient(90deg, transparent, rgb(0 242 255 / 0.3), rgb(122 92 255 / 0.3), transparent);
-  }
-
-  /* One-shot compositor-friendly motion; the page is still once settled.
-     Content stays visible by default, including with reduced motion or no JS. */
+  .landing-hero { background: radial-gradient(ellipse at 25% 20%, #00f2ff0d, transparent 65%), radial-gradient(ellipse at 80% 60%, #7a5cff16, transparent 65%); }
+  [data-catalog-filter][aria-pressed="true"] { border-color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 9%, var(--color-base-100)); color: var(--color-accent); }
+  .trust-icon { display: inline-flex; flex-shrink: 0; color: var(--color-accent); }
+  .trust-icon :global(svg) { width: 1rem; height: 1rem; }
+  .hero-stage { position: relative; height: 170px; overflow: hidden; mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent); }
+  .hero-horizon { position: absolute; top: 74px; left: 50%; width: 1000px; height: 600px; transform: translateX(-50%); border-radius: 50%; border: 1px solid #00f2ff77; background: radial-gradient(ellipse at 50% 0%, #1d3150, #101426 45%, #0d0f17 70%); box-shadow: 0 -12px 60px -12px #00f2ff55; }
+  .hero-core { position: absolute; top: 115px; left: calc(50% - 24px); }
+  .hero-orbit { position: absolute; top: 455px; left: 50%; }
+  .hero-node { position: absolute; transform: rotate(var(--angle)) translateY(-420px) rotate(calc(-1 * var(--angle))); }
+  .hero-node-icon { display: grid; place-items: center; width: 60px; height: 60px; margin: -30px; border: 1px solid #ffffff24; border-radius: 50%; background: #101420; box-shadow: 0 4px 20px #0007; }
+  .hero-node-icon img { width: 40px; height: 40px; object-fit: contain; }
   @media (prefers-reduced-motion: no-preference) {
-    .hero-enter {
-      animation: hero-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
-    }
-
-    .hero-title { animation-delay: 80ms; }
-    .hero-description { animation-delay: 160ms; }
-    .hero-actions { animation-delay: 240ms; }
-
-    /* Reveal focused controls immediately during the entrance. */
-    .hero-actions:focus-within { animation: none; }
-
-    .hero-aura {
-      animation: hero-aura-settle 2400ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
-    }
+    .hero-orbit { animation: orbit 72s linear infinite; }
+    .hero-node-icon { animation: orbit 72s linear infinite reverse; }
   }
-
-  @keyframes hero-enter {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes hero-aura-settle {
-    from { opacity: 0; transform: translateY(16px) scale(0.96); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-  }
-
-  /* Planet Horizon and Orbital Stage */
-  .hero-stage-container {
-    --stage-height: 380px;
-    --stage-headroom: 34px;
-    --dome-top: 600px;
-    --dome-size: 1000px;
-    --orbit-radius: 540px;
-    position: relative;
-    width: 100%;
-    max-width: 1080px;
-    margin-inline: auto;
-    isolation: isolate;
-  }
-
-  @media (max-width: 900px) {
-    .hero-stage-container {
-      --stage-height: 330px;
-      --dome-top: 520px;
-      --dome-size: 820px;
-      --orbit-radius: 460px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .hero-stage-container {
-      --stage-height: 290px;
-      --dome-top: 440px;
-      --dome-size: 680px;
-      --orbit-radius: 390px;
-    }
-  }
-
-  .hero-stage {
-    position: relative;
-    width: 100%;
-    height: calc(var(--stage-height) + var(--stage-headroom));
-    margin-top: calc(-1 * var(--stage-headroom));
-    overflow: hidden;
-    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-  }
-
-  /* Celestial Glowing Horizon Dome */
-  .horizon-dome {
-    position: absolute;
-    top: calc(var(--dome-top) + var(--stage-headroom));
-    left: 50%;
-    width: var(--dome-size);
-    height: var(--dome-size);
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 2;
-    background: radial-gradient(circle at 50% 0%, #171f38 0%, #101426 32%, #0d0f17 72%);
-    border-top: 2px solid rgba(0, 242, 255, 0.85);
-    border-left: 2px solid rgba(0, 242, 255, 0.85);
-    border-right: 2px solid rgba(0, 242, 255, 0.85);
-    border-bottom: 1px solid transparent;
-    box-shadow:
-      0 0 40px -8px rgba(0, 242, 255, 0.4),
-      0 -16px 50px -4px rgba(0, 242, 255, 0.45),
-      0 -45px 110px -15px rgba(122, 92, 255, 0.4),
-      inset 0 35px 70px -10px rgba(0, 242, 255, 0.22),
-      inset 0 1px 3px rgba(255, 255, 255, 0.7);
-    mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 95%);
-    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 95%);
-  }
-
-  /* Atmospheric Aurora Glow on the crest */
-  .horizon-crest-glow {
-    position: absolute;
-    top: -4px;
-    left: 20%;
-    width: 60%;
-    height: 35px;
-    border-radius: 50%;
-    background: radial-gradient(ellipse at 50% 0%, rgba(0, 242, 255, 0.55), transparent 75%);
-    filter: blur(8px);
-    pointer-events: none;
-  }
-
-  .horizon-inner-aurora {
-    position: absolute;
-    top: 0;
-    left: 15%;
-    width: 70%;
-    height: 40%;
-    border-radius: 50%;
-    background: radial-gradient(ellipse at 50% 0%, rgba(122, 92, 255, 0.22), transparent 70%);
-    filter: blur(20px);
-    pointer-events: none;
-  }
-
-  /* Travelling light sweep along the planet rim.
-     A conic wedge masked to a thin ring rides the dome crest; the dome's own
-     bottom fade mask clips it, so the light only shows on the visible horizon. */
-  .horizon-rim-sweep {
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  /* Tail: conic wedge masked to a thin ring hugging the dome rim
-     (closest-side makes 100% exactly the dome radius). It fades out
-     before reaching the head so the front is never a flat cut. */
-  .horizon-rim-sweep::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: conic-gradient(
-      from 0deg,
-      transparent 0deg,
-      transparent 297deg,
-      rgba(0, 242, 255, 0.3) 338deg,
-      rgba(0, 242, 255, 0.85) 354deg,
-      rgba(0, 242, 255, 0) 359deg
-    );
-    mask-image: radial-gradient(circle closest-side, transparent calc(100% - 5px), black calc(100% - 4px));
-    -webkit-mask-image: radial-gradient(circle closest-side, transparent calc(100% - 5px), black calc(100% - 4px));
-  }
-
-  /* Head: a minimal glint riding the rim, tangent to the circle. */
-  .horizon-rim-sweep::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 6px;
-    height: 3px;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.9) 0%, rgba(0, 242, 255, 0.6) 45%, rgba(0, 242, 255, 0) 80%);
-  }
-
-  .horizon-rim-sweep--violet::before {
-    background: conic-gradient(
-      from 0deg,
-      transparent 0deg,
-      transparent 320deg,
-      rgba(122, 92, 255, 0.4) 348deg,
-      rgba(122, 92, 255, 0.8) 355deg,
-      rgba(122, 92, 255, 0) 359deg
-    );
-  }
-
-  .horizon-rim-sweep--violet::after {
-    width: 10px;
-    height: 4px;
-    background: radial-gradient(ellipse, rgba(235, 228, 255, 1) 0%, rgba(150, 120, 255, 0.9) 45%, rgba(122, 92, 255, 0) 80%);
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .horizon-rim-sweep {
-      animation: rim-sweep 11s linear infinite;
-    }
-
-    .horizon-rim-sweep--violet {
-      animation: rim-sweep 17s linear infinite reverse;
-    }
-  }
-
-  @keyframes rim-sweep {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  /* Center Nucleus / Brand Core */
-  .horizon-center-core {
-    position: absolute;
-    top: 90px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    pointer-events: auto;
-  }
-
-  .horizon-core-badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 68px;
-    height: 68px;
-    border-radius: 1.4rem;
-    background: radial-gradient(circle at 50% 32%, rgba(30, 39, 57, 0.96), rgba(13, 15, 23, 0.92) 72%);
-    border: 1px solid rgba(0, 242, 255, 0.3);
-    box-shadow:
-      0 10px 26px rgba(0, 0, 0, 0.3),
-      0 0 22px rgba(0, 242, 255, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    transition: transform 220ms ease, border-color 220ms, box-shadow 220ms;
-  }
-
-  .horizon-core-badge:hover {
-    transform: scale(1.04);
-    border-color: rgba(0, 242, 255, 0.72);
-    box-shadow:
-      0 12px 30px rgba(0, 0, 0, 0.34),
-      0 0 28px rgba(0, 242, 255, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-
-  .horizon-core-logo {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    transform: translateY(1px);
-    filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.2));
-  }
-
-  /* Orbital System */
-  .orbit-system {
-    position: absolute;
-    top: calc(var(--dome-top) + var(--stage-headroom));
-    left: 50%;
-    width: 0;
-    height: 0;
-    z-index: 4;
-  }
-
-  .orbit-track {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    animation: orbit-spin 48s linear infinite;
-  }
-
-  .orbit-node {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    transform: rotate(var(--node-angle)) translateY(calc(-1 * var(--orbit-radius))) rotate(calc(-1 * var(--node-angle)));
-  }
-
-  .orbit-node-body {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.35rem;
-    transform: translate(-50%, -50%);
-    animation: orbit-counter-spin 48s linear infinite;
-    text-decoration: none;
-    cursor: pointer;
-    outline: none;
-  }
-
-  .orbit-badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: rgba(16, 20, 32, 0.9);
-    border: 1.5px solid rgba(255, 255, 255, 0.14);
-    backdrop-filter: blur(10px);
-    box-shadow:
-      0 8px 24px rgba(0, 0, 0, 0.55),
-      0 0 12px rgba(0, 242, 255, 0.12);
-    transition: transform 220ms cubic-bezier(0.2, 0, 0, 1), border-color 220ms, box-shadow 220ms;
-  }
-
-  .orbit-badge img {
-    width: 44px;
-    height: 44px;
-    object-fit: contain;
-    filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.25));
-    transition: transform 220ms cubic-bezier(0.2, 0, 0, 1), filter 220ms;
-  }
-
-  .orbit-label {
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: #fff;
-    background: rgba(13, 15, 23, 0.94);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    padding: 2px 8px;
-    border-radius: 9999px;
-    white-space: nowrap;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7);
-    opacity: 0.88;
-    transition: opacity 180ms ease, transform 180ms ease, color 180ms, border-color 180ms;
-  }
-
-  /* Interactive Hover States */
-  .hero-stage-container:hover .orbit-track,
-  .hero-stage-container:hover .orbit-node-body,
-  .hero-stage-container:focus-within .orbit-track,
-  .hero-stage-container:focus-within .orbit-node-body,
-  .marquee-strip:hover .marquee-track,
-  .marquee-strip:focus-within .marquee-track {
-    animation-play-state: paused;
-  }
-
-  .orbit-node-body:hover .orbit-badge,
-  .orbit-node-body:focus-visible .orbit-badge {
-    transform: scale(1.12);
-    border-color: #00f2ff;
-    box-shadow:
-      0 10px 28px rgba(0, 0, 0, 0.62),
-      0 0 17px rgba(0, 242, 255, 0.52);
-  }
-
-  .orbit-node-body:hover .orbit-badge img,
-  .orbit-node-body:focus-visible .orbit-badge img {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.58));
-  }
-
-  .orbit-node-body:hover .orbit-label,
-  .orbit-node-body:focus-visible .orbit-label {
-    opacity: 1;
-    color: #00f2ff;
-    border-color: #00f2ff;
-    transform: translateY(2px) scale(1.05);
-  }
-
-  @keyframes orbit-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes orbit-counter-spin {
-    from {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    to {
-      transform: translate(-50%, -50%) rotate(-360deg);
-    }
-  }
-
-  /* Responsive badge sizes */
-  @media (max-width: 600px) {
-    .orbit-badge {
-      width: 52px;
-      height: 52px;
-    }
-    .orbit-badge img {
-      width: 34px;
-      height: 34px;
-    }
-    .orbit-label {
-      font-size: 0.65rem;
-      padding: 1px 6px;
-    }
-    .horizon-core-badge {
-      width: 56px;
-      height: 56px;
-    }
-    .horizon-core-logo {
-      width: 38px;
-      height: 38px;
-    }
-    .horizon-center-core {
-      top: 54px;
-    }
-  }
-
-  /* Infinite Marquee Ticker Strip */
-  .marquee-strip {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    padding: 1.1rem 0;
-    margin-top: 0;
-    border-top: 1px solid rgba(0, 242, 255, 0.16);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    background: rgba(13, 15, 23, 0.75);
-    backdrop-filter: blur(12px);
-    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-  }
-
-  .marquee-track {
-    display: flex;
-    align-items: center;
-    width: max-content;
-    gap: 2.2rem;
-    animation: marquee-scroll 35s linear infinite;
-  }
-
-  @keyframes marquee-scroll {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-33.333333%);
-    }
-  }
-
-  .marquee-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    text-decoration: none;
-    color: #9a9aa5;
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    transition: color 180ms ease, transform 180ms ease;
-    white-space: nowrap;
-  }
-
-  .marquee-item:hover,
-  .marquee-item:focus-visible {
-    color: #fff;
-    transform: translateY(-1px);
-  }
-
-  .marquee-spark {
-    font-size: 0.75rem;
-    filter: drop-shadow(0 0 6px currentColor);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .orbit-track,
-    .orbit-node-body,
-    .marquee-track {
-      animation: none !important;
-    }
-  }
+  @keyframes orbit { to { rotate: 360deg; } }
 </style>

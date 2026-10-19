@@ -44,7 +44,7 @@
       "brandText": "The entire project lives on GitHub: full source code, changelog, official builds and issue tracking.",
       "brandCta": "View GitHub",
       "brandAlt": "CyberGems crystal logo on a black background",
-      "isTitle": "What this is — and what it is not",
+      "isTitle": "About the project",
       "yesLabel": "It is",
       "yesItems": [
         "An independent developer building tools I use every day",
@@ -63,12 +63,12 @@
         {
           "icon": "🔒",
           "t": "Privacy-first",
-          "d": "Your data never leaves your PC. No servers, no cloud, no hidden telemetry."
+          "d": "Local storage and no hidden app telemetry. You choose when to use online features."
         },
         {
           "icon": "💻",
           "t": "Local-first",
-          "d": "Everything works offline. No account, no subscriptions, no external dependencies."
+          "d": "Your everyday tools on your PC. No CyberGems account or subscription required."
         },
         {
           "icon": "📖",
@@ -82,8 +82,8 @@
         },
         {
           "icon": "⚡",
-          "t": "Fast & light",
-          "d": "Native desktop apps. No browser overhead, no heavy Electron shells."
+          "t": "Built for daily use",
+          "d": "Focused desktop apps, with the technology that fits each task."
         },
         {
           "icon": "✨",
@@ -138,7 +138,7 @@
       "brandText": "Todo el proyecto vive en GitHub: código fuente completo, changelog, builds oficiales y el seguimiento de issues.",
       "brandCta": "Ver GitHub",
       "brandAlt": "Logo de cristal de CyberGems sobre fondo negro",
-      "isTitle": "Qué es esto — y qué no es",
+      "isTitle": "Qué es CyberGems",
       "yesLabel": "Sí es",
       "yesItems": [
         "Un desarrollador independiente que crea las herramientas que usa cada día",
@@ -157,12 +157,12 @@
         {
           "icon": "🔒",
           "t": "Privacidad primero",
-          "d": "Tus datos nunca salen de tu equipo. Sin servidores, sin nube, sin telemetría oculta."
+          "d": "Almacenamiento local y sin telemetría oculta en las apps. Tú eliges cuándo usar funciones en línea."
         },
         {
           "icon": "💻",
-          "t": "100% local",
-          "d": "Todo funciona offline. No necesitas cuenta, no hay suscripciones, no hay dependencias externas."
+          "t": "Tus datos, en tu equipo",
+          "d": "Tus herramientas cotidianas en tu PC. Sin cuenta de CyberGems ni suscripción."
         },
         {
           "icon": "📖",
@@ -176,8 +176,8 @@
         },
         {
           "icon": "⚡",
-          "t": "Rápido y ligero",
-          "d": "Aplicaciones nativas de escritorio. Sin overhead de navegador, sin capas pesadas de Electron."
+          "t": "Hechas para el día a día",
+          "d": "Apps de escritorio centradas en su tarea, con la tecnología adecuada para cada una."
         },
         {
           "icon": "✨",
