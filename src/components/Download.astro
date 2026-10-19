@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ReleaseDate from './ReleaseDate.astro';
 import { apps } from '../data/apps';
 import type { Lang } from '../data/ui';
 import { fetchLatestDownloads } from '../data/releases';
@@ -16,9 +17,7 @@ const reqLabel = en ? 'Requirements:' : 'Requisitos:';
 // Latest release data per app, resolved at build time so the buttons below
 // are plain static links (no client-side GitHub API calls needed).
 const { downloads, failed } = await fetchLatestDownloads();
-const locale = en ? 'en-US' : 'es-ES';
-const fmtDate = (iso: string) =>
-  iso ? new Date(iso).toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+
 const fmtSize = (bytes: number) =>
   bytes >= 1048576 ? `${(bytes / 1048576).toFixed(1)} MB` : `${Math.max(1, Math.round(bytes / 1024))} KB`;
 
@@ -204,7 +203,9 @@ const breadcrumbLd = {
                 </div>
                 <p class="text-xs text-[#9a9aa5] leading-relaxed">{app.tagline[lang]}</p>
                 {hasData && dl && dl.publishedAt && (
-                  <p class="mt-0.5 text-[11px] text-[#9a9aa5]">{c.updated} {fmtDate(dl.publishedAt)}</p>
+                  <div class="mt-2">
+                    <ReleaseDate publishedAt={dl.publishedAt} lang={lang} label={c.updated.charAt(0).toUpperCase() + c.updated.slice(1)} />
+                  </div>
                 )}
                 <div class="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs">
                   {inst ? (

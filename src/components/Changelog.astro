@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ReleaseDate from './ReleaseDate.astro';
 import { ui, type Lang } from '../data/ui';
 import { fetchAllReleases } from '../data/releases';
 import { wrapTables, sanitize } from '../data/docs';
@@ -17,7 +18,6 @@ const title = lang === 'en' ? 'Changelog — CyberGems' : 'Novedades — CyberGe
 const description = lang === 'en'
   ? 'Latest releases across the CyberGems suite — changelogs for all 10 Windows apps, synced from GitHub.'
   : 'Últimos lanzamientos de la suite CyberGems — novedades de las 10 apps Windows, sincronizadas desde GitHub.';
-const locale = lang === 'es' ? 'es-ES' : 'en-US';
 
 const { apps: appsReleases, failed } = await fetchAllReleases();
 const withReleases = appsReleases.filter((a) => a.releases.length > 0);
@@ -26,10 +26,7 @@ const releaseFeed = withReleases
   .flatMap((app) => app.releases.map((release) => ({ app, release })))
   .sort((a, b) => (Date.parse(b.release.publishedAt) || 0) - (Date.parse(a.release.publishedAt) || 0));
 
-const fmtDate = (iso: string) =>
-  iso
-    ? new Date(iso).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })
-    : '';
+
 
 const renderNotes = (body: string) => {
   const raw = marked.parse(body) as string;
@@ -179,11 +176,11 @@ const breadcrumbLd = {
                     <h3 id={headingId} class="mt-1 font-semibold text-white leading-snug">{release.name}</h3>
                   </div>
                 </div>
-                <div class="flex shrink-0 items-center gap-2 sm:flex-col sm:items-end">
+                <div class="flex shrink-0 flex-wrap items-center gap-2 sm:flex-col sm:items-end">
                   <span class="rounded-md border border-[#00f2ff]/25 bg-[#00f2ff]/[0.08] px-2.5 py-1 text-xs font-bold text-[#00f2ff]">
                     {release.tag}
                   </span>
-                  <time class="text-xs text-[#9a9aa5]" datetime={release.publishedAt}>{fmtDate(release.publishedAt)}</time>
+                  <ReleaseDate publishedAt={release.publishedAt} lang={lang} month="long" />
                 </div>
               </div>
 
