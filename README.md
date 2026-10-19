@@ -176,6 +176,14 @@ To refresh wikis locally without a full build: `node scripts/fetch-wikis.mjs`.
 
 ---
 
+### 📄 License
+
+The CyberGems website is distributed under the terms of the GNU General Public License v3.0. See [`LICENSE`](LICENSE) for the full license text.
+
+Copyright (C) 2026 CyberGems
+
+---
+
 ### 🤝 Contributing & Support
 
 All CyberGems apps are **GPLv3** — free forever. Contributions, bug reports and stars are welcome!
