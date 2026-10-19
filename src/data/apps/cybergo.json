@@ -109,8 +109,8 @@
       "es": "Interpretación de lenguaje natural en español e inglés"
     },
     {
-      "en": "Daily, weekly, monthly and yearly recurrence with monthly day anchors",
-      "es": "Recurrencia diaria, semanal, mensual y anual con anclaje de día del mes"
+      "en": "Daily, weekly, monthly and yearly recurrence with monthly and yearly day anchors",
+      "es": "Recurrencia diaria, semanal, mensual y anual con anclaje de día del mes y del año"
     },
     {
       "en": "List and calendar views with resizable columns and persisted widths",
@@ -141,8 +141,12 @@
       "es": "Bloqueo con contraseña o PIN, código de recuperación y registro de accesos"
     },
     {
-      "en": "CSV and ICS import and export with validation feedback",
-      "es": "Importación y exportación de CSV e ICS con validación visible"
+      "en": "CSV export, plus CSV and ICS import, with validation feedback",
+      "es": "Exportación a CSV, e importación de CSV e ICS, con validación visible"
+    },
+    {
+      "en": "Recovery from a damaged local database, which restores the newest usable backup",
+      "es": "Recuperación ante una base de datos local dañada, que restaura la copia más reciente"
     },
     {
       "en": "Automatic and manual backups with restore",
