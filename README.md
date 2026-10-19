@@ -108,6 +108,7 @@ All pages are static, SEO-friendly and served from a custom domain. The website 
 * **`src/data/ui.json`** — shared UI strings for nav, hero, sections and footer (`en` / `es`), editable in the CMS.
 * **`src/pages/`** — `/` (English) and `/es/` (Spanish), plus `/apps/[slug]` per-app pages in both languages, plus `changelog` and `docs`.
 * **`public/screenshots/`** contains optional static screenshots. A configured conceptual explainer is used until a real screenshot is supplied.
+* **Screenshot production:** [Bilingual capture plan](docs/screenshots.md) defines the required scenes, demo content, image preparation and pending localized gallery work.
 * **`wikis/` + `public/wikis/`** — generated; do not edit by hand (see below).
 
 To update an app: edit its JSON in `src/data/apps/` or use the visual CMS at `/admin` — the landing, app pages, changelog and docs pick it up automatically.
