@@ -28,6 +28,8 @@ export interface HighlightCard {
 export interface CyberApp {
   /** URL slug, e.g. "cybersnap" -> /apps/cybersnap */
   slug: string;
+  /** Explicit editorial approval. Missing or false keeps the app off the public site. */
+  published: boolean;
   name: string;
   emoji: string;
   /** Official app icon stored in the website's public assets */
@@ -80,7 +82,7 @@ import cyberlauncher from './apps/cyberlauncher.json';
 import cyberclock from './apps/cyberclock.json';
 import cybergo from './apps/cybergo.json';
 
-export const apps: CyberApp[] = [
+const appEntries: CyberApp[] = [
   cybersnap,
   cybermanager,
   cybertray,
@@ -93,6 +95,10 @@ export const apps: CyberApp[] = [
   cyberclock,
   cybergo,
 ] as CyberApp[];
+
+// Public consumers, including routes, navigation, releases and social images,
+// must use this list rather than publishing every editorial source file.
+export const apps = appEntries.filter((app) => app.published === true);
 
 export function getApp(slug: string): CyberApp | undefined {
   return apps.find((a) => a.slug === slug);

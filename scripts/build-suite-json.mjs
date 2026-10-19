@@ -12,6 +12,7 @@ const apps = [];
 
 for (const file of readdirSync(dir).filter((f) => f.endsWith('.json'))) {
   const data = JSON.parse(readFileSync(join(dir, file), 'utf8'));
+  if (data.published !== true) continue;
   if (!data || typeof data.slug !== 'string' || typeof data.name !== 'string') continue;
   apps.push({
     slug: data.slug,

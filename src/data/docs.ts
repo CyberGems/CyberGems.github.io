@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { apps } from './apps';
 
 export interface DocPage {
   appDir: string;
@@ -15,7 +16,7 @@ export function listDocs(): DocPage[] {
   const out: DocPage[] = [];
   if (!fs.existsSync(WIKIS_DIR)) return out;
   for (const entry of fs.readdirSync(WIKIS_DIR, { withFileTypes: true })) {
-    if (!entry.isDirectory()) continue;
+    if (!entry.isDirectory() || !apps.some((app) => app.slug === entry.name)) continue;
     for (const f of fs.readdirSync(path.join(WIKIS_DIR, entry.name))) {
       if (!f.toLowerCase().endsWith('.md') || f.startsWith('_')) continue;
       const base = f.slice(0, -3);

@@ -147,7 +147,7 @@ function homeCard(lang: Lang): string {
     : 'Screen capture  ·  Clipboard  ·  Notes  ·  Firewall  ·  More';
   const positions = [[828, 174], [1036, 174], [820, 403], [1044, 403]];
   const brandApp = { icon: '/branding/cybergems-favicon.png', emoji: '◆' } as CyberApp;
-  const suiteLine = lang === 'es' ? '11 apps · una filosofía' : '11 tools · one philosophy';
+  const suiteLine = lang === 'es' ? `${apps.length} apps · una filosofía` : `${apps.length} tools · one philosophy`;
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" xmlns="http://www.w3.org/2000/svg" role="img">

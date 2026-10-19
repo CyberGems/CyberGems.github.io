@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { apps } from '../data/apps';
 import ReleaseDate from './ReleaseDate.astro';
 import { ui, type Lang } from '../data/ui';
 import { fetchAllReleases } from '../data/releases';
@@ -16,8 +17,8 @@ const path = lang === 'en' ? '/changelog' : '/es/changelog';
 const homeHref = lang === 'en' ? '/' : '/es/';
 const title = lang === 'en' ? 'Changelog — CyberGems' : 'Novedades — CyberGems';
 const description = lang === 'en'
-  ? 'Latest releases across the CyberGems suite — changelogs for all 11 Windows apps, synced from GitHub.'
-  : 'Últimos lanzamientos de la suite CyberGems — novedades de las 11 apps Windows, sincronizadas desde GitHub.';
+  ? `Latest releases across the CyberGems suite: changelogs for all ${apps.length} Windows apps, synced from GitHub.`
+  : `Últimos lanzamientos de la suite CyberGems: novedades de las ${apps.length} apps Windows, sincronizadas desde GitHub.`;
 
 const { apps: appsReleases, failed } = await fetchAllReleases();
 const withReleases = appsReleases.filter((a) => a.releases.length > 0);

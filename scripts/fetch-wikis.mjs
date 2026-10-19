@@ -28,8 +28,19 @@ const appEntries = fs
     const data = JSON.parse(fs.readFileSync(file, 'utf8'));
     const slug = filename.replace(/\.json$/, '');
     const repoName = data.repo ? new URL(data.repo).pathname.split('/').filter(Boolean).pop() : null;
-    return { slug, repoName: repoName || slug };
+    return { slug, repoName: repoName || slug, published: data.published === true };
   });
+
+// Remove only generated copies of draft wikis, never the sibling source repo.
+// This also prevents an old local build from leaving draft assets public.
+for (const { slug, published } of appEntries) {
+  if (published) continue;
+  for (const base of [wikisDir, publicWikisDir]) {
+    const target = path.resolve(base, slug);
+    if (path.dirname(target) !== path.resolve(base)) throw new Error(`Invalid wiki slug: ${slug}`);
+    fs.rmSync(target, { recursive: true, force: true });
+  }
+}
 
 const stats = { local: 0, cloned: 0, unavailable: 0 };
 
@@ -55,7 +66,8 @@ function copyWiki(source, dest, target) {
   fs.rmSync(path.join(target, '.git'), { recursive: true, force: true });
 }
 
-for (const { slug, repoName } of appEntries) {
+for (const { slug, repoName, published } of appEntries) {
+  if (!published) continue;
   const dest = path.join(wikisDir, slug);
   const target = path.join(publicWikisDir, slug);
   const localWiki = path.join(siblingProjectsDir, `${repoName}.wiki`);

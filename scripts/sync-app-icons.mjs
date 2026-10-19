@@ -36,9 +36,12 @@ const appSlugs = fs.readdirSync(appDataDir)
   .filter((filename) => filename.endsWith('.json'))
   .map((filename) => filename.replace(/\.json$/, ''))
   .sort();
+const publishedSlugs = appSlugs.filter((slug) =>
+  JSON.parse(fs.readFileSync(path.join(appDataDir, `${slug}.json`), 'utf8')).published === true
+);
 const configuredSlugs = iconSources.map(({ slug }) => slug).sort();
 const duplicateSlugs = configuredSlugs.filter((slug, index) => configuredSlugs.indexOf(slug) !== index);
-const missingSlugs = appSlugs.filter((slug) => !configuredSlugs.includes(slug));
+const missingSlugs = publishedSlugs.filter((slug) => !configuredSlugs.includes(slug));
 const unknownSlugs = configuredSlugs.filter((slug) => !appSlugs.includes(slug));
 
 if (duplicateSlugs.length || missingSlugs.length || unknownSlugs.length) {
@@ -49,6 +52,12 @@ if (duplicateSlugs.length || missingSlugs.length || unknownSlugs.length) {
 }
 
 fs.mkdirSync(targetDir, { recursive: true });
+
+for (const slug of appSlugs.filter((slug) => !publishedSlugs.includes(slug))) {
+  const target = path.resolve(targetDir, `${slug}.png`);
+  if (path.dirname(target) !== path.resolve(targetDir)) throw new Error(`Invalid icon slug: ${slug}`);
+  fs.rmSync(target, { force: true });
+}
 
 function rawGitHubUrl({ repo, ref, source }) {
   const encodedPath = source.split('/').map(encodeURIComponent).join('/');
@@ -102,7 +111,7 @@ async function loadCanonicalIcon(source) {
 
 const stats = { updated: 0, unchanged: 0, fallback: 0 };
 
-for (const source of iconSources) {
+for (const source of iconSources.filter(({ slug }) => publishedSlugs.includes(slug))) {
   const target = path.join(targetDir, `${source.slug}.png`);
   try {
     const { buffer, origin } = await loadCanonicalIcon(source);

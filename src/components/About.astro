@@ -4,6 +4,7 @@ import type { Lang } from '../data/ui';
 import { site } from '../data/site';
 import pagesData from '../data/pages.json';
 import FeatureSymbol from './FeatureSymbol.astro';
+import { apps } from '../data/apps';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
@@ -13,7 +14,7 @@ const path = en ? '/about' : '/es/about';
 const introLead = c.introLead ?? c.intro ?? '';
 const introBody: string[] = Array.isArray(c.introBody) ? c.introBody : [];
 const journeySteps: Array<{ icon: string; t: string; d: string }> = Array.isArray(c.journeySteps) ? c.journeySteps : [];
-const quickFacts: string[] = Array.isArray(c.quickFacts) ? c.quickFacts : [];
+const quickFacts: string[] = Array.isArray(c.quickFacts) ? c.quickFacts.map((fact: string) => fact.replaceAll('{appCount}', String(apps.length))) : [];
 const principleIcons = ['shield-check', 'database', 'book-open', 'gift', 'activity', 'sliders'];
 const toolGroups = [
   {

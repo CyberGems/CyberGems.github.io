@@ -24,7 +24,7 @@
 
 > **CyberGems** crafts free and open-source Windows applications that respect your privacy. The apps use local storage and have no hidden telemetry. Optional online features remain under your control. All projects are **GPLv3** licensed.
 
-This repository powers **[cybergems.org](https://cybergems.org)** — the official landing for the suite. It showcases all 11 apps, per-app detail pages, a cross-repo changelog and auto-synced documentation, with English and Spanish site navigation. Wiki articles use available Spanish translations and show their source language.
+This repository powers **[cybergems.org](https://cybergems.org)** — the official landing for the suite. It showcases published apps, per-app detail pages, a cross-repo changelog and auto-synced documentation, with English and Spanish site navigation. Wiki articles use available Spanish translations and show their source language.
 
 🌐 **Live site:** [cybergems.org](https://cybergems.org) &nbsp;|&nbsp; 👨‍💻 **Org:** [github.com/CyberGems](https://github.com/CyberGems) &nbsp;|&nbsp; 📦 **Profile repo:** [CyberGems/CyberGems](https://github.com/CyberGems/CyberGems)
 
@@ -98,7 +98,8 @@ All pages are static, SEO-friendly and served from a custom domain. The website 
 
 ### 🧩 Content Model
 
-* **`src/data/apps/`** — one JSON file per app (`slug`, `name`, `emoji`, `accent`, `stack`, `license`, bilingual `tagline`/`description`/`features`, `repo`, `wiki`, optional `winget`, `screenshot`). Screenshots are optional: set `screenshot` to a file inside `/public/screenshots/<slug>/` (or an absolute `/screenshots/...` path, as written by the CMS) or leave it `null` to render its conceptual explainer, when configured, or the gradient placeholder.
+* **`src/data/apps/`** — one JSON file per app (`published`, `slug`, `name`, `emoji`, `accent`, `stack`, `license`, bilingual `tagline`/`description`/`features`, `repo`, `wiki`, optional `winget`, `screenshot`). Screenshots are optional: set `screenshot` to a file inside `/public/screenshots/<slug>/` (or an absolute `/screenshots/...` path, as written by the CMS) or leave it `null` to render its conceptual explainer, when configured, or the gradient placeholder.
+* **Publication:** every public app must explicitly set `published: true`. Missing or false means draft. The CMS defaults new entries to false. Draft source files remain available for editing, while app pages, documentation, navigation, releases, social images, generated wiki assets, app icons and `suite.json` exclude them. `npm run build` audits the complete output for draft references before deployment.
 * **`src/data/catalog.ts`** defines the task labels and discovery groups for the ten apps. Update this presentation mapping when adding an app.
 * **`src/data/ui.json`** — shared UI strings for nav, hero, sections and footer (`en` / `es`), editable in the CMS.
 * **`src/pages/`** — `/` (English) and `/es/` (Spanish), plus `/apps/[slug]` per-app pages in both languages, plus `changelog` and `docs`.
@@ -161,7 +162,7 @@ Local builds prefer sibling repositories under `C:\CyberGems`. CI downloads the 
 
 Wikis live as separate git repos (`https://github.com/CyberGems/<slug>.wiki.git`). On every `dev` and `build`:
 
-1. `scripts/fetch-wikis.mjs` reads slugs from `src/data/apps/*.json`
+1. `scripts/fetch-wikis.mjs` reads published slugs from `src/data/apps/*.json` and removes generated copies of draft wikis without changing sibling source repositories
 2. Uses the sibling `<App>.wiki` repository when it exists locally (for example `../CyberViewer.wiki`); in CI, shallow-clones the wiki from GitHub into `wikis/<slug>/`
 3. Copies non-markdown assets into `public/wikis/<slug>/` so images referenced in markdown are served as static files
 4. Astro renders the markdown via `marked` into `/docs` routes through the shared `DocsPage.astro` and `DocsNav.astro` components

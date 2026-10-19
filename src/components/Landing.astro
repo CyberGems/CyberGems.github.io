@@ -16,8 +16,8 @@ const { downloads } = await fetchLatestDownloads();
 const homePath = lang === 'en' ? '/' : '/es/';
 const title = lang === 'en' ? 'CyberGems: Free & open-source Windows apps' : 'CyberGems: Apps gratuitas y de código abierto para Windows';
 const description = lang === 'en'
-  ? '11 free, open-source Windows apps for screen capture, clipboard history, notes, security and more. No ads or account required.'
-  : '11 apps gratuitas y de código abierto para Windows: capturas, portapapeles, notas, seguridad y más. Sin anuncios ni cuenta.';
+  ? `${apps.length} free, open-source Windows apps for screen capture, clipboard history, notes, security and more. No ads or account required.`
+  : `${apps.length} apps gratuitas y de código abierto para Windows: capturas, portapapeles, notas, seguridad y más. Sin anuncios ni cuenta.`;
 const strip = [
   { icon: 'gift', label: t.stripFree },
   { icon: 'ban', label: t.stripNoAds },
@@ -50,7 +50,7 @@ const jsonLd = [
       <h1 class="hero-title mx-auto max-w-5xl text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
         {t.heroTitle1}<br /><span class="text-gradient">{t.heroTitle2}</span>
       </h1>
-      <p class="mt-5 max-w-2xl mx-auto text-[var(--text-dim)] text-base sm:text-lg leading-relaxed">{t.heroText}</p>
+      <p class="mt-5 max-w-2xl mx-auto text-[var(--text-dim)] text-base sm:text-lg leading-relaxed">{t.heroText.replaceAll('{appCount}', String(apps.length))}</p>
       <div class="mt-7 flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="#apps" class="btn-primary">{t.heroCta}<span aria-hidden="true">↓</span></a>
         <a href="https://github.com/CyberGems" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-[var(--text-dim)] hover:text-white py-2">{t.heroCta2}<span aria-hidden="true"> ↗</span></a>

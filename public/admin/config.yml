@@ -25,6 +25,11 @@ collections:
     editor:
       preview: false
     fields:
+      - name: published
+        label: Publish on the public website / Publicar en el sitio
+        widget: boolean
+        default: false
+        hint: Enable only after approval. Drafts stay out of pages, navigation, downloads, wikis and suite.json.
       - name: slug
         label: Slug
         widget: string

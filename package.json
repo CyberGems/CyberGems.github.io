@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "predev": "npm run sync-icons && node scripts/fetch-wikis.mjs",
-    "build": "astro build",
+    "build": "astro build && node scripts/verify-publication.mjs",
     "prebuild": "npm run sync-icons && node scripts/fetch-wikis.mjs && node scripts/build-suite-json.mjs",
     "sync-icons": "node scripts/sync-app-icons.mjs",
     "preview": "astro preview",

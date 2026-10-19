@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import type { Lang } from '../data/ui';
 import { site } from '../data/site';
+import { apps } from '../data/apps';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
@@ -22,8 +23,8 @@ const hasFiduciary = site.paypal || site.kofi || site.bmc;
     </h1>
     <p class="mt-4 text-[#9a9aa5] text-lg leading-relaxed">
       {en
-        ? '11 desktop apps for Windows, hundreds of hours each, no ads, no telemetry, no paywalls. Donations keep the project independent and the releases coming.'
-        : '10 aplicaciones de escritorio para Windows, cientos de horas cada una, sin anuncios, sin telemetría, sin muros de pago. Las donaciones mantienen el proyecto independiente y los lanzamientos en marcha.'}
+        ? `${apps.length} desktop apps for Windows, hundreds of hours each, no ads, no telemetry, no paywalls. Donations keep the project independent and the releases coming.`
+        : `${apps.length} aplicaciones de escritorio para Windows, cientos de horas cada una, sin anuncios, sin telemetría, sin muros de pago. Las donaciones mantienen el proyecto independiente y los lanzamientos en marcha.`}
     </p>
 
     <div class="mt-8 grid gap-4 sm:grid-cols-2 text-left" aria-label={en ? 'Why donate?' : '¿Por qué donar?'}>

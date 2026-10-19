@@ -34,7 +34,7 @@
         }
       ],
       "quickFacts": [
-        "11 Windows apps",
+        "{appCount} Windows apps",
         "GPLv3 open source",
         "Offline-first",
         "No account needed"
@@ -48,7 +48,7 @@
       "yesLabel": "It is",
       "yesItems": [
         "An independent developer building tools I use every day",
-        "11 desktop apps for Windows, GPLv3, public source and builds",
+        "Desktop apps for Windows, GPLv3, public source and builds",
         "A long-term project: I maintain what I depend on"
       ],
       "noLabel": "It is not",
@@ -96,7 +96,7 @@
     },
     "es": {
       "metaTitle": "Acerca de — CyberGems",
-      "metaDesc": "CyberGems es un proyecto independiente de una sola persona: 11 apps gratuitas y open-source para Windows, creadas para el uso diario y compartidas con el mundo. Sin anuncios, sin rastreo, GPLv3.",
+      "metaDesc": "CyberGems es un proyecto independiente de una sola persona: apps gratuitas y de código abierto para Windows, creadas para el uso diario y compartidas con el mundo. Sin anuncios, sin rastreo, GPLv3.",
       "badge": "Proyecto independiente de una persona",
       "title": "Hechas para usarlas. Compartidas gratis.",
       "introLead": "CyberGems nació como un kit de herramientas personal, motivado por mi frustración con las aplicaciones cotidianas de Windows.",
@@ -128,7 +128,7 @@
         }
       ],
       "quickFacts": [
-        "11 apps Windows",
+        "{appCount} apps Windows",
         "GPLv3 open source",
         "Offline primero",
         "Sin cuenta"
@@ -142,7 +142,7 @@
       "yesLabel": "Sí es",
       "yesItems": [
         "Un desarrollador independiente que crea las herramientas que usa cada día",
-        "10 aplicaciones de escritorio para Windows, GPLv3, código y builds públicos",
+        "Aplicaciones de escritorio para Windows, GPLv3, código y versiones públicas",
         "Un proyecto a largo plazo: mantengo lo que yo mismo dependo"
       ],
       "noLabel": "No es",
