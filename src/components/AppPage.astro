@@ -381,9 +381,9 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
     <!-- Related apps -->
     <section class="mt-12">
       <h2 class="text-xl font-bold">{lang === 'en' ? 'Pairs well with' : 'Combina bien con'}</h2>
-      <div class="mt-4 grid gap-4 sm:grid-cols-3">
+      <div class="mt-4 grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-3">
         {related.map((r) => (
-          <a href={lang === 'en' ? `/apps/${r.slug}` : `/es/apps/${r.slug}`} class="card p-4 block">
+          <a href={lang === 'en' ? `/apps/${r.slug}` : `/es/apps/${r.slug}`} class="card min-w-0 p-4 block">
             {r.icon ? <img src={r.icon} alt="" width="48" height="48" class="h-12 w-12 object-contain" /> : <div class="text-3xl" aria-hidden="true">{r.emoji}</div>}
             <p class="mt-2 font-bold text-sm">{r.name}</p>
             <p class="text-xs text-[#9a9aa5] truncate">{r.tagline[lang]}</p>
