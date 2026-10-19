@@ -5,7 +5,7 @@
   "icon": "/icons/apps/cybersnap.png",
   "explainer": "snap-flow",
   "accent": "#00F2FF",
-  "stack": "C# · WPF · .NET 9",
+  "stack": "C# · WPF · .NET 10",
   "license": "GPLv3",
   "tagline": {
     "en": "Capture, annotate and share anything — screenshots, recordings, text and color — with speed.",
@@ -41,11 +41,13 @@
     "es": "Más formas en que CyberSnap te ayuda"
   },
   "features": [
-    { "en": "Independent auto-copy for screenshots, OCR, QR/barcodes, MP4, GIF and colors", "es": "Autocopia independiente para capturas, OCR, QR/códigos de barras, MP4, GIF y colores" },
+    { "en": "Independent auto-copy for screenshots, scrolling captures, OCR, QR/barcodes, MP4, GIF and colors", "es": "Autocopia independiente para capturas normales y con desplazamiento, OCR, QR/códigos de barras, MP4, GIF y colores" },
     { "en": "Area, window, full screen & scroll capture", "es": "Captura de área, ventana, pantalla completa y desplazamiento" },
-    { "en": "Screen recording to MP4 or GIF with built-in trimming", "es": "Grabación de pantalla a MP4 o GIF con recorte integrado" },
+    { "en": "Widget with monitor following and separate clipboard and result preferences per mode", "es": "Widget con seguimiento de monitores y preferencias independientes de portapapeles y resultados por modo" },
+    { "en": "Per-user installation without administrator prompts; .NET 10 and FFmpeg included", "es": "Instalación por usuario sin pedir permisos de administrador; .NET 10 y FFmpeg incluidos" },
+    { "en": "Screen recording to MP4 or GIF with independent tabbed trimming sessions", "es": "Grabación de pantalla a MP4 o GIF con sesiones de recorte independientes en pestañas" },
     { "en": "Annotation editor with shapes, text, rulers and frames", "es": "Editor de anotaciones con formas, texto, reglas y marcos" },
-    { "en": "Multilingual OCR (Tesseract) with integrated translation", "es": "OCR multilingüe (Tesseract) con traducción integrada" },
+    { "en": "Multilingual OCR with translation, plus tabbed OCR and QR results", "es": "OCR multilingüe con traducción y resultados de OCR y QR en pestañas" },
     { "en": "Local gallery with full-text search across OCR content", "es": "Galería local con búsqueda de texto completo sobre el OCR" },
     { "en": "Upload to FTP, SFTP, S3, ImgBB, Imgur, Webhook & CyberSnap Share", "es": "Subida a FTP, SFTP, S3, ImgBB, Imgur, Webhook y CyberSnap Share" }
   ],
