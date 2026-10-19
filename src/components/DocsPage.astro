@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DocsNav from './DocsNav.astro';
+import NavIcon from './NavIcon.astro';
+import { getApp } from '../data/apps';
+import { listDocs, docTitle, docBaseSlug, localizedDoc, wrapTables, sanitize, WIKIS_DIR, type DocPage } from '../data/docs';
+import type { Lang } from '../data/ui';
+import fs from 'node:fs';
+import path from 'node:path';
+import { marked } from 'marked';
+
+interface Props { doc: DocPage; lang: Lang; }
+const { doc, lang } = Astro.props;
+const en = lang === 'en';
+const appSlug = doc.appDir.toLowerCase();
+const app = getApp(appSlug);
+const allPages = listDocs();
+const siblings = allPages.filter((page) => page.appDir === doc.appDir);
+const bases = [...new Set(siblings.map((page) => docBaseSlug(page.slug)))].sort((a, b) => a === '' ? -1 : b === '' ? 1 : a.localeCompare(b));
+const navPages = bases.map((slug) => {
+  const original = siblings.find((page) => page.slug === slug) ?? siblings.find((page) => docBaseSlug(page.slug) === slug)!;
+  return localizedDoc(original, lang, allPages);
+});
+const sourceDoc = localizedDoc(doc, lang, allPages);
+const contentLang = sourceDoc.slug.endsWith('-es') ? 'es' : 'en';
+const home = en ? '/' : '/es/';
+const docsHome = `${home}docs/`;
+const wikiBase = `${home}docs/${appSlug}`;
+const assetBase = `/wikis/${doc.appDir}`;
+const raw = fs.readFileSync(path.join(WIKIS_DIR, sourceDoc.appDir, sourceDoc.file), 'utf-8');
+let md = raw.replace(/\[\[([^\]|]+)(?:\|([^\]]*))?\]\]/g, (_m: string, target: string, label?: string) => `[${(label ?? target).trim()}](${target.trim()})`);
+md = md.replace(/\]\(([^)]+)\)/g, (match: string, href: string) => {
+  const trimmed = href.trim();
+  if (/^(https?:|mailto:|#|\/\/)/i.test(trimmed) || trimmed.startsWith('/')) return match;
+  const [relative, anchor] = trimmed.split('#');
+  const suffix = anchor ? `#${anchor}` : '';
+  if (/\.(png|jpe?g|gif|webp|svg|bmp|ico)$/i.test(relative)) return `](${assetBase}/${relative}${suffix})`;
+  const clean = relative.replace(/\.md$/i, '');
+  if (!clean) return match;
+  return `](${wikiBase}/${clean === 'Home' ? '' : `${clean}/`}${suffix})`;
+});
+const html = (marked.parse(md) as string).replace(/<h1(\s|>)/g, '<h2$1').replace(/<\/h1>/g, '</h2>');
+const baseSlug = docBaseSlug(doc.slug);
+const prettyTitle = baseSlug ? docTitle(baseSlug) : (en ? 'Overview' : 'Inicio');
+const title = `${app?.name ?? appSlug}: ${prettyTitle} | CyberGems`;
+const description = `${app?.name ?? appSlug}: ${prettyTitle}. ${en ? 'Official CyberGems documentation.' : 'Documentación oficial de CyberGems.'}`.slice(0, 155);
+const pagePath = `${wikiBase}/${doc.slug}`;
+const sourceHref = `${app?.wiki || `https://github.com/CyberGems/${appSlug}/wiki`}${sourceDoc.slug ? `/${sourceDoc.slug}` : ''}`;
+const breadcrumbLd = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: en ? 'Home' : 'Inicio', item: `https://cybergems.org${home}` },
+    { '@type': 'ListItem', position: 2, name: en ? 'Documentation' : 'Documentación', item: `https://cybergems.org${docsHome}` },
+    { '@type': 'ListItem', position: 3, name: app?.name ?? appSlug, item: `https://cybergems.org${wikiBase}/` },
+    ...(doc.slug ? [{ '@type': 'ListItem', position: 4, name: prettyTitle, item: `https://cybergems.org${pagePath}/` }] : []),
+  ],
+};
+---
+<BaseLayout title={title} description={description} lang={lang} path={pagePath} ogImage={en ? `/og/${appSlug}.png` : `/og/es/${appSlug}.png`} jsonLd={breadcrumbLd}>
+  <nav aria-label={en ? 'Breadcrumb' : 'Ruta de navegación'} class="max-w-6xl mx-auto px-5 pt-6">
+    <ol class="flex flex-wrap items-center gap-2 text-sm text-[var(--text-dim)]">
+      <li><a href={home} class="hover:text-white">{en ? 'Home' : 'Inicio'}</a></li><li aria-hidden="true">/</li>
+      <li><a href={docsHome} class="hover:text-white">{en ? 'Documentation' : 'Documentación'}</a></li><li aria-hidden="true">/</li>
+      <li><a href={`${wikiBase}/`} class="hover:text-white">{app?.name ?? appSlug}</a></li>
+    </ol>
+  </nav>
+  <div class="max-w-6xl mx-auto px-5 pt-6 pb-4">
+    <div class="grid grid-cols-1 gap-5 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-8">
+      <aside class="hidden lg:block lg:sticky lg:top-20 self-start min-w-0">
+        <div class="card p-4">
+          <a href={`${wikiBase}/`} class="flex items-center gap-2 font-bold mb-4">
+            {app?.icon && <img src={app.icon} alt="" width="28" height="28" class="h-7 w-7 object-contain" />}{app?.name ?? appSlug}
+          </a>
+          <DocsNav pages={navPages} current={doc.slug} base={wikiBase} lang={lang} />
+        </div>
+      </aside>
+      <div class="min-w-0">
+        <details class="cg-collapse cg-collapse-arrow lg:hidden mb-5" data-docs-menu>
+          <summary class="cg-collapse-title flex items-center gap-2"><NavIcon name="book" />{en ? 'Guide contents' : 'Contenido de la guía'}</summary>
+          <div class="cg-collapse-content"><DocsNav pages={navPages} current={doc.slug} base={wikiBase} lang={lang} /></div>
+        </details>
+        <article class="card min-w-0 p-5 sm:p-8" data-docs-article>
+          <div class="mb-4 flex flex-wrap items-center justify-between gap-3 text-sm">
+            <span class="cg-badge cg-badge-ghost">{contentLang === 'es' ? 'Español' : 'English'}</span>
+            <a href={sourceHref} target="_blank" rel="noopener noreferrer" class="text-[var(--text-dim)] hover:text-white">{en ? 'View source' : 'Ver fuente'} <span aria-hidden="true">↗</span></a>
+          </div>
+          {contentLang !== lang && <p class="mb-5 rounded-lg border border-base-300 bg-base-200 px-4 py-3 text-sm leading-relaxed text-[var(--text-dim)]">{en ? 'This guide is available in Spanish.' : 'Esta guía está disponible en inglés. La navegación del sitio sigue en español.'}</p>}
+          <h1 class="text-3xl font-extrabold tracking-tight mb-6">{prettyTitle}</h1>
+          <div class="release-notes leading-relaxed break-words" lang={contentLang} set:html={sanitize(wrapTables(html))} />
+        </article>
+        <a href={docsHome} class="mt-6 inline-flex min-h-11 items-center text-sm text-[var(--text-dim)] hover:text-white">← {en ? 'All documentation' : 'Toda la documentación'}</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -30,6 +30,17 @@ export function docTitle(slug: string): string {
   return (slug || 'Home').replace(/[-_]/g, ' ');
 }
 
+/** A translated wiki page and its original share one navigation entry. */
+export function docBaseSlug(slug: string): string {
+  const base = slug.replace(/-es$/, '');
+  return base === 'Home' ? '' : base;
+}
+
+export function localizedDoc(doc: DocPage, lang: 'en' | 'es', pages: DocPage[]): DocPage {
+  if (lang !== 'es' || doc.slug.endsWith('-es')) return doc;
+  return pages.find((page) => page.appDir === doc.appDir && page.slug === `${doc.slug || 'Home'}-es`) ?? doc;
+}
+
 /**
  * Wraps every <table> in a horizontally scrollable container so wide
  * markdown tables don't squeeze (or bleed) on narrow screens.

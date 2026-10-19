@@ -1,0 +1,23 @@
+---
+import { docBaseSlug, docTitle, type DocPage } from '../data/docs';
+import type { Lang } from '../data/ui';
+interface Props { pages: DocPage[]; current: string; base: string; lang: Lang; }
+const { pages, current, base, lang } = Astro.props;
+const labels: Record<string, string> = {
+  'Alarms-and-Chimes': 'Alarmas y campanadas', Calendar: 'Calendario', Clock: 'Reloj',
+  FAQ: 'Preguntas frecuentes', 'How-Do-You-Use': 'Cómo usar la app',
+  'Installation-and-Setup': 'Instalación y configuración', 'Keyboard-Shortcuts': 'Atajos de teclado',
+  'Mini-Mode': 'Modo compacto', Relaxation: 'Relajación', Settings: 'Configuración',
+  Stopwatch: 'Cronómetro', Themes: 'Temas', Timer: 'Temporizador',
+};
+---
+<nav aria-label={lang === 'en' ? 'Guide pages' : 'Páginas de la guía'} class="flex flex-col gap-1">
+  {pages.map((page) => {
+    const slug = docBaseSlug(page.slug);
+    const label = !slug ? (lang === 'en' ? 'Overview' : 'Inicio') : (page.slug.endsWith('-es') ? labels[slug] ?? docTitle(slug) : docTitle(slug));
+    return <a href={`${base}/${slug ? `${slug}/` : ''}`} aria-current={docBaseSlug(current) === slug ? 'page' : undefined}
+      class:list={['rounded-lg px-3 py-2.5 text-sm leading-snug transition-colors', docBaseSlug(current) === slug ? 'bg-white/10 text-white font-semibold' : 'text-[var(--text-dim)] hover:text-white hover:bg-white/5']}>
+      {label}
+    </a>;
+  })}
+</nav>
