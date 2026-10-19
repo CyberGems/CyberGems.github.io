@@ -1,6 +1,6 @@
 {
   "en": [
-    { "q": "Is it really free — even for companies?", "a": "Yes. All 10 apps are GPLv3: free forever, including commercial use. No ads, no paywalls, no “pro” tier." },
+    { "q": "Is it really free — even for companies?", "a": "Yes. All 11 apps are GPLv3: free forever, including commercial use. No ads, no paywalls, no “pro” tier." },
     { "q": "Do I need an account? Is there telemetry?", "a": "No and no. Everything works offline and local-first. Network is only used when you explicitly ask (e.g. check for updates, uploads you configure).", "linkLabel": "See privacy policy →", "linkHref": "/privacy" },
     { "q": "What are the system requirements?", "a": "Windows 10 / 11, 64-bit. Most apps run on .NET 9/10 (check the stack chip on each app page). No admin required for portable builds." },
     { "q": "Installer or portable?", "a": "Releases include a Setup .exe installer; portable zips where available. See each app page for the available download options.", "linkLabel": "See download options →", "linkHref": "/download" },
@@ -9,7 +9,7 @@
     { "q": "How do I update?", "a": "Download the new Setup .exe from the app page. Portable builds: replace the folder. Your local data is preserved." }
   ],
   "es": [
-    { "q": "¿De verdad es gratis — incluso para empresas?", "a": "Sí. Las 10 apps son GPLv3: gratis para siempre, incluido uso comercial. Sin anuncios, sin muros de pago, sin tier “pro”." },
+    { "q": "¿De verdad es gratis — incluso para empresas?", "a": "Sí. Las 11 apps son GPLv3: gratis para siempre, incluido uso comercial. Sin anuncios, sin muros de pago, sin tier “pro”." },
     { "q": "¿Necesito cuenta? ¿Hay telemetría?", "a": "No y no. Todo funciona offline y local-first. La red solo se usa cuando tú lo pides (p. ej. buscar updates, subidas que configuras).", "linkLabel": "Ver política de privacidad →", "linkHref": "/es/privacy" },
     { "q": "¿Requisitos del sistema?", "a": "Windows 10 / 11, 64 bits. La mayoría usan .NET 9/10 (mira el chip de stack en cada app). Sin admin para builds portables." },
     { "q": "¿Instalador o portable?", "a": "Los releases incluyen Setup .exe; zips portables donde aplique. Consulta cada página para ver las opciones disponibles.", "linkLabel": "Ver opciones de descarga →", "linkHref": "/es/download" },

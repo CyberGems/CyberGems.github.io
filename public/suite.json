@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-03",
-  "count": 10,
+  "updated": "2026-10-19",
+  "count": 11,
   "apps": [
     {
       "slug": "cyberclock",
@@ -23,6 +23,17 @@
       "site": "https://cybergems.org/apps/cyberfeeds/",
       "repo": "https://github.com/CyberGems/CyberFeeds",
       "wiki": "https://github.com/CyberGems/CyberFeeds/wiki"
+    },
+    {
+      "slug": "cybergo",
+      "name": "CyberGo",
+      "tagline": {
+        "en": "A private, local-first agenda for tasks, events and reminders on Windows.",
+        "es": "Una agenda local y privada para tareas, eventos y avisos en Windows."
+      },
+      "site": "https://cybergems.org/apps/cybergo/",
+      "repo": "https://github.com/CyberGems/CyberGo",
+      "wiki": "https://github.com/CyberGems/CyberGo/wiki"
     },
     {
       "slug": "cyberlauncher",

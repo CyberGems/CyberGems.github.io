@@ -1,0 +1,234 @@
+{
+  "slug": "cybergo",
+  "name": "CyberGo",
+  "emoji": "🗓️",
+  "icon": "/icons/apps/cybergo.png",
+  "accent": "#7E75D0",
+  "stack": "Electron · React · TypeScript",
+  "license": "GPLv3",
+  "tagline": {
+    "en": "A private, local-first agenda for tasks, events and reminders on Windows.",
+    "es": "Una agenda local y privada para tareas, eventos y avisos en Windows."
+  },
+  "description": {
+    "en": "CyberGo is a desktop agenda for people who want a focused daily planner without an account, cloud sync, or a web dashboard. Create tasks and events, parse natural quick-add text in English or Spanish, and receive local reminders from a dedicated window that keeps working even when the main window is closed. Everything is stored on your own machine with SQL.js, and a password or PIN lock screen keeps the agenda private when you step away.",
+    "es": "CyberGo es una agenda de escritorio para quienes quieren un planificador diario sin cuenta, sin nube y sin panel web. Crea tareas y eventos, interpreta texto natural en español o inglés y recibe avisos locales desde una ventana propia que sigue funcionando aunque cierres la ventana principal. Todo se guarda en tu equipo con SQL.js, y un bloqueo con contraseña o PIN mantiene la agenda en privado cuando te alejas."
+  },
+  "howItWorks": {
+    "title": {
+      "en": "Capture fast, plan calmly",
+      "es": "Captura rápido, planifica con calma"
+    },
+    "steps": [
+      {
+        "icon": "⌨️",
+        "title": {
+          "en": "Type it in plain language",
+          "es": "Escríbelo en lenguaje natural"
+        },
+        "text": {
+          "en": "Quick Add understands phrases such as \"Pagar el agua cada 30 días\" or \"Call the dentist tomorrow at 9\" and turns them into tasks and events with the right date, time and recurrence.",
+          "es": "Quick Add entiende frases como \"Pagar el agua cada 30 días\" o \"Call the dentist tomorrow at 9\" y las convierte en tareas y eventos con la fecha, la hora y la recurrencia correctas."
+        }
+      },
+      {
+        "icon": "🗂️",
+        "title": {
+          "en": "Organize the way you think",
+          "es": "Organiza como piensas"
+        },
+        "text": {
+          "en": "Group items, mark importance, pick a color and add notes. Switch between a list view and a calendar, with column widths that persist between sessions.",
+          "es": "Agrupa elementos, marca la importancia, elige un color y añade notas. Cambia entre la vista de lista y la de calendario, con anchos de columna que se recuerdan entre sesiones."
+        }
+      },
+      {
+        "icon": "🔔",
+        "title": {
+          "en": "Act on reminders instantly",
+          "es": "Actúa sobre los avisos al instante"
+        },
+        "text": {
+          "en": "A dedicated reminder window shows what is due, with urgency states, quick actions, multi-selection and full keyboard navigation for snoozing, opening and dismissing.",
+          "es": "Una ventana de avisos propia muestra lo que toca, con estados de urgencia, acciones rápidas, selección múltiple y navegación completa por teclado para posponer, abrir y descartar."
+        }
+      }
+    ]
+  },
+  "highlightsTitle": {
+    "en": "A planner that stays out of your way",
+    "es": "Un planificador que no estorba"
+  },
+  "highlights": [
+    {
+      "icon": "@list-checks",
+      "title": {
+        "en": "Capture in one line",
+        "es": "Captura en una línea"
+      },
+      "text": {
+        "en": "Write \"Farmacia en 10 minutos\" or \"every Monday until 2026-12-31\" and Quick Add builds the item, in English and Spanish.",
+        "es": "Escribe \"Farmacia en 10 minutos\" o \"cada lunes hasta 2026-12-31\" y Quick Add crea el elemento, en español e inglés."
+      }
+    },
+    {
+      "icon": "@activity",
+      "title": {
+        "en": "A window built for reminders",
+        "es": "Una ventana pensada para los avisos"
+      },
+      "text": {
+        "en": "Urgency states, overdue items first, live due phrases, per-row quick actions and a compact inspector for the selected item.",
+        "es": "Estados de urgencia, vencidos primero, tiempos actualizados en vivo, acciones rápidas por fila y un inspector compacto del elemento seleccionado."
+      }
+    },
+    {
+      "icon": "@shield-check",
+      "title": {
+        "en": "Private by default",
+        "es": "Privado por defecto"
+      },
+      "text": {
+        "en": "A password or PIN lock screen with a recovery code, plus an access log for successful and failed unlock attempts.",
+        "es": "Bloqueo con contraseña o PIN y código de recuperación, además de un registro de accesos con los intentos correctos y fallidos."
+      }
+    }
+  ],
+  "featuresHeading": {
+    "en": "More ways CyberGo helps",
+    "es": "Más formas en que CyberGo te ayuda"
+  },
+  "features": [
+    {
+      "en": "Tasks and events with importance, groups, colors, notes and all-day support",
+      "es": "Tareas y eventos con importancia, grupos, colores, notas y opción de día completo"
+    },
+    {
+      "en": "Natural quick-add parsing in English and Spanish",
+      "es": "Interpretación de lenguaje natural en español e inglés"
+    },
+    {
+      "en": "Daily, weekly, monthly and yearly recurrence with monthly day anchors",
+      "es": "Recurrencia diaria, semanal, mensual y anual con anclaje de día del mes"
+    },
+    {
+      "en": "List and calendar views with resizable columns and persisted widths",
+      "es": "Vistas de lista y calendario con columnas redimensionables y anchos guardados"
+    },
+    {
+      "en": "Dedicated reminder window with urgency states and quick actions",
+      "es": "Ventana de avisos con estados de urgencia y acciones rápidas"
+    },
+    {
+      "en": "Snooze presets, custom snooze, dismiss, dismiss all and open item",
+      "es": "Posponer con preajustes o a medida, descartar, descartar todo y abrir el elemento"
+    },
+    {
+      "en": "Multi-selection with Ctrl+click and full keyboard navigation",
+      "es": "Selección múltiple con Ctrl+clic y navegación completa por teclado"
+    },
+    {
+      "en": "Optional always-on-top reminder window with monitor and position selection",
+      "es": "Ventana de avisos opcional siempre encima, con selección de monitor y posición"
+    },
+    {
+      "en": "Demo preview of the reminder window before any real alert",
+      "es": "Vista previa de demostración de la ventana de avisos antes del primer aviso real"
+    },
+    {
+      "en": "Password or PIN lock screen with recovery code and access log",
+      "es": "Bloqueo con contraseña o PIN, código de recuperación y registro de accesos"
+    },
+    {
+      "en": "CSV and ICS import and export with validation feedback",
+      "es": "Importación y exportación de CSV e ICS con validación visible"
+    },
+    {
+      "en": "Automatic and manual backups with restore",
+      "es": "Copias de seguridad automáticas y manuales, con restauración"
+    },
+    {
+      "en": "Three themes, including a lower-contrast dark one",
+      "es": "Tres temas, incluido uno oscuro de menor contraste"
+    },
+    {
+      "en": "Keyboard-friendly controls and resizable table columns",
+      "es": "Controles amigables con teclado y columnas de tabla redimensionables"
+    }
+  ],
+  "useCases": {
+    "roles": [
+      {
+        "icon": "👩‍💼",
+        "title": {
+          "en": "Busy professionals",
+          "es": "Profesionales con agenda llena"
+        },
+        "text": {
+          "en": "Keep meetings, deadlines and follow-ups in one list that reminds you at the right moment, with no account to create.",
+          "es": "Mantén reuniones, plazos y seguimientos en una lista que te avisa en el momento justo, sin cuentas que crear."
+        }
+      },
+      {
+        "icon": "🎓",
+        "title": {
+          "en": "Students",
+          "es": "Estudiantes"
+        },
+        "text": {
+          "en": "Track classes, assignments and exam dates with recurrence for weekly schedules that repeat without any extra work.",
+          "es": "Organiza clases, trabajos y exámenes con recurrencia para horarios semanales que se repiten sin trabajo extra."
+        }
+      },
+      {
+        "icon": "🏠",
+        "title": {
+          "en": "Household organizers",
+          "es": "Organizadores del hogar"
+        },
+        "text": {
+          "en": "Share one local agenda for bills, maintenance and appointments, on a machine that works without an internet connection.",
+          "es": "Comparte una agenda local para facturas, mantenimiento y citas, en un equipo que funciona sin conexión."
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "icon": "🧾",
+        "title": {
+          "en": "Recurring chores",
+          "es": "Tareas recurrentes"
+        },
+        "text": {
+          "en": "Set a monthly anchor for the 15th and the repetition lands on that day every month, even when a short month shifts it.",
+          "es": "Fija un ancla mensual el día 15 y la repetición cae ese día cada mes, incluso cuando un mes corto la desplaza."
+        }
+      },
+      {
+        "icon": "⏰",
+        "title": {
+          "en": "Never miss a deadline",
+          "es": "No perder ningún plazo"
+        },
+        "text": {
+          "en": "A reminder window that shows overdue items first, with a ten-minute snooze and a mark-as-done action for tasks.",
+          "es": "Una ventana de avisos que muestra primero lo vencido, con posponer diez minutos y marcar como hecha para las tareas."
+        }
+      },
+      {
+        "icon": "🔒",
+        "title": {
+          "en": "Keep it to yourself",
+          "es": "Mantenerlo en privado"
+        },
+        "text": {
+          "en": "A lock screen that asks for your password or PIN, a recovery code, and an access log you can turn off at any time.",
+          "es": "Una pantalla de bloqueo que pide tu contraseña o PIN, un código de recuperación y un registro de accesos que puedes desactivar cuando quieras."
+        }
+      }
+    ]
+  },
+  "repo": "https://github.com/CyberGems/CyberGo",
+  "wiki": "https://github.com/CyberGems/CyberGo/wiki",
+  "screenshot": null
+}

@@ -24,7 +24,7 @@
 
 > **CyberGems** crafts free and open-source Windows applications that respect your privacy. The apps use local storage and have no hidden telemetry. Optional online features remain under your control. All projects are **GPLv3** licensed.
 
-This repository powers **[cybergems.org](https://cybergems.org)** — the official landing for the suite. It showcases all 10 apps, per-app detail pages, a cross-repo changelog and auto-synced documentation, with English and Spanish site navigation. Wiki articles use available Spanish translations and show their source language.
+This repository powers **[cybergems.org](https://cybergems.org)** — the official landing for the suite. It showcases all 11 apps, per-app detail pages, a cross-repo changelog and auto-synced documentation, with English and Spanish site navigation. Wiki articles use available Spanish translations and show their source language.
 
 🌐 **Live site:** [cybergems.org](https://cybergems.org) &nbsp;|&nbsp; 👨‍💻 **Org:** [github.com/CyberGems](https://github.com/CyberGems) &nbsp;|&nbsp; 📦 **Profile repo:** [CyberGems/CyberGems](https://github.com/CyberGems/CyberGems)
 
@@ -145,6 +145,7 @@ Local builds prefer sibling repositories under `C:\CyberGems`. CI downloads the 
 |---|---|
 | CyberClock | `master: src/assets/images/icon.png` |
 | CyberFeeds | `main: resources/icon.png` |
+| CyberGo | `main: public/icon.png` |
 | CyberLauncher | `main: public/icon.png` |
 | CyberManager | `main: src/CyberManager.UI/Assets/CyberManager.png` |
 | CyberNotes | `main: public/icon.png` |

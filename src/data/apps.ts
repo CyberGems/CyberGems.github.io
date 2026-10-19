@@ -78,6 +78,7 @@ import cyberwall from './apps/cyberwall.json';
 import cyberviewer from './apps/cyberviewer.json';
 import cyberlauncher from './apps/cyberlauncher.json';
 import cyberclock from './apps/cyberclock.json';
+import cybergo from './apps/cybergo.json';
 
 export const apps: CyberApp[] = [
   cybersnap,
@@ -90,6 +91,7 @@ export const apps: CyberApp[] = [
   cyberviewer,
   cyberlauncher,
   cyberclock,
+  cybergo,
 ] as CyberApp[];
 
 export function getApp(slug: string): CyberApp | undefined {

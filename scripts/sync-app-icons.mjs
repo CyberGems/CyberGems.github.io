@@ -20,6 +20,7 @@ const requestTimeoutMs = 15_000;
 const iconSources = [
   { slug: 'cyberclock', repo: 'CyberClock', ref: 'master', source: 'src/assets/images/icon.png' },
   { slug: 'cyberfeeds', repo: 'CyberFeeds', ref: 'main', source: 'resources/icon.png' },
+  { slug: 'cybergo', repo: 'CyberGo', ref: 'main', source: 'public/icon.png' },
   { slug: 'cyberlauncher', repo: 'CyberLauncher', ref: 'main', source: 'public/icon.png' },
   { slug: 'cybermanager', repo: 'CyberManager', ref: 'main', source: 'src/CyberManager.UI/Assets/CyberManager.png' },
   { slug: 'cybernotes', repo: 'CyberNotes', ref: 'main', source: 'public/icon.png' },
