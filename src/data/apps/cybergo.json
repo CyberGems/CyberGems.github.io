@@ -50,8 +50,8 @@
           "es": "Actúa sobre los avisos al instante"
         },
         "text": {
-          "en": "A dedicated reminder window shows what is due, with urgency states, quick actions, multi-selection and full keyboard navigation for snoozing, opening and dismissing.",
-          "es": "Una ventana de avisos propia muestra lo que toca, con estados de urgencia, acciones rápidas, selección múltiple y navegación completa por teclado para posponer, abrir y descartar."
+          "en": "A dedicated reminder window shows what is due, grouped by day, with a quick filter, urgency states, quick actions, multi-selection and full keyboard navigation for snoozing, opening and dismissing.",
+          "es": "Una ventana de avisos propia muestra lo que toca, agrupado por día, con filtro rápido, estados de urgencia, acciones rápidas, selección múltiple y navegación completa por teclado para posponer, abrir y descartar."
         }
       }
     ]
@@ -117,20 +117,20 @@
       "es": "Vistas de lista y calendario con columnas redimensionables y anchos guardados"
     },
     {
-      "en": "Dedicated reminder window with urgency states and quick actions",
-      "es": "Ventana de avisos con estados de urgencia y acciones rápidas"
+      "en": "Reminder window grouped by day, with a quick filter and urgency states",
+      "es": "Ventana de avisos agrupada por día, con filtro rápido y estados de urgencia"
     },
     {
       "en": "Snooze presets, custom snooze, dismiss, dismiss all and open item",
       "es": "Posponer con preajustes o a medida, descartar, descartar todo y abrir el elemento"
     },
     {
-      "en": "Multi-selection with Ctrl+click and full keyboard navigation",
-      "es": "Selección múltiple con Ctrl+clic y navegación completa por teclado"
+      "en": "Multi-selection with Ctrl+click, by dragging a rectangle, or with Shift and the arrow keys",
+      "es": "Selección múltiple con Ctrl+clic, arrastrando un rectángulo o con Mayús y las flechas"
     },
     {
-      "en": "Optional always-on-top reminder window with monitor and position selection",
-      "es": "Ventana de avisos opcional siempre encima, con selección de monitor y posición"
+      "en": "Reminder window that remembers its size, with monitor and position selection",
+      "es": "Ventana de avisos que recuerda su tamaño, con selección de monitor y posición"
     },
     {
       "en": "Demo preview of the reminder window before any real alert",
