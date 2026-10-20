@@ -42,8 +42,8 @@
         "icon": "✨",
         "title": { "en": "Make it yours", "es": "Hazlo tuyo" },
         "text": {
-          "en": "Choose from 15 Mini Mode skins, tune the tint and zoom, select a monitor, and add your name for a welcoming Full Mode greeting.",
-          "es": "Elige entre 15 skins del Modo Mini, ajusta el tinte y el zoom, selecciona un monitor y añade tu nombre para un saludo acogedor en el modo completo."
+          "en": "Choose from 20 Mini Mode skins, tune the tint and zoom, select a monitor, and add your name for a welcoming Full Mode greeting.",
+          "es": "Elige entre 20 skins del Modo Mini, ajusta el tinte y el zoom, selecciona un monitor y añade tu nombre para un saludo acogedor en el modo completo."
         }
       }
     ]
@@ -65,10 +65,10 @@
     {
       "icon": "🎨",
       "color": "#A78BFA",
-      "title": { "en": "15 expressive skins", "es": "15 skins expresivas" },
+      "title": { "en": "20 expressive skins", "es": "20 skins expresivas" },
       "text": {
-        "en": "From Titanium Mech to Glass Orb, Sunset Pulse, Cyber Deck, and Quantum, every compact window adapts to the selected skin and zoom.",
-        "es": "Desde Titanium Mech hasta Glass Orb, Sunset Pulse, Cyber Deck y Quantum, cada ventana compacta se adapta a la skin y el zoom seleccionados."
+        "en": "From Deep Space to Titanium Mech, Glass Orb, Sunset Pulse, Cyber Deck, and Quantum, every compact window adapts to the selected skin and zoom.",
+        "es": "Desde Espacio Profundo hasta Titanium Mech, Glass Orb, Sunset Pulse, Cyber Deck y Quantum, cada ventana compacta se adapta a la skin y el zoom seleccionados."
       }
     },
     {
@@ -116,8 +116,8 @@
       "es": "6 paisajes sonoros ambientales sintetizados proceduralmente con guía de respiración"
     },
     {
-      "en": "Mini mode: compact always-on-top clock bar with 15 skin-specific designs, visual skin gallery, and zoom",
-      "es": "Modo Mini: barra de reloj compacta siempre visible con 15 diseños propios, galería visual de skins y zoom"
+      "en": "Mini mode: compact always-on-top clock bar with 20 skin-specific designs, visual skin gallery, and zoom",
+      "es": "Modo Mini: barra de reloj compacta siempre visible con 20 diseños propios, galería visual de skins y zoom"
     },
     {
       "en": "Standalone floating desktop widgets (timers, stopwatches, calendar, analog clock, and relax) with persistence across restarts",
@@ -132,8 +132,8 @@
       "es": "Saludo personalizado según la hora junto a la marca CyberClock en el modo completo"
     },
     {
-      "en": "Alarms view with twenty synthesized sounds, your own MP3 or WAV, snooze, and a fullscreen notice",
-      "es": "Vista de Alarmas con veinte sonidos sintetizados, tu propio MP3 o WAV, posponer y un aviso a pantalla completa"
+      "en": "Alarms view with 24-icon catalog picker, sound repeat pause presets, duplicate action, twenty synthesized sounds, custom MP3/WAV, snooze, and fullscreen notice",
+      "es": "Vista de Alarmas con catálogo de 24 iconos, preajustes de pausa al repetir sonido, acción de duplicar, veinte sonidos sintetizados, MP3/WAV propio, posponer y aviso a pantalla completa"
     },
     {
       "en": "Click-through for the mini clock and every floating widget, from the tray or Settings",
