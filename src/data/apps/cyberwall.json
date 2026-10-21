@@ -47,6 +47,8 @@
     { "en": "Get notified when an app first tries to use the network", "es": "Recibe un aviso cuando una app intenta usar la red por primera vez" },
     { "en": "Choose a temporary permission or save a persistent per-app rule", "es": "Elige un permiso temporal o guarda una regla permanente por aplicación" },
     { "en": "Unanswered prompts can be blocked automatically after a timeout", "es": "Los avisos sin respuesta pueden bloquearse automáticamente tras un plazo" },
+    { "en": "Restores the original firewall policy if it stops unexpectedly, so the machine never stays locked down", "es": "Restaura la política original del firewall si se detiene de forma inesperada, para que el equipo nunca se quede bloqueado" },
+    { "en": "Shows the protection state in the tray icon and verifies the installer checksum before updating", "es": "Muestra el estado de la protección en el icono de la bandeja y verifica la suma del instalador antes de actualizar" },
     { "en": "Runs on Windows Filtering Platform without a separate kernel driver", "es": "Funciona sobre la plataforma de filtrado de Windows sin un controlador de kernel independiente" }
   ],
   "useCases": {
