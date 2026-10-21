@@ -42,6 +42,7 @@
     "es": "Más formas en que CyberSnap te ayuda"
   },
   "features": [
+    { "en": "Automatic backups for settings and achievements, with scheduling, retention and recovery copies", "es": "Copias automáticas de configuración y logros con programación, retención y copias de recuperación" },
     { "en": "Independent auto-copy for screenshots, scrolling captures, OCR, QR/barcodes, MP4, GIF and colors", "es": "Autocopia independiente para capturas normales y con desplazamiento, OCR, QR/códigos de barras, MP4, GIF y colores" },
     { "en": "Area, window, full screen & scroll capture", "es": "Captura de área, ventana, pantalla completa y desplazamiento" },
     { "en": "Widget with monitor following and separate clipboard and result preferences per mode", "es": "Widget con seguimiento de monitores y preferencias independientes de portapapeles y resultados por modo" },
