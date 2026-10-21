@@ -129,6 +129,10 @@
       "es": "Selección múltiple con Ctrl+clic, arrastrando un rectángulo o con Mayús y las flechas"
     },
     {
+      "en": "A list that fits the space it has, with the name of the item never cut",
+      "es": "Una lista que cabe en el espacio que tiene, sin cortar el nombre del elemento"
+    },
+    {
       "en": "Reminder window that remembers its size, with monitor and position selection",
       "es": "Ventana de avisos que recuerda su tamaño, con selección de monitor y posición"
     },
@@ -137,8 +141,8 @@
       "es": "Vista previa de demostración de la ventana de avisos antes del primer aviso real"
     },
     {
-      "en": "Password or PIN lock screen with recovery code and access log",
-      "es": "Bloqueo con contraseña o PIN, código de recuperación y registro de accesos"
+      "en": "Password or PIN lock screen with three levels, from fully visible to fully silent",
+      "es": "Bloqueo con contraseña o PIN en tres niveles, de todo visible a totalmente en silencio"
     },
     {
       "en": "CSV export, plus CSV and ICS import, with validation feedback",
