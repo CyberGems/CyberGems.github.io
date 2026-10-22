@@ -22,19 +22,17 @@ const benefits = lang === 'en'
   <div class="app-hero-banner__visual" aria-hidden="true">
     <div class="app-hero-banner__orbit app-hero-banner__orbit--outer"></div>
     <div class="app-hero-banner__orbit app-hero-banner__orbit--inner"></div>
-    <div class="app-hero-banner__icon-shell">
-      {app.icon ? (
-        <img
-          src={app.icon}
-          alt=""
-          width="196"
-          height="196"
-          class="app-hero-banner__icon"
-        />
-      ) : (
-        <span class="app-hero-banner__emoji">{app.emoji}</span>
-      )}
-    </div>
+    {app.icon ? (
+      <img
+        src={app.icon}
+        alt=""
+        width="196"
+        height="196"
+        class="app-hero-banner__icon"
+      />
+    ) : (
+      <span class="app-hero-banner__emoji">{app.emoji}</span>
+    )}
   </div>
 
   <div class="app-hero-banner__copy">
@@ -73,7 +71,7 @@ const benefits = lang === 'en'
     border: 1px solid color-mix(in srgb, var(--banner-accent) 24%, white 8%);
     border-radius: 1.75rem;
     background:
-      radial-gradient(circle at 19% 50%, color-mix(in srgb, var(--banner-accent) 19%, transparent) 0%, transparent 29%),
+      radial-gradient(circle at 19% 50%, color-mix(in srgb, var(--banner-accent) 8%, transparent) 0%, transparent 29%),
       radial-gradient(circle at 88% 110%, rgba(122, 92, 255, 0.19) 0%, transparent 39%),
       linear-gradient(112deg, #0c1119 0%, #0b0d14 53%, #11101c 100%);
     box-shadow:
@@ -155,19 +153,12 @@ const benefits = lang === 'en'
     opacity: 0.28;
   }
 
-  .app-hero-banner__icon-shell {
+  .app-hero-banner__visual {
     position: relative;
     z-index: 1;
     display: grid;
-    width: min(168px, 72%);
-    aspect-ratio: 1;
     place-items: center;
-    border: 1px solid color-mix(in srgb, var(--banner-accent) 40%, white 7%);
-    border-radius: 2.25rem;
-    background: linear-gradient(145deg, rgba(18, 24, 36, 0.92), rgba(8, 11, 18, 0.94));
-    box-shadow:
-      0 24px 50px -26px color-mix(in srgb, var(--banner-accent) 58%, transparent),
-      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    min-height: 200px;
   }
 
   .app-hero-banner__icon {
@@ -263,7 +254,6 @@ const benefits = lang === 'en'
 
     .app-hero-banner__orbit--outer { width: 112px; }
     .app-hero-banner__orbit--inner { width: 96px; }
-    .app-hero-banner__icon-shell { width: 88px; border-radius: 1.3rem; }
     .app-hero-banner__eyebrow,
     .app-hero-banner__meta { justify-content: center; }
     .app-hero-banner__title { font-size: clamp(1.875rem, 9.5vw, 3rem); }
