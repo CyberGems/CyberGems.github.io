@@ -243,7 +243,7 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
       <stop offset="1" stop-color="#12101f" />
     </linearGradient>
     <radialGradient id="bannerGlow" cx="19%" cy="50%" r="42%">
-      <stop offset="0" stop-color="${accent}" stop-opacity="0.08" />
+      <stop offset="0" stop-color="${accent}" stop-opacity="0.06" />
       <stop offset="1" stop-color="${accent}" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="bannerViolet" cx="100%" cy="110%" r="65%">
@@ -265,10 +265,10 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
   <rect width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" rx="24" fill="url(#bannerGlow)" />
   <rect width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" rx="24" fill="url(#bannerViolet)" />
   <rect width="420" height="${BANNER_HEIGHT}" rx="24" fill="url(#bannerGrid)" />
-  <rect x="0.5" y="0.5" width="${BANNER_WIDTH - 1}" height="${BANNER_HEIGHT - 1}" rx="23.5" fill="none" stroke="${accent}" stroke-opacity="0.45" />
+  <rect x="0.5" y="0.5" width="${BANNER_WIDTH - 1}" height="${BANNER_HEIGHT - 1}" rx="23.5" fill="none" stroke="${accent}" stroke-opacity="0.30" />
 
   <circle cx="214" cy="180" r="92" fill="${accent}" fill-opacity="0.18" filter="url(#bannerIconGlow)" />
-  ${appImage(app, 150, 116, 128)}
+  ${appImage(app, 144, 110, 140)}
 
   <svg x="448" y="55" width="16" height="16" viewBox="0 0 16 16" fill="#4FC3F7">
     <path d="M1 2.3 7 1.5v6H1V2.3Zm8-1.1 6-.8v7.1H9V1.2ZM1 8.5h6v6L1 13.7V8.5Zm8 0h6v7.1l-6-.8V8.5Z" />
