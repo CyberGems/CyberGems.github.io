@@ -164,6 +164,35 @@ const jsonLd = [
   search?.addEventListener('input', filter);
   if (controls) controls.hidden = false;
 </script>
+<script>
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const track = document.querySelector('.hero-orbit-track');
+    const bodies = document.querySelectorAll('.hero-node-body');
+    if (!track || bodies.length === 0) return;
+
+    let active = 0;
+    const pause = () => {
+      track.style.animationPlayState = 'paused';
+      bodies.forEach((body) => (body.style.animationPlayState = 'paused'));
+    };
+    const resume = () => {
+      track.style.animationPlayState = '';
+      bodies.forEach((body) => (body.style.animationPlayState = ''));
+    };
+
+    // Detener la animación de los íconos solo cuando el puntero está sobre
+    // un ícono (o su zona: ícono + etiqueta), no sobre el espacio vacío.
+    bodies.forEach((body) => {
+      body.addEventListener('mouseenter', () => {
+        if (++active === 1) pause();
+      });
+      body.addEventListener('mouseleave', () => {
+        if (--active === 0) resume();
+      });
+    });
+  })();
+</script>
 <style>
   .landing-hero { isolation: isolate; background: var(--color-base-100); }
   [data-catalog-filter][aria-pressed="true"] { border-color: var(--color-accent); background: color-mix(in srgb, var(--color-accent) 9%, var(--color-base-100)); color: var(--color-accent); }
@@ -333,7 +362,6 @@ const jsonLd = [
     box-shadow: 0 4px 14px #000b;
     opacity: 0.88;
   }
-  .hero-stage:hover .hero-orbit-track, .hero-stage:hover .hero-node-body { animation-play-state: paused; }
   .hero-node:hover .hero-node-icon { transform: scale(1.12); border-color: #00f2ff; box-shadow: 0 10px 28px #000a, 0 0 17px #00f2ff85; }
   .hero-node:hover .hero-node-label { opacity: 1; color: #00f2ff; border-color: #00f2ff; }
   @media (max-width: 900px) {
