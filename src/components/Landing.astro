@@ -74,8 +74,10 @@ const jsonLd = [
               {apps.map((app, index) => (
                 <div class="hero-node" style={`--node-angle: ${index * 360 / apps.length}deg;`}>
                   <div class="hero-node-body">
-                    <span class="hero-node-icon">{app.icon ? <img src={app.icon} alt="" width="44" height="44" loading="eager" decoding="async" /> : app.emoji}</span>
-                    <span class="hero-node-label">{app.name}</span>
+                    <a href={lang === 'es' ? `/es/apps/${app.slug}/` : `/apps/${app.slug}/`} class="hero-node-link">
+                      <span class="hero-node-icon">{app.icon ? <img src={app.icon} alt="" width="44" height="44" loading="eager" decoding="async" /> : app.emoji}</span>
+                      <span class="hero-node-label">{app.name}</span>
+                    </a>
                   </div>
                 </div>
               ))}
@@ -361,6 +363,14 @@ const jsonLd = [
     white-space: nowrap;
     box-shadow: 0 4px 14px #000b;
     opacity: 0.88;
+  }
+  .hero-node-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
   }
   .hero-node:hover .hero-node-icon { transform: scale(1.12); border-color: #00f2ff; box-shadow: 0 10px 28px #000a, 0 0 17px #00f2ff85; }
   .hero-node:hover .hero-node-label { opacity: 1; color: #00f2ff; border-color: #00f2ff; }
