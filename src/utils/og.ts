@@ -278,8 +278,8 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
   ${tagline.map((line, index) => `<text x="450" y="${212 + index * 34}" fill="#c9c9d1" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
   <text x="450" y="308" fill="#8f929f" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">${escapeXml(trust)}</text>
 
-  <image href="${cyberGemsMark}" x="1076" y="288" width="28" height="28" opacity="0.64" />
-  <text x="1218" y="316" fill="#8f929f" fill-opacity="0.82" font-family="Segoe UI, system-ui, sans-serif" font-size="14" text-anchor="end">cybergems.org</text>
+  <image href="${cyberGemsMark}" x="1060" y="294" width="36" height="36" opacity="0.95" />
+  <text x="1110" y="322" fill="#c9d2d8" fill-opacity="0.92" font-family="Segoe UI, system-ui, sans-serif" font-size="15" font-weight="600">cybergems.org</text>
 
   <circle cx="54" cy="40" r="1.2" fill="white" fill-opacity="0.65" />
   <circle cx="392" cy="62" r="1" fill="${accent}" fill-opacity="0.8" />
