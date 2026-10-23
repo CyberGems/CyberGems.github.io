@@ -233,6 +233,27 @@ const breadcrumbLd = {
             <li class="ss-step">
               <span class="ss-num" aria-hidden="true">3</span>
               <div class="ss-step-main">
+                <p>{c.dlg2Note}</p>
+                <div class="ss-dlg" role="img" aria-label={`${c.dlg1Title}: ${c.dlg2App}`}>
+                  <div class="ss-dlg-body">
+                    <div class="ss-dlg-icon" aria-hidden="true">🛡️</div>
+                    <div>
+                      <p class="ss-dlg-title">{c.dlg1Title}</p>
+                      <p class="ss-dlg-pub">{c.dlg2App}</p>
+                      <p class="ss-dlg-pub">{c.dlg2Editor}</p>
+                      <p class="ss-dlg-more">{c.dlg1MoreInfo}</p>
+                    </div>
+                  </div>
+                  <div class="ss-dlg-actions">
+                    <span class="ss-dlg-pub">{c.dlg2Publisher}</span>
+                    <span class="ss-dlg-btn">{c.dlg1Cancel}</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="ss-step">
+              <span class="ss-num" aria-hidden="true">4</span>
+              <div class="ss-step-main">
                 <p>{c.ssStep3}</p>
                 <div class="ss-dlg" role="img" aria-label={`${c.dlg1Title}: ${c.dlg2Run}`}>
                   <div class="ss-dlg-body">
