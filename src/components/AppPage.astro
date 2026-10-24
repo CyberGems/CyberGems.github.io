@@ -7,6 +7,8 @@ import AppDownloadButton from './AppDownloadButton.astro';
 import NavIcon from './NavIcon.astro';
 import { ui, type Lang } from '../data/ui';
 import { apps, type CyberApp } from '../data/apps';
+import pagesData from '../data/pages.json';
+import SmartScreenDialog from './SmartScreenDialog.astro';
 
 interface Props {
   app: CyberApp;
@@ -23,6 +25,8 @@ const shortDesc = app.tagline[lang];
 const description = shortDesc.length > 155 ? `${shortDesc.slice(0, 152)}...` : `${shortDesc} ${app.stack} for Windows. GPLv3.`;
 const releasesUrl = `${app.repo}/releases/latest`;
 const releasesAtomUrl = `${app.repo}/releases.atom`;
+const c = (pagesData.download as Record<string, any>)[lang];
+    const exeName = app.name.replace(/\s+/g, '-') + '-Setup.exe';
 const ogImage = lang === 'es' ? `/og/es/${app.slug}.png` : `/og/${app.slug}.png`;
 const breadcrumbLd = {
   '@context': 'https://schema.org',
@@ -278,6 +282,7 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
       </details>
     )}
 
+    <SmartScreenDialog exeName={exeName} app={app} lang={lang} texts={c} />
     <section class="mt-10 rounded-2xl border border-base-300 bg-base-200 p-6 text-center">
       <h2 class="text-xl font-bold">{lang === 'en' ? `Try ${app.name}` : `Prueba ${app.name}`}</h2>
       <p class="mt-2 mb-5 text-sm text-[var(--text-dim)]">{lang === 'en' ? 'Free for Windows 10 and 11. No account required.' : 'Gratis para Windows 10 y 11. Sin necesidad de cuenta.'}</p>

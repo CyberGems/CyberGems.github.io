@@ -1,0 +1,71 @@
+---
+interface Props {
+  lang: string;
+  appName: string;
+  exeName: string;
+  texts: Record<string, string>;
+}
+
+const { lang, appName, exeName, texts } = Astro.props;
+const t = (key: string, fallback = '') => texts[key] ?? fallback;
+---
+
+<details id="smartscreen" class="ss-details mt-3">
+  <summary>
+    <strong class="text-white">{'🔍'} SmartScreen</strong>
+    <span class="ss-hint">{texts.ssOpen}</span>
+    <svg class="ss-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+  </summary>
+  <div class="ss-body">
+    <p>{texts.ssIntro}</p>
+    <ol class="ss-steps">
+      <li class="ss-step">
+        <span class="ss-num" aria-hidden="true">1</span>
+        <div class="ss-step-main">
+          <p>{texts.ssStep1}</p>
+          <div class="ss-dlg" role="img" aria-label={texts.dlg1Title}>
+            <div class="ss-dlg-body">
+              <div class="ss-dlg-icon" aria-hidden="true">🛡️</div>
+              <div>
+                <p class="ss-dlg-title">{texts.dlg1Title}</p>
+                <p class="ss-dlg-text">{texts.dlg1Text}</p>
+                <p class="ss-dlg-more">{texts.dlg1MoreInfo}</p>
+              </div>
+            </div>
+            <div class="ss-dlg-actions">
+              <span class="ss-dlg-btn">{texts.dlg1Cancel}</span>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="ss-step">
+        <span class="ss-num" aria-hidden="true">2</span>
+        <div class="ss-step-main">
+          <p>{texts.ssStep2}</p>
+        </div>
+      </li>
+      <li class="ss-step">
+        <span class="ss-num" aria-hidden="true">3</span>
+        <div class="ss-step-main">
+          <p>{texts.ssStep3}</p>
+          <div class="ss-dlg" role="img" aria-label={`${texts.dlg1Title}: ${texts.dlg2Run}`}>
+            <div class="ss-dlg-body">
+              <div class="ss-dlg-icon" aria-hidden="true">🛡️</div>
+              <div>
+                <p class="ss-dlg-title">{texts.dlg1Title}</p>
+                <p class="ss-dlg-pub">{exeName}</p>
+                <p class="ss-dlg-pub">{texts.dlg2Editor}</p>
+                <p class="ss-dlg-more">{texts.dlg1MoreInfo}</p>
+              </div>
+            </div>
+            <div class="ss-dlg-actions">
+              <span class="ss-dlg-pub">{texts.dlg2Publisher}</span>
+              <span class="ss-dlg-btn">{texts.dlg1Cancel}</span>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ol>
+    <p class="ss-why"><strong>{texts.ssWhyTitle}:</strong> {texts.ssWhyText}</p>
+  </div>
+</details>
