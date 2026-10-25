@@ -120,6 +120,10 @@
       "es": "Modo Mini: barra de reloj compacta siempre visible con 20 diseños propios, galería visual de skins y zoom"
     },
     {
+      "en": "Day Progress: optional line on the bottom edge of the mini bar on every skin; hover shows the percentage of the day that has passed",
+      "es": "Avance del Día: línea opcional en el borde inferior de la barra mini en todas las skins; al pasar el cursor muestra el porcentaje del día que ha pasado"
+    },
+    {
       "en": "Standalone floating desktop widgets (timers, stopwatches, calendar, analog clock, and relax) with persistence across restarts",
       "es": "Widgets flotantes independientes (temporizadores, cronómetros, calendario, reloj analógico y relajación) con persistencia entre reinicios"
     },
