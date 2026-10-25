@@ -13,8 +13,8 @@
     "es": "Captura, anota y comparte cualquier cosa — imágenes, grabaciones, texto y color — con rapidez."
   },
   "description": {
-    "en": "A sleek, all-in-one capture suite for Windows. Take area, window, full-screen and scrolling screenshots; record MP4 or GIF; annotate with vector tools; extract and translate text with OCR; and find every capture later in a local searchable gallery. Share through seven destinations or keep everything on your device.",
-    "es": "Una suite de captura elegante y todo en uno para Windows. Captura áreas, ventanas, la pantalla completa o contenido con desplazamiento; graba en MP4 o GIF; anota con herramientas vectoriales; extrae y traduce texto con OCR; y encuentra cada captura en una galería local con búsqueda. Comparte mediante siete destinos o conserva todo en tu dispositivo."
+    "en": "A sleek, all-in-one capture suite for Windows. Take area, window, full-screen and scrolling screenshots; record MP4 or GIF; annotate with vector tools; extract and translate text with OCR; magnify a frozen screen with Zoom; keep image references floating with Pin; and find captures in a local searchable gallery. Share through seven destinations or keep everything on your device.",
+    "es": "Una suite de captura elegante y todo en uno para Windows. Captura áreas, ventanas, la pantalla completa o contenido con desplazamiento; graba en MP4 o GIF; anota con herramientas vectoriales; extrae y traduce texto con OCR; amplía la pantalla congelada con Zoom; mantén referencias flotantes con Pin; y encuentra capturas en una galería local con búsqueda. Comparte mediante siete destinos o conserva todo en tu dispositivo."
   },
   "highlightsTitle": {
     "en": "From a screen moment to something useful",
@@ -42,10 +42,13 @@
     "es": "Más formas en que CyberSnap te ayuda"
   },
   "features": [
+    { "en": "Frozen-screen Zoom (1.25×–4×) with region or full-view capture, normal confirmation and annotations", "es": "Zoom de pantalla congelada (1.25×–4×), con captura de región o vista completa, confirmación y anotaciones habituales" },
+    { "en": "Pin image references across monitors with wheel zoom, opacity, copy/save, optional shadows and borders", "es": "Fija referencias de imágenes entre monitores con zoom de rueda, opacidad, copiar/guardar, sombra y borde opcionales" },
+    { "en": "One configurable global shortcut per tool, plus Tab navigation through visible capture-toolbar buttons", "es": "Un atajo global configurable por herramienta y navegación con Tab por los botones visibles de la barra de captura" },
     { "en": "Automatic backups for settings and achievements, with scheduling, retention and recovery copies", "es": "Copias automáticas de configuración y logros con programación, retención y copias de recuperación" },
     { "en": "Independent auto-copy for screenshots, scrolling captures, OCR, QR/barcodes, MP4, GIF and colors", "es": "Autocopia independiente para capturas normales y con desplazamiento, OCR, QR/códigos de barras, MP4, GIF y colores" },
     { "en": "Area, window, full screen & scroll capture", "es": "Captura de área, ventana, pantalla completa y desplazamiento" },
-    { "en": "Widget with monitor following and separate clipboard and result preferences per mode", "es": "Widget con seguimiento de monitores y preferencias independientes de portapapeles y resultados por modo" },
+    { "en": "3×3 widget with Zoom and Pin, contextual tooltips, and independent image/MP4/GIF cursor and delivery preferences", "es": "Widget 3×3 con Zoom y Pin, tooltips contextuales y preferencias independientes de cursor y resultados para Imagen/MP4/GIF" },
     { "en": "Per-user installation without administrator prompts; .NET 10 and FFmpeg included", "es": "Instalación por usuario sin pedir permisos de administrador; .NET 10 y FFmpeg incluidos" },
     { "en": "Screen recording to MP4 or GIF with independent tabbed trimming sessions", "es": "Grabación de pantalla a MP4 o GIF con sesiones de recorte independientes en pestañas" },
     { "en": "Annotation editor with shapes, text, rulers and frames", "es": "Editor de anotaciones con formas, texto, reglas y marcos" },
@@ -59,7 +62,7 @@
     "roles": [
       { "icon": "💻", "title": { "en": "Software Development", "es": "Desarrollo de software" }, "text": { "en": "Report bugs with annotated screenshots and MP4 reproductions; repeat-last-area captures before/after states without realigning.", "es": "Reporta errores con capturas anotadas y reproducciones MP4; recaptura la misma zona para el antes/después sin reencuadrar." } },
       { "icon": "🎧", "title": { "en": "Customer Support", "es": "Soporte al cliente" }, "text": { "en": "Answer tickets with marked-up screenshots and short GIF how-tos; share one-click upload links instead of long explanations.", "es": "Responde tickets con capturas marcadas y mini-tutoriales GIF; comparte enlaces de subida en un clic en vez de explicaciones largas." } },
-      { "icon": "🎨", "title": { "en": "Design", "es": "Diseño" }, "text": { "en": "Review mockups with pixel-exact ruler measurements, HEX color sampling, and pinned annotations.", "es": "Revisa maquetas con medidas de regla al píxel, muestreo de color HEX y anotaciones fijadas." } },
+      { "icon": "🎨", "title": { "en": "Design", "es": "Diseño" }, "text": { "en": "Review mockups with pixel-exact ruler measurements and HEX color sampling; keep image references above your work with Pin.", "es": "Revisa maquetas con medidas de regla al píxel y muestreo de color HEX; mantén referencias de imágenes sobre tu trabajo con Pin." } },
       { "icon": "🎓", "title": { "en": "ELearning", "es": "Formación" }, "text": { "en": "Create MP4 or GIF lessons, trim the edges, blur sensitive data, and share via link.", "es": "Crea lecciones en MP4 o GIF, recorta los bordes, difumina datos sensibles y comparte por enlace." } },
       { "icon": "📋", "title": { "en": "Project Management", "es": "Gestión de proyectos" }, "text": { "en": "Document flows with auto-numbered steps and full-page scroll captures; find any of them later with OCR search.", "es": "Documenta flujos con pasos autonumerados y capturas de desplazamiento; encuéntralos luego con búsqueda OCR." } },
       { "icon": "🌍", "title": { "en": "Remote Work", "es": "Trabajo remoto" }, "text": { "en": "Replace status meetings with async visual updates: capture, annotate, share a link.", "es": "Sustituye reuniones de estado por actualizaciones visuales asíncronas: captura, anota, comparte un enlace." } }
