@@ -131,7 +131,7 @@ function footer(lang: Lang): string {
   return `
   <rect x="72" y="538" width="1056" height="1" fill="white" opacity="0.1" />
   <text x="72" y="582" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="16" font-weight="600" letter-spacing="0.6">${trust}</text>
-  <text x="1128" y="582" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="16" text-anchor="end">cybergems.org</text>`;
+`;
 }
 
 function homeCard(lang: Lang): string {
@@ -185,7 +185,7 @@ function appCard(app: CyberApp, lang: Lang): string {
   const title = escapeXml(app.name);
   const tagline = wrapText(app.tagline[lang] ?? app.tagline.en, 48).slice(0, 2);
   const extra = `${app.stack}  ·  ${app.license}  ·  Windows`;
-  const label = lang === 'es' ? 'APP DE CYBERGEMS  ·  WINDOWS' : 'CYBERGEMS APP  ·  WINDOWS';
+  const label = lang === 'es' ? 'WINDOWS 10 Y 11' : 'WINDOWS 10 AND 11';
   const cardTitle = lang === 'es' ? 'Código abierto bajo GPLv3' : 'Open source under GPLv3';
   const cardLine = lang === 'es' ? 'Gratis · privada · nativa para Windows' : 'Free · private · native Windows';
 
@@ -208,7 +208,6 @@ function appCard(app: CyberApp, lang: Lang): string {
     <rect x="824" y="128" width="304" height="4" rx="2" fill="url(#accent)" />
     <circle cx="976" cy="291" r="119" fill="${accent}" fill-opacity="0.09" />
     <rect x="892" y="207" width="168" height="168" rx="38" fill="#0d0f17" stroke="${accent}" stroke-opacity="0.5" />
-    ${appImage(app, 910, 225, 132)}
     <text x="976" y="421" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="20" font-weight="800" text-anchor="middle">${title}</text>
     <text x="976" y="449" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="14" text-anchor="middle">${cardLine}</text>
   </g>
