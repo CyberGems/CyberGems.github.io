@@ -218,9 +218,9 @@ function appCard(app: CyberApp, lang: Lang): string {
   <text x="72" y="446" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="18" font-weight="600">${escapeXml(extra)}</text>
   <text x="72" y="480" fill="${accent}" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="700">${cardTitle}</text>
 
-  <circle cx="976" cy="291" r="119" fill="${accent}" fill-opacity="0.06" />
-  <circle cx="976" cy="291" r="72" fill="#0d0f17" fill-opacity="0.62" />
-  <image href="${assetData(app.icon)}" x="897" y="212" width="158" height="158" preserveAspectRatio="xMidYMid meet" />
+  <circle cx="976" cy="291" r="105" fill="${accent}" fill-opacity="0.04" />
+  <circle cx="976" cy="291" r="56" fill="#0d0f17" fill-opacity="0.5" />
+  <image href="${assetData(app.icon)}" x="881" y="196" width="190" height="190" preserveAspectRatio="xMidYMid meet" />
   <text x="976" y="421" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="20" font-weight="800" text-anchor="middle">${title}</text>
   <text x="976" y="449" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="14" text-anchor="middle">${cardLine}</text>
   ${footer(lang)}
