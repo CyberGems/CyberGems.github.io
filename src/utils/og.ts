@@ -220,7 +220,7 @@ function appCard(app: CyberApp, lang: Lang): string {
 
   <circle cx="976" cy="291" r="119" fill="${accent}" fill-opacity="0.06" />
   <circle cx="976" cy="291" r="72" fill="#0d0f17" fill-opacity="0.62" />
-  <image href="${assetData(app.icon)}" x="910" y="225" width="132" height="132" preserveAspectRatio="xMidYMid meet" />
+  <image href="${assetData(app.icon)}" x="897" y="212" width="158" height="158" preserveAspectRatio="xMidYMid meet" />
   <text x="976" y="421" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="20" font-weight="800" text-anchor="middle">${title}</text>
   <text x="976" y="449" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="14" text-anchor="middle">${cardLine}</text>
   ${footer(lang)}
