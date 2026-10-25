@@ -203,14 +203,11 @@ function appCard(app: CyberApp, lang: Lang): string {
   <text x="72" y="446" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="18" font-weight="600">${escapeXml(extra)}</text>
   <text x="72" y="480" fill="${accent}" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="700">${cardTitle}</text>
 
-  <g filter="url(#softShadow)">
-    <rect x="824" y="128" width="304" height="366" rx="32" fill="#111722" fill-opacity="0.88" stroke="${accent}" stroke-opacity="0.3" />
-    <rect x="824" y="128" width="304" height="4" rx="2" fill="url(#accent)" />
-    <circle cx="976" cy="291" r="119" fill="${accent}" fill-opacity="0.09" />
-    <rect x="892" y="207" width="168" height="168" rx="38" fill="#0d0f17" stroke="${accent}" stroke-opacity="0.5" />
-    <text x="976" y="421" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="20" font-weight="800" text-anchor="middle">${title}</text>
-    <text x="976" y="449" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="14" text-anchor="middle">${cardLine}</text>
-  </g>
+  <circle cx="976" cy="291" r="119" fill="${accent}" fill-opacity="0.06" />
+  <circle cx="976" cy="291" r="72" fill="#0d0f17" fill-opacity="0.62" />
+  <image href="${assetData(app.icon)}" x="910" y="225" width="132" height="132" preserveAspectRatio="xMidYMid meet" />
+  <text x="976" y="421" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="20" font-weight="800" text-anchor="middle">${title}</text>
+  <text x="976" y="449" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="14" text-anchor="middle">${cardLine}</text>
   ${footer(lang)}
 </svg>`;
 }
