@@ -94,9 +94,9 @@ function defs(accent: string): string {
       <stop offset="1" stop-color="#7A5CFF" />
     </linearGradient>
     <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#101b25" />
-      <stop offset="0.48" stop-color="#0d0f17" />
-      <stop offset="1" stop-color="#12101f" />
+      <stop offset="0" stop-color="#0a0f17" />
+      <stop offset="0.48" stop-color="#070a10" />
+      <stop offset="1" stop-color="#0c0b16" />
     </linearGradient>
     <radialGradient id="cyanGlow" cx="10%" cy="0%" r="80%">
       <stop offset="0" stop-color="${accent}" stop-opacity="0.12" />
@@ -117,10 +117,25 @@ function background(accent: string): string {
   <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#background)" />
   <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#cyanGlow)" />
   <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#violetGlow)" />
-  <g opacity="0.035">
-    ${Array.from({ length: 29 }).map((_, i) => `<line x1="${i * 44}" y1="0" x2="${i * 44}" y2="${HEIGHT}" stroke="${accent}" stroke-width="1" />`).join('')}
-    ${Array.from({ length: 15 }).map((_, i) => `<line x1="0" y1="${i * 44}" x2="${WIDTH}" y2="${i * 44}" stroke="${accent}" stroke-width="1" />`).join('')}
-  </g>
+  ${(() => {
+    let seed = 1427;
+    const random = () => {
+      seed = (seed * 16807) % 2147483647;
+      return (seed - 1) / 2147483646;
+    };
+    const stars: Array<{ x: string; y: string; r: string; o: string }> = [];
+    for (let i = 0; i < 60; i += 1) {
+      stars.push({
+        x: (random() * WIDTH).toFixed(1),
+        y: (random() * HEIGHT).toFixed(1),
+        r: (0.5 + random() * 1.5).toFixed(2),
+        o: (0.15 + random() * 0.45).toFixed(2),
+      });
+    }
+    return stars
+      .map((s) => `<circle cx="${s.x}" cy="${s.y}" r="${s.r}" fill="#edf0fa" opacity="${s.o}" />`)
+      .join('');
+  })()}
   <rect width="${WIDTH}" height="5" fill="url(#brand)" />`;
 }
 
