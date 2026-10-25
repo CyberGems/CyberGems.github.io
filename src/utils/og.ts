@@ -99,11 +99,11 @@ function defs(accent: string): string {
       <stop offset="1" stop-color="#12101f" />
     </linearGradient>
     <radialGradient id="cyanGlow" cx="10%" cy="0%" r="80%">
-      <stop offset="0" stop-color="${accent}" stop-opacity="0.28" />
+      <stop offset="0" stop-color="${accent}" stop-opacity="0.12" />
       <stop offset="1" stop-color="${accent}" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="violetGlow" cx="100%" cy="60%" r="65%">
-      <stop offset="0" stop-color="#7A5CFF" stop-opacity="0.18" />
+      <stop offset="0" stop-color="#7A5CFF" stop-opacity="0.10" />
       <stop offset="1" stop-color="#7A5CFF" stop-opacity="0" />
     </radialGradient>
     <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
@@ -117,7 +117,7 @@ function background(accent: string): string {
   <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#background)" />
   <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#cyanGlow)" />
   <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#violetGlow)" />
-  <g opacity="0.075">
+  <g opacity="0.035">
     ${Array.from({ length: 29 }).map((_, i) => `<line x1="${i * 44}" y1="0" x2="${i * 44}" y2="${HEIGHT}" stroke="${accent}" stroke-width="1" />`).join('')}
     ${Array.from({ length: 15 }).map((_, i) => `<line x1="0" y1="${i * 44}" x2="${WIDTH}" y2="${i * 44}" stroke="${accent}" stroke-width="1" />`).join('')}
   </g>
@@ -196,7 +196,7 @@ function appCard(app: CyberApp, lang: Lang): string {
   ${brandMark(72, 48, 52, 32)}
   <text x="1128" y="80" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="15" font-weight="600" letter-spacing="1.5" text-anchor="end">CYBERGEMS.ORG</text>
 
-  <rect x="72" y="164" width="330" height="34" rx="17" fill="${accent}" fill-opacity="0.1" stroke="${accent}" stroke-opacity="0.36" />
+  <rect x="72" y="164" width="240" height="34" rx="17" fill="${accent}" fill-opacity="0.1" stroke="${accent}" stroke-opacity="0.36" />
   <text x="92" y="186" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="1">${label}</text>
   <text x="72" y="286" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="68" font-weight="800" letter-spacing="-2">${title}</text>
   ${tagline.map((line, index) => `<text x="72" y="${352 + index * 36}" fill="#d8d8df" font-family="Segoe UI, system-ui, sans-serif" font-size="24" font-weight="500">${escapeXml(line)}</text>`).join('')}
@@ -277,8 +277,8 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
   ${tagline.map((line, index) => `<text x="450" y="${212 + index * 34}" fill="#c9c9d1" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
   <text x="450" y="308" fill="#8f929f" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">${escapeXml(trust)}</text>
 
-  <image href="${cyberGemsMark}" x="1100" y="294" width="36" height="36" opacity="0.95" />
-  <text x="1140" y="322" fill="#c9d2d8" fill-opacity="0.92" font-family="Segoe UI, system-ui, sans-serif" font-size="15" font-weight="600" text-anchor="end">cybergems.org</text>
+  <image href="${cyberGemsMark}" x="1074" y="290" width="32" height="32" opacity="0.95" />
+  <text x="1116" y="312" fill="#c9d2d8" fill-opacity="0.92" font-family="Segoe UI, system-ui, sans-serif" font-size="15" font-weight="600">cybergems.org</text>
 
   <circle cx="54" cy="40" r="1.2" fill="white" fill-opacity="0.65" />
   <circle cx="392" cy="62" r="1" fill="${accent}" fill-opacity="0.8" />
