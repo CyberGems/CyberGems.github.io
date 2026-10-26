@@ -99,5 +99,9 @@
   },
   "repo": "https://github.com/CyberGems/CyberWall",
   "wiki": "https://github.com/CyberGems/CyberWall/wiki",
+  "codeSigning": {
+    "en": "Code signing: CyberWall has applied to SignPath Foundation, which provides free code signing for open source software. Releases published before the project is approved are unsigned; verify those with the SHA256 in the release notes.",
+    "es": "Firma de código: CyberWall ha solicitado el alta en SignPath Foundation, que ofrece firma de código gratuita para software de código abierto. Los releases publicados antes de la aprobación del proyecto no están firmados; verifícalos con el SHA256 de las notas del release."
+  },
   "screenshot": null
 }

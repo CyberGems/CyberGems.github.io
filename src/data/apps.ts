@@ -47,6 +47,8 @@ export interface CyberApp {
   wiki: string;
   /** winget package id, if published */
   winget?: string;
+  /** Optional code signing note rendered in "Requirements & safety" */
+  codeSigning?: LocalizedText;
   /** Optional role/task use cases rendered as "By Role" / "By Task" sections */
   useCases?: {
     roles: UseCase[];
