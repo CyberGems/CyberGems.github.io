@@ -306,7 +306,11 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
         </li>
         <li>· 🔏 {lang === 'en' ? '“Unknown publisher” SmartScreen warning is expected (no paid certificate yet). Verify via release SHA / VirusTotal or build from source.' : 'Aviso SmartScreen de “editor desconocido” esperado (aún sin certificado de pago). Verifica con el SHA / VirusTotal o compilando.'}</li>
         {app.codeSigning && (
-          <li>· ✍️ {app.codeSigning[lang]}</li>
+          <li>· ✍️ {app.codeSigning[lang]}
+            {app.codeSigningPolicy && (
+              <a href={app.codeSigningPolicy} target="_blank" rel="noopener noreferrer" class="ml-1 underline hover:text-white" style={`color: ${app.accent};`}>{lang === 'en' ? 'Code signing policy' : 'Política de firma de código'}</a>
+            )}
+          </li>
         )}
       </ul>
       <div class="mt-4 flex flex-wrap gap-3">
