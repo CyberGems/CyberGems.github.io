@@ -52,7 +52,9 @@
     { "en": "Six themes, custom backgrounds, glass effects and interface scaling for menus and controls", "es": "Seis temas, fondos personalizados, efectos de cristal y escala de interfaz para menús y controles" },
     { "en": "Search Unicode symbols and Emoji 18.0 by category; insert one or queue multiple characters for batch insertion", "es": "Busca símbolos Unicode y emojis 18.0 por categoría; inserta uno o prepara varios para agregarlos juntos" },
     { "en": "Follow long notes with aligned line numbers and continuation markers", "es": "Sigue notas largas con números de línea e indicadores de continuación alineados" },
-    { "en": "Collapse the sidebar or line-number gutter; the More menu adapts to the screen and interface scale", "es": "Contrae la barra lateral o la columna de números de línea; el menú Más se adapta a la pantalla y a la escala de interfaz" }
+    { "en": "Collapse the sidebar or line-number gutter; the More menu adapts to the screen and interface scale", "es": "Contrae la barra lateral o la columna de números de línea; el menú Más se adapta a la pantalla y a la escala de interfaz" },
+    { "en": "Automatic backups on a 6-hour to weekly schedule in a folder of your choice, keeping 1 to 7 portable copies with the database and images that you can restore in-app", "es": "Copias de seguridad automáticas cada 6 horas o cada semana en la carpeta que elijas, conservando de 1 a 7 copias portátiles con base de datos e imágenes restaurables desde la app" },
+    { "en": "Danger Zone to permanently delete all data on demand, with automatic backups preserved", "es": "Zona de peligro para borrar permanentemente todos los datos al instante, conservando las copias de seguridad automáticas" }
   ],
   "useCases": {
     "roles": [
