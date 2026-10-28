@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ReleaseDate from './ReleaseDate.astro';
 import NavIcon from './NavIcon.astro';
 import FeatureSymbol from './FeatureSymbol.astro';
 import { appTask } from '../data/catalog';
@@ -79,87 +78,215 @@ const breadcrumbLd = {
           const hasData = Boolean(dl?.tag);
           const appPage = `${homePath}apps/${app.slug}/`;
           const detailsAria = en ? `View ${app.name} details` : `Ver detalles de ${app.name}`;
+          const task = appTask(app.slug);
           return (
             <div
-              class="dl-card card min-w-0 p-5 flex gap-3 sm:gap-4 items-start scroll-mt-24"
+              class="dl-card card group relative min-w-0 flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#12151f] hover:border-white/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-950/20 scroll-mt-24"
               id={app.slug}
-              data-search={`${app.name} ${app.tagline[lang]} ${appTask(app.slug).label[lang]}`}
+              data-search={`${app.name} ${app.tagline[lang]} ${task.label[lang]} ${app.stack} ${app.license} ${app.winget || ''}`}
+              style={`--app-accent: ${app.accent || '#00f2ff'};`}
             >
-              <a
-                href={appPage}
-                aria-label={detailsAria}
-                class="dl-logo shrink-0 flex items-center justify-center pt-0.5"
-              >
-                {app.icon ? (
+              {/* Top subtle accent glow */}
+              <div
+                class="pointer-events-none absolute inset-x-0 top-0 h-[2px] opacity-40 transition-opacity duration-300 group-hover:opacity-100"
+                style="background: linear-gradient(90deg, transparent, var(--app-accent), transparent);"
+                aria-hidden="true"
+              />
+
+              {/* Ambient background watermark icon */}
+              {app.icon && (
+                <div
+                  class="pointer-events-none absolute -right-6 -top-6 h-36 w-36 select-none opacity-[0.04] transition-all duration-500 group-hover:scale-105 group-hover:opacity-[0.08]"
+                  aria-hidden="true"
+                >
                   <img
                     src={app.icon}
                     alt=""
-                    width="44"
-                    height="44"
-                    class="dl-logo-icon h-11 w-11 object-contain"
+                    width="144"
+                    height="144"
+                    class="h-full w-full object-contain filter grayscale"
+                    loading="lazy"
+                    decoding="async"
                   />
-                ) : (
-                  <span class="dl-logo-icon text-3xl select-none">{app.emoji}</span>
-                )}
-              </a>
-              <div class="min-w-0 flex-1">
-                <div class="flex flex-wrap items-center gap-2">
-                  <h3 class="font-bold">
-                    <a href={appPage} aria-label={detailsAria} class="text-white hover:underline underline-offset-4 decoration-white/40 transition-colors">{app.name}</a>
-                  </h3>
+                </div>
+              )}
+
+              <div class="p-5 flex flex-col flex-1">
+                {/* Micro-header */}
+                <div class="flex items-center justify-between gap-2 text-xs font-mono tracking-wider">
+                  <div class="flex items-center gap-1.5 min-w-0">
+                    <span
+                      class="inline-block h-1.5 w-1.5 shrink-0 rounded-full"
+                      style="background-color: var(--app-accent); box-shadow: 0 0 8px var(--app-accent);"
+                      aria-hidden="true"
+                    />
+                    <span class="font-semibold uppercase tracking-wider text-[11px] text-accent/90 truncate">
+                      {task.label[lang]}
+                    </span>
+                  </div>
                   {hasData && (
-                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md text-[#00f2ff] bg-[#00f2ff]/[0.08] border border-[#00f2ff]/25">{dl?.tag}</span>
+                    <span class="shrink-0 rounded border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] font-mono text-[var(--text-dim)]">
+                      {dl?.tag}
+                    </span>
                   )}
                 </div>
-                <p class="mt-1 text-sm text-[var(--text-dim)] leading-relaxed">{app.tagline[lang]}</p>
-                {hasData && dl && dl.publishedAt && (
-                  <div class="mt-2">
-                    <ReleaseDate publishedAt={dl.publishedAt} lang={lang} label={c.updated.charAt(0).toUpperCase() + c.updated.slice(1)} />
+
+                {/* Identity: Icon + Name */}
+                <div class="mt-4 flex items-center gap-3.5">
+                  <a
+                    href={appPage}
+                    aria-label={detailsAria}
+                    class="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-base-100/90 p-2 shadow-sm transition-colors group-hover:border-accent/40"
+                  >
+                    {app.icon ? (
+                      <img
+                        src={app.icon}
+                        alt=""
+                        width="48"
+                        height="48"
+                        class="h-10 w-10 object-contain drop-shadow"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : (
+                      <span class="text-2xl select-none">{app.emoji}</span>
+                    )}
+                  </a>
+                  <div class="min-w-0 flex-1">
+                    <h3 class="text-xl font-bold tracking-tight text-white transition-colors group-hover:text-accent">
+                      <a href={appPage} aria-label={detailsAria} class="hover:underline underline-offset-4 decoration-accent/40">
+                        {app.name}
+                      </a>
+                    </h3>
+                    <p class="text-xs text-[var(--text-dim)]">Windows 10 / 11 · 64-bit</p>
                   </div>
-                )}
-                <div class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
-                  {inst ? (
-                    <a
-                      href={inst.url}
-                      aria-label={`${c.dlLink} ${app.name}`}
-                      class="inline-flex min-h-11 items-center gap-2 font-bold px-3 py-2 rounded-lg text-primary-content bg-primary hover:brightness-95 transition"
-                      data-umami-event="download_click"
-                      data-umami-event-app={app.slug}
-                      data-umami-event-format="installer"
-                      data-umami-event-source="download-page"
-                      data-download-start
-                    >
-                      <NavIcon name="download" />{c.dlLink} {'\u00B7'} {fmtSize(inst.size)}
-                    </a>
-                  ) : (
-                    <a
-                      href={appPage}
-                      class="font-semibold text-[#00f2ff] hover:text-white transition-colors"
-                      data-umami-event="download_click"
-                      data-umami-event-app={app.slug}
-                      data-umami-event-format="installer"
-                      data-umami-event-source="download-page"
-                    >{c.dlLink}</a>
+                </div>
+
+                {/* Tagline */}
+                <p class="mt-3.5 text-[13.5px] leading-relaxed text-[var(--text-dim)] line-clamp-2 min-h-[2.6rem]">
+                  {app.tagline[lang]}
+                </p>
+
+                {/* Download Specs Key-Value List */}
+                <div class="mt-4 pt-3.5 border-t border-white/5 flex flex-col gap-2 text-xs">
+                  <div class="flex items-center justify-between gap-3">
+                    <span class="text-[11px] font-mono uppercase tracking-wider text-[var(--text-dim)] opacity-75">
+                      {en ? 'Installer size' : 'Tamaño instalador'}
+                    </span>
+                    <span class="font-medium text-white/90 text-right font-mono text-[11px]">
+                      {inst ? fmtSize(inst.size) : (en ? 'Standard' : 'Estándar')}
+                    </span>
+                  </div>
+                  <div class="flex items-center justify-between gap-3">
+                    <span class="text-[11px] font-mono uppercase tracking-wider text-[var(--text-dim)] opacity-75">
+                      {en ? 'Release date' : 'Actualización'}
+                    </span>
+                    <span class="font-medium text-white/90 text-right font-mono text-[11px]">
+                      {dl?.publishedAt
+                        ? new Date(dl.publishedAt).toLocaleDateString(en ? 'en-US' : 'es-ES', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric',
+                          })
+                        : (en ? 'Active' : 'Activo')}
+                    </span>
+                  </div>
+                  <div class="flex items-center justify-between gap-3">
+                    <span class="text-[11px] font-mono uppercase tracking-wider text-[var(--text-dim)] opacity-75">
+                      {en ? 'License & Stack' : 'Licencia y Stack'}
+                    </span>
+                    <span class="font-medium text-white/90 text-right truncate max-w-[62%]" title={`${app.license} · ${app.stack}`}>
+                      {app.license} · {app.stack}
+                    </span>
+                  </div>
+                  {app.winget && (
+                    <div class="flex items-center justify-between gap-3">
+                      <span class="text-[11px] font-mono uppercase tracking-wider text-[var(--text-dim)] opacity-75">
+                        winget
+                      </span>
+                      <code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-accent font-mono text-[10.5px]">
+                        {app.winget}
+                      </code>
+                    </div>
                   )}
-                  <a href={appPage} aria-label={detailsAria} class="dl-details inline-flex items-center gap-1 rounded-md border border-white/10 bg-white/[0.04] px-2 py-1 font-semibold text-[#c9c9d1] hover:text-white hover:border-white/25 transition-colors">{en ? 'Details' : 'Detalles'} <span aria-hidden="true">→</span></a>
-                  {dl && dl.portable && (
+                </div>
+              </div>
+
+              {/* Actions footer */}
+              <div class="p-5 pt-3 border-t border-white/5 bg-white/[0.015] flex flex-col gap-2.5">
+                {inst ? (
+                  <a
+                    href={inst.url}
+                    aria-label={`${c.dlLink} ${app.name}`}
+                    class="flex w-full min-h-11 items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-bold text-primary-content bg-primary hover:brightness-105 active:scale-[0.99] transition shadow-md shadow-primary/10"
+                    data-umami-event="download_click"
+                    data-umami-event-app={app.slug}
+                    data-umami-event-format="installer"
+                    data-umami-event-source="download-page"
+                    data-download-start
+                  >
+                    <NavIcon name="download" size={17} />
+                    <span>{c.dlLink} · {fmtSize(inst.size)}</span>
+                  </a>
+                ) : (
+                  <a
+                    href={appPage}
+                    class="flex w-full min-h-11 items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-bold text-primary-content bg-primary hover:brightness-105 active:scale-[0.99] transition shadow-md shadow-primary/10"
+                    data-umami-event="download_click"
+                    data-umami-event-app={app.slug}
+                    data-umami-event-format="installer"
+                    data-umami-event-source="download-page"
+                  >
+                    <NavIcon name="download" size={17} />
+                    <span>{c.dlLink}</span>
+                  </a>
+                )}
+
+                <div class="flex flex-wrap items-center justify-between gap-y-1.5 text-xs px-0.5 pt-0.5 text-[var(--text-dim)]">
+                  <a
+                    href={appPage}
+                    aria-label={detailsAria}
+                    class="font-medium text-accent hover:underline flex items-center gap-1 group/link"
+                  >
+                    <span>{en ? 'Details' : 'Detalles'}</span>
+                    <span class="transition-transform group-hover/link:translate-x-0.5" aria-hidden="true">→</span>
+                  </a>
+
+                  <div class="flex items-center gap-3 font-mono text-[11px]">
+                    {dl && dl.portable && (
+                      <a
+                        href={dl.portable.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="hover:text-white transition"
+                        data-umami-event="download_click"
+                        data-umami-event-app={app.slug}
+                        data-umami-event-format="portable"
+                        data-umami-event-source="download-page"
+                        data-download-start
+                      >
+                        {dl.portable.name.toLowerCase().endsWith('.exe') ? 'Portable (.exe)' : 'Portable (.zip)'}
+                      </a>
+                    )}
+                    {hasData && dl && (
+                      <a
+                        href={dl.checksum ? dl.checksum.url : dl.releaseUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="hover:text-white transition"
+                      >
+                        {c.verLink}
+                      </a>
+                    )}
                     <a
-                      href={dl.portable.url}
+                      href={`${app.repo}/releases`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="text-[#9a9aa5] hover:text-white transition-colors"
-                      data-umami-event="download_click"
-                      data-umami-event-app={app.slug}
-                      data-umami-event-format="portable"
-                      data-umami-event-source="download-page"
-                      data-download-start
-                    >{dl.portable.name.toLowerCase().endsWith('.exe') ? 'Portable (.exe)' : (dl.portable.name.toLowerCase().endsWith('.zip') ? 'Portable (.zip)' : 'Portable')}</a>
-                  )}
-                  {hasData && dl && (
-                    <a href={dl.checksum ? dl.checksum.url : dl.releaseUrl} target="_blank" rel="noopener noreferrer" class="text-[#9a9aa5] hover:text-white transition-colors">{c.verLink}</a>
-                  )}
-                  <a href={`${app.repo}/releases`} target="_blank" rel="noopener noreferrer" class="text-[#9a9aa5] hover:text-white transition-colors">{c.relLink}</a>
-                  {app.winget && <code class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[#00f2ff]">winget install {app.winget}</code>}
+                      class="hover:text-white transition"
+                    >
+                      {c.relLink}
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
