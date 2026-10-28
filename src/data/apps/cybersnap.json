@@ -29,7 +29,7 @@
     {
       "icon": "@sliders",
       "title": { "en": "Show exactly what matters", "es": "Señala justo lo importante" },
-      "text": { "en": "Use arrows, text and blur to explain a capture, or extract words from an image with OCR.", "es": "Usa flechas, texto y difuminado para explicar una captura, o extrae palabras de una imagen con OCR." }
+      "text": { "en": "Use arrows, text and blur to explain a capture, add outlines and colored margins in Preview, or extract words with OCR.", "es": "Usa flechas, texto y difuminado para explicar una captura, añade delineado y márgenes de color en Vista previa o extrae palabras con OCR." }
     },
     {
       "icon": "@search",
@@ -44,11 +44,13 @@
   "features": [
     { "en": "Frozen-screen Zoom (1.25×–4×) with region or full-view capture, normal confirmation and annotations", "es": "Zoom de pantalla congelada (1.25×–4×), con captura de región o vista completa, confirmación y anotaciones habituales" },
     { "en": "Pin image references across monitors with wheel zoom, opacity, copy/save, optional shadows and borders", "es": "Fija referencias de imágenes entre monitores con zoom de rueda, opacidad, copiar/guardar, sombra y borde opcionales" },
+    { "en": "Capture Preview with checkerboard or custom solid backgrounds, theme defaults and high-DPI color pickers", "es": "Vista previa con damero o fondos sólidos personalizados, colores por tema y pickers adaptados a DPI alto" },
+    { "en": "Configurable outlines and colored margins included in copied or saved images, plus image-path copying and Paint export", "es": "Delineado y márgenes de color incluidos al copiar o guardar, con copiado de ruta y envío a Paint" },
     { "en": "One configurable global shortcut per tool, plus Tab navigation through visible capture-toolbar buttons", "es": "Un atajo global configurable por herramienta y navegación con Tab por los botones visibles de la barra de captura" },
     { "en": "Automatic backups for settings and achievements, with scheduling, retention and recovery copies", "es": "Copias automáticas de configuración y logros con programación, retención y copias de recuperación" },
     { "en": "Independent auto-copy for screenshots, scrolling captures, OCR, QR/barcodes, MP4, GIF and colors", "es": "Autocopia independiente para capturas normales y con desplazamiento, OCR, QR/códigos de barras, MP4, GIF y colores" },
     { "en": "Area, window, full screen & scroll capture", "es": "Captura de área, ventana, pantalla completa y desplazamiento" },
-    { "en": "3×3 widget with Zoom and Pin, contextual tooltips, and independent image/MP4/GIF cursor and delivery preferences", "es": "Widget 3×3 con Zoom y Pin, tooltips contextuales y preferencias independientes de cursor y resultados para Imagen/MP4/GIF" },
+    { "en": "3×3 widget with Zoom and Pin, optional cursor-following between monitors, contextual tooltips, and independent image/MP4/GIF cursor and delivery preferences", "es": "Widget 3×3 con Zoom y Pin, seguimiento opcional del cursor entre monitores, tooltips contextuales y preferencias independientes de cursor y resultados para Imagen/MP4/GIF" },
     { "en": "Per-user installation without administrator prompts; .NET 10 and FFmpeg included", "es": "Instalación por usuario sin pedir permisos de administrador; .NET 10 y FFmpeg incluidos" },
     { "en": "Screen recording to MP4 or GIF with independent tabbed trimming sessions", "es": "Grabación de pantalla a MP4 o GIF con sesiones de recorte independientes en pestañas" },
     { "en": "Annotation editor with shapes, text, rulers and frames", "es": "Editor de anotaciones con formas, texto, reglas y marcos" },
