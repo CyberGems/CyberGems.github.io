@@ -13,8 +13,8 @@
     "es": "Tus apps, archivos y enlaces favoritos a un gesto, sin saturar la barra de tareas."
   },
   "description": {
-    "en": "CyberTray gives your frequent apps, files, folders and links a dedicated shortcut shelf without filling the taskbar. Keep it tucked away, then bring it up with Alt+Shift+T, a screen corner or the tray icon to search and launch what you need. Categories and favorites keep things organized. Live system information, a process viewer and a PIN-protected file vault add useful desktop controls in the same place.",
-    "es": "CyberTray reúne tus apps, archivos, carpetas y enlaces frecuentes en una estantería de accesos sin llenar la barra de tareas. Mantenla oculta y ábrela con Alt+Shift+T, una esquina activa o el icono de la bandeja para buscar y lanzar lo que necesitas. Las categorías y los favoritos mantienen el orden. La información del sistema en vivo, un visor de procesos y una bóveda de archivos protegida con PIN añaden controles útiles en el mismo lugar."
+    "en": "CyberTray gives your frequent apps, files, folders and links a dedicated shortcut shelf without filling the taskbar. Keep it tucked away, then bring it up with Alt+Shift+T, a screen corner or the tray icon to search and launch what you need. Import the shortcuts Windows already has, and let CyberTray offer anything new that lands on your desktop. Categories and favorites keep things organized. Live system information, a process viewer and a PIN-protected file vault add useful desktop controls in the same place.",
+    "es": "CyberTray reúne tus apps, archivos, carpetas y enlaces frecuentes en una estantería de accesos sin llenar la barra de tareas. Mantenla oculta y ábrela con Alt+Shift+T, una esquina activa o el icono de la bandeja para buscar y lanzar lo que necesitas. Importa los accesos que Windows ya tiene y deja que CyberTray te ofrezca lo nuevo que aparezca en el escritorio. Las categorías y los favoritos mantienen el orden. La información del sistema en vivo, un visor de procesos y una bóveda de archivos protegida con PIN añaden controles útiles en el mismo lugar."
   },
   "highlightsTitle": {
     "en": "A command center that stays out of your way",
@@ -43,8 +43,12 @@
   },
   "features": [
     {
-      "en": "Shortcut shelf with search, categories and drag & drop import",
-      "es": "Estantería de accesos con búsqueda, categorías e importación por arrastre"
+      "en": "Shortcut shelf with search, categories, drag & drop and a reviewable Windows import",
+      "es": "Estantería de accesos con búsqueda, categorías, arrastre e importación revisable desde Windows"
+    },
+    {
+      "en": "Watches the desktop and Start menu and offers to add anything new that appears",
+      "es": "Vigila el escritorio y el Menú Inicio y ofrece añadir lo que aparezca"
     },
     {
       "en": "Tray icon, hot corners and global hotkey (Alt+Shift+T)",
