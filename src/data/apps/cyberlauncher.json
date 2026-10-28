@@ -53,7 +53,9 @@
     { "en": "Check CPU, memory and disk usage at a glance", "es": "Consulta el uso de CPU, memoria y disco de un vistazo" },
     { "en": "Adjust background, glass effect, opacity and interface scale", "es": "Ajusta fondo, efecto de cristal, opacidad y escala de la interfaz" },
     { "en": "Personalize CyberBot with inline naming, typed messages, quiet hours and focus/scan hover reactions", "es": "Personaliza CyberBot con entrada del nombre en el globo, mensajes progresivos, horario silencioso y reacciones de enfoque y escaneo" },
-    { "en": "CyberBot steps aside in dialogs and the terminal, returns with useful context and gives a brief farewell when disabled", "es": "CyberBot se retira en diálogos y la terminal, regresa con contexto útil y se despide brevemente al desactivarlo" }
+    { "en": "Interactive CyberBot quick command prompt on avatar click or global shortcut with smart action search", "es": "Paleta rápida interactiva de comandos al hacer clic en CyberBot o con atajo global y búsqueda inteligente de acciones" },
+    { "en": "CyberBot stays visible during routine idle, steps aside in dialogs and the terminal, and gives a brief farewell when disabled", "es": "CyberBot permanece visible durante la inactividad rutinaria, se retira en diálogos y la terminal, y se despide brevemente al desactivarlo" },
+    { "en": "Automated recurring backups with customizable destination folder and flexible retention policy", "es": "Copias de seguridad automáticas con carpeta de destino personalizable y retención flexible" }
   ],
   "useCases": {
     "roles": [
