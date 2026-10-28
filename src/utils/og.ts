@@ -13,7 +13,7 @@ const PUBLIC_DIR = path.join(process.cwd(), 'public');
 /**
  * Social cards are rendered by Sharp in an environment without the browser's
  * emoji fonts. Embedding the real site assets keeps previews consistent across
- * Reddit, Discord, Slack and other crawlers.
+ * Reddit, Discord, Slack, GitHub and other crawlers.
  */
 function assetData(publicPath: string, mime = 'image/png'): string {
   const filePath = path.join(PUBLIC_DIR, publicPath.replace(/^\//, ''));
@@ -98,45 +98,67 @@ function defs(accent: string): string {
       <stop offset="0.48" stop-color="#070a10" />
       <stop offset="1" stop-color="#0c0b16" />
     </linearGradient>
-    <radialGradient id="cyanGlow" cx="10%" cy="0%" r="80%">
-      <stop offset="0" stop-color="${accent}" stop-opacity="0.12" />
+    <radialGradient id="cyanGlow" cx="15%" cy="15%" r="75%">
+      <stop offset="0" stop-color="${accent}" stop-opacity="0.14" />
       <stop offset="1" stop-color="${accent}" stop-opacity="0" />
     </radialGradient>
-    <radialGradient id="violetGlow" cx="100%" cy="60%" r="65%">
-      <stop offset="0" stop-color="#7A5CFF" stop-opacity="0.10" />
+    <radialGradient id="violetGlow" cx="85%" cy="80%" r="70%">
+      <stop offset="0" stop-color="#7A5CFF" stop-opacity="0.14" />
       <stop offset="1" stop-color="#7A5CFF" stop-opacity="0" />
     </radialGradient>
+    <radialGradient id="iconAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="${accent}" stop-opacity="0.25" />
+      <stop offset="55%" stop-color="${accent}" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="${accent}" stop-opacity="0" />
+    </radialGradient>
     <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000000" flood-opacity="0.35" />
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000000" flood-opacity="0.45" />
     </filter>
   </defs>`;
 }
 
-function background(accent: string): string {
-  return `
-  <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#background)" />
-  <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#cyanGlow)" />
-  <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#violetGlow)" />
-  ${(() => {
-    let seed = 1427;
-    const random = () => {
-      seed = (seed * 16807) % 2147483647;
-      return (seed - 1) / 2147483646;
-    };
-    const stars: Array<{ x: string; y: string; r: string; o: string }> = [];
-    for (let i = 0; i < 60; i += 1) {
-      stars.push({
-        x: (random() * WIDTH).toFixed(1),
-        y: (random() * HEIGHT).toFixed(1),
-        r: (0.5 + random() * 1.5).toFixed(2),
-        o: (0.15 + random() * 0.45).toFixed(2),
-      });
+/**
+ * Deterministic starfield generator with varied star sizes and 4-point cross sparkles
+ * matching the live galactic hero on cybergems.org.
+ */
+function renderStarfield(width: number, height: number, accent: string): string {
+  let seed = 2026;
+  const random = () => {
+    seed = (seed * 16807) % 2147483647;
+    return (seed - 1) / 2147483646;
+  };
+  const count = width > 1200 ? 95 : 65;
+  const stars: string[] = [];
+
+  for (let i = 0; i < count; i += 1) {
+    const x = (random() * width).toFixed(1);
+    const y = (random() * height).toFixed(1);
+    const r = (0.55 + random() * 1.35).toFixed(2);
+    const o = (0.25 + random() * 0.55).toFixed(2);
+    const isTinted = random() > 0.8;
+    const fill = isTinted ? accent : '#edf0fa';
+
+    stars.push(`<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" opacity="${o}" />`);
+
+    // 4-point cross sparkles for selected stars
+    if (i % 7 === 0) {
+      const s = (2.2 + random() * 2).toFixed(1);
+      stars.push(
+        `<path d="M-${s} 0H${s}M0 -${s}V${s}" transform="translate(${x} ${y})" stroke="${fill}" stroke-width="0.8" opacity="${(Number(o) * 0.95).toFixed(2)}" />`
+      );
     }
-    return stars
-      .map((s) => `<circle cx="${s.x}" cy="${s.y}" r="${s.r}" fill="#edf0fa" opacity="${s.o}" />`)
-      .join('');
-  })()}
-  <rect width="${WIDTH}" height="5" fill="url(#brand)" />`;
+  }
+
+  return stars.join('\n  ');
+}
+
+function background(accent: string, width = WIDTH, height = HEIGHT): string {
+  return `
+  <rect width="${width}" height="${height}" fill="url(#background)" />
+  <rect width="${width}" height="${height}" fill="url(#cyanGlow)" />
+  <rect width="${width}" height="${height}" fill="url(#violetGlow)" />
+  ${renderStarfield(width, height, accent)}
+  <rect width="${width}" height="4" fill="url(#brand)" />`;
 }
 
 function footer(lang: Lang): string {
@@ -146,6 +168,7 @@ function footer(lang: Lang): string {
   return `
   <rect x="72" y="538" width="1056" height="1" fill="white" opacity="0.1" />
   <text x="72" y="582" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="16" font-weight="600" letter-spacing="0.6">${trust}</text>
+  <text x="1128" y="582" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="600" letter-spacing="1" text-anchor="end">cybergems.org</text>
 `;
 }
 
@@ -169,10 +192,10 @@ function homeCard(lang: Lang): string {
   ${defs(accent)}
   ${background(accent)}
   ${brandMark(72, 48, 52, 32)}
-  <text x="1128" y="80" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="15" font-weight="600" letter-spacing="1.5" text-anchor="end">CYBERGEMS.ORG</text>
 
   <rect x="72" y="164" width="${lang === 'es' ? 350 : 300}" height="34" rx="17" fill="#00F2FF" fill-opacity="0.1" stroke="#00F2FF" stroke-opacity="0.32" />
-  <text x="92" y="186" fill="#bafcff" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="1.1">${badge}</text>
+  <circle cx="86" cy="181" r="3.5" fill="#00F2FF" />
+  <text x="98" y="186" fill="#bafcff" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="1.1">${badge}</text>
   <text x="72" y="278" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="57" font-weight="800" letter-spacing="-1.8">${escapeXml(headline)}</text>
   <text x="72" y="344" fill="url(#brand)" font-family="Segoe UI, system-ui, sans-serif" font-size="48" font-weight="800" letter-spacing="-1.4">${escapeXml(subtitle)}</text>
   <text x="72" y="397" fill="#d8d8df" font-family="Segoe UI, system-ui, sans-serif" font-size="22" font-weight="500">${escapeXml(intro)}</text>
@@ -180,15 +203,13 @@ function homeCard(lang: Lang): string {
 
   <g filter="url(#softShadow)">
     <rect x="784" y="128" width="344" height="366" rx="32" fill="#111722" fill-opacity="0.88" stroke="white" stroke-opacity="0.13" />
-    <rect x="784" y="128" width="344" height="4" rx="2" fill="url(#brand)" />
-    <circle cx="956" cy="291" r="112" fill="#00F2FF" fill-opacity="0.045" stroke="#00F2FF" stroke-opacity="0.1" />
-    <circle cx="956" cy="291" r="82" fill="#0d0f17" stroke="white" stroke-opacity="0.1" />
+    <circle cx="956" cy="291" r="130" fill="url(#iconAura)" />
     ${appImage(brandApp, 898, 233, 116)}
     <text x="956" y="392" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="25" font-weight="800" text-anchor="middle">Cyber<tspan fill="url(#brand)">Gems</tspan></text>
     <text x="956" y="420" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="14" text-anchor="middle">${suiteLine}</text>
     ${positions.map(([x, y], index) => {
-      const app = apps[index];
-      return `<rect x="${x}" y="${y}" width="52" height="52" rx="15" fill="#151c28" stroke="${app.accent}" stroke-opacity="0.42" />${appImage(app, x + 5, y + 5, 42)}`;
+      const a = apps[index];
+      return `<rect x="${x}" y="${y}" width="52" height="52" rx="15" fill="#151c28" stroke="${a.accent}" stroke-opacity="0.42" />${appImage(a, x + 5, y + 5, 42)}`;
     }).join('')}
   </g>
   ${footer(lang)}
@@ -198,42 +219,53 @@ function homeCard(lang: Lang): string {
 function appCard(app: CyberApp, lang: Lang): string {
   const accent = app.accent ?? '#00F2FF';
   const title = escapeXml(app.name);
-  const tagline = wrapText(app.tagline[lang] ?? app.tagline.en, 48).slice(0, 2);
+  const tagline = wrapText(app.tagline[lang] ?? app.tagline.en, 46).slice(0, 3);
   const extra = `${app.stack}  ·  ${app.license}  ·  Windows`;
-  const label = lang === 'es' ? 'WINDOWS 10 Y 11' : 'WINDOWS 10 AND 11';
+  const label = lang === 'es' ? 'WINDOWS 10 / 11 · 64-BIT' : 'WINDOWS 10 / 11 · 64-BIT';
   const cardTitle = lang === 'es' ? 'Código abierto bajo GPLv3' : 'Open source under GPLv3';
-  const cardLine = lang === 'es' ? 'Gratis · privada · nativa para Windows' : 'Free · private · native Windows';
+  const cardLine = lang === 'es' ? 'Gratis · Privada · Nativa Windows' : 'Free · Private · Native Windows';
+  const tagStartY = tagline.length > 2 ? 342 : 352;
+  const tagLineHeight = tagline.length > 2 ? 30 : 36;
+  const tagFontSize = tagline.length > 2 ? 22 : 24;
+  const extraY = tagline.length > 2 ? 446 : 446;
+  const cardTitleY = tagline.length > 2 ? 480 : 480;
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" xmlns="http://www.w3.org/2000/svg" role="img">
   ${defs(accent)}
   ${background(accent)}
   ${brandMark(72, 48, 52, 32)}
-  <text x="1128" y="80" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="15" font-weight="600" letter-spacing="1.5" text-anchor="end">CYBERGEMS.ORG</text>
 
-  <rect x="72" y="164" width="240" height="34" rx="17" fill="${accent}" fill-opacity="0.1" stroke="${accent}" stroke-opacity="0.36" />
-  <text x="92" y="186" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="1">${label}</text>
+  <!-- Left: Metadata and headline -->
+  <rect x="72" y="164" width="245" height="34" rx="17" fill="${accent}" fill-opacity="0.1" stroke="${accent}" stroke-opacity="0.36" />
+  <circle cx="88" cy="181" r="3.5" fill="${accent}" />
+  <text x="100" y="186" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="1.1">${label}</text>
   <text x="72" y="286" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="68" font-weight="800" letter-spacing="-2">${title}</text>
-  ${tagline.map((line, index) => `<text x="72" y="${352 + index * 36}" fill="#d8d8df" font-family="Segoe UI, system-ui, sans-serif" font-size="24" font-weight="500">${escapeXml(line)}</text>`).join('')}
-  <text x="72" y="446" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="18" font-weight="600">${escapeXml(extra)}</text>
-  <text x="72" y="480" fill="${accent}" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="700">${cardTitle}</text>
+  ${tagline.map((line, index) => `<text x="72" y="${tagStartY + index * tagLineHeight}" fill="#d8d8df" font-family="Segoe UI, system-ui, sans-serif" font-size="${tagFontSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
+  <text x="72" y="${extraY}" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="18" font-weight="600">${escapeXml(extra)}</text>
+  <text x="72" y="${cardTitleY}" fill="${accent}" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="700">${cardTitle}</text>
 
-  <circle cx="976" cy="291" r="105" fill="${accent}" fill-opacity="0.04" />
-  <circle cx="976" cy="291" r="56" fill="#0d0f17" fill-opacity="0.5" />
-  <image href="${assetData(app.icon)}" x="881" y="196" width="190" height="190" preserveAspectRatio="xMidYMid meet" />
-  <text x="976" y="421" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="20" font-weight="800" text-anchor="middle">${title}</text>
-  <text x="976" y="449" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="14" text-anchor="middle">${cardLine}</text>
+  <!-- Right: Glassmorphic flagship showcase card -->
+  <g filter="url(#softShadow)">
+    <rect x="756" y="118" width="372" height="392" rx="30" fill="#12151f" fill-opacity="0.92" stroke="white" stroke-opacity="0.14" />
+    ${appImage(app, 857, 190, 170)}
+
+    <text x="942" y="412" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="24" font-weight="800" text-anchor="middle">${title}</text>
+    <text x="942" y="442" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="600" text-anchor="middle">${cardLine}</text>
+    <rect x="832" y="464" width="220" height="26" rx="13" fill="white" fill-opacity="0.04" stroke="white" stroke-opacity="0.08" />
+    <text x="942" y="481" fill="${accent}" font-family="Segoe UI, system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="0.5" text-anchor="middle">WINDOWS 10 / 11 · x64</text>
+  </g>
+
   ${footer(lang)}
 </svg>`;
 }
 
 /**
- * Wide app banner for README headers and other compact placements. It embeds
- * the canonical app icon at build time, so consumers never need a separate
- * composited artwork file.
+ * Wide app banner for README headers and other compact placements.
+ * Fully aligned with the space / galactic aesthetic of the site.
  */
 export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
-  const accent = '#00F2FF';
+  const accent = app.accent ?? '#00F2FF';
   const title = escapeXml(app.name);
   const tagline = balanceTwoLines(app.tagline[lang] ?? app.tagline.en);
   const longestTaglineLine = Math.max(...tagline.map((line) => line.length));
@@ -253,49 +285,44 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
       <stop offset="0.56" stop-color="#0b0d14" />
       <stop offset="1" stop-color="#12101f" />
     </linearGradient>
-    <radialGradient id="bannerGlow" cx="19%" cy="50%" r="42%">
-      <stop offset="0" stop-color="${accent}" stop-opacity="0.06" />
+    <radialGradient id="bannerGlow" cx="19%" cy="50%" r="55%">
+      <stop offset="0" stop-color="${accent}" stop-opacity="0.14" />
       <stop offset="1" stop-color="${accent}" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="bannerViolet" cx="100%" cy="110%" r="65%">
-      <stop offset="0" stop-color="#7A5CFF" stop-opacity="0.2" />
+      <stop offset="0" stop-color="#7A5CFF" stop-opacity="0.18" />
       <stop offset="1" stop-color="#7A5CFF" stop-opacity="0" />
     </radialGradient>
-    <pattern id="bannerGrid" width="44" height="44" patternUnits="userSpaceOnUse">
-      <path d="M 44 0 L 0 0 0 44" fill="none" stroke="${accent}" stroke-opacity="0.09" stroke-width="1" />
-    </pattern>
-    <filter id="bannerShadow" x="-35%" y="-35%" width="170%" height="170%">
-      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.42" />
-    </filter>
     <filter id="bannerIconGlow" x="-70%" y="-70%" width="240%" height="240%">
       <feGaussianBlur stdDeviation="28" />
     </filter>
   </defs>
 
+  <!-- Space background with stars (no grid) -->
   <rect width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" rx="24" fill="url(#bannerBg)" />
   <rect width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" rx="24" fill="url(#bannerGlow)" />
   <rect width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" rx="24" fill="url(#bannerViolet)" />
-  <rect width="420" height="${BANNER_HEIGHT}" rx="24" fill="url(#bannerGrid)" />
+  ${renderStarfield(BANNER_WIDTH, BANNER_HEIGHT, accent)}
   <rect x="0.5" y="0.5" width="${BANNER_WIDTH - 1}" height="${BANNER_HEIGHT - 1}" rx="23.5" fill="none" stroke="${accent}" stroke-opacity="0.30" />
 
-  <circle cx="214" cy="180" r="92" fill="${accent}" fill-opacity="0.18" filter="url(#bannerIconGlow)" />
+  <!-- Left Icon showcase with aura -->
+  <circle cx="214" cy="180" r="96" fill="${accent}" fill-opacity="0.22" filter="url(#bannerIconGlow)" />
   ${appImage(app, 144, 110, 140)}
 
-  <svg x="448" y="55" width="16" height="16" viewBox="0 0 16 16" fill="#4FC3F7">
+  <!-- Header pill -->
+  <svg x="448" y="55" width="16" height="16" viewBox="0 0 16 16" fill="${accent}">
     <path d="M1 2.3 7 1.5v6H1V2.3Zm8-1.1 6-.8v7.1H9V1.2ZM1 8.5h6v6L1 13.7V8.5Zm8 0h6v7.1l-6-.8V8.5Z" />
   </svg>
-  <text x="474" y="70" fill="${accent}" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="800" letter-spacing="2.2">WINDOWS 10/11 (64-BIT)</text>
+  <text x="474" y="69" fill="${accent}" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="800" letter-spacing="2">WINDOWS 10 / 11 (64-BIT)</text>
+
+  <!-- Title and tagline -->
   <text x="448" y="158" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="72" font-weight="800" letter-spacing="-2.6">${title}</text>
   ${tagline.map((line, index) => `<text x="450" y="${212 + index * 34}" fill="#c9c9d1" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
   <text x="450" y="308" fill="#8f929f" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">${escapeXml(trust)}</text>
 
+  <!-- Bottom right mark -->
   <image href="${cyberGemsMark}" x="1162" y="260" width="36" height="36" opacity="0.95" />
   <text x="1180" y="318" fill="#c9d2d8" fill-opacity="0.92" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="600" text-anchor="middle">cybergems.org</text>
-
-  <circle cx="54" cy="40" r="1.2" fill="white" fill-opacity="0.65" />
-  <circle cx="392" cy="62" r="1" fill="${accent}" fill-opacity="0.8" />
-  <circle cx="1160" cy="120" r="1.2" fill="white" fill-opacity="0.55" />
-  <circle cx="1030" cy="288" r="1" fill="${accent}" fill-opacity="0.65" />
 </svg>`;
 }
 
