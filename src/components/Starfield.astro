@@ -5,44 +5,76 @@ const random = () => {
   seed = (seed * 16807) % 2147483647;
   return (seed - 1) / 2147483646;
 };
+
 const layers = [
-  { count: 100, depth: 0.25, radius: 0.65, opacity: 0.36 },
-  { count: 55, depth: 0.6, radius: 0.95, opacity: 0.52 },
-  { count: 24, depth: 1, radius: 1.35, opacity: 0.72 },
+  { count: 110, depth: 0.25, radius: 0.7, opacity: 0.45 },
+  { count: 65, depth: 0.6, radius: 1.05, opacity: 0.65 },
+  { count: 28, depth: 1.0, radius: 1.45, opacity: 0.85 },
 ].map((layer, index) => ({
   ...layer,
-  duration: 7 + index * 2,
-  stars: Array.from({ length: layer.count }, (_, starIndex) => ({
-    x: (random() * 1440).toFixed(2),
-    y: (random() * 840).toFixed(2),
-    radius: (layer.radius * (0.65 + random() * 0.7)).toFixed(2),
-    opacity: (layer.opacity * (0.55 + random() * 0.45)).toFixed(2),
-    twinkle: starIndex % 5 === 0,
-    sparkle: index === 2 && starIndex % 6 === 0,
-  })),
+  stars: Array.from({ length: layer.count }, (_, starIndex) => {
+    // 0: steady (20%), 1: fast (20%), 2: mid (20%), 3: slow (20%), 4: breathe (20%)
+    const group = starIndex % 5;
+    return {
+      x: (random() * 1440).toFixed(2),
+      y: (random() * 840).toFixed(2),
+      radius: (layer.radius * (0.7 + random() * 0.6)).toFixed(2),
+      opacity: (layer.opacity * (0.6 + random() * 0.4)).toFixed(2),
+      group,
+      sparkle: index === 2 && starIndex % 3 === 0,
+    };
+  }),
 }));
 ---
 
 <div class="hero-starfield absolute inset-0 overflow-hidden pointer-events-none" data-starfield aria-hidden="true">
   {layers.map((layer) => (
-    <div class="starfield-layer" style={`--depth: ${layer.depth}; --twinkle-duration: ${layer.duration}s; --twinkle-delay: -${layer.depth * 5}s;`}>
+    <div class="starfield-layer" style={`--depth: ${layer.depth};`}>
       <svg class="starfield-sky" viewBox="0 0 1440 840" preserveAspectRatio="xMidYMid slice" focusable="false">
-        <g>
-          {layer.stars.filter((star) => !star.twinkle).map((star) => (
+        {/* Steady anchor stars */}
+        <g class="starfield-steady">
+          {layer.stars.filter((s) => s.group === 0).map((star) => (
             <circle cx={star.x} cy={star.y} r={star.radius} opacity={star.opacity} />
           ))}
         </g>
-        <g class="starfield-twinkle">
-          {layer.stars.filter((star) => star.twinkle).map((star) => (
+
+        {/* Phase 1: Fast twinkle */}
+        <g class="starfield-twinkle-fast">
+          {layer.stars.filter((s) => s.group === 1).map((star) => (
             <circle cx={star.x} cy={star.y} r={star.radius} opacity={star.opacity} />
           ))}
         </g>
-        {layer.stars.filter((star) => star.sparkle).map((star) => (
-          <path d="M-3 0H3M0-3V3" transform={`translate(${star.x} ${star.y})`} opacity={star.opacity} class="starfield-sparkle" />
+
+        {/* Phase 2: Medium shimmer */}
+        <g class="starfield-twinkle-mid">
+          {layer.stars.filter((s) => s.group === 2).map((star) => (
+            <circle cx={star.x} cy={star.y} r={star.radius} opacity={star.opacity} />
+          ))}
+        </g>
+
+        {/* Phase 3: Slow pulse */}
+        <g class="starfield-twinkle-slow">
+          {layer.stars.filter((s) => s.group === 3).map((star) => (
+            <circle cx={star.x} cy={star.y} r={star.radius} opacity={star.opacity} />
+          ))}
+        </g>
+
+        {/* Phase 4: Gentle breathe */}
+        <g class="starfield-twinkle-breathe">
+          {layer.stars.filter((s) => s.group === 4).map((star) => (
+            <circle cx={star.x} cy={star.y} r={star.radius} opacity={star.opacity} />
+          ))}
+        </g>
+
+        {/* Foreground 4-point cross sparkles */}
+        {layer.stars.filter((s) => s.sparkle).map((star) => (
+          <path d="M-3.5 0H3.5M0-3.5V3.5" transform={`translate(${star.x} ${star.y})`} opacity={star.opacity} class="starfield-sparkle" />
         ))}
       </svg>
+
+      {/* Interactive cursor illumination */}
       <svg class="starfield-highlight" viewBox="0 0 1440 840" preserveAspectRatio="xMidYMid slice" focusable="false">
-        {layer.stars.map((star) => <circle cx={star.x} cy={star.y} r={Number(star.radius) + 0.25} />)}
+        {layer.stars.map((star) => <circle cx={star.x} cy={star.y} r={Number(star.radius) + 0.35} />)}
       </svg>
     </div>
   ))}
@@ -114,6 +146,7 @@ const layers = [
   .starfield-layer {
     position: absolute;
     inset: -24px;
+    will-change: transform;
   }
   .starfield-sky, .starfield-highlight {
     position: absolute;
@@ -122,11 +155,15 @@ const layers = [
     height: 100%;
     fill: #edf0fa;
   }
-  .starfield-sparkle { fill: none; stroke: #edf0fa; stroke-width: 0.65; }
+  .starfield-sparkle {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 0.8;
+  }
   .starfield-highlight {
     opacity: 0;
     fill: #fff;
-    mask-image: radial-gradient(circle 150px at calc(var(--pointer-x, -300px) - var(--space-x) * var(--depth)) calc(var(--pointer-y, -300px) - var(--space-y) * var(--depth)), black 0%, transparent 100%);
+    mask-image: radial-gradient(circle 160px at calc(var(--pointer-x, -300px) - var(--space-x) * var(--depth)) calc(var(--pointer-y, -300px) - var(--space-y) * var(--depth)), black 0%, transparent 100%);
   }
   @media (prefers-reduced-motion: no-preference) {
     .starfield-layer {
@@ -137,12 +174,47 @@ const layers = [
     .hero-starfield:not([data-active="true"]) .starfield-layer,
     .hero-starfield:not([data-active="true"]) .starfield-highlight { transition: none; }
     [data-pointer="true"] .starfield-highlight { opacity: 0.85; }
-    [data-active="true"] .starfield-twinkle {
-      animation: star-twinkle var(--twinkle-duration) ease-in-out var(--twinkle-delay) infinite alternate;
+
+    /* Permanent multi-phase twinkling */
+    [data-active="true"] .starfield-twinkle-fast {
+      animation: star-twinkle-fast 2.2s ease-in-out infinite alternate;
+    }
+    [data-active="true"] .starfield-twinkle-mid {
+      animation: star-twinkle-mid 3.4s ease-in-out -1.1s infinite alternate;
+    }
+    [data-active="true"] .starfield-twinkle-slow {
+      animation: star-twinkle-slow 4.8s ease-in-out -2.4s infinite alternate;
+    }
+    [data-active="true"] .starfield-twinkle-breathe {
+      animation: star-twinkle-breathe 4.0s ease-in-out -1.7s infinite alternate;
+    }
+    [data-active="true"] .starfield-sparkle {
+      animation: star-sparkle-pulse 2.8s ease-in-out -0.9s infinite alternate;
     }
   }
-  @keyframes star-twinkle {
-    from { opacity: 0.4; }
-    to { opacity: 1; }
+
+  @keyframes star-twinkle-fast {
+    0% { opacity: 0.25; }
+    100% { opacity: 1; }
+  }
+  @keyframes star-twinkle-mid {
+    0% { opacity: 0.9; }
+    50% { opacity: 0.2; }
+    100% { opacity: 0.85; }
+  }
+  @keyframes star-twinkle-slow {
+    0% { opacity: 0.15; }
+    60% { opacity: 0.95; }
+    100% { opacity: 0.4; }
+  }
+  @keyframes star-twinkle-breathe {
+    0% { opacity: 0.85; }
+    40% { opacity: 0.25; }
+    100% { opacity: 0.9; }
+  }
+  @keyframes star-sparkle-pulse {
+    0% { opacity: 0.25; stroke-width: 0.5; }
+    50% { opacity: 1; stroke-width: 1.2; }
+    100% { opacity: 0.3; stroke-width: 0.6; }
   }
 </style>
