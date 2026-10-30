@@ -9,16 +9,16 @@
   "stack": "Electron · JavaScript",
   "license": "GPLv3",
   "tagline": {
-    "en": "Open images quickly, explore whole folders and make the edits you need.",
-    "es": "Abre imágenes rápido, recorre carpetas y haz los ajustes que necesitas."
+    "en": "Open images and videos quickly, explore whole folders and make the edits you need.",
+    "es": "Abre imágenes y videos rápido, recorre carpetas y haz los ajustes que necesitas."
   },
   "description": {
-    "en": "CyberViewer keeps viewing and everyday editing in one focused Windows app. Open an image or drop in a folder, move through thumbnails, zoom into details, and enjoy fullscreen viewing or a slideshow. When a picture needs a quick fix, rotate, crop, resize, flip or adjust its colors without switching to a full editor. Favorites, recent files, clipboard tools, PDF export and Windows Explorer integration help the result fit back into your workflow.",
-    "es": "CyberViewer reúne la visualización y los ajustes cotidianos en una app enfocada para Windows. Abre una imagen o arrastra una carpeta, recorre sus miniaturas, amplía los detalles y disfruta la pantalla completa o una presentación de diapositivas. Si una imagen necesita un retoque rápido, rota, recorta, redimensiona, voltea o ajusta sus colores sin cambiar a un editor completo. Favoritos, archivos recientes, herramientas de portapapeles, exportación a PDF e integración con el Explorador ayudan a continuar tu trabajo."
+    "en": "CyberViewer keeps viewing and everyday editing in one focused Windows app. Open an image or drop in a folder, move through thumbnails, zoom into details, and enjoy fullscreen viewing or a slideshow. Local videos play in media tabs inside the same window, and YouTube videos or playlists run in an isolated viewer. When a picture needs a quick fix, rotate, crop, resize, flip or adjust its colors without switching to a full editor. Favorites, recent files, tab sessions, scheduled backups, clipboard tools, PDF export and Windows Explorer integration help the result fit back into your workflow.",
+    "es": "CyberViewer reúne la visualización y los ajustes cotidianos en una app enfocada para Windows. Abre una imagen o arrastra una carpeta, recorre sus miniaturas, amplía los detalles y disfruta la pantalla completa o una presentación de diapositivas. Los videos locales se reproducen en pestañas de medios dentro de la misma ventana, y los videos o listas de YouTube se ven en un reproductor aislado. Si una imagen necesita un retoque rápido, rota, recorta, redimensiona, voltea o ajusta sus colores sin cambiar a un editor completo. Favoritos, archivos recientes, sesiones de pestañas, copias programadas, herramientas de portapapeles, exportación a PDF e integración con el Explorador ayudan a continuar tu trabajo."
   },
   "highlightsTitle": {
-    "en": "Everything you need for everyday images",
-    "es": "Lo que necesitas para tus imágenes de cada día"
+    "en": "Everything you need for everyday images and videos",
+    "es": "Lo que necesitas para tus imágenes y videos de cada día"
   },
   "highlights": [
     {
@@ -45,11 +45,15 @@
     { "en": "Open images or folders by dragging, pasting or using Windows Explorer", "es": "Abre imágenes o carpetas al arrastrar, pegar o usar el Explorador de Windows" },
     { "en": "Browse thumbnails and jump between images with keyboard shortcuts", "es": "Recorre miniaturas y cambia entre imágenes con atajos de teclado" },
     { "en": "Zoom from 5% to 2000%, pan and play animated GIFs", "es": "Amplía del 5 % al 2000 %, desplázate y reproduce GIF animados" },
+    { "en": "Keep images together in tabs and restore your previous session", "es": "Agrupa imágenes en pestañas y restaura tu sesión anterior" },
+    { "en": "Play local videos (MP4, MKV, WebM, MOV and more) in media tabs", "es": "Reproduce videos locales (MP4, MKV, WebM, MOV y más) en pestañas de medios" },
+    { "en": "Watch YouTube videos or playlists in an isolated viewer", "es": "Mira videos o listas de YouTube en un reproductor aislado" },
     { "en": "Crop, rotate, flip, resize and adjust color with live preview", "es": "Recorta, rota, voltea, redimensiona y ajusta colores con vista previa" },
     { "en": "Show a folder as a fullscreen, looping slideshow", "es": "Muestra una carpeta como diapositivas a pantalla completa y en bucle" },
     { "en": "Mark favorites and return to recent images and folders", "es": "Marca favoritos y vuelve a imágenes y carpetas recientes" },
     { "en": "Copy an image, print it or export it to PDF", "es": "Copia una imagen, imprímela o expórtala a PDF" },
-    { "en": "Set an image as wallpaper in Fill, Fit, Center or Span mode", "es": "Usa una imagen como fondo de escritorio en modo Rellenar, Ajustar, Centrar o Extender" }
+    { "en": "Set an image as wallpaper in Fill, Fit, Center or Span mode, even from pasted or dropped images", "es": "Usa una imagen como fondo de escritorio en modo Rellenar, Ajustar, Centrar o Extender, incluso desde imágenes pegadas o soltadas" },
+    { "en": "Back up settings and favorites automatically on a schedule", "es": "Respalda ajustes y favoritos automáticamente según una programación" }
   ],
   "useCases": {
     "roles": [
