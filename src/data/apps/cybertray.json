@@ -47,6 +47,10 @@
       "es": "Estantería de accesos con búsqueda, categorías, arrastre e importación revisable desde Windows"
     },
     {
+      "en": "Filter the grid by destination: programs, Microsoft Store apps, Steam games, links, scripts or files",
+      "es": "Filtra la cuadrícula por destino: programas, apps de Microsoft Store, juegos de Steam, enlaces, scripts o archivos"
+    },
+    {
       "en": "Watches the desktop and Start menu and offers to add anything new that appears",
       "es": "Vigila el escritorio y el Menú Inicio y ofrece añadir lo que aparezca"
     },
@@ -69,6 +73,10 @@
     {
       "en": "5 accent colors, custom backgrounds and grid or list layout",
       "es": "5 colores de acento, fondos personalizados y vista de cuadrícula o lista"
+    },
+    {
+      "en": "Portable edition: one executable that keeps its data in a folder beside it",
+      "es": "Edición portable: un solo ejecutable que guarda sus datos en una carpeta junto a él"
     }
   ],
   "useCases": {
