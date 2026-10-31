@@ -18,6 +18,7 @@ Propósito: verificar que la documentación de una app esté sincronizada antes 
 | 6 | ¿Hay cambios de instalación o primeros pasos que deban reflejarse en "Getting Started"? | | Editar `README.md` |
 | 7 | ¿Se respetó la regla de no usar em dash (`—`) en la documentación nueva? | | Corregir texto |
 | 8 | ¿Los commits están en inglés y se hizo push a `origin`? | | Commit + push |
+| 9 | ¿Los iconos de la pantalla About y del menú del tray (sugerencias del suite de CyberGems) están sincronizados desde los repositorios oficiales vía `.github/about-icons.json`, y el workflow `verify-suite-icons` pasa? | | Ejecutar `npm run icons:sync` (o `release:pre`) y corregir fuentes faltantes o PNGs inválidos |
 
 Si todos los ítems son **Sí**, el release puede publicarse. Si alguno es **No**, corregir antes de crear el tag.
 
