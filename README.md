@@ -1,3 +1,7 @@
+<p align="center">
+  English · <a href="./README.es.md">Español</a>
+</p>
+
 <div align="center">
 
 # 💎 CyberGems Website
