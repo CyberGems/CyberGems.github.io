@@ -89,6 +89,7 @@ import cyberviewer from './apps/cyberviewer.json';
 import cyberlauncher from './apps/cyberlauncher.json';
 import cyberclock from './apps/cyberclock.json';
 import cybergo from './apps/cybergo.json';
+import bannerOnly from './banner-apps.json';
 
 const appEntries: CyberApp[] = [
   cybersnap,
@@ -111,3 +112,34 @@ export const apps = appEntries.filter((app) => app.published === true);
 export function getApp(slug: string): CyberApp | undefined {
   return apps.find((a) => a.slug === slug);
 }
+
+/** Minimal shape the generated README banner needs. */
+export interface BannerSource {
+  slug: string;
+  name: string;
+  emoji?: string;
+  icon?: string;
+  accent?: string;
+  tagline?: LocalizedText;
+  bannerTagline?: LocalizedText;
+  bannerTitleAccent?: string;
+}
+
+/**
+ * Banners are served for every app, including unpublished ones and apps that
+ * are not on the site yet, so their READMEs can use a generated image without
+ * exposing an app page.
+ */
+export const bannerApps: BannerSource[] = [
+  ...appEntries.map((app) => ({
+    slug: app.slug,
+    name: app.name,
+    emoji: app.emoji,
+    icon: app.icon,
+    accent: app.accent,
+    tagline: app.tagline,
+    bannerTagline: app.bannerTagline,
+    bannerTitleAccent: app.bannerTitleAccent,
+  })),
+  ...(bannerOnly as BannerSource[]),
+];

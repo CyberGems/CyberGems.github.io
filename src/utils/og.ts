@@ -1,4 +1,4 @@
-import type { CyberApp } from '../data/apps';
+import type { CyberApp, BannerSource } from '../data/apps';
 import { apps } from '../data/apps';
 import type { Lang } from '../data/ui';
 import fs from 'node:fs';
@@ -67,7 +67,7 @@ function balanceTwoLines(value: string, singleLineLimit = 52): string[] {
   return [words.slice(0, splitAt).join(' '), words.slice(splitAt).join(' ')];
 }
 
-function appImage(app: CyberApp, x: number, y: number, size: number): string {
+function appImage(app: Pick<BannerSource, 'icon' | 'emoji'>, x: number, y: number, size: number): string {
   if (!app.icon) {
     return `<text x="${x + size / 2}" y="${y + size * 0.7}" fill="white" font-size="${size * 0.52}" text-anchor="middle">${escapeXml(app.emoji)}</text>`;
   }
@@ -264,11 +264,11 @@ function appCard(app: CyberApp, lang: Lang): string {
  * Wide app banner for README headers and other compact placements.
  * Fully aligned with the space / galactic aesthetic of the site.
  */
-export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
+export function readmeBannerSvg(app: BannerSource, lang: Lang = 'en'): string {
   const accent = app.accent ?? '#00F2FF';
   const titleAccent = app.bannerTitleAccent ?? accent;
   const title = escapeXml(app.name);
-  const bannerTagline = app.bannerTagline?.[lang] ?? app.tagline[lang] ?? app.tagline.en;
+  const bannerTagline = app.bannerTagline?.[lang] ?? app.tagline?.[lang] ?? app.tagline?.en ?? app.name;
   const tagline = balanceTwoLines(bannerTagline);
 
   // Text column starts at x=448; keep a safe right margin for the brand mark.

@@ -1,0 +1,13 @@
+[
+  {
+    "slug": "cyberfiles",
+    "name": "CyberFiles",
+    "emoji": "🗂️",
+    "icon": "/icons/apps/cyberfiles.png",
+    "accent": "#2EC4D6",
+    "tagline": {
+      "en": "A dual-pane file manager for Windows built for keyboard-first file work.",
+      "es": "Un gestor de archivos de doble panel para Windows, pensado para trabajar con el teclado."
+    }
+  }
+]

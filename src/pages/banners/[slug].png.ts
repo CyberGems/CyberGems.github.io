@@ -1,15 +1,15 @@
 import type { APIRoute } from 'astro';
 import sharp from 'sharp';
-import { apps } from '../../data/apps';
+import { bannerApps } from '../../data/apps';
 import { readmeBannerSvg } from '../../utils/og';
 
 export function getStaticPaths() {
-  return apps.map((app) => ({ params: { slug: app.slug } }));
+  return bannerApps.map((app) => ({ params: { slug: app.slug } }));
 }
 
 export const GET: APIRoute = async ({ params }) => {
   const slug = params.slug as string;
-  const app = apps.find((candidate) => candidate.slug === slug);
+  const app = bannerApps.find((candidate) => candidate.slug === slug);
   if (!app) return new Response('Not found', { status: 404 });
 
   const png = await sharp(Buffer.from(readmeBannerSvg(app, 'en'))).png().toBuffer();
