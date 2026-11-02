@@ -39,6 +39,13 @@ const appSlugs = fs.readdirSync(appDataDir)
 const publishedSlugs = appSlugs.filter((slug) =>
   JSON.parse(fs.readFileSync(path.join(appDataDir, `${slug}.json`), 'utf8')).published === true
 );
+// Apps that are not on the site yet can still serve a generated README banner,
+// so their icons must survive the cleanup below and be synced when possible.
+const bannerDataPath = path.join(root, 'src', 'data', 'banner-apps.json');
+const bannerSlugs = fs.existsSync(bannerDataPath)
+  ? JSON.parse(fs.readFileSync(bannerDataPath, 'utf8')).map((entry) => entry.slug)
+  : [];
+const activeSlugs = new Set([...appSlugs, ...bannerSlugs]);
 const configuredSlugs = iconSources.map(({ slug }) => slug).sort();
 const duplicateSlugs = configuredSlugs.filter((slug, index) => configuredSlugs.indexOf(slug) !== index);
 const missingSlugs = publishedSlugs.filter((slug) => !configuredSlugs.includes(slug));
@@ -53,8 +60,14 @@ if (duplicateSlugs.length || missingSlugs.length || unknownSlugs.length) {
 
 fs.mkdirSync(targetDir, { recursive: true });
 
-for (const slug of appSlugs.filter((slug) => !publishedSlugs.includes(slug))) {
-  const target = path.resolve(targetDir, `${slug}.png`);
+// Drop icons that no longer belong to an app or a generated banner. Every app
+// in the data directory keeps its icon, published or not, because its README
+// banner is still served.
+for (const filename of fs.readdirSync(targetDir)) {
+  if (!filename.endsWith('.png')) continue;
+  const slug = filename.replace(/\.png$/, '');
+  if (activeSlugs.has(slug)) continue;
+  const target = path.resolve(targetDir, filename);
   if (path.dirname(target) !== path.resolve(targetDir)) throw new Error(`Invalid icon slug: ${slug}`);
   fs.rmSync(target, { force: true });
 }
@@ -111,7 +124,7 @@ async function loadCanonicalIcon(source) {
 
 const stats = { updated: 0, unchanged: 0, fallback: 0 };
 
-for (const source of iconSources.filter(({ slug }) => publishedSlugs.includes(slug))) {
+for (const source of iconSources.filter(({ slug }) => activeSlugs.has(slug))) {
   const target = path.join(targetDir, `${source.slug}.png`);
   try {
     const { buffer, origin } = await loadCanonicalIcon(source);
@@ -139,6 +152,14 @@ for (const source of iconSources.filter(({ slug }) => publishedSlugs.includes(sl
       process.exitCode = 1;
     }
   }
+}
+
+const missingBannerIcons = [...activeSlugs].filter(
+  (slug) => !fs.existsSync(path.join(targetDir, `${slug}.png`))
+);
+if (missingBannerIcons.length) {
+  console.error(`  ✗ icons missing for banner apps: ${missingBannerIcons.join(', ')}`);
+  process.exitCode = 1;
 }
 
 console.log(`Icon sync: ${stats.updated} updated, ${stats.unchanged} unchanged, ${stats.fallback} fallback`);
