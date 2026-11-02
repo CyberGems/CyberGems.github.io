@@ -17,11 +17,13 @@ assert.deepEqual(manifest.apps.map((app) => app.slug).sort(), published.map((app
 const escape = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const patterns = drafts.map((app) => ({ slug: app.slug, pattern: new RegExp(`\\b${escape(app.slug)}\\b`, 'i') }));
 // A draft app still gets a generated README banner: the image is referenced by
-// its repository, not by the site. Nothing else may be emitted for it.
+// its repository, not by the site. Its icon is a build input for that banner.
+// Nothing else may be emitted for it.
 const allowedDraftPaths = new Set(
   drafts.flatMap((app) => [
     path.join('banners', `${app.slug}.png`),
     path.join('banners', 'es', `${app.slug}.png`),
+    path.join('icons', 'apps', `${app.slug}.png`),
   ]),
 );
 const textExtensions = new Set(['.html', '.json', '.xml', '.js', '.css', '.svg', '.md', '.txt', '.map']);
