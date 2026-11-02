@@ -17,8 +17,8 @@
     "es": "Historial del portapapeles, todo local"
   },
   "description": {
-    "en": "A sleek, privacy-focused clipboard history manager for Windows. CyberPaste stores everything you copy, including text, code, images, files and URLs, in a local SQLite database, so you can recall any clip at any time. Search, organize, pin, edit and paste instantly, protect the interface with a PIN or password, track optional local achievements, use quiet hours, export clips, and run AI-powered actions.",
-    "es": "Un gestor de historial del portapapeles elegante y centrado en la privacidad para Windows. CyberPaste guarda todo lo que copias, incluidos texto, código, imágenes, archivos y URLs, en una base de datos SQLite local, para que recuperes cualquier clip en cualquier momento. Busca, organiza, fija, edita y pega al instante, protege la interfaz con un PIN o contraseña, sigue logros locales opcionales, usa horario silencioso, exporta clips y ejecuta acciones de IA."
+    "en": "A sleek, privacy-focused clipboard history manager for Windows. CyberPaste stores everything you copy, including text, code, images, files and URLs, in a local SQLite database, so you can recall any clip at any time. Search, organize, pin, edit and paste instantly, protect the interface with a PIN or password, track optional local achievements, use quiet hours, export clips, back up automatically, and run AI-powered actions.",
+    "es": "Un gestor de historial del portapapeles elegante y centrado en la privacidad para Windows. CyberPaste guarda todo lo que copias, incluidos texto, código, imágenes, archivos y URLs, en una base de datos SQLite local, para que recuperes cualquier clip en cualquier momento. Busca, organiza, fija, edita y pega al instante, protege la interfaz con un PIN o contraseña, sigue logros locales opcionales, usa horario silencioso, exporta clips, haz copias automáticas y ejecuta acciones de IA."
   },
   "howItWorks": {
     "title": {
