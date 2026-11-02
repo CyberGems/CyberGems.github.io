@@ -276,6 +276,17 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
     ? 'GRATIS PARA SIEMPRE · SIN ANUNCIOS · SIN CUENTA · CÓDIGO ABIERTO'
     : 'FREE FOREVER · NO ADS · NO ACCOUNT · OPEN SOURCE';
 
+  // Vertically center the text block (title, tagline, trust) with even gaps,
+  // whether the tagline wraps to one line or two.
+  const lineHeight = 34;
+  const blockGap = 46;
+  const taglineCount = tagline.length;
+  const blockHeight = 2 * blockGap + (taglineCount - 1) * lineHeight + 54;
+  const blockTop = (BANNER_HEIGHT - blockHeight) / 2;
+  const titleBaseline = blockTop + 50;
+  const taglineStartY = titleBaseline + blockGap;
+  const trustY = taglineStartY + (taglineCount - 1) * lineHeight + blockGap;
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" viewBox="0 0 ${BANNER_WIDTH} ${BANNER_HEIGHT}" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="banner-title banner-description">
   <title id="banner-title">${title}</title>
@@ -307,13 +318,13 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
   <rect x="0.5" y="0.5" width="${BANNER_WIDTH - 1}" height="${BANNER_HEIGHT - 1}" rx="23.5" fill="none" stroke="${accent}" stroke-opacity="0.30" />
 
   <!-- Left Icon showcase with aura -->
-  <circle cx="214" cy="180" r="96" fill="${accent}" fill-opacity="0.22" filter="url(#bannerIconGlow)" />
-  ${appImage(app, 144, 110, 140)}
+  <circle cx="214" cy="180" r="115" fill="${accent}" fill-opacity="0.22" filter="url(#bannerIconGlow)" />
+  ${appImage(app, 130, 96, 168)}
 
   <!-- Title and tagline -->
-  <text x="448" y="158" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="72" font-weight="800" letter-spacing="-2.6">${title}</text>
-  ${tagline.map((line, index) => `<text x="450" y="${212 + index * 34}" fill="#c9c9d1" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
-  <text x="450" y="308" fill="#8f929f" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">${escapeXml(trust)}</text>
+  <text x="448" y="${titleBaseline}" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="72" font-weight="800" letter-spacing="-2.6">${title}</text>
+  ${tagline.map((line, index) => `<text x="450" y="${taglineStartY + index * lineHeight}" fill="#c9c9d1" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
+  <text x="450" y="${trustY}" fill="#8f929f" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">${escapeXml(trust)}</text>
 
   <!-- Bottom right mark -->
   <image href="${cyberGemsMark}" x="1162" y="260" width="36" height="36" opacity="0.95" />
