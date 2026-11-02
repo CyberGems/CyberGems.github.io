@@ -266,11 +266,29 @@ function appCard(app: CyberApp, lang: Lang): string {
  */
 export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
   const accent = app.accent ?? '#00F2FF';
+  const titleAccent = app.bannerTitleAccent ?? accent;
   const title = escapeXml(app.name);
   const bannerTagline = app.bannerTagline?.[lang] ?? app.tagline[lang] ?? app.tagline.en;
   const tagline = balanceTwoLines(bannerTagline);
-  const longestTaglineLine = Math.max(...tagline.map((line) => line.length));
-  const taglineSize = longestTaglineLine > 62 ? 20 : longestTaglineLine > 55 ? 21 : 23;
+
+  // Text column starts at x=448; keep a safe right margin for the brand mark.
+  const textX = 448;
+  const textWidth = BANNER_WIDTH - textX - 84;
+
+  // Segoe UI Bold averages ~0.56em per glyph, so fit the title to the column.
+  const titleSize = Math.min(84, Math.floor(textWidth / (app.name.length * 0.56)));
+  const taglineSize = Math.min(
+    27,
+    Math.floor(textWidth / (Math.max(...tagline.map((line) => line.length)) * 0.5)),
+  );
+  const trustSize = 16;
+
+  // Two-tone title, mirroring the app UI: "Cyber" stays white, the rest takes
+  // the per-app banner accent.
+  const titleMarkup = app.name.startsWith('Cyber') && app.name.length > 5
+    ? `<tspan fill="white">Cyber</tspan><tspan fill="${titleAccent}">${escapeXml(app.name.slice(5))}</tspan>`
+    : `<tspan fill="white">${title}</tspan>`;
+
   const cyberGemsMark = assetData('/favicon.svg', 'image/svg+xml');
   const trust = lang === 'es'
     ? 'GRATIS PARA SIEMPRE · SIN ANUNCIOS · SIN CUENTA · CÓDIGO ABIERTO'
@@ -278,14 +296,20 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
 
   // Vertically center the text block (title, tagline, trust) with even gaps,
   // whether the tagline wraps to one line or two.
-  const lineHeight = 34;
+  const lineHeight = 36;
   const blockGap = 46;
   const taglineCount = tagline.length;
-  const blockHeight = 2 * blockGap + (taglineCount - 1) * lineHeight + 54;
+  const titleCapHeight = Math.round(titleSize * 0.72);
+  const blockHeight = titleCapHeight
+    + blockGap
+    + (taglineCount - 1) * lineHeight
+    + Math.round(taglineSize * 0.75)
+    + blockGap
+    + Math.round(trustSize * 0.75);
   const blockTop = (BANNER_HEIGHT - blockHeight) / 2;
-  const titleBaseline = blockTop + 50;
+  const titleBaseline = blockTop + titleCapHeight;
   const taglineStartY = titleBaseline + blockGap;
-  const trustY = taglineStartY + (taglineCount - 1) * lineHeight + blockGap;
+  const trustY = taglineStartY + (taglineCount - 1) * lineHeight + Math.round(taglineSize * 0.75) + blockGap;
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" viewBox="0 0 ${BANNER_WIDTH} ${BANNER_HEIGHT}" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="banner-title banner-description">
@@ -322,9 +346,9 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
   ${appImage(app, 130, 96, 168)}
 
   <!-- Title and tagline -->
-  <text x="448" y="${titleBaseline}" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="72" font-weight="800" letter-spacing="-2.6">${title}</text>
-  ${tagline.map((line, index) => `<text x="450" y="${taglineStartY + index * lineHeight}" fill="#c9c9d1" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
-  <text x="450" y="${trustY}" fill="#8f929f" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">${escapeXml(trust)}</text>
+  <text x="${textX}" y="${titleBaseline}" font-family="Segoe UI, system-ui, sans-serif" font-size="${titleSize}" font-weight="800" letter-spacing="-2.6">${titleMarkup}</text>
+  ${tagline.map((line, index) => `<text x="${textX + 2}" y="${taglineStartY + index * lineHeight}" fill="#D8E7F1" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
+  <text x="${textX + 2}" y="${trustY}" fill="#8f929f" font-family="Segoe UI, system-ui, sans-serif" font-size="${trustSize}" font-weight="700" letter-spacing="0.5">${escapeXml(trust)}</text>
 
   <!-- Bottom right mark -->
   <image href="${cyberGemsMark}" x="1162" y="260" width="36" height="36" opacity="0.95" />

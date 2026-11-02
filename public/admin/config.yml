@@ -80,6 +80,11 @@ collections:
             label: Español
             widget: string
             required: false
+      - name: bannerTitleAccent
+        label: README banner title accent (optional)
+        widget: string
+        required: false
+        hint: Hex color for the app name suffix in the generated README banner (e.g. #80E4F0). Falls back to the app accent when empty.
       - name: description
         label: Description
         widget: object

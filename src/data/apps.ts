@@ -42,6 +42,8 @@ export interface CyberApp {
   tagline: LocalizedText;
   /** Optional shorter tagline used only in generated README banners (falls back to tagline) */
   bannerTagline?: LocalizedText;
+  /** Optional hex color for the name suffix in generated README banners (falls back to accent) */
+  bannerTitleAccent?: string;
   description: LocalizedText;
   features: LocalizedText[];
   repo: string;
