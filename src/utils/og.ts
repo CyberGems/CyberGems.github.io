@@ -310,12 +310,6 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
   <circle cx="214" cy="180" r="96" fill="${accent}" fill-opacity="0.22" filter="url(#bannerIconGlow)" />
   ${appImage(app, 144, 110, 140)}
 
-  <!-- Header pill -->
-  <svg x="448" y="55" width="16" height="16" viewBox="0 0 16 16" fill="${accent}">
-    <path d="M1 2.3 7 1.5v6H1V2.3Zm8-1.1 6-.8v7.1H9V1.2ZM1 8.5h6v6L1 13.7V8.5Zm8 0h6v7.1l-6-.8V8.5Z" />
-  </svg>
-  <text x="474" y="69" fill="${accent}" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="800" letter-spacing="2">WINDOWS 10 / 11 (64-BIT)</text>
-
   <!-- Title and tagline -->
   <text x="448" y="158" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="72" font-weight="800" letter-spacing="-2.6">${title}</text>
   ${tagline.map((line, index) => `<text x="450" y="${212 + index * 34}" fill="#c9c9d1" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
