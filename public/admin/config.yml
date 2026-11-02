@@ -66,6 +66,20 @@ collections:
           - name: es
             label: Español
             widget: string
+      - name: bannerTagline
+        label: README banner tagline (optional)
+        widget: object
+        required: false
+        hint: Shorter tagline rendered only in the generated README banner. Falls back to Tagline when empty.
+        fields:
+          - name: en
+            label: English
+            widget: string
+            required: false
+          - name: es
+            label: Español
+            widget: string
+            required: false
       - name: description
         label: Description
         widget: object

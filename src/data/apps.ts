@@ -40,6 +40,8 @@ export interface CyberApp {
   stack: string;
   license: string;
   tagline: LocalizedText;
+  /** Optional shorter tagline used only in generated README banners (falls back to tagline) */
+  bannerTagline?: LocalizedText;
   description: LocalizedText;
   features: LocalizedText[];
   repo: string;

@@ -267,7 +267,8 @@ function appCard(app: CyberApp, lang: Lang): string {
 export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
   const accent = app.accent ?? '#00F2FF';
   const title = escapeXml(app.name);
-  const tagline = balanceTwoLines(app.tagline[lang] ?? app.tagline.en);
+  const bannerTagline = app.bannerTagline?.[lang] ?? app.tagline[lang] ?? app.tagline.en;
+  const tagline = balanceTwoLines(bannerTagline);
   const longestTaglineLine = Math.max(...tagline.map((line) => line.length));
   const taglineSize = longestTaglineLine > 62 ? 20 : longestTaglineLine > 55 ? 21 : 23;
   const cyberGemsMark = assetData('/favicon.svg', 'image/svg+xml');
@@ -278,7 +279,7 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" viewBox="0 0 ${BANNER_WIDTH} ${BANNER_HEIGHT}" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="banner-title banner-description">
   <title id="banner-title">${title}</title>
-  <desc id="banner-description">${escapeXml(app.tagline[lang] ?? app.tagline.en)}</desc>
+  <desc id="banner-description">${escapeXml(bannerTagline)}</desc>
   <defs>
     <linearGradient id="bannerBg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0c1119" />
