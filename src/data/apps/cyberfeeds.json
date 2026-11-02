@@ -56,7 +56,8 @@
     { "en": "Rotating status ticker with contextual time greetings and unread counts", "es": "Barra de estado rotativa con saludos contextuales según la hora y artículos sin leer" },
     { "en": "Unified scan batches that deliver incoming updates sorted by newest first", "es": "Lotes de escaneo unificados que entregan novedades ordenadas por las más recientes" },
     { "en": "See new articles without losing your place in the reading list", "es": "Consulta artículos nuevos sin perder tu lugar en la lista de lectura" },
-    { "en": "Back up and restore your local library automatically", "es": "Crea y restaura copias automáticas de tu biblioteca local" }
+    { "en": "Back up and restore your local library automatically", "es": "Crea y restaura copias automáticas de tu biblioteca local" },
+    { "en": "Get started in seconds with a first-run wizard: language, theme and suggested feeds", "es": "Empieza en segundos con un asistente de primera ejecución: idioma, tema y fuentes sugeridas" }
   ],
   "useCases": {
     "roles": [
