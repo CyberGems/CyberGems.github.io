@@ -17,8 +17,8 @@
     "es": "Reloj, temporizador, cronómetro y calendario"
   },
   "description": {
-    "en": "A feature-rich desktop clock with a futuristic cyber-neon aesthetic. CyberClock combines an analog and digital clock, full calendar, timer, stopwatch, alarms, and independent floating widgets with a wellness module featuring procedural ambient sound synthesis for relaxation and mindfulness.",
-    "es": "Un reloj de escritorio lleno de funciones con una estética cyber-neon futurista. CyberClock combina reloj analógico y digital, calendario completo, temporizador, cronómetro, alarmas y widgets flotantes independientes, además de un módulo de bienestar con síntesis procedural de sonidos ambientales para relajarse y practicar mindfulness."
+    "en": "A feature-rich desktop clock with a futuristic cyber-neon aesthetic. CyberClock combines an analog and digital clock, full calendar, timer, stopwatch, alarms, and independent floating widgets with a wellness module featuring recorded ambient soundscapes for relaxation and mindfulness.",
+    "es": "Un reloj de escritorio lleno de funciones con una estética cyber-neon futurista. CyberClock combina reloj analógico y digital, calendario completo, temporizador, cronómetro, alarmas y widgets flotantes independientes, además de un módulo de bienestar con paisajes sonoros grabados para relajarse y practicar mindfulness."
   },
   "howItWorks": {
     "title": {
@@ -116,8 +116,8 @@
       "es": "Temporizador con preajustes + cronómetro de precisión con vueltas"
     },
     {
-      "en": "6 procedurally-synthesized ambient soundscapes with breathing guide",
-      "es": "6 paisajes sonoros ambientales sintetizados proceduralmente con guía de respiración"
+      "en": "6 recorded ambient soundscapes with breathing guide",
+      "es": "6 paisajes sonoros ambientales grabados con guía de respiración"
     },
     {
       "en": "Mini mode: compact always-on-top clock bar with 20 skin-specific designs, visual skin gallery, and zoom",
