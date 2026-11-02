@@ -12,6 +12,10 @@
     "en": "Catch ideas, organize your thoughts and keep useful notes close, all on your PC.",
     "es": "Captura ideas, ordena tus pensamientos y ten tus notas a mano, todo en tu PC."
   },
+  "bannerTagline": {
+    "en": "Private, flexible note-taking",
+    "es": "Notas privadas y flexibles"
+  },
   "description": {
     "en": "CyberNotes is a flexible writing space for Windows that keeps your notes on your device without an account or built-in cloud sync. Capture quick thoughts or build longer documents with formatting, lists, code and images. Colorful folders, tabs, favorites and full-text search help you return to an idea, while floating notes keep a reference in view as you work. Autosave and session restore help you pick up where you left off. An optional password or PIN locks access to the app; the stored notes themselves are not encrypted.",
     "es": "CyberNotes es un espacio de escritura flexible para Windows que guarda tus notas en tu dispositivo, sin cuenta ni sincronización en la nube integrada. Captura ideas rápidas o crea documentos más largos con formato, listas, código e imágenes. Las carpetas de colores, pestañas, favoritos y búsqueda de texto completo te ayudan a retomar una idea; las notas flotantes mantienen una referencia visible mientras trabajas. El autoguardado y la restauración de sesión te permiten continuar donde lo dejaste. Una contraseña o un PIN opcional bloquean el acceso a la app; las notas almacenadas no están cifradas."

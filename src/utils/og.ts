@@ -47,7 +47,7 @@ function wrapText(value: string, maxChars: number): string[] {
   return lines;
 }
 
-function balanceTwoLines(value: string, singleLineLimit = 52): string[] {
+function balanceTwoLines(value: string, singleLineLimit = 56): string[] {
   if (value.length <= singleLineLimit) return [value];
 
   const words = value.split(/\s+/);

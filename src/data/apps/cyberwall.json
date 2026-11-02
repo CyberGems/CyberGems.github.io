@@ -12,6 +12,10 @@
     "en": "Choose which apps can connect. Review new connections and keep the rules that work for you.",
     "es": "Decide qué apps pueden conectarse. Revisa las conexiones nuevas y conserva las reglas que te convengan."
   },
+  "bannerTagline": {
+    "en": "Block unwanted app connections in real time",
+    "es": "Bloquea conexiones no deseadas en tiempo real"
+  },
   "description": {
     "en": "CyberWall is a per-application firewall for Windows that helps you understand and control network access. Unknown connections are blocked by default, and interactive prompts let you allow an app once, save an allow rule, or block it. Review connection activity, manage your decisions, and keep an eye on traffic from a single place. It uses the native Windows Filtering Platform without a separate third-party kernel driver.",
     "es": "CyberWall es un firewall por aplicación para Windows que te ayuda a entender y controlar el acceso a la red. Las conexiones desconocidas se bloquean por defecto y los avisos interactivos te permiten autorizar una app una vez, guardar una regla de permiso o bloquearla. Revisa la actividad de conexión, administra tus decisiones y consulta el tráfico desde un mismo lugar. Utiliza la plataforma de filtrado nativa de Windows sin instalar un controlador de kernel de terceros."

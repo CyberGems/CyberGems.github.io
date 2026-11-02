@@ -12,6 +12,10 @@
     "en": "See what is slowing your PC down and take action without losing your place.",
     "es": "Descubre qué ralentiza tu PC y actúa sin perder de vista lo importante."
   },
+  "bannerTagline": {
+    "en": "Take control of every Windows process",
+    "es": "Controla cada proceso de Windows"
+  },
   "description": {
     "en": "CyberManager is a responsive task manager for Windows that helps you make sense of busy processes. Search by name, PID or path; sort by CPU or memory; and use live graphs and color cues to spot what needs attention. Monitor all disks together or one physical disk, and open programs or resources from a reusable task history. Inspect, end, restart, suspend or reprioritize processes. A compact monitor, floating metrics widget, system details, tray access and keyboard shortcuts keep those controls close.",
     "es": "CyberManager es un gestor de tareas ágil para Windows que te ayuda a entender los procesos en ejecución. Busca por nombre, PID o ruta; ordena por CPU o memoria; y usa gráficas en vivo y señales de color para detectar qué necesita atención. Monitoriza todos los discos juntos o uno físico y abre programas o recursos desde un historial de tareas reutilizable. Examina, finaliza, reinicia, suspende o cambia la prioridad de los procesos. El monitor compacto, el widget flotante, los detalles del sistema, la bandeja y los atajos mantienen esos controles a mano."

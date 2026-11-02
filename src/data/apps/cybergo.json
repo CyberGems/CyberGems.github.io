@@ -11,6 +11,11 @@
     "en": "A private, local-first agenda for tasks, events and reminders on Windows.",
     "es": "Una agenda local y privada para tareas, eventos y avisos en Windows."
   },
+  "bannerTagline": {
+    "en": "Your offline planner for tasks, events and reminders",
+    "es": "Tu planificador offline de tareas y eventos"
+  },
+  "bannerTitleAccent": "#4FE3F5",
   "description": {
     "en": "CyberGo is a desktop agenda for people who want a focused daily planner without an account, cloud sync, or a web dashboard. Create tasks and events, parse natural quick-add text in English or Spanish, and receive local reminders from a dedicated window that keeps working even when the main window is closed. Everything is stored on your own machine with SQL.js, and a password or PIN lock screen keeps the agenda private when you step away.",
     "es": "CyberGo es una agenda de escritorio para quienes quieren un planificador diario sin cuenta, sin nube y sin panel web. Crea tareas y eventos, interpreta texto natural en español o inglés y recibe avisos locales desde una ventana propia que sigue funcionando aunque cierres la ventana principal. Todo se guarda en tu equipo con SQL.js, y un bloqueo con contraseña o PIN mantiene la agenda en privado cuando te alejas."

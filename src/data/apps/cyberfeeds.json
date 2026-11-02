@@ -12,6 +12,10 @@
     "en": "Follow websites, YouTube and Reddit in one calm, private reading space.",
     "es": "Sigue sitios web, YouTube y Reddit en un espacio de lectura tranquilo y privado."
   },
+  "bannerTagline": {
+    "en": "Follow websites, YouTube and Reddit in one place",
+    "es": "Sitios, YouTube y Reddit en un solo lugar"
+  },
   "description": {
     "en": "CyberFeeds brings updates from the websites, YouTube channels and Reddit communities you follow into one desktop app. Add RSS or Atom feeds, or import your subscriptions from an OPML file. Catch up in a focused reader, find articles later with search, and choose which new posts deserve a notification. Folders, favorites and read states help you stay organized, while automatic backups and a local SQLite database keep your library on your PC without an account.",
     "es": "CyberFeeds reúne las novedades de los sitios web, canales de YouTube y comunidades de Reddit que sigues en una sola app de escritorio. Añade feeds RSS o Atom, o importa tus suscripciones desde un archivo OPML. Ponte al día en un lector enfocado, encuentra artículos con la búsqueda y elige qué publicaciones nuevas merecen un aviso. Las carpetas, favoritos y estados de lectura te ayudan a organizarte; las copias de seguridad automáticas y una base de datos SQLite local mantienen tu biblioteca en tu PC, sin necesidad de cuenta."
