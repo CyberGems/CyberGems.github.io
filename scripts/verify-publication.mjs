@@ -16,13 +16,23 @@ assert.deepEqual(manifest.apps.map((app) => app.slug).sort(), published.map((app
 
 const escape = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const patterns = drafts.map((app) => ({ slug: app.slug, pattern: new RegExp(`\\b${escape(app.slug)}\\b`, 'i') }));
+// A draft app still gets a generated README banner: the image is referenced by
+// its repository, not by the site. Nothing else may be emitted for it.
+const allowedDraftPaths = new Set(
+  drafts.flatMap((app) => [
+    path.join('banners', `${app.slug}.png`),
+    path.join('banners', 'es', `${app.slug}.png`),
+  ]),
+);
 const textExtensions = new Set(['.html', '.json', '.xml', '.js', '.css', '.svg', '.md', '.txt', '.map']);
 let checked = 0;
 function inspect(directory) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
     const target = path.join(directory, entry.name);
     const relative = path.relative(dist, target);
-    for (const { slug, pattern } of patterns) assert(!pattern.test(relative), `Draft ${slug} has a public output path: ${relative}`);
+    if (!allowedDraftPaths.has(relative)) {
+      for (const { slug, pattern } of patterns) assert(!pattern.test(relative), `Draft ${slug} has a public output path: ${relative}`);
+    }
     if (entry.isDirectory()) { inspect(target); continue; }
     if (!textExtensions.has(path.extname(entry.name))) continue;
     const content = fs.readFileSync(target, 'utf8');
