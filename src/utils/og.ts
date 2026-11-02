@@ -294,22 +294,32 @@ export function readmeBannerSvg(app: CyberApp, lang: Lang = 'en'): string {
     ? 'GRATIS PARA SIEMPRE · SIN ANUNCIOS · SIN CUENTA · CÓDIGO ABIERTO'
     : 'FREE FOREVER · NO ADS · NO ACCOUNT · OPEN SOURCE';
 
-  // Vertically center the text block (title, tagline, trust) with even gaps,
-  // whether the tagline wraps to one line or two.
+  // Lay the text block out by visual gaps instead of baselines: type size
+  // changes move descenders, so baseline math left the tagline glued to the
+  // title while the trust line drifted away.
   const lineHeight = 36;
-  const blockGap = 46;
+  const gapTitleTagline = 26;
+  const gapTaglineTrust = 24;
   const taglineCount = tagline.length;
-  const titleCapHeight = Math.round(titleSize * 0.72);
-  const blockHeight = titleCapHeight
-    + blockGap
+  const titleCap = Math.round(titleSize * 0.72);
+  const titleDescender = Math.round(titleSize * 0.21);
+  const taglineCap = Math.round(taglineSize * 0.72);
+  const taglineDescender = Math.round(taglineSize * 0.21);
+  const trustCap = Math.round(trustSize * 0.72);
+  const trustDescender = Math.round(trustSize * 0.21);
+  const blockHeight = titleCap
+    + titleDescender
+    + gapTitleTagline
+    + taglineCap
     + (taglineCount - 1) * lineHeight
-    + Math.round(taglineSize * 0.75)
-    + blockGap
-    + Math.round(trustSize * 0.75);
+    + taglineDescender
+    + gapTaglineTrust
+    + trustCap
+    + trustDescender;
   const blockTop = (BANNER_HEIGHT - blockHeight) / 2;
-  const titleBaseline = blockTop + titleCapHeight;
-  const taglineStartY = titleBaseline + blockGap;
-  const trustY = taglineStartY + (taglineCount - 1) * lineHeight + Math.round(taglineSize * 0.75) + blockGap;
+  const titleBaseline = blockTop + titleCap;
+  const taglineStartY = titleBaseline + titleDescender + gapTitleTagline + taglineCap;
+  const trustY = taglineStartY + (taglineCount - 1) * lineHeight + taglineDescender + gapTaglineTrust + trustCap;
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" viewBox="0 0 ${BANNER_WIDTH} ${BANNER_HEIGHT}" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="banner-title banner-description">
