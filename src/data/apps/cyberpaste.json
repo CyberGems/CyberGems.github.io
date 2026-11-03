@@ -46,8 +46,8 @@
         "icon": "🎛️",
         "title": { "en": "Pick your view", "es": "Elige tu vista" },
         "text": {
-          "en": "Use the full grid or compact list, choose a theme and change the global shortcut if the default does not suit you.",
-          "es": "Usa la rejilla completa o la lista compacta, elige un tema y cambia el atajo global si el predeterminado no te conviene."
+          "en": "Use the screen-filling full grid or the compact list, choose a theme and change the global shortcut if the default does not suit you.",
+          "es": "Usa la rejilla completa que llena la pantalla o la lista compacta, elige un tema y cambia el atajo global si el predeterminado no te conviene."
         }
       }
     ]
