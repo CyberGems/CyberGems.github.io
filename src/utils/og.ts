@@ -219,7 +219,10 @@ function homeCard(lang: Lang): string {
 function appCard(app: CyberApp, lang: Lang): string {
   const accent = app.accent ?? '#00F2FF';
   const title = escapeXml(app.name);
-  const tagline = wrapText(app.tagline[lang] ?? app.tagline.en, 46).slice(0, 3);
+  // Social cards show the same short line printed on the generated README
+  // banner; 56 chars keeps every bannerTagline on a single line, as it is there.
+  const bannerTagline = app.bannerTagline?.[lang] ?? app.bannerTagline?.en ?? app.tagline[lang] ?? app.tagline.en;
+  const tagline = wrapText(bannerTagline, 56).slice(0, 3);
   const extra = `${app.stack}  ·  ${app.license}  ·  Windows`;
   const label = lang === 'es' ? 'WINDOWS 10 / 11 · 64-BIT' : 'WINDOWS 10 / 11 · 64-BIT';
   const cardTitle = lang === 'es' ? 'Código abierto bajo GPLv3' : 'Open source under GPLv3';

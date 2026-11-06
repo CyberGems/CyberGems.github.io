@@ -9,8 +9,8 @@
   "stack": "Electron · React · TypeScript",
   "license": "GPLv3",
   "tagline": {
-    "en": "Find apps and files, launch favorites and get back to work in seconds.",
-    "es": "Encuentra apps y archivos, abre tus favoritos y vuelve a lo tuyo en segundos."
+    "en": "Apps, files, commands and a real terminal one hotkey away, with your system stats in the same panel.",
+    "es": "Apps, archivos, comandos y una terminal real a un atajo, con las estadísticas del sistema en el mismo panel."
   },
   "bannerTagline": {
     "en": "Find and launch anything on your PC in seconds",

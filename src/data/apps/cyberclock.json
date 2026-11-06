@@ -9,8 +9,8 @@
   "stack": "Tauri · Rust",
   "license": "GPLv3",
   "tagline": {
-    "en": "Clock, calendar, timer, stopwatch, relaxation, and compact floating time tools for Windows.",
-    "es": "Reloj, calendario, temporizador, cronómetro, relajación y herramientas flotantes compactas para Windows."
+    "en": "Clock, calendar, timers and recorded soundscapes in one lightweight app — with an optional talking clock.",
+    "es": "Reloj, calendario, temporizadores y paisajes sonoros grabados en una app ligera, con reloj parlante opcional."
   },
   "bannerTagline": {
     "en": "Clock, timer, stopwatch and calendar for your desktop",

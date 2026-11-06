@@ -9,8 +9,8 @@
   "stack": "C# · WPF · .NET 10",
   "license": "GPLv3",
   "tagline": {
-    "en": "Capture, annotate and share anything — screenshots, recordings, text and color — with speed.",
-    "es": "Captura, anota y comparte cualquier cosa — imágenes, grabaciones, texto y color — con rapidez."
+    "en": "Screenshots, recordings, OCR, QR codes and a color picker — capture, edit and share it all in one window.",
+    "es": "Capturas, grabaciones, OCR, códigos QR y selector de color: captura, edita y comparte todo en una ventana."
   },
   "bannerTagline": {
     "en": "Capture, annotate and record your screen",
