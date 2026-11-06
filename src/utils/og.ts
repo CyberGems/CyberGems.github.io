@@ -11,6 +11,14 @@ const BANNER_HEIGHT = 360;
 const PUBLIC_DIR = path.join(process.cwd(), 'public');
 
 /**
+ * The upper-left corner glow is intentionally the same on every social card.
+ * Warm per-app accents (red, violet, cyan, ...) clash with the navy/violet
+ * background, while CyberLauncher's indigo sits right between the two. The
+ * pill, icon aura and tinted stars still use each app's own accent.
+ */
+const CORNER_GLOW = '#8B9CF6';
+
+/**
  * Social cards are rendered by Sharp in an environment without the browser's
  * emoji fonts. Embedding the real site assets keeps previews consistent across
  * Reddit, Discord, Slack, GitHub and other crawlers.
@@ -98,9 +106,9 @@ function defs(accent: string): string {
       <stop offset="0.48" stop-color="#070a10" />
       <stop offset="1" stop-color="#0c0b16" />
     </linearGradient>
-    <radialGradient id="cyanGlow" cx="15%" cy="15%" r="75%">
-      <stop offset="0" stop-color="${accent}" stop-opacity="0.14" />
-      <stop offset="1" stop-color="${accent}" stop-opacity="0" />
+    <radialGradient id="cornerGlow" cx="15%" cy="15%" r="75%">
+      <stop offset="0" stop-color="${CORNER_GLOW}" stop-opacity="0.14" />
+      <stop offset="1" stop-color="${CORNER_GLOW}" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="violetGlow" cx="85%" cy="80%" r="70%">
       <stop offset="0" stop-color="#7A5CFF" stop-opacity="0.14" />
@@ -155,7 +163,7 @@ function renderStarfield(width: number, height: number, accent: string): string 
 function background(accent: string, width = WIDTH, height = HEIGHT): string {
   return `
   <rect width="${width}" height="${height}" fill="url(#background)" />
-  <rect width="${width}" height="${height}" fill="url(#cyanGlow)" />
+  <rect width="${width}" height="${height}" fill="url(#cornerGlow)" />
   <rect width="${width}" height="${height}" fill="url(#violetGlow)" />
   ${renderStarfield(width, height, accent)}
   <rect width="${width}" height="4" fill="url(#brand)" />`;
@@ -241,10 +249,22 @@ function appCard(app: CyberApp, lang: Lang): string {
   const longestLine = Math.max(...tagline.map((line) => line.length));
   const taglineSize = Math.max(24, Math.min(27, Math.floor(textWidth / (longestLine * 0.56))));
 
+  // The deploy runner has no Segoe UI and its wider fallback font used to
+  // leave just 2 px after "64-BIT". Size the pill from a conservative glyph
+  // estimate so the label keeps the same breathing room on both sides.
+  const platformLabel = 'WINDOWS 10 / 11 · 64-BIT';
+  const platformSize = 13;
+  const platformSpacing = 1.1;
+  const platformLabelWidth = Math.ceil(
+    platformLabel.length * (platformSize * 0.63 + platformSpacing),
+  );
+  const platformTextX = leftX + 28;
+  const pillWidth = 28 + platformLabelWidth + 28;
+  const pillHeight = 34;
+
   // Lay the left column out as one measured block, then center it between the
   // brand mark and the footer. Hardcoded baselines assumed a two-line lema and
   // left a hole as soon as the banner tagline became a single line.
-  const pillHeight = 34;
   const titleCap = Math.round(titleSize * 0.72);
   const titleDescender = Math.round(titleSize * 0.21);
   const taglineCap = Math.round(taglineSize * 0.72);
@@ -282,9 +302,9 @@ function appCard(app: CyberApp, lang: Lang): string {
   ${brandMark(72, 48, 52, 32)}
 
   <!-- Left: platform, name, lema and stack -->
-  <rect x="${leftX}" y="${pillY}" width="245" height="${pillHeight}" rx="17" fill="${accent}" fill-opacity="0.1" stroke="${accent}" stroke-opacity="0.36" />
-  <circle cx="88" cy="${pillY + 17}" r="3.5" fill="${accent}" />
-  <text x="100" y="${pillY + 22}" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="1.1">WINDOWS 10 / 11 · 64-BIT</text>
+  <rect x="${leftX}" y="${pillY}" width="${pillWidth}" height="${pillHeight}" rx="17" fill="${accent}" fill-opacity="0.1" stroke="${accent}" stroke-opacity="0.36" />
+  <circle cx="${leftX + 16}" cy="${pillY + 17}" r="3.5" fill="${accent}" />
+  <text x="${platformTextX}" y="${pillY + 22}" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${platformSize}" font-weight="700" letter-spacing="${platformSpacing}">${platformLabel}</text>
   <text x="${leftX}" y="${titleBaseline}" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${titleSize}" font-weight="800" letter-spacing="-2">${titleMarkup}</text>
   ${tagline.map((line, index) => `<text x="${leftX}" y="${taglineStartY + index * taglineLineHeight}" fill="#e4e8f0" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
   <rect x="${leftX}" y="${ruleY}" width="64" height="4" rx="2" fill="${accent}" />
