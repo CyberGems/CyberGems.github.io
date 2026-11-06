@@ -44,7 +44,9 @@ const donateHref = lang === 'en' ? '/donate' : '/es/donate';
 const donateActive = isActive(donateHref);
 const appsActive = /^\/(?:es\/)?apps\//.test(path);
 const xDefaultHref = new URL('/', Astro.site).href;
-const ogImageUrl = ogImage ? new URL(ogImage, Astro.site).href : new URL('/og.png', Astro.site).href;
+const ogImageUrl = ogImage
+  ? new URL(ogImage, Astro.site).href
+  : new URL(lang === 'es' ? '/og/es.png' : '/og.png', Astro.site).href;
 const ogLocale = lang === 'es' ? 'es_ES' : 'en_US';
 const ogLocaleAlt = lang === 'es' ? 'en_US' : 'es_ES';
 ---

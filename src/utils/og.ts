@@ -18,6 +18,16 @@ const PUBLIC_DIR = path.join(process.cwd(), 'public');
  */
 const CORNER_GLOW = '#8B9CF6';
 
+/** Copy shared by both home cards. Kept here so variants can swap it cleanly. */
+const HOME_BADGE = {
+  en: 'FREE APPS FOR WINDOWS',
+  es: 'APLICACIONES GRATUITAS PARA WINDOWS',
+};
+const HOME_CAPTION = {
+  en: 'Tools for Windows',
+  es: 'Herramientas para Windows',
+};
+
 /**
  * Social cards are rendered by Sharp in an environment without the browser's
  * emoji fonts. Embedding the real site assets keeps previews consistent across
@@ -119,6 +129,11 @@ function defs(accent: string): string {
       <stop offset="55%" stop-color="${accent}" stop-opacity="0.08" />
       <stop offset="100%" stop-color="${accent}" stop-opacity="0" />
     </radialGradient>
+    <radialGradient id="homeAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="${accent}" stop-opacity="0.12" />
+      <stop offset="55%" stop-color="${accent}" stop-opacity="0.04" />
+      <stop offset="100%" stop-color="${accent}" stop-opacity="0" />
+    </radialGradient>
     <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000000" flood-opacity="0.45" />
     </filter>
@@ -182,18 +197,34 @@ function footer(lang: Lang): string {
 
 function homeCard(lang: Lang): string {
   const accent = '#00F2FF';
-  const badge = lang === 'es' ? '10 APPS GRATIS PARA WINDOWS' : '10 FREE APPS FOR WINDOWS';
+  const badge = HOME_BADGE[lang];
   const headline = lang === 'es' ? 'Apps de calidad premium.' : 'Premium-quality apps.';
   const subtitle = lang === 'es' ? 'Gratis y de código abierto.' : 'Free & open source.';
   const intro = lang === 'es'
-    ? 'Una suite para el uso diario, creada para Windows.'
-    : 'A suite for everyday use, crafted for Windows.';
+    ? 'Herramientas para el uso diario, creadas para Windows.'
+    : 'Tools for everyday use, crafted for Windows.';
   const categories = lang === 'es'
     ? 'Captura  ·  Portapapeles  ·  Notas  ·  Firewall  ·  Y más'
     : 'Screen capture  ·  Clipboard  ·  Notes  ·  Firewall  ·  More';
+  const caption = HOME_CAPTION[lang];
   const positions = [[828, 174], [1036, 174], [820, 403], [1044, 403]];
   const brandApp = { icon: '/branding/cybergems-favicon.png', emoji: '◆' } as CyberApp;
-  const suiteLine = lang === 'es' ? `${apps.length} apps · una filosofía` : `${apps.length} tools · one philosophy`;
+
+  const leftX = 72;
+  const showcaseX = 784;
+  const badgeSize = 14;
+  const badgeSpacing = 1.1;
+  const badgeY = 164;
+  const badgeHeight = 34;
+  const badgeTextX = leftX + 28;
+  // A fixed 350/300 px pill left the label off-centre. The estimate is
+  // calibrated to the wider Linux fallback font used by the deploy runner.
+  const badgeTextWidth = Math.ceil(badge.length * (badgeSize * 0.68 + badgeSpacing));
+  const badgeWidth = 28 + badgeTextWidth + 28;
+
+  // The old 57 px headline ran underneath the showcase card ("premium." was
+  // visible through the translucent panel). Fit it to the left column instead.
+  const headlineSize = Math.min(57, Math.floor((showcaseX - leftX - 28) / (headline.length * 0.58)));
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" xmlns="http://www.w3.org/2000/svg" role="img">
@@ -201,25 +232,25 @@ function homeCard(lang: Lang): string {
   ${background(accent)}
   ${brandMark(72, 48, 52, 32)}
 
-  <rect x="72" y="164" width="${lang === 'es' ? 350 : 300}" height="34" rx="17" fill="#00F2FF" fill-opacity="0.1" stroke="#00F2FF" stroke-opacity="0.32" />
-  <circle cx="86" cy="181" r="3.5" fill="#00F2FF" />
-  <text x="98" y="186" fill="#bafcff" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="1.1">${badge}</text>
-  <text x="72" y="278" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="57" font-weight="800" letter-spacing="-1.8">${escapeXml(headline)}</text>
-  <text x="72" y="344" fill="url(#brand)" font-family="Segoe UI, system-ui, sans-serif" font-size="48" font-weight="800" letter-spacing="-1.4">${escapeXml(subtitle)}</text>
-  <text x="72" y="397" fill="#d8d8df" font-family="Segoe UI, system-ui, sans-serif" font-size="22" font-weight="500">${escapeXml(intro)}</text>
-  <text x="72" y="432" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="500">${escapeXml(categories)}</text>
+  <rect x="${leftX}" y="${badgeY}" width="${badgeWidth}" height="${badgeHeight}" rx="17" fill="#00F2FF" fill-opacity="0.1" stroke="#00F2FF" stroke-opacity="0.32" />
+  <circle cx="${leftX + 16}" cy="${badgeY + 17}" r="3.5" fill="#00F2FF" />
+  <text id="home-badge" x="${badgeTextX}" y="${badgeY + 22}" fill="#bafcff" font-family="Segoe UI, system-ui, sans-serif" font-size="${badgeSize}" font-weight="700" letter-spacing="${badgeSpacing}">${badge}</text>
+  <text x="${leftX}" y="278" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${headlineSize}" font-weight="800" letter-spacing="-1.8">${escapeXml(headline)}</text>
+  <text x="${leftX}" y="344" fill="url(#brand)" font-family="Segoe UI, system-ui, sans-serif" font-size="48" font-weight="800" letter-spacing="-1.4">${escapeXml(subtitle)}</text>
+  <text x="${leftX}" y="397" fill="#d8d8df" font-family="Segoe UI, system-ui, sans-serif" font-size="22" font-weight="500">${escapeXml(intro)}</text>
+  <text x="${leftX}" y="432" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="500">${escapeXml(categories)}</text>
 
+  <!-- Only the panel casts a shadow: the old aura inherited it and read as a muddy ring. -->
   <g filter="url(#softShadow)">
-    <rect x="784" y="128" width="344" height="366" rx="32" fill="#111722" fill-opacity="0.88" stroke="white" stroke-opacity="0.13" />
-    <circle cx="956" cy="291" r="130" fill="url(#iconAura)" />
-    ${appImage(brandApp, 898, 233, 116)}
-    <text x="956" y="392" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="25" font-weight="800" text-anchor="middle">Cyber<tspan fill="url(#brand)">Gems</tspan></text>
-    <text x="956" y="420" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="14" text-anchor="middle">${suiteLine}</text>
-    ${positions.map(([x, y], index) => {
-      const a = apps[index];
-      return `<rect x="${x}" y="${y}" width="52" height="52" rx="15" fill="#151c28" stroke="${a.accent}" stroke-opacity="0.42" />${appImage(a, x + 5, y + 5, 42)}`;
-    }).join('')}
+    <rect x="784" y="128" width="344" height="366" rx="32" fill="#111722" fill-opacity="0.92" stroke="white" stroke-opacity="0.13" />
   </g>
+  <circle id="home-aura" cx="956" cy="291" r="152" fill="url(#homeAura)" />
+  ${appImage(brandApp, 898, 233, 116)}
+  <text id="home-caption" x="956" y="386" fill="#c2cad8" font-family="Segoe UI, system-ui, sans-serif" font-size="15" font-weight="600" letter-spacing="0.2" text-anchor="middle">${escapeXml(caption)}</text>
+  ${positions.map(([x, y], index) => {
+    const a = apps[index];
+    return `<rect x="${x}" y="${y}" width="52" height="52" rx="15" fill="#151c28" stroke="${a.accent}" stroke-opacity="0.42" />${appImage(a, x + 5, y + 5, 42)}`;
+  }).join('')}
   ${footer(lang)}
 </svg>`;
 }
