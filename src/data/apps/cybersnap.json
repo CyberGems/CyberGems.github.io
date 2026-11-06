@@ -17,8 +17,8 @@
     "es": "Captura, anota y graba tu pantalla"
   },
   "description": {
-    "en": "A sleek, all-in-one capture suite for Windows. Take area, window, full-screen and scrolling screenshots; record MP4 or GIF; annotate with vector tools; extract and translate text with OCR; magnify a frozen screen with Zoom; keep image references floating with Pin; and find captures in a local searchable gallery. Share through seven destinations or keep everything on your device.",
-    "es": "Una suite de captura elegante y todo en uno para Windows. Captura áreas, ventanas, la pantalla completa o contenido con desplazamiento; graba en MP4 o GIF; anota con herramientas vectoriales; extrae y traduce texto con OCR; amplía la pantalla congelada con Zoom; mantén referencias flotantes con Pin; y encuentra capturas en una galería local con búsqueda. Comparte mediante siete destinos o conserva todo en tu dispositivo."
+    "en": "A screenshot usually needs four tools — to grab, annotate, read and share it. CyberSnap does it all in one window. Capture an area, window, full screen, scrolling page or the same region as last time, and record MP4 or GIF. Annotate on the overlay or open the full editor; OCR extracts and translates text, QR reads codes, the color picker samples any pixel, Zoom magnifies the screen under the pointer so you can capture a region of the enlarged view, and Pin keeps a reference on top of your work. Captures land in a local gallery searchable by the words inside them and can go to seven upload destinations, or stay on your device.",
+    "es": "Una captura suele necesitar cuatro herramientas: tomarla, anotarla, leer su texto y compartirla. CyberSnap lo hace todo en una sola ventana. Captura un área, ventana, pantalla completa, página con desplazamiento o la misma región que la última vez, y graba MP4 o GIF. Anota sobre el overlay o abre el editor completo; el OCR extrae y traduce texto, el QR lee códigos, el selector de color muestrea cualquier píxel, Zoom amplía la pantalla bajo el puntero para que captures una región de la vista aumentada y Pin mantiene una referencia sobre tu trabajo. Las capturas van a una galería local que puedes buscar por las palabras que contienen y pueden salir a siete destinos de subida, o quedarse en tu equipo."
   },
   "highlightsTitle": {
     "en": "From a screen moment to something useful",
@@ -46,7 +46,7 @@
     "es": "Más formas en que CyberSnap te ayuda"
   },
   "features": [
-    { "en": "Frozen-screen Zoom (1.25×–4×) with region or full-view capture, normal confirmation and annotations", "es": "Zoom de pantalla congelada (1.25×–4×), con captura de región o vista completa, confirmación y anotaciones habituales" },
+    { "en": "Zoom that magnifies the screen under the pointer (1.25×–4×), with region or full-view capture, normal confirmation and annotations", "es": "Zoom que amplía la pantalla bajo el puntero (1.25×–4×), con captura de región o vista completa, confirmación y anotaciones habituales" },
     { "en": "Pin image references across monitors with wheel zoom, opacity, copy/save, optional shadows and borders", "es": "Fija referencias de imágenes entre monitores con zoom de rueda, opacidad, copiar/guardar, sombra y borde opcionales" },
     { "en": "Capture Preview with checkerboard or custom solid backgrounds, theme defaults and high-DPI color pickers", "es": "Vista previa con damero o fondos sólidos personalizados, colores por tema y pickers adaptados a DPI alto" },
     { "en": "Configurable outlines and colored margins included in copied or saved images, plus image-path copying and Paint export", "es": "Delineado y márgenes de color incluidos al copiar o guardar, con copiado de ruta y envío a Paint" },
@@ -59,6 +59,7 @@
     { "en": "Screen recording to MP4 or GIF with independent tabbed trimming sessions", "es": "Grabación de pantalla a MP4 o GIF con sesiones de recorte independientes en pestañas" },
     { "en": "Annotation editor with shapes, text, rulers and frames", "es": "Editor de anotaciones con formas, texto, reglas y marcos" },
     { "en": "Multilingual OCR with translation, plus tabbed OCR and QR results", "es": "OCR multilingüe con traducción y resultados de OCR y QR en pestañas" },
+    { "en": "QR and barcode scanner plus a screen color picker with HEX, RGB and HSL values", "es": "Escáner de códigos QR y de barras, y selector de color de pantalla con valores HEX, RGB y HSL" },
     { "en": "Local gallery with full-text search across OCR content", "es": "Galería local con búsqueda de texto completo sobre el OCR" },
     { "en": "Upload to FTP, SFTP, S3, ImgBB, Imgur, Webhook & CyberSnap Share", "es": "Subida a FTP, SFTP, S3, ImgBB, Imgur, Webhook y CyberSnap Share" }
   ],
