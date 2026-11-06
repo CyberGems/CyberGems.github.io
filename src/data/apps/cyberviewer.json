@@ -22,8 +22,8 @@
     "es": "CyberViewer abre imágenes, video y audio en una sola ventana rápida para Windows. Arrastra una foto o una carpeta completa, recorre sus miniaturas, amplía los detalles e inicia una presentación a pantalla completa. Los videos locales se reproducen en pestañas de medios, las pistas de audio comparten el mismo reproductor y los videos o listas de YouTube se abren en un visor aislado. Recorta, rota, redimensiona, voltea o corrige el color de una imagen al momento y luego cópiala, imprímela, expórtala a PDF o úsala como fondo sin abrir un editor completo. Las pestañas, los favoritos, la restauración de sesión, la integración con el Explorador y las copias programadas en la carpeta que elijas mantienen tu espacio de trabajo contigo."
   },
   "highlightsTitle": {
-    "en": "Everything you need for everyday images and videos",
-    "es": "Lo que necesitas para tus imágenes y videos de cada día"
+    "en": "A fast viewer for images, video and audio",
+    "es": "Un visor rápido para imágenes, video y audio"
   },
   "highlights": [
     {
@@ -54,6 +54,8 @@
     { "en": "Play local videos (MP4, MKV, WebM, MOV and more) in media tabs", "es": "Reproduce videos locales (MP4, MKV, WebM, MOV y más) en pestañas de medios" },
     { "en": "Play audio tracks (MP3, WAV, FLAC, OGG, AAC and more) in the same player", "es": "Reproduce pistas de audio (MP3, WAV, FLAC, OGG, AAC y más) en el mismo reproductor" },
     { "en": "Watch YouTube videos or playlists in an isolated viewer", "es": "Mira videos o listas de YouTube en un reproductor aislado" },
+    { "en": "Inspect media properties, local video frames and YouTube thumbnails or playlist positions", "es": "Consulta propiedades de medios, fotogramas de videos locales y miniaturas o posiciones de playlists de YouTube" },
+    { "en": "Show media type icons in tabs, preserve playback state, and choose how center drops open files", "es": "Muestra iconos de tipo en las pestañas, conserva el estado de reproducción y elige cómo abrir archivos soltados en el centro" },
     { "en": "Crop, rotate, flip, resize and adjust color with live preview", "es": "Recorta, rota, voltea, redimensiona y ajusta colores con vista previa" },
     { "en": "Show a folder as a fullscreen, looping slideshow", "es": "Muestra una carpeta como diapositivas a pantalla completa y en bucle" },
     { "en": "Mark favorites and return to recent images and folders", "es": "Marca favoritos y vuelve a imágenes y carpetas recientes" },
