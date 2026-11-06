@@ -419,7 +419,15 @@ export function readmeBannerSvg(app: BannerSource, lang: Lang = 'en'): string {
     ? `<tspan fill="white">Cyber</tspan><tspan fill="${titleAccent}">${escapeXml(app.name.slice(5))}</tspan>`
     : `<tspan fill="white">${title}</tspan>`;
 
-  const cyberGemsMark = assetData('/favicon.svg', 'image/svg+xml');
+  // Free-standing gem: /favicon.svg bakes a dark rounded square into its path,
+  // which reads as a heavy tile on the banner's starfield. The footer asset is
+  // the same official artwork without the square. 33 px matches the gem's
+  // visible size inside the old 36 px tile, so the mark keeps its footprint.
+  // No wordmark here on purpose: this corner stays a compact signature.
+  const cyberGemsMark = assetData('/branding/cybergems-footer.svg', 'image/svg+xml');
+  const markCenterX = 1180;
+  const markCenterY = 278;
+  const markSize = 33;
   const trust = lang === 'es'
     ? 'GRATIS PARA SIEMPRE · SIN ANUNCIOS · SIN CUENTA · CÓDIGO ABIERTO'
     : 'FREE FOREVER · NO ADS · NO ACCOUNT · OPEN SOURCE';
@@ -490,9 +498,9 @@ export function readmeBannerSvg(app: BannerSource, lang: Lang = 'en'): string {
   ${tagline.map((line, index) => `<text x="${textX + 2}" y="${taglineStartY + index * lineHeight}" fill="#D8E7F1" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
   <text x="${textX + 2}" y="${trustY}" fill="#8f929f" font-family="Segoe UI, system-ui, sans-serif" font-size="${trustSize}" font-weight="700" letter-spacing="0.5">${escapeXml(trust)}</text>
 
-  <!-- Bottom right mark -->
-  <image href="${cyberGemsMark}" x="1162" y="260" width="36" height="36" opacity="0.95" />
-  <text x="1180" y="318" fill="#c9d2d8" fill-opacity="0.92" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="600" text-anchor="middle">cybergems.org</text>
+  <!-- Bottom right mark: gem only, no tile, no wordmark -->
+  <image href="${cyberGemsMark}" x="${markCenterX - markSize / 2}" y="${markCenterY - markSize / 2}" width="${markSize}" height="${markSize}" opacity="0.95" />
+  <text x="${markCenterX}" y="318" fill="#c9d2d8" fill-opacity="0.92" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="600" text-anchor="middle">cybergems.org</text>
 </svg>`;
 }
 
