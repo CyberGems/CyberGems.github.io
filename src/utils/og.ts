@@ -69,7 +69,7 @@ function balanceTwoLines(value: string, singleLineLimit = 56): string[] {
 
 function appImage(app: Pick<BannerSource, 'icon' | 'emoji'>, x: number, y: number, size: number): string {
   if (!app.icon) {
-    return `<text x="${x + size / 2}" y="${y + size * 0.7}" fill="white" font-size="${size * 0.52}" text-anchor="middle">${escapeXml(app.emoji)}</text>`;
+    return `<text x="${x + size / 2}" y="${y + size * 0.7}" fill="white" font-size="${size * 0.52}" text-anchor="middle">${escapeXml(app.emoji ?? '◆')}</text>`;
   }
   return `<image href="${assetData(app.icon)}" x="${x}" y="${y}" width="${size}" height="${size}" preserveAspectRatio="xMidYMid meet" />`;
 }
@@ -218,20 +218,60 @@ function homeCard(lang: Lang): string {
 
 function appCard(app: CyberApp, lang: Lang): string {
   const accent = app.accent ?? '#00F2FF';
+  const titleAccent = app.bannerTitleAccent ?? accent;
   const title = escapeXml(app.name);
   // Social cards show the same short line printed on the generated README
   // banner; 56 chars keeps every bannerTagline on a single line, as it is there.
   const bannerTagline = app.bannerTagline?.[lang] ?? app.bannerTagline?.en ?? app.tagline[lang] ?? app.tagline.en;
-  const tagline = wrapText(bannerTagline, 56).slice(0, 3);
-  const extra = `${app.stack}  ·  ${app.license}  ·  Windows`;
-  const label = lang === 'es' ? 'WINDOWS 10 / 11 · 64-BIT' : 'WINDOWS 10 / 11 · 64-BIT';
-  const cardTitle = lang === 'es' ? 'Código abierto bajo GPLv3' : 'Open source under GPLv3';
-  const cardLine = lang === 'es' ? 'Gratis · Privada · Nativa Windows' : 'Free · Private · Native Windows';
-  const tagStartY = tagline.length > 2 ? 342 : 352;
-  const tagLineHeight = tagline.length > 2 ? 30 : 36;
-  const tagFontSize = tagline.length > 2 ? 22 : 24;
-  const extraY = tagline.length > 2 ? 446 : 446;
-  const cardTitleY = tagline.length > 2 ? 480 : 480;
+  const tagline = wrapText(bannerTagline, 56).slice(0, 2);
+
+  const leftX = 72;
+  const cardX = 780;
+  const cardY = 148;
+  const cardWidth = 348;
+  const cardHeight = 344;
+  const iconSize = 232;
+  const textWidth = cardX - leftX - 40;
+
+  // Fit the two most important elements to the column instead of using fixed
+  // sizes: short names and short lemas get noticeably larger type.
+  const titleSize = Math.min(88, Math.floor(textWidth / (app.name.length * 0.56)));
+  const longestLine = Math.max(...tagline.map((line) => line.length));
+  const taglineSize = Math.max(23, Math.min(28, Math.floor(textWidth / (longestLine * 0.515))));
+
+  // Lay the left column out as one measured block, then center it between the
+  // brand mark and the footer. Hardcoded baselines assumed a two-line lema and
+  // left a hole as soon as the banner tagline became a single line.
+  const pillHeight = 34;
+  const titleCap = Math.round(titleSize * 0.72);
+  const titleDescender = Math.round(titleSize * 0.21);
+  const taglineCap = Math.round(taglineSize * 0.72);
+  const taglineDescender = Math.round(taglineSize * 0.21);
+  const taglineLineHeight = Math.round(taglineSize * 1.25);
+  const metaSize = 18;
+  const metaCap = Math.round(metaSize * 0.72);
+  const metaDescender = Math.round(metaSize * 0.21);
+  const gapPillTitle = 40;
+  const gapTitleTagline = 22;
+  const gapTaglineRule = 20;
+  const gapRuleMeta = 20;
+  const blockHeight = pillHeight
+    + gapPillTitle + titleCap + titleDescender
+    + gapTitleTagline + taglineCap + (tagline.length - 1) * taglineLineHeight + taglineDescender
+    + gapTaglineRule + 4
+    + gapRuleMeta + metaCap + metaDescender;
+  const blockTop = Math.round(132 + (500 - 132 - blockHeight) / 2);
+  const pillY = blockTop;
+  const titleBaseline = pillY + pillHeight + gapPillTitle + titleCap;
+  const taglineStartY = titleBaseline + titleDescender + gapTitleTagline + taglineCap;
+  const ruleY = taglineStartY + (tagline.length - 1) * taglineLineHeight + taglineDescender + gapTaglineRule;
+  const metaBaseline = ruleY + 4 + gapRuleMeta + metaCap;
+
+  // Two-tone name, mirroring the README banner. Platform, license and trust
+  // claims appear exactly once on the card: pill, stack line and footer.
+  const titleMarkup = app.name.startsWith('Cyber') && app.name.length > 5
+    ? `<tspan fill="white">Cyber</tspan><tspan fill="${titleAccent}">${escapeXml(app.name.slice(5))}</tspan>`
+    : `<tspan fill="white">${title}</tspan>`;
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" xmlns="http://www.w3.org/2000/svg" role="img">
@@ -239,24 +279,20 @@ function appCard(app: CyberApp, lang: Lang): string {
   ${background(accent)}
   ${brandMark(72, 48, 52, 32)}
 
-  <!-- Left: Metadata and headline -->
-  <rect x="72" y="164" width="245" height="34" rx="17" fill="${accent}" fill-opacity="0.1" stroke="${accent}" stroke-opacity="0.36" />
-  <circle cx="88" cy="181" r="3.5" fill="${accent}" />
-  <text x="100" y="186" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="1.1">${label}</text>
-  <text x="72" y="286" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="68" font-weight="800" letter-spacing="-2">${title}</text>
-  ${tagline.map((line, index) => `<text x="72" y="${tagStartY + index * tagLineHeight}" fill="#d8d8df" font-family="Segoe UI, system-ui, sans-serif" font-size="${tagFontSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
-  <text x="72" y="${extraY}" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="18" font-weight="600">${escapeXml(extra)}</text>
-  <text x="72" y="${cardTitleY}" fill="${accent}" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="700">${cardTitle}</text>
+  <!-- Left: platform, name, lema and stack -->
+  <rect x="${leftX}" y="${pillY}" width="245" height="${pillHeight}" rx="17" fill="${accent}" fill-opacity="0.1" stroke="${accent}" stroke-opacity="0.36" />
+  <circle cx="88" cy="${pillY + 17}" r="3.5" fill="${accent}" />
+  <text x="100" y="${pillY + 22}" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="700" letter-spacing="1.1">WINDOWS 10 / 11 · 64-BIT</text>
+  <text x="${leftX}" y="${titleBaseline}" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${titleSize}" font-weight="800" letter-spacing="-2">${titleMarkup}</text>
+  ${tagline.map((line, index) => `<text x="${leftX}" y="${taglineStartY + index * taglineLineHeight}" fill="#e4e8f0" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
+  <rect x="${leftX}" y="${ruleY}" width="64" height="4" rx="2" fill="${accent}" />
+  <text x="${leftX}" y="${metaBaseline}" fill="#b7bcc8" font-family="Segoe UI, system-ui, sans-serif" font-size="${metaSize}" font-weight="600">${escapeXml(app.stack)}</text>
 
-  <!-- Right: Glassmorphic flagship showcase card -->
+  <!-- Right: icon showcase. No repeated name, platform or license. -->
   <g filter="url(#softShadow)">
-    <rect x="756" y="118" width="372" height="392" rx="30" fill="#12151f" fill-opacity="0.92" stroke="white" stroke-opacity="0.14" />
-    ${appImage(app, 857, 190, 170)}
-
-    <text x="942" y="412" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="24" font-weight="800" text-anchor="middle">${title}</text>
-    <text x="942" y="442" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="600" text-anchor="middle">${cardLine}</text>
-    <rect x="832" y="464" width="220" height="26" rx="13" fill="white" fill-opacity="0.04" stroke="white" stroke-opacity="0.08" />
-    <text x="942" y="481" fill="${accent}" font-family="Segoe UI, system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="0.5" text-anchor="middle">WINDOWS 10 / 11 · x64</text>
+    <rect x="${cardX}" y="${cardY}" width="${cardWidth}" height="${cardHeight}" rx="30" fill="#12151f" fill-opacity="0.92" stroke="white" stroke-opacity="0.14" />
+    <circle cx="${cardX + cardWidth / 2}" cy="${cardY + cardHeight / 2}" r="140" fill="url(#iconAura)" />
+    ${appImage(app, cardX + (cardWidth - iconSize) / 2, cardY + (cardHeight - iconSize) / 2, iconSize)}
   </g>
 
   ${footer(lang)}
