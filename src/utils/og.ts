@@ -20,13 +20,27 @@ const CORNER_GLOW = '#8B9CF6';
 
 /** Copy shared by both home cards. Kept here so variants can swap it cleanly. */
 const HOME_BADGE = {
-  en: 'FREE APPS FOR WINDOWS',
-  es: 'APLICACIONES GRATUITAS PARA WINDOWS',
+  en: 'FREE APPS FOR WINDOWS 10 / 11',
+  es: 'APLICACIONES GRATUITAS PARA WINDOWS 10 Y 11',
 };
 const HOME_CAPTION = {
-  en: 'Tools for Windows',
-  es: 'Herramientas para Windows',
+  en: 'Precise control of your PC',
+  es: 'Control preciso de tu PC',
 };
+
+/**
+ * Home showcase: one tile per published app. 10 published apps fill a 5x2
+ * grid exactly; unpublished/pre-release apps and banner-only apps are not in
+ * `apps`, so the card never advertises something without a page on the site.
+ */
+const HOME_GRID_COLS = 5;
+const HOME_GRID_TILE = 58;
+const HOME_GRID_GAP = 8;
+/**
+ * The official icons mix framed and free-standing artwork, so a shared tile
+ * with a thin accent border keeps the shelf visually consistent.
+ */
+const HOME_GRID_INSET = 6;
 
 /**
  * Social cards are rendered by Sharp in an environment without the browser's
@@ -92,12 +106,18 @@ function appImage(app: Pick<BannerSource, 'icon' | 'emoji'>, x: number, y: numbe
   return `<image href="${assetData(app.icon)}" x="${x}" y="${y}" width="${size}" height="${size}" preserveAspectRatio="xMidYMid meet" />`;
 }
 
-function brandMark(x: number, y: number, size: number, labelSize: number): string {
-  const favicon = assetData('/branding/cybergems-favicon.png');
+/**
+ * The real site header logo: free-standing gradient gem + the official
+ * wordmark. The old mark drew a rounded square around the favicon PNG (which
+ * already contains its own dark square) and spelled "CyberGems" with a
+ * different font and gradient than the site header.
+ */
+function brandMark(x: number, y: number, height: number): string {
+  const header = assetData('/branding/cybergems-header.png');
+  // cybergems-header.png is 768x128 (6:1) with a transparent background.
+  const width = height * 6;
   return `
-  <rect x="${x}" y="${y}" width="${size}" height="${size}" rx="${size * 0.24}" fill="#0d0f17" stroke="white" stroke-opacity="0.14" />
-  <image href="${favicon}" x="${x}" y="${y}" width="${size}" height="${size}" preserveAspectRatio="xMidYMid meet" />
-  <text x="${x + size + 18}" y="${y + size * 0.68}" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${labelSize}" font-weight="800" letter-spacing="-1">Cyber<tspan fill="url(#brand)">Gems</tspan></text>`;
+  <image href="${header}" x="${x}" y="${y}" width="${width}" height="${height}" preserveAspectRatio="xMidYMid meet" />`;
 }
 
 function defs(accent: string): string {
@@ -127,11 +147,6 @@ function defs(accent: string): string {
     <radialGradient id="iconAura" cx="50%" cy="50%" r="50%">
       <stop offset="0" stop-color="${accent}" stop-opacity="0.25" />
       <stop offset="55%" stop-color="${accent}" stop-opacity="0.08" />
-      <stop offset="100%" stop-color="${accent}" stop-opacity="0" />
-    </radialGradient>
-    <radialGradient id="homeAura" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="${accent}" stop-opacity="0.12" />
-      <stop offset="55%" stop-color="${accent}" stop-opacity="0.04" />
       <stop offset="100%" stop-color="${accent}" stop-opacity="0" />
     </radialGradient>
     <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
@@ -207,11 +222,12 @@ function homeCard(lang: Lang): string {
     ? 'Captura  ·  Portapapeles  ·  Notas  ·  Firewall  ·  Y más'
     : 'Screen capture  ·  Clipboard  ·  Notes  ·  Firewall  ·  More';
   const caption = HOME_CAPTION[lang];
-  const positions = [[828, 174], [1036, 174], [820, 403], [1044, 403]];
-  const brandApp = { icon: '/branding/cybergems-favicon.png', emoji: '◆' } as CyberApp;
 
   const leftX = 72;
   const showcaseX = 784;
+  const panelWidth = 344;
+  const panelHeight = 300;
+  const panelY = 158;
   const badgeSize = 14;
   const badgeSpacing = 1.1;
   const badgeY = 164;
@@ -226,11 +242,37 @@ function homeCard(lang: Lang): string {
   // visible through the translucent panel). Fit it to the left column instead.
   const headlineSize = Math.min(57, Math.floor((showcaseX - leftX - 28) / (headline.length * 0.58)));
 
+  // One tile per published app, centred as a block with the caption below it.
+  // The official icons mix framed and free-standing artwork, so each one gets
+  // the same backplate to make the shelf read as a single, even grid.
+  const gridRows = Math.ceil(apps.length / HOME_GRID_COLS);
+  const gridWidth = HOME_GRID_COLS * HOME_GRID_TILE + (HOME_GRID_COLS - 1) * HOME_GRID_GAP;
+  const gridHeight = gridRows * HOME_GRID_TILE + (gridRows - 1) * HOME_GRID_GAP;
+  const captionGap = 40;
+  const gridY = Math.round(panelY + (panelHeight - gridHeight - captionGap) / 2);
+  const gridX = Math.round(showcaseX + (panelWidth - gridWidth) / 2);
+  const captionBaseline = gridY + gridHeight + captionGap;
+  const grid = apps.map((app, index) => {
+    const row = Math.floor(index / HOME_GRID_COLS);
+    const column = index % HOME_GRID_COLS;
+    const inRow = Math.min(HOME_GRID_COLS, apps.length - row * HOME_GRID_COLS);
+    const rowWidth = inRow * HOME_GRID_TILE + (inRow - 1) * HOME_GRID_GAP;
+    const rowX = gridX + (gridWidth - rowWidth) / 2;
+    const x = rowX + column * (HOME_GRID_TILE + HOME_GRID_GAP);
+    const y = gridY + row * (HOME_GRID_TILE + HOME_GRID_GAP);
+    const icon = HOME_GRID_INSET > 0
+      ? appImage(app, x + HOME_GRID_INSET, y + HOME_GRID_INSET, HOME_GRID_TILE - 2 * HOME_GRID_INSET)
+      : appImage(app, x, y, HOME_GRID_TILE);
+    return HOME_GRID_INSET > 0
+      ? `<rect x="${x}" y="${y}" width="${HOME_GRID_TILE}" height="${HOME_GRID_TILE}" rx="16" fill="#151c28" stroke="${app.accent}" stroke-opacity="0.34" />${icon}`
+      : icon;
+  }).join('');
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" xmlns="http://www.w3.org/2000/svg" role="img">
   ${defs(accent)}
   ${background(accent)}
-  ${brandMark(72, 48, 52, 32)}
+  ${brandMark(72, 50, 46)}
 
   <rect x="${leftX}" y="${badgeY}" width="${badgeWidth}" height="${badgeHeight}" rx="17" fill="#00F2FF" fill-opacity="0.1" stroke="#00F2FF" stroke-opacity="0.32" />
   <circle cx="${leftX + 16}" cy="${badgeY + 17}" r="3.5" fill="#00F2FF" />
@@ -240,17 +282,13 @@ function homeCard(lang: Lang): string {
   <text x="${leftX}" y="397" fill="#d8d8df" font-family="Segoe UI, system-ui, sans-serif" font-size="22" font-weight="500">${escapeXml(intro)}</text>
   <text x="${leftX}" y="432" fill="#9a9aa5" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="500">${escapeXml(categories)}</text>
 
-  <!-- Only the panel casts a shadow: the old aura inherited it and read as a muddy ring. -->
+  <!-- Only the panel casts a shadow. No big favicon and no aura: the showcase
+       is now the real app shelf, one tile per published app. -->
   <g filter="url(#softShadow)">
-    <rect x="784" y="128" width="344" height="366" rx="32" fill="#111722" fill-opacity="0.92" stroke="white" stroke-opacity="0.13" />
+    <rect x="${showcaseX}" y="${panelY}" width="${panelWidth}" height="${panelHeight}" rx="32" fill="#111722" fill-opacity="0.92" stroke="white" stroke-opacity="0.13" />
   </g>
-  <circle id="home-aura" cx="956" cy="291" r="152" fill="url(#homeAura)" />
-  ${appImage(brandApp, 898, 233, 116)}
-  <text id="home-caption" x="956" y="386" fill="#c2cad8" font-family="Segoe UI, system-ui, sans-serif" font-size="15" font-weight="600" letter-spacing="0.2" text-anchor="middle">${escapeXml(caption)}</text>
-  ${positions.map(([x, y], index) => {
-    const a = apps[index];
-    return `<rect x="${x}" y="${y}" width="52" height="52" rx="15" fill="#151c28" stroke="${a.accent}" stroke-opacity="0.42" />${appImage(a, x + 5, y + 5, 42)}`;
-  }).join('')}
+  ${grid}
+  <text id="home-caption" x="${showcaseX + panelWidth / 2}" y="${captionBaseline}" fill="#c2cad8" font-family="Segoe UI, system-ui, sans-serif" font-size="17" font-weight="600" letter-spacing="0.2" text-anchor="middle">${escapeXml(caption)}</text>
   ${footer(lang)}
 </svg>`;
 }
@@ -330,7 +368,7 @@ function appCard(app: CyberApp, lang: Lang): string {
 <svg width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" xmlns="http://www.w3.org/2000/svg" role="img">
   ${defs(accent)}
   ${background(accent)}
-  ${brandMark(72, 48, 52, 32)}
+  ${brandMark(72, 50, 46)}
 
   <!-- Left: platform, name, lema and stack -->
   <rect x="${leftX}" y="${pillY}" width="${pillWidth}" height="${pillHeight}" rx="17" fill="${accent}" fill-opacity="0.1" stroke="${accent}" stroke-opacity="0.36" />
