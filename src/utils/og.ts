@@ -234,10 +234,12 @@ function appCard(app: CyberApp, lang: Lang): string {
   const textWidth = cardX - leftX - 40;
 
   // Fit the two most important elements to the column instead of using fixed
-  // sizes: short names and short lemas get noticeably larger type.
-  const titleSize = Math.min(88, Math.floor(textWidth / (app.name.length * 0.56)));
+  // sizes: short names and short lemas get noticeably larger type. The width
+  // estimates are deliberately conservative because the deploy runner has no
+  // Segoe UI and falls back to a noticeably wider Linux font.
+  const titleSize = Math.min(88, Math.floor(textWidth / (app.name.length * 0.65)));
   const longestLine = Math.max(...tagline.map((line) => line.length));
-  const taglineSize = Math.max(23, Math.min(28, Math.floor(textWidth / (longestLine * 0.515))));
+  const taglineSize = Math.max(24, Math.min(27, Math.floor(textWidth / (longestLine * 0.56))));
 
   // Lay the left column out as one measured block, then center it between the
   // brand mark and the footer. Hardcoded baselines assumed a two-line lema and
