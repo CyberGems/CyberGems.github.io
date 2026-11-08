@@ -38,7 +38,7 @@
     {
       "icon": "@search",
       "title": { "en": "Find it or send it later", "es": "Encuéntrala o envíala después" },
-      "text": { "en": "Search your local gallery, copy a result or choose an upload destination when you want to share.", "es": "Busca en tu galería local, copia el resultado o elige un destino de subida cuando quieras compartir." }
+      "text": { "en": "Open the Gallery independently, search locally, copy a result or choose an upload destination when you want to share.", "es": "Abre la Galería por separado para buscar, copiar resultados o elegir un destino de subida cuando quieras compartir." }
     }
   ],
   "featuresHeading": {
@@ -51,7 +51,7 @@
     { "en": "Capture Preview with checkerboard or custom solid backgrounds, theme defaults and high-DPI color pickers", "es": "Vista previa con damero o fondos sólidos personalizados, colores por tema y pickers adaptados a DPI alto" },
     { "en": "Configurable outlines and colored margins included in copied or saved images, plus image-path copying and Paint export", "es": "Delineado y márgenes de color incluidos al copiar o guardar, con copiado de ruta y envío a Paint" },
     { "en": "One configurable global shortcut per tool, plus Tab navigation through visible capture-toolbar buttons", "es": "Un atajo global configurable por herramienta y navegación con Tab por los botones visibles de la barra de captura" },
-    { "en": "Automatic backups for settings and achievements, with scheduling, retention and recovery copies", "es": "Copias automáticas de configuración y logros con programación, retención y copias de recuperación" },
+    { "en": "Achievement progress shows a start date, can be reset for a fresh period and is stored separately; automatic backups include settings and achievements", "es": "El progreso de logros muestra una fecha de inicio, permite reiniciar y se guarda por separado; los respaldos automáticos incluyen configuración y logros" },
     { "en": "Independent auto-copy for screenshots, scrolling captures, OCR, QR/barcodes, MP4, GIF and colors", "es": "Autocopia independiente para capturas normales y con desplazamiento, OCR, QR/códigos de barras, MP4, GIF y colores" },
     { "en": "Area, window, full screen & scroll capture", "es": "Captura de área, ventana, pantalla completa y desplazamiento" },
     { "en": "3×3 widget with Zoom and Pin, optional cursor-following between monitors, contextual tooltips, and independent image/MP4/GIF cursor and delivery preferences", "es": "Widget 3×3 con Zoom y Pin, seguimiento opcional del cursor entre monitores, tooltips contextuales y preferencias independientes de cursor y resultados para Imagen/MP4/GIF" },
