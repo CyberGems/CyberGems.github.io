@@ -61,6 +61,7 @@
     { "en": "Multilingual OCR with translation, plus tabbed OCR and QR results", "es": "OCR multilingüe con traducción y resultados de OCR y QR en pestañas" },
     { "en": "QR and barcode scanner plus a screen color picker with HEX, RGB and HSL values", "es": "Escáner de códigos QR y de barras, y selector de color de pantalla con valores HEX, RGB y HSL" },
     { "en": "Local gallery with full-text search across OCR content", "es": "Galería local con búsqueda de texto completo sobre el OCR" },
+    { "en": "Settings and Gallery open centered on the chosen display. Notifications align from the first appearance across monitors with different scaling", "es": "Configuración y Galería se abren centradas en la pantalla elegida. Los avisos se alinean desde que aparecen en monitores con distintas escalas" },
     { "en": "Upload to FTP, SFTP, S3, ImgBB, Imgur, Webhook & CyberSnap Share", "es": "Subida a FTP, SFTP, S3, ImgBB, Imgur, Webhook y CyberSnap Share" }
   ],
   "repo": "https://github.com/CyberGems/CyberSnap",
