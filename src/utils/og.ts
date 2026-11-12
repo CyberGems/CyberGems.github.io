@@ -8,6 +8,16 @@ const WIDTH = 1200;
 const HEIGHT = 630;
 const BANNER_WIDTH = 1280;
 const BANNER_HEIGHT = 360;
+/**
+ * README banners are one family. Every app icon in the suite is cyan, so the
+ * banner accent (title suffix, border and starfield tint) uses a single suite
+ * cyan instead of each app's brand hue — a red firewall or a violet launcher
+ * next to a cyan icon read as accents out of place. CyberViewer's banner is
+ * the reference look, so the glow behind the logo keeps its violet: one warm
+ * note that keeps the cyan from flooding the frame.
+ */
+const BANNER_ACCENT = '#80E4F0';
+const BANNER_GLOW = '#BA68C8';
 const PUBLIC_DIR = path.join(process.cwd(), 'public');
 
 /**
@@ -395,8 +405,9 @@ function appCard(app: CyberApp, lang: Lang): string {
  * Fully aligned with the space / galactic aesthetic of the site.
  */
 export function readmeBannerSvg(app: BannerSource, lang: Lang = 'en'): string {
-  const accent = app.accent ?? '#00F2FF';
-  const titleAccent = app.bannerTitleAccent ?? accent;
+  const accent = BANNER_ACCENT;
+  const glowAccent = BANNER_GLOW;
+  const titleAccent = BANNER_ACCENT;
   const title = escapeXml(app.name);
   const bannerTagline = app.bannerTagline?.[lang] ?? app.tagline?.[lang] ?? app.tagline?.en ?? app.name;
   const tagline = balanceTwoLines(bannerTagline);
@@ -470,8 +481,8 @@ export function readmeBannerSvg(app: BannerSource, lang: Lang = 'en'): string {
       <stop offset="1" stop-color="#12101f" />
     </linearGradient>
     <radialGradient id="bannerGlow" cx="19%" cy="50%" r="55%">
-      <stop offset="0" stop-color="${accent}" stop-opacity="0.14" />
-      <stop offset="1" stop-color="${accent}" stop-opacity="0" />
+      <stop offset="0" stop-color="${glowAccent}" stop-opacity="0.14" />
+      <stop offset="1" stop-color="${glowAccent}" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="bannerViolet" cx="100%" cy="110%" r="65%">
       <stop offset="0" stop-color="#7A5CFF" stop-opacity="0.18" />
@@ -490,7 +501,7 @@ export function readmeBannerSvg(app: BannerSource, lang: Lang = 'en'): string {
   <rect x="0.5" y="0.5" width="${BANNER_WIDTH - 1}" height="${BANNER_HEIGHT - 1}" rx="23.5" fill="none" stroke="${accent}" stroke-opacity="0.30" />
 
   <!-- Left Icon showcase with aura -->
-  <circle cx="214" cy="180" r="115" fill="${accent}" fill-opacity="0.22" filter="url(#bannerIconGlow)" />
+  <circle cx="214" cy="180" r="115" fill="${glowAccent}" fill-opacity="0.22" filter="url(#bannerIconGlow)" />
   ${appImage(app, 130, 96, 168)}
 
   <!-- Title and tagline -->
