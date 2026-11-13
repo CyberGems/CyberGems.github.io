@@ -48,6 +48,8 @@
   "features": [
     { "en": "Filter the connection log by program, IP address, port, or process ID", "es": "Filtra el registro de conexiones por programa, dirección IP, puerto o ID de proceso" },
     { "en": "Monitor live speeds and session totals with a lightweight floating desktop companion widget", "es": "Monitorea velocidades en vivo y totales de sesión con un widget flotante de escritorio" },
+    { "en": "Switch between Automatic telemetry and a specific network adapter across graphs and the widget", "es": "Alterna entre telemetría automática y un adaptador de red específico en los gráficos y el widget" },
+    { "en": "Back up and selectively restore rules and settings with integrity-verified .cwbackup snapshots", "es": "Respalda y restaura selectivamente reglas y preferencias con copias .cwbackup verificadas" },
     { "en": "See upload and download speeds at a glance", "es": "Consulta las velocidades de subida y descarga de un vistazo" },
     { "en": "Get notified when an app first tries to use the network", "es": "Recibe un aviso cuando una app intenta usar la red por primera vez" },
     { "en": "Choose a temporary permission or save a persistent per-app rule", "es": "Elige un permiso temporal o guarda una regla permanente por aplicación" },
