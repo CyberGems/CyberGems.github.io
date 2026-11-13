@@ -17,8 +17,8 @@
     "es": "Reloj, temporizador, cronómetro y calendario"
   },
   "description": {
-    "en": "A feature-rich desktop clock with a futuristic cyber-neon aesthetic. CyberClock combines an analog and digital clock, full calendar, timer, stopwatch, alarms, and independent floating widgets, plus an optional talking clock that announces the time and reads alarms aloud. A wellness module adds recorded ambient soundscapes for relaxation and mindfulness, and automatic backups keep your alarms, notes and preferences safe in a folder you choose.",
-    "es": "Un reloj de escritorio lleno de funciones con una estética cyber-neon futurista. CyberClock combina reloj analógico y digital, calendario completo, temporizador, cronómetro, alarmas y widgets flotantes independientes, además de un reloj parlante opcional que anuncia la hora y lee las alarmas en voz alta. Un módulo de bienestar añade paisajes sonoros grabados para relajarse y practicar mindfulness, y las copias automáticas mantienen tus alarmas, notas y preferencias a salvo en la carpeta que elijas."
+    "en": "A feature-rich desktop clock with a futuristic cyber-neon aesthetic. CyberClock combines an analog and digital clock, full calendar, timer, stopwatch, alarms, and independent floating widgets, plus an optional talking clock that announces the time and reads alarms aloud. Relax lets you save named mixes of recorded soundscapes and control the session from its widget, and automatic backups keep your alarms, notes and preferences safe in a folder you choose.",
+    "es": "Un reloj de escritorio lleno de funciones con una estética cyber-neon futurista. CyberClock combina reloj analógico y digital, calendario completo, temporizador, cronómetro, alarmas y widgets flotantes independientes, además de un reloj parlante opcional que anuncia la hora y lee las alarmas en voz alta. Relax permite guardar mezclas con nombre de paisajes sonoros grabados y controlar la sesión desde su widget, y las copias automáticas mantienen tus alarmas, notas y preferencias a salvo en la carpeta que elijas."
   },
   "howItWorks": {
     "title": {
@@ -116,12 +116,12 @@
       "es": "Temporizador con preajustes + cronómetro de precisión con vueltas"
     },
     {
-      "en": "6 recorded ambient soundscapes with breathing guide",
-      "es": "6 paisajes sonoros ambientales grabados con guía de respiración"
+      "en": "Relax offers six recorded soundscapes, named mixes with per-layer volume, and a widget with playback and Auto Stop controls",
+      "es": "Relax ofrece seis paisajes sonoros grabados, mezclas con nombre y volumen por capa, y un widget con controles de reproducción y Parada Automática"
     },
     {
-      "en": "Mini mode: compact always-on-top clock bar with 20 skin-specific designs, visual skin gallery, and zoom",
-      "es": "Modo Mini: barra de reloj compacta siempre visible con 20 diseños propios, galería visual de skins y zoom"
+      "en": "Mini Mode keeps the clock on top with 20 skins, visual previews, zoom and lighter idle animations",
+      "es": "Modo Mini mantiene el reloj a la vista con 20 skins, vistas previas, zoom y animaciones más ligeras en reposo"
     },
     {
       "en": "Day Progress: optional line on the bottom edge of the mini bar on every skin; hover shows the percentage of the day that has passed",
@@ -152,8 +152,8 @@
       "es": "Volumen dedicado de campanadas, transparencia y opciones flexibles de cierre"
     },
     {
-      "en": "Voice Time Announcer (Talking Clock) speaks each announcement once, with system voice selection, natural/cyber styles, pre-chimes, and quiet hours",
-      "es": "Locutor de hora por voz (Reloj Parlante): dice cada aviso una sola vez, con voces del sistema, estilos natural/cyber, pre-timbre y horas de silencio"
+      "en": "The Talking Clock announces the time on schedule with Windows voices, quiet hours and an optional pre-chime with a brief pause before speech",
+      "es": "El Reloj Parlante anuncia la hora a tiempo con voces de Windows, horario de silencio y un timbre opcional con una pausa breve antes de la voz"
     },
     {
       "en": "Mini Mode Auto-Fade (inactivity dimming at 70%, 50%, 30%, 15%) and independent widget position locks",
@@ -192,7 +192,7 @@
       {
         "icon": "🧘",
         "title": { "en": "People seeking a pause", "es": "Quienes buscan una pausa" },
-        "text": { "en": "Set a gentle ambient session and follow a breathing pattern after a busy stretch.", "es": "Programa una sesión de sonido ambiental y sigue un ritmo de respiración tras un rato intenso." }
+        "text": { "en": "Save a favorite soundscape mix and set Auto Stop for a quiet break.", "es": "Guarda tu mezcla de sonidos favorita y configura la Parada Automática para hacer una pausa tranquila." }
       }
     ],
     "tasks": [
