@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "predev": "npm run sync-icons && node scripts/fetch-wikis.mjs",
-    "build": "astro build && node scripts/verify-publication.mjs",
+    "build": "astro build && node scripts/verify-publication.mjs && node scripts/verify-doc-anchors.mjs",
     "prebuild": "npm run sync-icons && node scripts/fetch-wikis.mjs && node scripts/build-suite-json.mjs",
     "sync-icons": "node scripts/sync-app-icons.mjs",
     "preview": "astro preview",
@@ -17,6 +17,7 @@
     "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.12.0",
+    "github-slugger": "^2.0.0",
     "marked": "^18.0.11",
     "sanitize-html": "^2.17.7",
     "tailwindcss": "^4.1.11"

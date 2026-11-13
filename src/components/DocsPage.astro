@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import DocsNav from './DocsNav.astro';
 import NavIcon from './NavIcon.astro';
 import { getApp } from '../data/apps';
-import { listDocs, docTitle, docBaseSlug, localizedDoc, wrapTables, sanitize, WIKIS_DIR, type DocPage } from '../data/docs';
+import { listDocs, docTitle, docBaseSlug, localizedDoc, addHeadingIds, wikiHeadings, localizedAnchor, wrapTables, sanitize, WIKIS_DIR, type DocPage } from '../data/docs';
 import type { Lang } from '../data/ui';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -28,18 +28,36 @@ const docsHome = `${home}docs/`;
 const wikiBase = `${home}docs/${appSlug}`;
 const assetBase = `/wikis/${doc.appDir}`;
 const raw = fs.readFileSync(path.join(WIKIS_DIR, sourceDoc.appDir, sourceDoc.file), 'utf-8');
+/** Translate an English #anchor when this route renders a localized page instead. */
+function remapAnchor(targetSlug: string, anchor: string): string {
+  if (lang !== 'es' || anchor === '') return anchor;
+  const dest = allPages.find((page) => page.appDir === doc.appDir && page.slug === targetSlug);
+  if (!dest || dest.slug.endsWith('-es')) return anchor;
+  const rendered = localizedDoc(dest, lang, allPages);
+  if (rendered === dest) return anchor;
+  return localizedAnchor(
+    wikiHeadings(doc.appDir, dest.file),
+    wikiHeadings(doc.appDir, rendered.file),
+    anchor,
+  );
+}
 let md = raw.replace(/\[\[([^\]|]+)(?:\|([^\]]*))?\]\]/g, (_m: string, target: string, label?: string) => `[${(label ?? target).trim()}](${target.trim()})`);
 md = md.replace(/\]\(([^)]+)\)/g, (match: string, href: string) => {
   const trimmed = href.trim();
-  if (/^(https?:|mailto:|#|\/\/)/i.test(trimmed) || trimmed.startsWith('/')) return match;
+  if (/^(https?:|mailto:|\/\/)/i.test(trimmed) || trimmed.startsWith('/')) return match;
+  if (trimmed.startsWith('#')) {
+    const anchor = trimmed.slice(1);
+    return anchor ? `](#${remapAnchor(doc.slug, anchor)})` : match;
+  }
   const [relative, anchor] = trimmed.split('#');
-  const suffix = anchor ? `#${anchor}` : '';
-  if (/\.(png|jpe?g|gif|webp|svg|bmp|ico)$/i.test(relative)) return `](${assetBase}/${relative}${suffix})`;
+  if (/\.(png|jpe?g|gif|webp|svg|bmp|ico)$/i.test(relative)) return `](${assetBase}/${relative}${anchor ? `#${anchor}` : ''})`;
   const clean = relative.replace(/\.md$/i, '');
   if (!clean) return match;
-  return `](${wikiBase}/${clean === 'Home' ? '' : `${clean}/`}${suffix})`;
+  const targetSlug = clean === 'Home' ? '' : clean;
+  const suffix = anchor ? `#${remapAnchor(targetSlug, anchor)}` : '';
+  return `](${wikiBase}/${targetSlug ? `${targetSlug}/` : ''}${suffix})`;
 });
-const html = (marked.parse(md) as string).replace(/<h1(\s|>)/g, '<h2$1').replace(/<\/h1>/g, '</h2>');
+const html = addHeadingIds((marked.parse(md) as string).replace(/<h1(\s|>)/g, '<h2$1').replace(/<\/h1>/g, '</h2>'));
 const baseSlug = docBaseSlug(doc.slug);
 const prettyTitle = baseSlug ? docTitle(baseSlug) : (en ? 'Overview' : 'Inicio');
 const title = `${app?.name ?? appSlug}: ${prettyTitle} | CyberGems`;
