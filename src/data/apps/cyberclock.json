@@ -124,6 +124,14 @@
       "es": "Modo Mini mantiene el reloj a la vista con 20 skins, vistas previas, zoom y animaciones más ligeras en reposo"
     },
     {
+      "en": "Mini Mode saves memory by loading auxiliary windows on demand and releasing Full Mode while idle",
+      "es": "El Modo Mini ahorra memoria al cargar las ventanas auxiliares bajo demanda y liberar el Modo Completo cuando queda inactivo"
+    },
+    {
+      "en": "Update notices use localized actions in Mini Mode and stay anchored at the lower right in Full Mode",
+      "es": "Los avisos de actualización muestran acciones localizadas en Modo Mini y quedan anclados abajo a la derecha en Modo Completo"
+    },
+    {
       "en": "Day Progress: optional line on the bottom edge of the mini bar on every skin; hover shows the percentage of the day that has passed",
       "es": "Avance del Día: línea opcional en el borde inferior de la barra mini en todas las skins; al pasar el cursor muestra el porcentaje del día que ha pasado"
     },
