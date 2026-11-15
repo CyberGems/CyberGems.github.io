@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-08",
+  "updated": "2026-11-15",
   "count": 10,
   "apps": [
     {
@@ -28,8 +28,8 @@
       "slug": "cyberlauncher",
       "name": "CyberLauncher",
       "tagline": {
-        "en": "Apps, files, commands and a real terminal one hotkey away, with your system stats in the same panel.",
-        "es": "Apps, archivos, comandos y una terminal real a un atajo, con las estadísticas del sistema en el mismo panel."
+        "en": "Shortcuts, files, commands and a real terminal one hotkey away, with your system stats in the same panel.",
+        "es": "Accesos, archivos, comandos y una terminal real a un atajo, con las estadísticas del sistema en el mismo panel."
       },
       "site": "https://cybergems.org/apps/cyberlauncher/",
       "repo": "https://github.com/CyberGems/CyberLauncher",

@@ -9,8 +9,8 @@
   "stack": "Electron · React · TypeScript",
   "license": "GPLv3",
   "tagline": {
-    "en": "Apps, files, commands and a real terminal one hotkey away, with your system stats in the same panel.",
-    "es": "Apps, archivos, comandos y una terminal real a un atajo, con las estadísticas del sistema en el mismo panel."
+    "en": "Shortcuts, files, commands and a real terminal one hotkey away, with your system stats in the same panel.",
+    "es": "Accesos, archivos, comandos y una terminal real a un atajo, con las estadísticas del sistema en el mismo panel."
   },
   "bannerTagline": {
     "en": "Find and launch anything on your PC in seconds",
@@ -48,18 +48,20 @@
   "features": [
     { "en": "Search apps and indexed files in your configured locations", "es": "Busca apps y archivos indexados en las ubicaciones configuradas" },
     { "en": "Open Microsoft Store apps, shortcuts and web links", "es": "Abre apps de Microsoft Store, accesos directos y enlaces web" },
-    { "en": "Pin frequently used apps and organize them in categories with collapsible icon rail", "es": "Fija tus apps frecuentes y organízalas en categorías con riel de iconos colapsable" },
+    { "en": "Pin frequently used shortcuts, favorites and taskbar items, and organize them under All Items and color-coded categories with a collapsible sidebar", "es": "Fija accesos frecuentes, favoritos y anclajes en la barra de tareas, y organízalos en Todo y categorías por color con barra lateral colapsable" },
+    { "en": "Bilingual initial setup with curated sample shortcuts and an optional CyberBot Assistant toggle", "es": "Configuración inicial bilingüe con accesos de ejemplo listos para usar y activación opcional del Asistente CyberBot" },
     { "en": "Access launcher actions and navigation instantly with Ctrl+K command palette", "es": "Accede a acciones y navegación del lanzador al instante con la paleta Ctrl+K" },
     { "en": "Assign custom shortcuts to individual apps", "es": "Asigna atajos personalizados a cada app" },
+    { "en": "Recover or remove missing shortcut targets directly when paths change or move", "es": "Recupera o elimina accesos cuyo destino ya no existe directamente cuando una ruta cambia" },
     { "en": "Schedule app launches or commands with standalone desktop alerts", "es": "Programa la apertura de apps o comandos con alertas flotantes en el escritorio" },
     { "en": "Manage system power actions with a 10-second confirmation safety countdown", "es": "Gestiona acciones de energía del sistema con cuenta regresiva de seguridad de 10 segundos" },
     { "en": "Type > to run a shell command from the search field", "es": "Escribe > para ejecutar un comando desde el buscador" },
     { "en": "Check CPU, memory and disk usage at a glance", "es": "Consulta el uso de CPU, memoria y disco de un vistazo" },
     { "en": "Adjust background, glass effect, opacity and interface scale", "es": "Ajusta fondo, efecto de cristal, opacidad y escala de la interfaz" },
-    { "en": "Personalize CyberBot with inline naming, typed messages, quiet hours and focus/scan hover reactions", "es": "Personaliza CyberBot con entrada del nombre en el globo, mensajes progresivos, horario silencioso y reacciones de enfoque y escaneo" },
+    { "en": "Personalize CyberBot Assistant with inline naming, typed messages, quiet hours and focus/scan hover reactions", "es": "Personaliza al Asistente CyberBot con entrada del nombre en el globo, mensajes progresivos, horario silencioso y reacciones de enfoque y escaneo" },
     { "en": "Interactive CyberBot quick command prompt on avatar click or global shortcut with smart action search", "es": "Paleta rápida interactiva de comandos al hacer clic en CyberBot o con atajo global y búsqueda inteligente de acciones" },
     { "en": "CyberBot stays visible during routine idle, steps aside in dialogs and the terminal, and gives a brief farewell when disabled", "es": "CyberBot permanece visible durante la inactividad rutinaria, se retira en diálogos y la terminal, y se despide brevemente al desactivarlo" },
-    { "en": "Automated recurring backups with customizable destination folder and flexible retention policy", "es": "Copias de seguridad automáticas con carpeta de destino personalizable y retención flexible" }
+    { "en": "Portable auto-backups (3 copies kept by default) that embed custom icons and wallpapers for cross-PC migration", "es": "Copias de seguridad automáticas portables (3 copias por defecto) que incrustan iconos personalizados y fondos para migrar de PC" }
   ],
   "useCases": {
     "roles": [
