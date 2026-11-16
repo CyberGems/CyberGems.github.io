@@ -1,6 +1,8 @@
 # Plan de capturas para CyberGems
 
-Estado: plan de producción **en espera**, **actualizado el 2026-11-07**. Ya no hay capturas publicadas: los dos PNG del piloto rechazado de CyberFeeds y el script que lo componía se retiraron del repositorio, y `cyberfeeds.json` volvió a `screenshot: null`. Las fichas públicas muestran de nuevo su explicación conceptual. El selector de imagen por idioma, la galería y la producción de capturas siguen pendientes; véanse «Momento de producción» y «Piloto: CyberFeeds».
+Estado: plan de producción **en espera**, **actualizado el 2026-11-15**. Ya no hay capturas publicadas: los dos PNG del piloto rechazado de CyberFeeds y el script que lo componía se retiraron del repositorio, y `cyberfeeds.json` volvió a `screenshot: null`. Las fichas públicas muestran de nuevo su explicación conceptual. El selector de imagen por idioma, la galería y la producción de capturas siguen pendientes; véanse «Momento de producción» y «Piloto: CyberFeeds».
+
+Todo el estado citado en este documento se ha vuelto a comprobar **contra el código el 2026-11-15**: los 11 JSON de apps con `screenshot: null`, `public/screenshots/` con solo `.gitkeep`, el CMS en Sveltia 0.216.1 con un único campo `screenshot` de tipo `file`, `shotSrc` y el marco `aspect-video` / `object-cover` en `AppPage.astro`, y los 24 README con su sección «Screenshots / Capturas» en placeholder. Nada de lo que se describe como pendiente se ha resuelto por separado.
 
 Documento interno de `CyberGems/CyberGems.github.io`. Desde el 2026-11-07 los 24 README de la suite (12 apps × EN/ES) llevan una sección «Screenshots / Capturas» con «Coming soon...» / «Próximamente...» y un comentario HTML invisible que apunta aquí. El emoji de esa sección es `🖼️`, no `📸`: `📸` es el emoji de identidad de CyberSnap y en su TOC quedarían dos cámaras seguidas. Rellenar la sección consiste en sustituir la cita, sin cambiar el título ni la entrada del TOC.
 
@@ -8,12 +10,16 @@ Documento interno de `CyberGems/CyberGems.github.io`. Desde el 2026-11-07 los 24
 
 Todas las apps han pasado por una fase larga de transformación y perfeccionamiento de sus interfaces. Actualizar capturas en cada release añadiría trabajo innecesario y dejaría imágenes obsoletas. Este plan **no está activo**: se reanudará cuando cada app alcance la que se considere su versión final de interfaz y solo se prevean cambios menores a medio plazo. Hasta entonces se mantienen los bloques conceptuales del sitio y los placeholders «Coming soon...» / «Próximamente...» en los README.
 
+**La condición de inicio no se cumple, y ahora se puede medir.** Entre el 2026-11-07 y el 2026-11-15 publicaron versión **8 de las 12 apps**: CyberPaste `v1.31.0` (11-nov), CyberFiles `v0.9.0` (12-nov), CyberWall `v2.5.0` (13-nov), CyberClock `v1.16.1` y CyberLauncher `v1.15.0` (14-nov), y CyberSnap `v1.25.1`, CyberViewer `v1.23.0` y CyberFeeds `v1.32.0` (15-nov). Las cuatro que no se movieron en esa ventana son CyberTray (`v1.9.0`, 30-oct), CyberNotes (`v1.19.0`, 6-nov), CyberManager (`v1.7.0`, 16-oct) y CyberGo (`v0.1.0-alpha.5`, 20-oct). Con ese ritmo, un lote de 36 imágenes iniciado hoy quedaría anticuado en la mayoría de las apps antes de terminarlo.
+
 Cuando llegue ese momento, revalidar versiones, idiomas disponibles, capturas de ejemplo y este documento antes de producir nada. Las «Adaptaciones del sitio pendientes» siguen siendo un prerrequisito para la primera entrega, no una tarea que obligue a fabricar imágenes antes de tiempo.
 
 ## Alcance y estado real
 
-- La suite tiene **12 apps con README público**. En el sitio hay **10 apps publicadas** (`apps = appEntries.filter(app => app.published)`), **CyberGo** con `published: false` (alpha `0.1.0-alpha.5`) y **CyberFiles** solo con banner (`banner-apps.json`, `0.6.3`, prerelease temprana), sin ficha pública.
+- La suite tiene **12 apps con README público**. En el sitio hay **10 apps publicadas** (`apps = appEntries.filter(app => app.published)`), **CyberGo** con `published: false` (alpha `0.1.0-alpha.5`, sin cambios desde el 20-oct) y **CyberFiles** solo con banner (`banner-apps.json`, sin ficha pública y sin versión en el JSON; su último tag es `v0.9.0`, 12-nov, ya fuera de la prerrelease temprana en que estaba cuando se escribió este plan).
 - Preparar las mismas vistas en español e inglés, capturadas desde la interfaz de cada app.
+- El sitio es **bilingüe desde sus orígenes** (2-sep-2026): `/apps/<slug>/` y `/es/apps/<slug>/` sirven la misma ficha con `lang="en"` y `lang="es"`, y las rutas `/es/docs/...` existen para las 10 apps publicadas. Una captura publicada aparece, por tanto, en la página EN y en la página ES de la misma app: el par de idiomas no es un requisito opcional del sitio, es la mitad de cada entrega.
+- Las wikis de la suite están **completamente bilingües desde el 15-nov-2026** (138 páginas `-es` en las 12 apps). Los README en español enlazan ya a la guía `-es` y a las rutas `/es/` del sitio, de modo que la galería de capturas debe seguir esa misma línea: cada vista necesita su versión en español.
 - **Primera entrega:** 10 vistas principales, una por app publicada, con **20 imágenes finales** EN/ES.
 - **Segunda entrega:** 6 vistas de detalle, con **12 imágenes adicionales**. Publicarlas solo cuando aporten algo distinto de la principal y la función exista en la versión estable.
 - **CyberFiles y CyberGo entran en el alcance**, con su vista definida más abajo, pero su producción queda **diferida**: no conviene fijar 4 imágenes EN/ES de una interfaz alpha o sin ficha pública, porque quedarían obsoletas en cuanto se publique. Se capturan cuando tengan versión estable y página en el sitio. Con todo publicado, el total sería 24 principales + 12 detalles = 36 imágenes.
@@ -101,17 +107,19 @@ Para los detalles, usar el mismo sufijo de idioma:
 
 La extensión puede ser `.png` si se mantiene ese formato.
 
-**Estado actual (2026-11-07).** No hay capturas publicadas. `public/screenshots/` conserva solo `.gitkeep`; `cyberfeeds-main.png`, `cyberfeeds-ui-source.png` y `scripts/compose-cyberfeeds-screenshot.mjs` se eliminaron, y `cyberfeeds.json` volvió a `screenshot: null`. Los 11 JSON de apps tienen `screenshot: null`, incluidas las 10 apps publicadas y CyberGo; CyberFiles no tiene ficha pública. Si hiciera falta consultar el piloto, puede recuperarse del historial de Git, pero no se reutilizará ni volverá a dejarse en `public/`. El punto de partida de la primera pareja será `main-en.webp` / `main-es.webp`; no queda ninguna migración de archivos antiguos pendiente.
+**Estado actual (2026-11-15).** No hay capturas publicadas. `public/screenshots/` conserva solo `.gitkeep`; `cyberfeeds-main.png`, `cyberfeeds-ui-source.png` y `scripts/compose-cyberfeeds-screenshot.mjs` se eliminaron, y `cyberfeeds.json` volvió a `screenshot: null`. Los 11 JSON de apps tienen `screenshot: null`, incluidas las 10 apps publicadas y CyberGo; CyberFiles no tiene ficha pública. Si hiciera falta consultar el piloto, puede recuperarse del historial de Git, pero no se reutilizará ni volverá a dejarse en `public/`. El punto de partida de la primera pareja será `main-en.webp` / `main-es.webp`; no queda ninguna migración de archivos antiguos pendiente.
 
 `public/admin/config.yml` define `media_folder: public/screenshots` y `public_path: /screenshots`; el campo `screenshot` es un `widget: file` que deja las subidas en la raíz de esa carpeta. Para respetar `public/screenshots/<slug>/` hay que configurar una carpeta por campo o mover/renombrar el archivo tras subirlo. `CyberApp.screenshot` acepta un nombre suelto (se resuelve dentro de `/screenshots/<slug>/`) o una ruta absoluta (lo que escribe el CMS).
 
 ## Adaptaciones del sitio pendientes
 
-Estado comprobado el 2026-11-07 en `src/data/apps.ts`, `src/components/AppPage.astro` y `public/admin/config.yml`:
+Estado comprobado el 2026-11-15 en `src/data/apps.ts`, `src/components/AppPage.astro` y `public/admin/config.yml` (sin cambios respecto al 7 de noviembre; la adaptación del sitio sigue pendiente y es el bloqueo real del lote):
 
 - `CyberApp.screenshot` es `string | null`: **un único archivo compartido por EN y ES**. Las 10 apps publicadas tienen `explainer`; con `screenshot: null`, `AppPage.astro` muestra el bloque conceptual en el espacio principal. Si en el futuro hay captura y `explainer`, el bloque conceptual se conserva además **debajo** de la imagen, sin trabajo nuevo para mantenerlo.
 - `shotSrc` resuelve nombre suelto o ruta absoluta. El marco es `aspect-video` con `object-cover` y `width=1280 height=720` fijos: cualquier original que no sea 16:9 se recorta. El `alt` es `` `${app.name} — ${app.tagline[lang]}` ``, localizado pero genérico. No hay pie de imagen ni control para ampliar.
-- El CMS (Sveltia CMS 0.216.1) tiene un único campo `screenshot` de tipo `file`, sin variantes EN/ES ni campos de texto alternativo o pie.
+- El CMS (Sveltia CMS 0.216.1) tiene un único campo `screenshot` de tipo `file`, sin variantes EN/ES ni campos de texto alternativo o pie. El único campo `alt` del CMS es `brandAlt`, de los banners, y no aplica a las fichas.
+
+El punto 1 de la lista siguiente ha pasado de «idea» a **bloqueo conocido**: el sitio ya publica la misma ficha en `/apps/<slug>/` y `/es/apps/<slug>/`, así que un único archivo compartido significaría que la página en español muestra la captura con el texto en inglés. Hoy no se ve nada porque no hay ninguna captura; en cuanto se suba la primera, el defecto será visible.
 
 Trabajo previo a la primera entrega, cuando se reanude el plan, en este orden:
 
@@ -132,7 +140,7 @@ La versión anterior hablaba de una «ficha de producción» sin definir dónde 
 **Estado: rechazado y retirado del sitio; no reaprovechar.** Problemas objetivos del piloto anterior:
 
 1. La antigua `cyberfeeds-main.png` era una composición de escaparate: fondo de escritorio azul, barra de tareas añadida y ventana reducida. Incumplía «sin barra de tareas añadida ni decoraciones», reducía el espacio de la interfaz y duplicaba el peso del PNG.
-2. El artículo de demo anunciaba «CyberFeeds 1.21: a calmer way to keep up» con fecha de 2026. Era contenido fechado y versionado, que quedó desactualizado al avanzar la versión estable.
+2. El artículo de demo anunciaba «CyberFeeds 1.21: a calmer way to keep up» con fecha de 2026. Era contenido fechado y versionado, que quedó desactualizado al avanzar la versión estable. **Medido el 2026-11-15: CyberFeeds va por `v1.32.0`**, once versiones por encima de la 1.21 del piloto; la advertencia queda confirmada por los datos, no solo por la razón.
 3. Solo había interfaz en inglés; no existía pareja ES y `cyberfeeds.json` servía el mismo archivo en ambos idiomas, con un `alt` genérico.
 4. El original `cyberfeeds-ui-source.png` (1600 x 1005) era la ventana completa, pero no 16:9: con el `object-cover` de entonces se habría recortado.
 
@@ -142,10 +150,10 @@ La versión anterior hablaba de una «ficha de producción» sin definir dónde 
 
 Cuando las interfaces estén estables, la muestra esté validada y las adaptaciones del sitio estén aplicadas, continuar con CyberSnap, CyberPaste y CyberNotes, después con las otras seis apps publicadas y, al final, con CyberFiles y CyberGo cuando se publiquen.
 
-## Valoración de viabilidad (actualizada el 2026-11-07, tras retirar el piloto)
+## Valoración de viabilidad (actualizada el 2026-11-15)
 
 - **Viable, pero no activo.** El formato y el peso son alcanzables (WebP sin pérdida 127 KB en la medición previa). Los cambios del sitio se concentran en tres archivos, sin dependencias nuevas, y ya existe un CMS y un `explainer` de respaldo para todas las apps publicadas.
-- **Condicionante técnico.** Las adaptaciones del sitio son prerrequisito, no trabajo paralelo; producir imágenes antes obligaría a repetirlas.
-- **Condicionante de calendario.** La condición principal para empezar es que las interfaces se consideren finales y solo queden cambios menores a medio plazo. Esperar evita rehacer el lote en cada release. Hasta entonces, el plan sirve como referencia, el sitio usa bloques conceptuales y los README mantienen su placeholder.
+- **Condicionante técnico.** Las adaptaciones del sitio son prerrequisito, no trabajo paralelo; producir imágenes antes obligaría a repetirlas. Este es el único bloqueo que no depende de las interfaces: son cambios de plumbing del sitio y se pueden aplicar ya, sin tocar las apps.
+- **Condicionante de calendario.** La condición principal para empezar es que las interfaces se consideren finales y solo queden cambios menores a medio plazo. Medido el 2026-11-15: **8 de las 12 apps publicaron versión en los 8 días siguientes al 7 de noviembre**. La condición está lejos de cumplirse y conviene decirlo sin rodeos: el plan se reanuda con el ritmo de releases, no antes. Hasta entonces, el plan sirve como referencia, el sitio usa bloques conceptuales y los README mantienen su placeholder.
 - **Límites de realismo.** 36 imágenes finales con su par de textos es un lote largo para una sola persona: mantener el orden piloto → 3 apps → resto, con la ficha de producción como control. Las versiones cambian rápido, así que capturar cada pareja EN/ES en una sola sesión y no fijar imágenes de apps alpha o sin ficha pública. El 16:9 debe ser orientativo, no una regla que recorte ventanas reales.
-- **Actualización de esta revisión.** Se incorporan CyberFiles y CyberGo (diferidas), se rechaza y retira el piloto de CyberFeeds, se documenta el estado real del código y del CMS, se define la ficha de producción, se concretan las migraciones de nombres, se registra que los 24 README ya tienen la sección con placeholder y se fija como condición de inicio la estabilidad de las interfaces. Hoy no queda ninguna captura publicada.
+- **Actualización de esta revisión (2026-11-15).** Se vuelve a comprobar todo el estado contra el código, se corrige la versión de CyberFiles (`0.6.3` → `v0.9.0`), se documenta que el sitio es bilingüe desde sus orígenes y que por tanto el archivo único es un bloqueo real, se registra el ritmo de releases de la primera quincena de noviembre como evidencia cuantificada de que la condición de inicio no se cumple, y se confirma que la advertencia sobre cadenas de versión se ha materializado (CyberFeeds `v1.21` → `v1.32.0`). Sin cambios en el alcance: 24 principales + 12 detalles = 36 imágenes. Hoy no queda ninguna captura publicada.
