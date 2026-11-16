@@ -50,13 +50,18 @@ const appLd = {
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   license: `https://www.gnu.org/licenses/gpl-3.0.html`,
 };
-// CMS uploads write absolute public paths ("/screenshots/..."); hand-made
+// CMS uploads write absolute public paths ("/screenshots/<slug>/..."); hand-made
 // entries may use a bare filename inside the app's own screenshots folder.
-const shotSrc = app.screenshot
-  ? app.screenshot.startsWith('/')
-    ? app.screenshot
-    : `/screenshots/${app.slug}/${app.screenshot}`
+// Each language carries its own image: a language without one keeps the
+// conceptual illustration instead of showing the other language's screenshot.
+const shotFile = app.screenshot ? app.screenshot[lang] : null;
+const shotSrc = shotFile
+  ? shotFile.startsWith('/')
+    ? shotFile
+    : `/screenshots/${app.slug}/${shotFile}`
   : null;
+const shotAlt = (app.screenshotAlt?.[lang] || '') || (shotSrc ? `${app.name} — ${app.tagline[lang]}` : '');
+const shotCaption = app.screenshotCaption?.[lang] || null;
 const related = apps.filter((a) => a.slug !== app.slug).slice(0, 3);
 const downloadPath = lang === 'en' ? '/download' : '/es/download';
 const faqPath = lang === 'en' ? '/faq' : '/es/faq';
@@ -136,21 +141,57 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
     )}
 
     <!-- Screenshot / conceptual explainer / placeholder -->
-    <div
-      class:list={['mt-10 rounded-2xl border border-white/10 overflow-hidden flex items-center justify-center relative', { 'aspect-video': !app.explainer || !!shotSrc }]}
-      style={`background: radial-gradient(100% 100% at 50% 0%, ${app.accent}1f 0%, transparent 60%), #10131c;`}
-    >
-      {shotSrc ? (
-        <img src={shotSrc} alt={`${app.name} — ${app.tagline[lang]}`} class="w-full h-full object-cover" loading="lazy" decoding="async" width="1280" height="720" />
-      ) : app.explainer ? (
-        <AppFlowExplainer lang={lang} accent={app.accent} icon={app.icon} kind={app.explainer} />
-      ) : (
-        <div class="text-center select-none" aria-hidden="true">
-          {app.icon ? <img src={app.icon} alt="" width="112" height="112" class="h-28 w-28 object-contain mb-3 opacity-95" /> : <div class="text-7xl mb-3 opacity-90">{app.emoji}</div>}
-          <p class="text-sm text-[#9a9aa5]">{t.shotPlaceholder}</p>
-        </div>
-      )}
-    </div>
+    {shotSrc ? (
+      <figure class="mt-10">
+        <button
+          type="button"
+          data-shot-open
+          class="block w-full cursor-zoom-in overflow-hidden rounded-2xl border border-white/10 transition-colors hover:border-white/25"
+          aria-label={lang === 'en' ? `Enlarge the ${app.name} screenshot` : `Ampliar la captura de ${app.name}`}
+        >
+          <img src={shotSrc} alt={shotAlt} class="block h-auto w-full" loading="lazy" decoding="async" />
+        </button>
+        {shotCaption && <figcaption class="mt-3 text-center text-sm text-[#9a9aa5]">{shotCaption}</figcaption>}
+      </figure>
+    ) : (
+      <div
+        class:list={['mt-10 rounded-2xl border border-white/10 overflow-hidden flex items-center justify-center relative', { 'aspect-video': !app.explainer }]}
+        style={`background: radial-gradient(100% 100% at 50% 0%, ${app.accent}1f 0%, transparent 60%), #10131c;`}
+      >
+        {app.explainer ? (
+          <AppFlowExplainer lang={lang} accent={app.accent} icon={app.icon} kind={app.explainer} />
+        ) : (
+          <div class="text-center select-none" aria-hidden="true">
+            {app.icon ? <img src={app.icon} alt="" width="112" height="112" class="h-28 w-28 object-contain mb-3 opacity-95" /> : <div class="text-7xl mb-3 opacity-90">{app.emoji}</div>}
+            <p class="text-sm text-[#9a9aa5]">{t.shotPlaceholder}</p>
+          </div>
+        )}
+      </div>
+    )}
+
+    <!-- No real screenshot is published yet: say so, instead of letting the
+         conceptual illustration pass for a screenshot of the app. -->
+    {!shotSrc && app.explainer && (
+      <p class="mt-3 text-center text-sm text-[#9a9aa5]">{t.shotConceptNote}</p>
+    )}
+
+    <!-- Enlarged view. Native <dialog> gives Escape and focus handling for free. -->
+    {shotSrc && (
+      <dialog data-shot-dialog class="m-auto max-w-[min(94vw,1500px)] bg-transparent p-0">
+        <figure class="overflow-hidden rounded-2xl border border-white/15 bg-[#10131c]">
+          <img src={shotSrc} alt={shotAlt} class="mx-auto max-h-[86vh] w-auto" />
+          {shotCaption && <figcaption class="px-4 py-3 text-center text-sm text-[#9a9aa5]">{shotCaption}</figcaption>}
+        </figure>
+        <form method="dialog" class="absolute right-3 top-3">
+          <button
+            class="rounded-full bg-black/70 px-3 py-1.5 text-sm text-white ring-1 ring-white/25 transition-colors hover:bg-black/90"
+            aria-label={lang === 'en' ? 'Close the enlarged screenshot' : 'Cerrar la captura ampliada'}
+          >
+            ✕
+          </button>
+        </form>
+      </dialog>
+    )}
 
     <!-- Description -->
     <p class="mt-10 text-lg leading-relaxed text-[#c9c9d1]">{app.description[lang]}</p>
@@ -412,6 +453,26 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
     </section>
   </article>
 </BaseLayout>
+
+<style is:global>
+  dialog[data-shot-dialog]::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+  }
+</style>
+
+<script>
+  // Enlarged screenshot. The native <dialog> gives Escape-to-close and focus
+  // handling on its own, so no dependency is needed.
+  const dialog = document.querySelector<HTMLDialogElement>('[data-shot-dialog]');
+  const opener = document.querySelector<HTMLButtonElement>('[data-shot-open]');
+  if (dialog && opener) {
+    opener.addEventListener('click', () => dialog.showModal());
+    // A click on the backdrop reaches the dialog element itself.
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  }
+</script>
 
 <script is:inline>
   // Resolve the "Download latest" buttons to the direct .exe asset of each

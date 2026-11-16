@@ -1,6 +1,8 @@
 # Plan de capturas para CyberGems
 
-Estado: plan de producción **en espera**, **actualizado el 2026-11-15**. Ya no hay capturas publicadas: los dos PNG del piloto rechazado de CyberFeeds y el script que lo componía se retiraron del repositorio, y `cyberfeeds.json` volvió a `screenshot: null`. Las fichas públicas muestran de nuevo su explicación conceptual. El selector de imagen por idioma, la galería y la producción de capturas siguen pendientes; véanse «Momento de producción» y «Piloto: CyberFeeds».
+Estado: plan de producción **en espera**, **actualizado el 2026-11-16**. Ya no hay capturas publicadas: los dos PNG del piloto rechazado de CyberFeeds y el script que lo componía se retiraron del repositorio, y `cyberfeeds.json` volvió a `screenshot: null`. Las fichas públicas muestran de nuevo su explicación conceptual, ahora con una línea visible que anuncia que las capturas reales llegan pronto. El selector de imagen por idioma, la galería y la producción de capturas siguen pendientes; véanse «Momento de producción» y «Piloto: CyberFeeds».
+
+**Lo que cambió el 2026-11-16:** las adaptaciones del sitio que este plan exigía antes de producir nada **quedan aplicadas** («Adaptaciones del sitio aplicadas»): captura por idioma en los datos y en el CMS, presentación sin recorte con pie y ampliación accesible, y el aviso visible en las fichas. El bloqueo técnico desaparece; el único condicionante que queda es la estabilidad de las interfaces.
 
 Todo el estado citado en este documento se ha vuelto a comprobar **contra el código el 2026-11-15**: los 11 JSON de apps con `screenshot: null`, `public/screenshots/` con solo `.gitkeep`, el CMS en Sveltia 0.216.1 con un único campo `screenshot` de tipo `file`, `shotSrc` y el marco `aspect-video` / `object-cover` en `AppPage.astro`, y los 24 README con su sección «Screenshots / Capturas» en placeholder. Nada de lo que se describe como pendiente se ha resuelto por separado.
 
@@ -24,7 +26,7 @@ Cuando llegue ese momento, revalidar versiones, idiomas disponibles, capturas de
 - **Segunda entrega:** 6 vistas de detalle, con **12 imágenes adicionales**. Publicarlas solo cuando aporten algo distinto de la principal y la función exista en la versión estable.
 - **CyberFiles y CyberGo entran en el alcance**, con su vista definida más abajo, pero su producción queda **diferida**: no conviene fijar 4 imágenes EN/ES de una interfaz alpha o sin ficha pública, porque quedarían obsoletas en cuanto se publique. Se capturan cuando tengan versión estable y página en el sitio. Con todo publicado, el total sería 24 principales + 12 detalles = 36 imágenes.
 - Cuando se reanude, empezar con **CyberFeeds como piloto desde cero**, con pareja EN/ES, antes de producir toda la tanda. La captura anterior fue rechazada y retirada; no sirve como base.
-- **Estado del sitio hoy:** las 10 apps publicadas tienen `screenshot: null` y `explainer`; no hay ninguna imagen real publicada. CyberFeeds vuelve a mostrar `feed-flow`.
+- **Estado del sitio hoy:** las 10 apps publicadas tienen `screenshot: null` y `explainer`; no hay ninguna imagen real publicada. CyberFeeds vuelve a mostrar `feed-flow`. Desde el 2026-11-16 cada ficha añade bajo la ilustración el aviso «Ilustración conceptual arriba — capturas reales próximamente.» para que no se confunda con una captura real.
 - **Prerrequisito:** terminar antes de producir imágenes las «Adaptaciones del sitio pendientes». Con el código actual, una captura de ventana completa se recorta y se sirve igual en ambos idiomas; producir el lote primero obligaría a rehacerlo.
 
 ## Qué mostrar
@@ -109,25 +111,25 @@ La extensión puede ser `.png` si se mantiene ese formato.
 
 **Estado actual (2026-11-15).** No hay capturas publicadas. `public/screenshots/` conserva solo `.gitkeep`; `cyberfeeds-main.png`, `cyberfeeds-ui-source.png` y `scripts/compose-cyberfeeds-screenshot.mjs` se eliminaron, y `cyberfeeds.json` volvió a `screenshot: null`. Los 11 JSON de apps tienen `screenshot: null`, incluidas las 10 apps publicadas y CyberGo; CyberFiles no tiene ficha pública. Si hiciera falta consultar el piloto, puede recuperarse del historial de Git, pero no se reutilizará ni volverá a dejarse en `public/`. El punto de partida de la primera pareja será `main-en.webp` / `main-es.webp`; no queda ninguna migración de archivos antiguos pendiente.
 
-`public/admin/config.yml` define `media_folder: public/screenshots` y `public_path: /screenshots`; el campo `screenshot` es un `widget: file` que deja las subidas en la raíz de esa carpeta. Para respetar `public/screenshots/<slug>/` hay que configurar una carpeta por campo o mover/renombrar el archivo tras subirlo. `CyberApp.screenshot` acepta un nombre suelto (se resuelve dentro de `/screenshots/<slug>/`) o una ruta absoluta (lo que escribe el CMS).
+`public/admin/config.yml` define `media_folder: public/screenshots` y `public_path: /screenshots` a nivel global. Desde el 2026-11-16 la colección `apps` **anula esos valores** con `media_folder: public/screenshots/{{slug}}` y `public_folder: /screenshots/{{slug}}`: las subidas caen directamente en la carpeta de su app y el valor guardado en el JSON es la ruta pública. `CyberApp.screenshot` acepta un nombre suelto (se resuelve dentro de `/screenshots/<slug>/`) o una ruta absoluta (lo que escribe el CMS).
 
-## Adaptaciones del sitio pendientes
+## Adaptaciones del sitio aplicadas
 
-Estado comprobado el 2026-11-15 en `src/data/apps.ts`, `src/components/AppPage.astro` y `public/admin/config.yml` (sin cambios respecto al 7 de noviembre; la adaptación del sitio sigue pendiente y es el bloqueo real del lote):
+**Aplicadas el 2026-11-16.** El bloqueo técnico del lote queda resuelto: el sitio ya está preparado para recibir capturas por idioma, sin recortes y con ampliación accesible. Falta solo producir las imágenes.
 
-- `CyberApp.screenshot` es `string | null`: **un único archivo compartido por EN y ES**. Las 10 apps publicadas tienen `explainer`; con `screenshot: null`, `AppPage.astro` muestra el bloque conceptual en el espacio principal. Si en el futuro hay captura y `explainer`, el bloque conceptual se conserva además **debajo** de la imagen, sin trabajo nuevo para mantenerlo.
-- `shotSrc` resuelve nombre suelto o ruta absoluta. El marco es `aspect-video` con `object-cover` y `width=1280 height=720` fijos: cualquier original que no sea 16:9 se recorta. El `alt` es `` `${app.name} — ${app.tagline[lang]}` ``, localizado pero genérico. No hay pie de imagen ni control para ampliar.
-- El CMS (Sveltia CMS 0.216.1) tiene un único campo `screenshot` de tipo `file`, sin variantes EN/ES ni campos de texto alternativo o pie. El único campo `alt` del CMS es `brandAlt`, de los banners, y no aplica a las fichas.
+- **Datos:** `CyberApp.screenshot` pasa a `screenshot?: { en: string | null; es: string | null } | null`. Los 11 JSON siguen con `null`, así que no hubo migración de strings. Se añaden `screenshotAlt?: LocalizedText` y `screenshotCaption?: LocalizedText`.
+- **CMS:** el campo `screenshot` es ahora un objeto con `en` y `es` (`widget: file`), más `screenshotAlt` y `screenshotCaption` por idioma (`widget: string`). La colección `apps` usa `media_folder` con `{{slug}}`.
+- **`AppPage.astro`:** elige la imagen según `lang` (un idioma sin imagen conserva la ilustración conceptual, no muestra la del otro idioma); envuelve en `<figure>` / `<figcaption>`; **elimina `object-cover` y las dimensiones fijas `1280x720`**, de modo que la ventana completa se ve con su proporción natural y nunca se recorta; el `alt` usa `screenshotAlt` y cae a `${app.name} — ${app.tagline[lang]}`; la ampliación usa `<dialog>` nativo (teclado y Escape sin dependencias). El bloque conceptual se conserva **debajo** de la imagen cuando existen ambas.
+- **Aviso visible:** mientras no haya captura, la ficha muestra bajo la ilustración la línea «Conceptual illustration above — real screenshots coming soon.» / «Ilustración conceptual arriba — capturas reales próximamente.». Sin ella, la ilustración conceptual parecía una captura real y no había señal de que las capturas estuvieran previstas.
 
-El punto 1 de la lista siguiente ha pasado de «idea» a **bloqueo conocido**: el sitio ya publica la misma ficha en `/apps/<slug>/` y `/es/apps/<slug>/`, así que un único archivo compartido significaría que la página en español muestra la captura con el texto en inglés. Hoy no se ve nada porque no hay ninguna captura; en cuanto se suba la primera, el defecto será visible.
+Verificado el 2026-11-16 con una captura de prueba en CyberClock solo en inglés: la página EN muestra la imagen completa sin recorte, con su pie y su diálogo; la página ES, sin imagen en ese idioma, mantiene la ilustración conceptual con su aviso. Build de 528 páginas, `verify-publication` y `verify-doc-anchors` sin errores.
 
-Trabajo previo a la primera entrega, cuando se reanude el plan, en este orden:
+Cuando se reanude el plan, el orden restante es:
 
-1. **Datos:** `screenshot` pasa a objeto `{ en, es }` (o dos campos hermanos) y admite `null`; hoy todos los JSON están en `null`, así que no hay strings que migrar. Añadir `screenshotAlt` y `screenshotCaption` como `LocalizedText`.
-2. **CMS:** campos de imagen, texto alternativo y pie en EN/ES, con la pista de la ruta por slug.
-3. **`AppPage.astro`:** elegir imagen, alt y pie según `lang`; sustituir `object-cover` por una presentación de la ventana completa con dimensiones reales y tamaño adaptable; envolver en `<figure>` / `<figcaption>`; añadir ampliación accesible con `<dialog>` nativo (teclado y Escape, sin dependencias nuevas).
-4. **Verificación:** en escritorio y móvil comprobar que no hay recorte, que EN y ES muestran su propia imagen y que el bloque conceptual sigue debajo.
-5. Solo entonces producir el lote completo.
+1. **Producir** las imágenes con el proceso de «Cómo obtener los originales».
+2. **Publicar** cada pareja EN/ES desde el CMS: subir `main-en.webp` y `main-es.webp` a la carpeta del slug, rellenar el `alt` y el pie en los dos idiomas.
+3. **Verificar** en escritorio y móvil que no hay recorte, que EN y ES muestran su propia imagen y que el bloque conceptual sigue debajo.
+4. Solo entonces, la galería de detalles de la segunda entrega.
 
 La segunda entrega añadirá una pequeña galería de detalles con miniaturas y pies de imagen.
 
@@ -153,7 +155,8 @@ Cuando las interfaces estén estables, la muestra esté validada y las adaptacio
 ## Valoración de viabilidad (actualizada el 2026-11-15)
 
 - **Viable, pero no activo.** El formato y el peso son alcanzables (WebP sin pérdida 127 KB en la medición previa). Los cambios del sitio se concentran en tres archivos, sin dependencias nuevas, y ya existe un CMS y un `explainer` de respaldo para todas las apps publicadas.
-- **Condicionante técnico.** Las adaptaciones del sitio son prerrequisito, no trabajo paralelo; producir imágenes antes obligaría a repetirlas. Este es el único bloqueo que no depende de las interfaces: son cambios de plumbing del sitio y se pueden aplicar ya, sin tocar las apps.
+- **Condicionante técnico. Resuelto el 2026-11-16.** Las adaptaciones del sitio ya están aplicadas: la imagen se elige por idioma, se muestra sin recorte con su pie y su ampliación accesible, y el CMS sube cada archivo a la carpeta de su app. Producir imágenes ya no obliga a rehacer nada del sitio.
 - **Condicionante de calendario.** La condición principal para empezar es que las interfaces se consideren finales y solo queden cambios menores a medio plazo. Medido el 2026-11-15: **8 de las 12 apps publicaron versión en los 8 días siguientes al 7 de noviembre**. La condición está lejos de cumplirse y conviene decirlo sin rodeos: el plan se reanuda con el ritmo de releases, no antes. Hasta entonces, el plan sirve como referencia, el sitio usa bloques conceptuales y los README mantienen su placeholder.
 - **Límites de realismo.** 36 imágenes finales con su par de textos es un lote largo para una sola persona: mantener el orden piloto → 3 apps → resto, con la ficha de producción como control. Las versiones cambian rápido, así que capturar cada pareja EN/ES en una sola sesión y no fijar imágenes de apps alpha o sin ficha pública. El 16:9 debe ser orientativo, no una regla que recorte ventanas reales.
 - **Actualización de esta revisión (2026-11-15).** Se vuelve a comprobar todo el estado contra el código, se corrige la versión de CyberFiles (`0.6.3` → `v0.9.0`), se documenta que el sitio es bilingüe desde sus orígenes y que por tanto el archivo único es un bloqueo real, se registra el ritmo de releases de la primera quincena de noviembre como evidencia cuantificada de que la condición de inicio no se cumple, y se confirma que la advertencia sobre cadenas de versión se ha materializado (CyberFeeds `v1.21` → `v1.32.0`). Sin cambios en el alcance: 24 principales + 12 detalles = 36 imágenes. Hoy no queda ninguna captura publicada.
+- **Actualización de esta revisión (2026-11-16).** Se aplican las adaptaciones del sitio que el plan exigía: `screenshot` por idioma en los datos y en el CMS, `screenshotAlt` y `screenshotCaption`, presentación de la ventana completa sin `object-cover` ni dimensiones fijas, `<figure>`/`<figcaption>` y ampliación con `<dialog>` nativo, y un aviso visible en las fichas que aclara que la ilustración es conceptual y que las capturas reales llegan pronto. Verificado con una captura de prueba en CyberClock (solo EN): la imagen sale entera, con pie y con diálogo; la ficha ES mantiene la ilustración y su aviso. El único condicionante vivo es la estabilidad de las interfaces.

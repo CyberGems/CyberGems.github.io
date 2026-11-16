@@ -22,6 +22,10 @@ collections:
     create: true
     slug: '{{slug}}'
     summary: '{{emoji}} {{name}} — {{slug}}'
+    # Uploads land in public/screenshots/<slug>/, one folder per app, and the
+    # value stored in the JSON is the public path (/screenshots/<slug>/<file>).
+    media_folder: public/screenshots/{{slug}}
+    public_folder: /screenshots/{{slug}}
     editor:
       preview: false
     fields:
@@ -220,10 +224,29 @@ collections:
         widget: string
         required: false
       - name: screenshot
-        label: Screenshot
-        widget: file
+        label: Screenshots (EN/ES)
+        widget: object
         required: false
-        hint: A real screenshot replaces the conceptual explainer (when configured) or the gradient placeholder
+        hint: One image per language, uploaded to public/screenshots/<slug>/. A language left empty keeps the conceptual illustration for that language. The image is shown with its own proportions, never cropped.
+        fields:
+          - { name: en, label: English, widget: file }
+          - { name: es, label: Español, widget: file }
+      - name: screenshotAlt
+        label: Screenshot alt text (EN/ES)
+        widget: object
+        required: false
+        hint: Describes the visible action for screen readers. Leave empty to use a generic description.
+        fields:
+          - { name: en, label: English, widget: string }
+          - { name: es, label: Español, widget: string }
+      - name: screenshotCaption
+        label: Screenshot caption (EN/ES)
+        widget: object
+        required: false
+        hint: Short line shown under the image. Optional.
+        fields:
+          - { name: en, label: English, widget: string }
+          - { name: es, label: Español, widget: string }
       - name: explainer
         label: Conceptual visual while no screenshot exists
         widget: select
