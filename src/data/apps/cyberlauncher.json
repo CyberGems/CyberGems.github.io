@@ -17,8 +17,8 @@
     "es": "Encuentra y abre todo en tu PC en segundos"
   },
   "description": {
-    "en": "The Start menu was never built to find things: it searches a subset of your apps, ignores your files and buries everything three clicks deep. CyberLauncher opens full-screen on a hotkey and searches apps, Microsoft Store apps, shortcuts and files across every drive as you type. Type > and the same panel becomes a real PowerShell or CMD session; schedule launches and commands with countdown alerts; keep RAM, CPU and disk in the top bar and check every drive's free space in the Storage HUD. CyberBot narrates what is happening from the corner, while portable mode, per-app shortcuts and automatic configuration backups round it out.",
-    "es": "El Menú Inicio nunca se diseñó para encontrar cosas: busca solo algunas apps, ignora tus archivos y lo entierra todo a tres clics. CyberLauncher se abre a pantalla completa con un atajo y busca apps, apps de Microsoft Store, accesos directos y archivos en todas las unidades mientras escribes. Escribe > y el mismo panel se convierte en una sesión real de PowerShell o CMD; programa aperturas y comandos con avisos de cuenta regresiva; mantén RAM, CPU y disco en la barra superior y consulta el espacio libre de cada unidad en el Storage HUD. CyberBot narra lo que ocurre desde una esquina, mientras el modo portable, los atajos por app y las copias automáticas de configuración completan el conjunto."
+    "en": "The Start menu was never built to find things: it searches a subset of your apps, ignores your files and buries everything three clicks deep. CyberLauncher opens full-screen on a hotkey and searches apps, Microsoft Store apps, shortcuts and files across every drive as you type. Type > and the same panel becomes a real PowerShell or CMD session; schedule launches and commands with countdown alerts; keep RAM, CPU and disk in the top bar and check every drive's free space in the Storage HUD. CyberBot narrates what is happening from the corner, while portable mode, per-app shortcuts and automatic configuration backups round it out. The floating CyberBot companion opens shortcut search in its own window, and power actions can be scheduled with a countdown.",
+    "es": "El Menú Inicio nunca se diseñó para encontrar cosas: busca solo algunas apps, ignora tus archivos y lo entierra todo a tres clics. CyberLauncher se abre a pantalla completa con un atajo y busca apps, apps de Microsoft Store, accesos directos y archivos en todas las unidades mientras escribes. Escribe > y el mismo panel se convierte en una sesión real de PowerShell o CMD; programa aperturas y comandos con avisos de cuenta regresiva; mantén RAM, CPU y disco en la barra superior y consulta el espacio libre de cada unidad en el Storage HUD. CyberBot narra lo que ocurre desde una esquina, mientras el modo portable, los atajos por app y las copias automáticas de configuración completan el conjunto. El CyberBot flotante abre la búsqueda de accesos en su propia ventana, y las acciones de energía se programan con cuenta atrás."
   },
   "highlightsTitle": {
     "en": "Less searching, more doing",
@@ -27,18 +27,36 @@
   "highlights": [
     {
       "icon": "@search",
-      "title": { "en": "Find apps from a few letters", "es": "Encuentra apps con unas letras" },
-      "text": { "en": "Fuzzy matching finds an app when you remember only part of its name. System search handles indexed files.", "es": "La búsqueda aproximada encuentra una app aunque solo recuerdes parte del nombre. La búsqueda del sistema se encarga de los archivos indexados." }
+      "title": {
+        "en": "Find apps from a few letters",
+        "es": "Encuentra apps con unas letras"
+      },
+      "text": {
+        "en": "Fuzzy matching finds an app when you remember only part of its name. System search handles indexed files.",
+        "es": "La búsqueda aproximada encuentra una app aunque solo recuerdes parte del nombre. La búsqueda del sistema se encarga de los archivos indexados."
+      }
     },
     {
       "icon": "@keyboard",
-      "title": { "en": "Launch from anywhere", "es": "Abre desde cualquier lugar" },
-      "text": { "en": "Summon the launcher with a global shortcut or hot corner, then use the keyboard to open a result.", "es": "Invoca el lanzador con un atajo global o una esquina activa y abre un resultado con el teclado." }
+      "title": {
+        "en": "Launch from anywhere",
+        "es": "Abre desde cualquier lugar"
+      },
+      "text": {
+        "en": "Summon the launcher with a global shortcut or hot corner, then use the keyboard to open a result.",
+        "es": "Invoca el lanzador con un atajo global o una esquina activa y abre un resultado con el teclado."
+      }
     },
     {
       "icon": "@grid",
-      "title": { "en": "Make your own workspace", "es": "Organiza tu espacio" },
-      "text": { "en": "Arrange favorites and color-coded categories, then tailor the background, glass effect and scale.", "es": "Ordena favoritos y categorías por color y ajusta el fondo, el efecto de cristal y la escala." }
+      "title": {
+        "en": "Make your own workspace",
+        "es": "Organiza tu espacio"
+      },
+      "text": {
+        "en": "Arrange favorites and color-coded categories, then tailor the background, glass effect and scale.",
+        "es": "Ordena favoritos y categorías por color y ajusta el fondo, el efecto de cristal y la escala."
+      }
     }
   ],
   "featuresHeading": {
@@ -46,66 +64,162 @@
     "es": "Más formas en que CyberLauncher te ayuda"
   },
   "features": [
-    { "en": "Search apps and indexed files in your configured locations", "es": "Busca apps y archivos indexados en las ubicaciones configuradas" },
-    { "en": "Open Microsoft Store apps, shortcuts and web links", "es": "Abre apps de Microsoft Store, accesos directos y enlaces web" },
-    { "en": "Pin frequently used shortcuts, collapsible favorites and taskbar items, and organize them under All Items and color-coded categories with a collapsible sidebar", "es": "Fija accesos frecuentes, favoritos plegables y anclajes en la barra de tareas, y organízalos en Todo y categorías por color con barra lateral colapsable" },
-    { "en": "Bilingual initial setup with curated sample shortcuts and an optional CyberBot Assistant toggle", "es": "Configuración inicial bilingüe con accesos de ejemplo listos para usar y activación opcional del Asistente CyberBot" },
-    { "en": "Access launcher actions and navigation instantly with Ctrl+K command palette", "es": "Accede a acciones y navegación del lanzador al instante con la paleta Ctrl+K" },
-    { "en": "Assign custom shortcuts to individual apps", "es": "Asigna atajos personalizados a cada app" },
-    { "en": "Recover or remove missing shortcut targets directly when paths change or move", "es": "Recupera o elimina accesos cuyo destino ya no existe directamente cuando una ruta cambia" },
-    { "en": "Schedule app launches (with inline shortcut search) or commands with standalone desktop alerts", "es": "Programa la apertura de apps (con buscador inline de accesos) o comandos con alertas flotantes en el escritorio" },
-    { "en": "Manage system power actions with a 10-second confirmation safety countdown", "es": "Gestiona acciones de energía del sistema con cuenta regresiva de seguridad de 10 segundos" },
-    { "en": "Type > to run a shell command from the search field", "es": "Escribe > para ejecutar un comando desde el buscador" },
-    { "en": "Check CPU, memory and disk usage at a glance", "es": "Consulta el uso de CPU, memoria y disco de un vistazo" },
-    { "en": "Adjust background, glass effect, opacity and interface scale", "es": "Ajusta fondo, efecto de cristal, opacidad y escala de la interfaz" },
-    { "en": "Personalize CyberBot Assistant with inline naming, typed messages, quiet hours and focus/scan hover reactions", "es": "Personaliza al Asistente CyberBot con entrada del nombre en el globo, mensajes progresivos, horario silencioso y reacciones de enfoque y escaneo" },
-    { "en": "Interactive CyberBot quick command prompt on avatar click or global shortcut with smart action search", "es": "Paleta rápida interactiva de comandos al hacer clic en CyberBot o con atajo global y búsqueda inteligente de acciones" },
-    { "en": "CyberBot stays visible during routine idle, steps aside in dialogs and the terminal, and gives a brief farewell when disabled", "es": "CyberBot permanece visible durante la inactividad rutinaria, se retira en diálogos y la terminal, y se despide brevemente al desactivarlo" },
-    { "en": "Portable auto-backups (3 copies kept by default) that embed custom icons and wallpapers for cross-PC migration", "es": "Copias de seguridad automáticas portables (3 copias por defecto) que incrustan iconos personalizados y fondos para migrar de PC" }
+    {
+      "en": "Search apps and indexed files in your configured locations",
+      "es": "Busca apps y archivos indexados en las ubicaciones configuradas"
+    },
+    {
+      "en": "Open Microsoft Store apps, shortcuts and web links",
+      "es": "Abre apps de Microsoft Store, accesos directos y enlaces web"
+    },
+    {
+      "en": "Pin frequently used shortcuts, collapsible favorites and taskbar items, and organize them under All Items and color-coded categories with a collapsible sidebar",
+      "es": "Fija accesos frecuentes, favoritos plegables y anclajes en la barra de tareas, y organízalos en Todo y categorías por color con barra lateral colapsable"
+    },
+    {
+      "en": "Bilingual initial setup with curated sample shortcuts and an optional CyberBot Assistant toggle",
+      "es": "Configuración inicial bilingüe con accesos de ejemplo listos para usar y activación opcional del Asistente CyberBot"
+    },
+    {
+      "en": "Access launcher actions and navigation instantly with Ctrl+K command palette",
+      "es": "Accede a acciones y navegación del lanzador al instante con la paleta Ctrl+K"
+    },
+    {
+      "en": "Assign custom shortcuts to individual apps",
+      "es": "Asigna atajos personalizados a cada app"
+    },
+    {
+      "en": "Recover or remove missing shortcut targets directly when paths change or move",
+      "es": "Recupera o elimina accesos cuyo destino ya no existe directamente cuando una ruta cambia"
+    },
+    {
+      "en": "Schedule app launches (with inline shortcut search) or commands with standalone desktop alerts",
+      "es": "Programa la apertura de apps (con buscador inline de accesos) o comandos con alertas flotantes en el escritorio"
+    },
+    {
+      "en": "Manage system power actions with a 10-second confirmation safety countdown",
+      "es": "Gestiona acciones de energía del sistema con cuenta regresiva de seguridad de 10 segundos"
+    },
+    {
+      "en": "Type > to run a shell command from the search field",
+      "es": "Escribe > para ejecutar un comando desde el buscador"
+    },
+    {
+      "en": "Check CPU, memory and disk usage at a glance",
+      "es": "Consulta el uso de CPU, memoria y disco de un vistazo"
+    },
+    {
+      "en": "Adjust background, glass effect, opacity and interface scale",
+      "es": "Ajusta fondo, efecto de cristal, opacidad y escala de la interfaz"
+    },
+    {
+      "en": "Personalize CyberBot Assistant with inline naming, typed messages, quiet hours and focus/scan hover reactions",
+      "es": "Personaliza al Asistente CyberBot con entrada del nombre en el globo, mensajes progresivos, horario silencioso y reacciones de enfoque y escaneo"
+    },
+    {
+      "en": "Interactive CyberBot quick command prompt on avatar click or global shortcut with smart action search",
+      "es": "Paleta rápida interactiva de comandos al hacer clic en CyberBot o con atajo global y búsqueda inteligente de acciones"
+    },
+    {
+      "en": "CyberBot stays visible during routine idle, steps aside in dialogs and the terminal, and gives a brief farewell when disabled",
+      "es": "CyberBot permanece visible durante la inactividad rutinaria, se retira en diálogos y la terminal, y se despide brevemente al desactivarlo"
+    },
+    {
+      "en": "Portable auto-backups (3 copies kept by default) that embed custom icons and wallpapers for cross-PC migration",
+      "es": "Copias de seguridad automáticas portables (3 copias por defecto) que incrustan iconos personalizados y fondos para migrar de PC"
+    }
   ],
   "useCases": {
     "roles": [
       {
         "icon": "⚡",
-        "title": { "en": "Frequent multitaskers", "es": "Quienes hacen varias tareas" },
-        "text": { "en": "Switch quickly between the tools you use all day without browsing the Start Menu.", "es": "Cambia rápidamente entre las herramientas que usas a diario sin recorrer el menú Inicio." }
+        "title": {
+          "en": "Frequent multitaskers",
+          "es": "Quienes hacen varias tareas"
+        },
+        "text": {
+          "en": "Switch quickly between the tools you use all day without browsing the Start Menu.",
+          "es": "Cambia rápidamente entre las herramientas que usas a diario sin recorrer el menú Inicio."
+        }
       },
       {
         "icon": "🧑‍💻",
-        "title": { "en": "Developers and power users", "es": "Desarrolladores y usuarios avanzados" },
-        "text": { "en": "Find project files, run a command and create shortcuts for favorite tools.", "es": "Encuentra archivos de proyectos, ejecuta comandos y crea atajos para tus herramientas favoritas." }
+        "title": {
+          "en": "Developers and power users",
+          "es": "Desarrolladores y usuarios avanzados"
+        },
+        "text": {
+          "en": "Find project files, run a command and create shortcuts for favorite tools.",
+          "es": "Encuentra archivos de proyectos, ejecuta comandos y crea atajos para tus herramientas favoritas."
+        }
       },
       {
         "icon": "📚",
-        "title": { "en": "Students and researchers", "es": "Estudiantes e investigadores" },
-        "text": { "en": "Find notes and documents across drives and keep your study apps together.", "es": "Encuentra notas y documentos entre unidades y mantén juntas tus apps de estudio." }
+        "title": {
+          "en": "Students and researchers",
+          "es": "Estudiantes e investigadores"
+        },
+        "text": {
+          "en": "Find notes and documents across drives and keep your study apps together.",
+          "es": "Encuentra notas y documentos entre unidades y mantén juntas tus apps de estudio."
+        }
       },
       {
         "icon": "🎨",
-        "title": { "en": "Desktop customizers", "es": "Quienes personalizan su escritorio" },
-        "text": { "en": "Build a launcher with your own categories, favorites and visual style.", "es": "Crea un lanzador con tus propias categorías, favoritos y estilo visual." }
+        "title": {
+          "en": "Desktop customizers",
+          "es": "Quienes personalizan su escritorio"
+        },
+        "text": {
+          "en": "Build a launcher with your own categories, favorites and visual style.",
+          "es": "Crea un lanzador con tus propias categorías, favoritos y estilo visual."
+        }
       }
     ],
     "tasks": [
       {
         "icon": "⌨️",
-        "title": { "en": "Open an app in a few keys", "es": "Abre una app con pocas teclas" },
-        "text": { "en": "Call up the launcher, type part of a name and press Enter.", "es": "Invoca el lanzador, escribe parte del nombre y pulsa Enter." }
+        "title": {
+          "en": "Open an app in a few keys",
+          "es": "Abre una app con pocas teclas"
+        },
+        "text": {
+          "en": "Call up the launcher, type part of a name and press Enter.",
+          "es": "Invoca el lanzador, escribe parte del nombre y pulsa Enter."
+        }
       },
       {
         "icon": "🔎",
-        "title": { "en": "Find a buried file", "es": "Encuentra un archivo perdido" },
-        "text": { "en": "Search indexed files and folders without navigating through multiple windows.", "es": "Busca archivos y carpetas indexados sin recorrer varias ventanas." }
+        "title": {
+          "en": "Find a buried file",
+          "es": "Encuentra un archivo perdido"
+        },
+        "text": {
+          "en": "Search indexed files and folders without navigating through multiple windows.",
+          "es": "Busca archivos y carpetas indexados sin recorrer varias ventanas."
+        }
       },
       {
         "icon": "🗓️",
-        "title": { "en": "Start a routine on time", "es": "Inicia una rutina a tiempo" },
-        "text": { "en": "Schedule an app or command to launch when your workflow needs it.", "es": "Programa una app o comando para que se abra cuando tu rutina lo necesite." }
+        "title": {
+          "en": "Start a routine on time",
+          "es": "Inicia una rutina a tiempo"
+        },
+        "text": {
+          "en": "Schedule an app or command to launch when your workflow needs it.",
+          "es": "Programa una app o comando para que se abra cuando tu rutina lo necesite."
+        }
       },
       {
         "icon": "📌",
-        "title": { "en": "Keep essentials close", "es": "Ten lo esencial a mano" },
-        "text": { "en": "Pin the tools you rely on and organize them into recognizable categories.", "es": "Fija tus herramientas habituales y organízalas en categorías fáciles de reconocer." }
+        "title": {
+          "en": "Keep essentials close",
+          "es": "Ten lo esencial a mano"
+        },
+        "text": {
+          "en": "Pin the tools you rely on and organize them into recognizable categories.",
+          "es": "Fija tus herramientas habituales y organízalas en categorías fáciles de reconocer."
+        }
       }
     ]
   },
