@@ -327,12 +327,13 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
       </details>
     )}
 
-    <SmartScreenDialog exeName={exeName} texts={c} />
     <section class="mt-10 rounded-2xl border border-base-300 bg-base-200 p-6 text-center">
       <h2 class="text-xl font-bold">{lang === 'en' ? `Try ${app.name}` : `Prueba ${app.name}`}</h2>
       <p class="mt-2 mb-5 text-sm text-[var(--text-dim)]">{lang === 'en' ? 'Free for Windows 10 and 11. No account required.' : 'Gratis para Windows 10 y 11. Sin necesidad de cuenta.'}</p>
       <AppDownloadButton app={app} lang={lang} source="app-page-bottom" />
     </section>
+
+    <SmartScreenDialog exeName={exeName} texts={c} />
 
     <!-- Requirements & safety -->
     <section class="mt-12 card p-6 text-sm leading-relaxed">
