@@ -95,10 +95,12 @@ collections:
         fields:
           - name: en
             label: English
-            widget: text
+            widget: textarea
+            hint: Separate paragraphs with a blank line.
           - name: es
             label: Español
-            widget: text
+            widget: textarea
+            hint: Separa los párrafos con una línea en blanco.
       - name: features
         label: Features
         widget: list

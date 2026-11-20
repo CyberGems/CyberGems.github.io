@@ -40,7 +40,7 @@ const appLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: app.name,
-  description: app.description[lang],
+  description: app.description[lang].replace(/\s*\n+\s*/g, ' '),
   applicationCategory: 'UtilitiesApplication',
   operatingSystem: 'Windows 10, Windows 11',
   url: `https://cybergems.org${lang === 'es' ? '/es' : ''}/apps/${app.slug}/`,
@@ -194,7 +194,11 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
     )}
 
     <!-- Description -->
-    <p class="mt-10 text-lg leading-relaxed text-[#c9c9d1]">{app.description[lang]}</p>
+    {app.description[lang]
+      .split(/\n{2,}/)
+      .map((paragraph, index) => (
+        <p class:list={['text-lg leading-relaxed text-[#c9c9d1]', index === 0 ? 'mt-10' : 'mt-4']}>{paragraph}</p>
+      ))}
 
     <!-- Once a real screenshot is available, keep the conceptual explanation below it. -->
     {shotSrc && app.explainer && (
