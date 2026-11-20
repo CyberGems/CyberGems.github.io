@@ -200,6 +200,7 @@
         "No accounts, no cloud sync — your files stay on your PC.",
         "Network requests are limited to the features each app documents: update checks, public lookup tables and connectivity probes. None of them sends usage data.",
         "Update checks only contact api.github.com, the public GitHub Releases API. CyberWall also downloads a public IP-to-country table from jsDelivr or unpkg to label connections, and probes public endpoints to show whether you are online.",
+        "Every app includes its own PRIVACY.md file with the exact connections it makes and how to disable them.",
         "Verifiable: full source under GPLv3, public builds on GitHub."
       ],
       "siteTitle": "This website",
@@ -238,6 +239,7 @@
         "Sin cuentas, sin sync en la nube — tus archivos se quedan en tu PC.",
         "Las peticiones de red se limitan a las funciones que documenta cada app: comprobación de actualizaciones, tablas públicas de consulta y sondas de conectividad. Ninguna envía datos de uso.",
         "La comprobación de actualizaciones solo contacta api.github.com, la API pública de releases de GitHub. CyberWall además descarga una tabla pública de IP a país desde jsDelivr o unpkg para etiquetar las conexiones, y sondea endpoints públicos para mostrar si tienes conexión.",
+        "Cada app incluye su propio archivo PRIVACY.md con las conexiones exactas que hace y cómo desactivarlas.",
         "Verificable: código completo bajo GPLv3, builds públicos en GitHub."
       ],
       "siteTitle": "Este sitio",
