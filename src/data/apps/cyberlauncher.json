@@ -17,8 +17,8 @@
     "es": "Encuentra y abre todo en tu PC en segundos"
   },
   "description": {
-    "en": "The Start menu was never built to find things: it searches a subset of your apps, ignores your files and buries everything three clicks deep. CyberLauncher opens full-screen on a hotkey and searches apps, Microsoft Store apps, shortcuts and files across every drive as you type.\n\nType > and the same panel becomes a real PowerShell or CMD session. Schedule launches and commands with countdown alerts, keep RAM, CPU and disk in the top bar, and check every drive's free space in the Storage HUD.\n\nCyberBot narrates what is happening from the corner, while portable mode, per-app shortcuts and automatic configuration backups round it out. The floating CyberBot companion opens shortcut search in its own window, and power actions can be scheduled with a countdown.",
-    "es": "El Menú Inicio nunca se diseñó para encontrar cosas: busca solo algunas apps, ignora tus archivos y lo entierra todo a tres clics. CyberLauncher se abre a pantalla completa con un atajo y busca apps, apps de Microsoft Store, accesos directos y archivos en todas las unidades mientras escribes.\n\nEscribe > y el mismo panel se convierte en una sesión real de PowerShell o CMD. Programa aperturas y comandos con avisos de cuenta regresiva, mantén RAM, CPU y disco en la barra superior y consulta el espacio libre de cada unidad en el Storage HUD.\n\nCyberBot narra lo que ocurre desde una esquina, mientras el modo portable, los atajos por app y las copias automáticas de configuración completan el conjunto. El CyberBot flotante abre la búsqueda de accesos en su propia ventana, y las acciones de energía se programan con cuenta atrás."
+    "en": "The Start menu was never built to find things: it searches a subset of your apps, ignores your files and buries everything three clicks deep. CyberLauncher opens full-screen on a hotkey and searches apps, Microsoft Store apps, shortcuts and files in the locations you configure as you type.\n\nCyber Terminal opens with Ctrl+J as a real PowerShell or CMD session that keeps its shell and working directory between openings. Schedule launches and commands with countdown alerts, keep RAM, CPU and disk in the top bar, and check every drive's free space in the Storage HUD.\n\nCyberBot narrates what is happening from the corner, while portable mode, per-app shortcuts and automatic configuration backups round it out. The floating CyberBot companion opens shortcut search in its own window, and power actions can be scheduled with a countdown.",
+    "es": "El Menú Inicio nunca se diseñó para encontrar cosas: busca solo algunas apps, ignora tus archivos y lo entierra todo a tres clics. CyberLauncher se abre a pantalla completa con un atajo y busca apps, apps de Microsoft Store, accesos directos y archivos en las ubicaciones que configuras mientras escribes.\n\nCyber Terminal se abre con Ctrl+J como una sesión real de PowerShell o CMD que conserva su intérprete y su directorio de trabajo entre aperturas. Programa aperturas y comandos con avisos de cuenta regresiva, mantén RAM, CPU y disco en la barra superior y consulta el espacio libre de cada unidad en el Storage HUD.\n\nCyberBot narra lo que ocurre desde una esquina, mientras el modo portable, los atajos por app y las copias automáticas de configuración completan el conjunto. El CyberBot flotante abre la búsqueda de accesos en su propia ventana, y las acciones de energía se programan con cuenta atrás."
   },
   "highlightsTitle": {
     "en": "Less searching, more doing",
@@ -101,8 +101,8 @@
       "es": "Gestiona acciones de energía del sistema con cuenta regresiva de seguridad de 10 segundos"
     },
     {
-      "en": "Type > to run a shell command from the search field",
-      "es": "Escribe > para ejecutar un comando desde el buscador"
+      "en": "Open Cyber Terminal with Ctrl+J for a persistent shell session",
+      "es": "Abre Cyber Terminal con Ctrl+J para una sesión de terminal persistente"
     },
     {
       "en": "Check CPU, memory and disk usage at a glance",

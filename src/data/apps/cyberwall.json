@@ -17,8 +17,8 @@
     "es": "Bloquea conexiones no deseadas en tiempo real"
   },
   "description": {
-    "en": "Every program on your PC can reach the internet the moment it runs, and most firewalls either allow it silently or ask you about ports and protocols. CyberWall is a default-deny firewall for Windows: nothing gets out until you allow that specific executable. Unknown connections raise a simple prompt — allow once, always allow, or block with a persistent rule — and the same window shows live connections, traffic statistics, rule management and a clear identity for each app. It runs on the native Windows Filtering Platform and the built-in Advanced Firewall, with no third-party kernel driver.",
-    "es": "Cualquier programa de tu PC puede salir a internet en cuanto se ejecuta, y la mayoría de los firewalls lo permiten en silencio o te preguntan por puertos y protocolos. CyberWall es un firewall de denegación por defecto para Windows: nada sale hasta que autorizas ese ejecutable concreto. Las conexiones desconocidas muestran un aviso simple —permitir una vez, permitir siempre o bloquear con una regla persistente— y la misma ventana reúne conexiones en vivo, estadísticas de tráfico, gestión de reglas e identidad clara de cada app. Funciona sobre Windows Filtering Platform y el Firewall avanzado del sistema, sin controladores de kernel de terceros."
+    "en": "Every program on your PC can reach the internet the moment it runs, and port-and-protocol rules are awkward to reason about. CyberWall is a default-deny firewall for Windows: nothing gets out until you allow that specific executable.\n\nUnknown connections raise a simple prompt: allow once, always allow, or block with a persistent rule. The same window shows live connections, traffic statistics, rule management and a clear identity for each app.\n\nIt uses the built-in Windows Advanced Firewall and checks that the Windows Filtering Platform is available, with no third-party kernel driver.",
+    "es": "Cualquier programa de tu PC puede salir a internet en cuanto se ejecuta, y las reglas por puerto y protocolo son difíciles de razonar. CyberWall es un firewall de denegación por defecto para Windows: nada sale hasta que autorizas ese ejecutable concreto.\n\nLas conexiones desconocidas muestran un aviso simple: permitir una vez, permitir siempre o bloquear con una regla persistente. La misma ventana reúne conexiones en vivo, estadísticas de tráfico, gestión de reglas e identidad clara de cada app.\n\nUsa el Firewall avanzado integrado de Windows y comprueba que la plataforma de filtrado de Windows esté disponible, sin controladores de kernel de terceros."
   },
   "highlightsTitle": {
     "en": "Take control of each connection",
@@ -56,7 +56,7 @@
     { "en": "Unanswered prompts can be blocked automatically after a timeout", "es": "Los avisos sin respuesta pueden bloquearse automáticamente tras un plazo" },
     { "en": "Restores the original firewall policy if it stops unexpectedly, so the machine never stays locked down", "es": "Restaura la política original del firewall si se detiene de forma inesperada, para que el equipo nunca se quede bloqueado" },
     { "en": "Shows the protection state in the tray icon and verifies the installer checksum before updating", "es": "Muestra el estado de la protección en el icono de la bandeja y verifica la suma del instalador antes de actualizar" },
-    { "en": "Runs on Windows Filtering Platform without a separate kernel driver", "es": "Funciona sobre la plataforma de filtrado de Windows sin un controlador de kernel independiente" }
+    { "en": "Uses the built-in Windows Advanced Firewall, checks that the Windows Filtering Platform is available, and installs no third-party kernel driver", "es": "Usa el Firewall avanzado integrado de Windows, comprueba que la plataforma de filtrado esté disponible y no instala controladores de kernel de terceros" }
   ],
   "useCases": {
     "roles": [
