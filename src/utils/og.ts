@@ -416,6 +416,10 @@ export function readmeBannerSvg(app: BannerSource, lang: Lang = 'en'): string {
   const textX = 448;
   const textWidth = BANNER_WIDTH - textX - 84;
 
+  // The icon footprint grows 10% over its original 168 px. Keep the centre
+  // pinned to the aura at (214, 180) so the extra size spreads evenly.
+  const bannerIconSize = 168 * 1.1;
+
   // Segoe UI Bold averages ~0.56em per glyph, so fit the title to the column.
   const titleSize = Math.min(84, Math.floor(textWidth / (app.name.length * 0.56)));
   const taglineSize = Math.min(
@@ -502,7 +506,7 @@ export function readmeBannerSvg(app: BannerSource, lang: Lang = 'en'): string {
 
   <!-- Left Icon showcase with aura -->
   <circle cx="214" cy="180" r="115" fill="${glowAccent}" fill-opacity="0.22" filter="url(#bannerIconGlow)" />
-  ${appImage(app, 130, 96, 168)}
+  ${appImage(app, 214 - bannerIconSize / 2, 180 - bannerIconSize / 2, bannerIconSize)}
 
   <!-- Title and tagline -->
   <text x="${textX}" y="${titleBaseline}" font-family="Segoe UI, system-ui, sans-serif" font-size="${titleSize}" font-weight="800" letter-spacing="-2.6">${titleMarkup}</text>
