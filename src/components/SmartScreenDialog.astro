@@ -1,21 +1,14 @@
 ---
 interface Props {
-  lang: string;
-  appName: string;
   exeName: string;
   texts: Record<string, string>;
 }
 
-const { lang, appName, exeName, texts } = Astro.props;
-const t = (key: string, fallback = '') => texts[key] ?? fallback;
+const { exeName, texts } = Astro.props;
 ---
 
-<details id="smartscreen" class="ss-details mt-3">
-  <summary>
-    <strong class="text-white">{'🔍'} SmartScreen</strong>
-    <span class="ss-hint">{texts.ssOpen}</span>
-    <svg class="ss-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
-  </summary>
+<details id="smartscreen" class="cg-collapse cg-collapse-arrow mt-5">
+  <summary class="cg-collapse-title">SmartScreen</summary>
   <div class="ss-body">
     <p>{texts.ssIntro}</p>
     <ol class="ss-steps">
@@ -71,28 +64,6 @@ const t = (key: string, fallback = '') => texts[key] ?? fallback;
 </details>
 
 <style>
-  .ss-details {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 0.75rem;
-    background: rgba(255, 255, 255, 0.03);
-    overflow: hidden;
-  }
-  .ss-details summary {
-    list-style: none;
-    cursor: pointer;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.85rem 1rem;
-    transition: background 0.15s ease;
-  }
-  .ss-details summary::-webkit-details-marker { display: none; }
-  .ss-details summary:hover { background: rgba(255, 255, 255, 0.04); }
-  .ss-details[open] summary { border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
-  .ss-hint { color: #9a9aa5; font-size: 12px; flex: 1; min-width: 180px; }
-  .ss-chevron { color: #9a9aa5; flex-shrink: 0; transition: transform 0.2s ease; }
-  .ss-details[open] .ss-chevron { transform: rotate(180deg); }
   .ss-body { padding: 1rem; }
   .ss-steps { margin: 1rem 0 0; padding: 0; display: grid; gap: 1rem; list-style: none; }
   .ss-step { display: flex; gap: 0.75rem; align-items: flex-start; }
