@@ -119,10 +119,10 @@
     {
       "icon": "✨",
       "color": "#E879F9",
-      "title": { "en": "AI Assistant", "es": "Asistente IA" },
+      "title": { "en": "Optional AI Actions", "es": "Acciones de IA opcionales" },
       "text": {
-        "en": "Summarize, translate, explain code or fix grammar — plus custom prompts. OpenAI, DeepSeek, Kimi, Gemini, Grok, Meta (Muse Spark) or any OpenAI-compatible custom endpoint.",
-        "es": "Resume, traduce, explica código o corrige gramática — más prompts personalizados. OpenAI, DeepSeek, Kimi, Gemini, Grok, Meta (Muse Spark) o cualquier endpoint personalizado compatible con OpenAI."
+        "en": "Optional on-demand text actions summarize, translate, explain code or fix grammar with prompts you can customize. Connect OpenAI, DeepSeek, Kimi, Gemini, Grok, Meta (Muse Spark) or any OpenAI-compatible endpoint only if you want AI processing.",
+        "es": "Acciones de texto opcionales bajo demanda que resumen, traducen, explican código o corrigen gramática con prompts personalizables. Conecta OpenAI, DeepSeek, Kimi, Gemini, Grok, Meta (Muse Spark) o cualquier endpoint compatible con OpenAI solo si quieres procesar texto con IA."
       }
     },
     {
