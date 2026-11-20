@@ -2,7 +2,7 @@
 // Es la fuente canónica de la suite: cada app empaqueta una copia y la lee
 // sin red (el tray la usa para el submenú "Más de CyberGems").
 // Uso: node scripts/build-suite-json.mjs
-import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -26,11 +26,30 @@ for (const file of readdirSync(dir).filter((f) => f.endsWith('.json'))) {
 
 apps.sort((a, b) => a.slug.localeCompare(b.slug));
 
+const target = join(root, 'public', 'suite.json');
+let updated = new Date().toISOString().slice(0, 10);
+
+// Keep the stamp tied to the data, not to the last build: rebuilding with
+// unchanged app metadata must not dirty the tracked manifest.
+if (existsSync(target)) {
+  try {
+    const current = JSON.parse(readFileSync(target, 'utf8'));
+    const sameApps = JSON.stringify(current.apps) === JSON.stringify(apps);
+    if (sameApps && current.count === apps.length && typeof current.updated === 'string') {
+      updated = current.updated;
+    }
+  } catch {
+    // An unreadable or incomplete manifest is regenerated from scratch.
+  }
+}
+
 const out = {
-  updated: new Date().toISOString().slice(0, 10),
+  updated,
   count: apps.length,
   apps,
 };
 
-writeFileSync(join(root, 'public', 'suite.json'), JSON.stringify(out, null, 2) + '\n');
+const next = JSON.stringify(out, null, 2) + '\n';
+const previous = existsSync(target) ? readFileSync(target, 'utf8') : null;
+if (previous !== next) writeFileSync(target, next);
 console.log(`suite.json: ${apps.length} apps -> public/suite.json`);
