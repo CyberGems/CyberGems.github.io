@@ -4,6 +4,7 @@ import type { Lang } from '../data/ui';
 import type { LatestDownload } from '../data/releases';
 import { appTask } from '../data/catalog';
 import NavIcon from './NavIcon.astro';
+import WindowsIcon from './WindowsIcon.astro';
 
 interface Props {
   app: CyberApp;
@@ -115,7 +116,8 @@ const formattedDate = download?.publishedAt
         <span class="text-[11px] font-mono uppercase tracking-wider text-[var(--text-dim)] opacity-75">
           {lang === 'en' ? 'Target' : 'Plataforma'}
         </span>
-        <span class="font-medium text-white/90 text-right">
+        <span class="inline-flex items-center gap-1.5 font-medium text-white/90 text-right">
+          <WindowsIcon size={13} class="text-[#4fc3f7]" />
           Windows 10 / 11 · x64
         </span>
       </div>

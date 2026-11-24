@@ -4,6 +4,7 @@ import AppCard from './AppCard.astro';
 import FeatureSymbol from './FeatureSymbol.astro';
 import NavIcon from './NavIcon.astro';
 import Starfield from './Starfield.astro';
+import WindowsIcon from './WindowsIcon.astro';
 import { apps } from '../data/apps';
 import { catalogGroups } from '../data/catalog';
 import { ui, type Lang } from '../data/ui';
@@ -47,7 +48,7 @@ const jsonLd = [
   <section class="landing-hero relative overflow-hidden" data-space-hero>
     <Starfield />
     <div class="max-w-6xl mx-auto px-5 pt-10 sm:pt-14 text-center relative z-10">
-      <span class="chip mb-5">{t.heroBadge}</span>
+      <span class="chip mb-5"><WindowsIcon size={14} class="text-[#4fc3f7]" />{t.heroBadge}</span>
       <h1 class="hero-title mx-auto max-w-5xl text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
         {t.heroTitle1}<br /><span class="text-gradient">{t.heroTitle2}</span>
       </h1>

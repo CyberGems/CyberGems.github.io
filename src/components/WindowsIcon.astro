@@ -1,0 +1,32 @@
+---
+interface Props {
+  size?: number;
+  class?: string;
+  glow?: boolean;
+}
+
+const { size = 16, class: className = '', glow = false } = Astro.props;
+---
+
+<svg
+  aria-hidden="true"
+  focusable="false"
+  viewBox="0 0 16 16"
+  width={size}
+  height={size}
+  class:list={['windows-icon', glow && 'windows-icon--glow', className]}
+>
+  <path d="M1 2.3 7 1.5v6H1V2.3Zm8-1.1 6-.8v7.1H9V1.2ZM1 8.5h6v6L1 13.7V8.5Zm8 0h6v7.1l-6-.8V8.5Z" />
+</svg>
+
+<style>
+  .windows-icon {
+    display: block;
+    flex: 0 0 auto;
+    fill: currentColor;
+  }
+
+  .windows-icon--glow {
+    filter: drop-shadow(0 0 7px rgba(0, 242, 255, 0.42));
+  }
+</style>
