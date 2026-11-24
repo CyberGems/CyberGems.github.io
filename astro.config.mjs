@@ -70,6 +70,9 @@ export default defineConfig({
         defaultLocale: 'en',
         locales: { en: 'en', es: 'es' },
       },
+      // PayPal's completion page is private to the donation flow and carries
+      // noindex, so it must not be advertised to crawlers.
+      filter: (page) => !page.includes('/donate/thanks'),
     }),
     sitemapXmlAlias,
   ],

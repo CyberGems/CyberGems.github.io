@@ -1,0 +1,220 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavIcon from './NavIcon.astro';
+import FeatureSymbol from './FeatureSymbol.astro';
+import { apps } from '../data/apps';
+import type { Lang } from '../data/ui';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const en = lang === 'en';
+const title = en ? 'Thank you — CyberGems' : 'Gracias — CyberGems';
+const description = en
+  ? 'Thank you for supporting CyberGems. Your donation keeps the apps free, independent and open source.'
+  : 'Gracias por apoyar CyberGems. Tu donación mantiene las apps gratis, independientes y de código abierto.';
+const path = en ? '/donate/thanks' : '/es/donate/thanks';
+const homeHref = en ? '/' : '/es/';
+const appsHref = `${homeHref}#apps`;
+const changelogHref = en ? '/changelog' : '/es/changelog';
+const donateHref = en ? '/donate' : '/es/donate';
+---
+
+<BaseLayout title={title} description={description} lang={lang} path={path} ogImage={en ? '/og.png' : '/og/es.png'} noIndex>
+  <section class="thanks-shell" aria-labelledby="thanks-title">
+    <div class="thanks-stars" aria-hidden="true"></div>
+    <div class="thanks-aura thanks-aura--left" aria-hidden="true"></div>
+    <div class="thanks-aura thanks-aura--right" aria-hidden="true"></div>
+
+    <div class="relative z-10 mx-auto max-w-3xl px-5 pt-16 pb-6 text-center sm:pt-24">
+      <div class="thanks-seal" aria-hidden="true">
+        <span class="thanks-seal__ring"></span>
+        <span class="thanks-seal__core">
+          <svg viewBox="0 0 48 48" fill="none">
+            <path d="M24 43s-17-10.5-17-22.5A10.5 10.5 0 0 1 24 12a10.5 10.5 0 0 1 17 8.5C41 32.5 24 43 24 43Z" fill="currentColor" fill-opacity="0.16" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" />
+            <path d="m17 23.5 5 5 9.5-10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+      </div>
+
+      <p class="thanks-eyebrow">
+        <NavIcon name="heart" size={14} class="shrink-0" />
+        {en ? 'DONATION COMPLETE' : 'DONACIÓN COMPLETADA'}
+      </p>
+
+      <h1 id="thanks-title" class="thanks-title">
+        <span class="text-gradient brand-glow">{en ? 'Thank you for keeping it free.' : 'Gracias por mantenerlo gratis.'}</span>
+      </h1>
+
+      <p class="thanks-lead mx-auto">
+        {en
+          ? 'Your support keeps every CyberGems app independent, ad-free and open source. No feature is locked behind a donation, now or ever.'
+          : 'Tu apoyo mantiene cada app CyberGems independiente, sin anuncios y de código abierto. Ninguna función se bloquea a cambio de una donación, ahora ni nunca.'}
+      </p>
+
+      <div class="mt-10 grid gap-4 text-left sm:grid-cols-3" aria-label={en ? 'What your support funds' : 'En qué se usa tu apoyo'}>
+        <div class="thanks-card card p-5">
+          <span class="thanks-card__icon inline-flex text-accent"><FeatureSymbol name="activity" /></span>
+          <h2 class="mt-3 text-sm font-bold text-white">{en ? 'Development time' : 'Tiempo de desarrollo'}</h2>
+          <p class="mt-1.5 text-xs leading-relaxed text-[var(--text-dim)]">
+            {en ? 'More hours for new features, fixes and polish.' : 'Más horas para nuevas funciones, correcciones y detalles.'}
+          </p>
+        </div>
+        <div class="thanks-card card p-5">
+          <span class="thanks-card__icon inline-flex text-accent"><FeatureSymbol name="shield-check" /></span>
+          <h2 class="mt-3 text-sm font-bold text-white">{en ? 'Code signing' : 'Firma de código'}</h2>
+          <p class="mt-1.5 text-xs leading-relaxed text-[var(--text-dim)]">
+            {en ? 'A certificate reduces SmartScreen warnings.' : 'Un certificado reduce los avisos de SmartScreen.'}
+          </p>
+        </div>
+        <div class="thanks-card card p-5">
+          <span class="thanks-card__icon inline-flex text-accent"><FeatureSymbol name="database" /></span>
+          <h2 class="mt-3 text-sm font-bold text-white">{en ? 'Test machines and domain' : 'Máquinas de prueba y dominio'}</h2>
+          <p class="mt-1.5 text-xs leading-relaxed text-[var(--text-dim)]">
+            {en ? 'The quiet infrastructure behind each release.' : 'La infraestructura discreta tras cada lanzamiento.'}
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-3">
+        <a href={appsHref} class="btn-primary"><NavIcon name="apps" size={17} />{en ? 'Explore the apps' : 'Explorar las apps'}</a>
+        <a href={changelogHref} class="btn-ghost"><NavIcon name="newspaper" size={17} />{en ? 'See what is new' : 'Ver novedades'}</a>
+        <a href={homeHref} class="btn-ghost">{en ? 'Back home' : 'Volver al inicio'}</a>
+      </div>
+
+      <p class="thanks-note mx-auto mt-10 max-w-xl text-xs leading-relaxed text-[var(--text-dim)]">
+        {en
+          ? `There are ${apps.length} free apps waiting for you. Your payment details are handled by PayPal, this page only says thank you.`
+          : `Te esperan ${apps.length} apps gratis. Los detalles de tu pago los gestiona PayPal, esta página solo dice gracias.`}
+      </p>
+
+      <a href={donateHref} class="mt-4 inline-block text-xs font-semibold text-accent hover:text-white transition-colors">
+        {en ? 'Other ways to support' : 'Otras formas de apoyar'} →
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .thanks-shell {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 60% 42% at 50% 0%, rgba(0, 242, 255, 0.12), transparent 72%),
+      linear-gradient(180deg, #0d0f17 0%, #0b0e16 62%, #0d0f17 100%);
+  }
+
+  .thanks-stars {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.6;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(255,255,255,.65) 0 1px, transparent 1.6px),
+      radial-gradient(circle at 78% 12%, rgba(0,242,255,.6) 0 1px, transparent 1.6px),
+      radial-gradient(circle at 32% 68%, rgba(255,255,255,.4) 0 1px, transparent 1.5px),
+      radial-gradient(circle at 88% 72%, rgba(122,92,255,.55) 0 1px, transparent 1.6px);
+    background-size: 340px 260px, 420px 310px, 380px 280px, 460px 340px;
+  }
+
+  .thanks-aura {
+    position: absolute;
+    z-index: -1;
+    width: 22rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.14;
+  }
+
+  .thanks-aura--left { top: 6rem; left: -8rem; background: #00f2ff; }
+  .thanks-aura--right { top: 2rem; right: -9rem; background: #7a5cff; }
+
+  .thanks-seal {
+    position: relative;
+    width: 6.5rem;
+    height: 6.5rem;
+    margin: 0 auto 1.75rem;
+    display: grid;
+    place-items: center;
+    color: #00f2ff;
+  }
+
+  .thanks-seal__ring {
+    position: absolute;
+    inset: 0;
+    border: 1px dashed rgba(0, 242, 255, 0.45);
+    border-radius: 50%;
+    animation: thanks-spin 28s linear infinite;
+  }
+
+  .thanks-seal__ring::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: #00f2ff;
+    box-shadow: 0 0 12px #00f2ff;
+  }
+
+  .thanks-seal__core {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 4.75rem;
+    height: 4.75rem;
+    border: 1px solid rgba(0, 242, 255, 0.36);
+    border-radius: 1.5rem;
+    background: radial-gradient(circle at 50% 20%, #1b2b3a, #10131c 75%);
+    box-shadow: 0 18px 48px -22px #000, 0 0 30px rgba(0, 242, 255, 0.22), inset 0 1px 0 rgba(255,255,255,.08);
+  }
+
+  .thanks-seal__core svg { width: 3rem; height: 3rem; }
+
+  .thanks-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #72dff5;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+  }
+
+  .thanks-title {
+    margin-top: 0.9rem;
+    font-size: clamp(2.25rem, 7vw, 4rem);
+    font-weight: 850;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+
+  .thanks-lead {
+    max-width: 42rem;
+    margin-top: 1.25rem;
+    color: #c9c9d1;
+    font-size: clamp(0.98rem, 2vw, 1.12rem);
+    line-height: 1.7;
+    text-wrap: balance;
+  }
+
+  .thanks-card {
+    border-color: rgba(255, 255, 255, 0.09);
+    background: rgba(18, 21, 31, 0.82);
+  }
+
+  .thanks-card__icon :global(svg) { width: 1.5rem; height: 1.5rem; }
+
+  .thanks-note { text-wrap: balance; }
+
+  @keyframes thanks-spin { to { transform: rotate(360deg); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .thanks-seal__ring { animation: none; }
+  }
+</style>
