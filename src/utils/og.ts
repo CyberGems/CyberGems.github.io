@@ -27,10 +27,10 @@ const PUBLIC_DIR = path.join(process.cwd(), 'public');
  */
 const OG_ACCENT = '#90CAF9';
 
-/** Copy shared by both home cards. Kept here so variants can swap it cleanly. */
+/** Badge copy and measured rendered width, per language, for each home card. */
 const HOME_BADGE = {
-  en: 'FREE APPS FOR WINDOWS 10 / 11',
-  es: 'APLICACIONES GRATUITAS PARA WINDOWS 10 Y 11',
+  en: { text: 'FREE APPS FOR WINDOWS 10 / 11', width: 255 },
+  es: { text: 'APPS PARA WINDOWS 10 Y 11', width: 227 },
 };
 const HOME_CAPTION = {
   en: 'Precise control of your PC',
@@ -226,7 +226,7 @@ function footer(lang: Lang): string {
 
 function homeCard(lang: Lang): string {
   const accent = OG_ACCENT;
-  const badge = HOME_BADGE[lang];
+  const badge = HOME_BADGE[lang].text;
   const headline = lang === 'es' ? 'Apps de calidad premium.' : 'Premium-quality apps.';
   const subtitle = lang === 'es' ? 'Gratis y de código abierto.' : 'Free & open source.';
   const intro = lang === 'es'
@@ -247,10 +247,10 @@ function homeCard(lang: Lang): string {
   const badgeY = 164;
   const badgeHeight = 34;
   const badgeTextX = leftX + 41;
-  // Pin the rendered text width so the pill stays balanced even when Sharp
-  // falls back to a wider font than Segoe UI on the deploy runner. The left
-  // padding clears the icon and matches the trailing padding.
-  const badgeTextWidth = 255;
+  // Widths are measured from the rendered cards. Sharp ignores textLength,
+  // so the copy itself has to fit; the left padding clears the Windows icon
+  // and matches the trailing padding.
+  const badgeTextWidth = HOME_BADGE[lang].width;
   const badgeWidth = 41 + badgeTextWidth + 15;
 
   // The old 57 px headline ran underneath the showcase card ("premium." was
@@ -291,7 +291,7 @@ function homeCard(lang: Lang): string {
 
   <rect x="${leftX}" y="${badgeY}" width="${badgeWidth}" height="${badgeHeight}" rx="17" fill="${accent}" fill-opacity="0.1" stroke="${accent}" stroke-opacity="0.32" />
   ${windowsIcon(leftX + 9, badgeY + 8, 18, accent)}
-  <text id="home-badge" x="${badgeTextX}" y="${badgeY + 22}" fill="#d8ecff" font-family="Segoe UI, system-ui, sans-serif" font-size="${badgeSize}" font-weight="700" letter-spacing="${badgeSpacing}" textLength="${badgeTextWidth}" lengthAdjust="spacingAndGlyphs">${badge}</text>
+  <text id="home-badge" x="${badgeTextX}" y="${badgeY + 22}" fill="#d8ecff" font-family="Segoe UI, system-ui, sans-serif" font-size="${badgeSize}" font-weight="700" letter-spacing="${badgeSpacing}">${badge}</text>
   <text x="${leftX}" y="278" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${headlineSize}" font-weight="800" letter-spacing="-1.8">${escapeXml(headline)}</text>
   <text x="${leftX}" y="344" fill="url(#brand)" font-family="Segoe UI, system-ui, sans-serif" font-size="48" font-weight="800" letter-spacing="-1.4">${escapeXml(subtitle)}</text>
   <text x="${leftX}" y="397" fill="#d8d8df" font-family="Segoe UI, system-ui, sans-serif" font-size="22" font-weight="500">${escapeXml(intro)}</text>
@@ -333,8 +333,8 @@ function appCard(app: CyberApp, lang: Lang): string {
   const longestLine = Math.max(...tagline.map((line) => line.length));
   const taglineSize = Math.max(24, Math.min(27, Math.floor(textWidth / (longestLine * 0.56))));
 
-  // Pin the rendered text width so the pill stays balanced even when Sharp
-  // falls back to a wider font than Segoe UI on the deploy runner.
+  // Width measured from the rendered card; Sharp ignores textLength, so the
+  // pill is sized from the text as the image renderer actually draws it.
   const platformLabel = 'WINDOWS 10 / 11 · 64-BIT';
   const platformSize = 13;
   const platformSpacing = 1.1;
@@ -385,7 +385,7 @@ function appCard(app: CyberApp, lang: Lang): string {
   <!-- Left: platform, name, lema and stack -->
   <rect x="${leftX}" y="${pillY}" width="${pillWidth}" height="${pillHeight}" rx="17" fill="${accent}" fill-opacity="0.1" stroke="${accent}" stroke-opacity="0.36" />
   ${windowsIcon(leftX + 9, pillY + 8, 18, accent)}
-  <text x="${platformTextX}" y="${pillY + 22}" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${platformSize}" font-weight="700" letter-spacing="${platformSpacing}" textLength="${platformLabelWidth}" lengthAdjust="spacingAndGlyphs">${platformLabel}</text>
+  <text x="${platformTextX}" y="${pillY + 22}" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${platformSize}" font-weight="700" letter-spacing="${platformSpacing}">${platformLabel}</text>
   <text x="${leftX}" y="${titleBaseline}" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${titleSize}" font-weight="800" letter-spacing="-2">${titleMarkup}</text>
   ${tagline.map((line, index) => `<text x="${leftX}" y="${taglineStartY + index * taglineLineHeight}" fill="#e4e8f0" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
   <rect x="${leftX}" y="${ruleY}" width="64" height="4" rx="2" fill="${accent}" />
