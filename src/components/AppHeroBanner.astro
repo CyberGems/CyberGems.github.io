@@ -147,6 +147,19 @@ const benefits = lang === 'en'
     animation: banner-orbit 36s linear infinite;
   }
 
+  .app-hero-banner__orbit--outer::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: var(--banner-accent);
+    box-shadow: 0 0 12px var(--banner-accent);
+  }
+
   .app-hero-banner__orbit--inner {
     width: min(182px, 76%);
     opacity: 0.28;
