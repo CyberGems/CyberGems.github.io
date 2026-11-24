@@ -52,7 +52,7 @@ collections:
       - name: accent
         label: Accent color
         widget: color
-        default: '#00F2FF'
+        default: '#90CAF9'
       - name: stack
         label: Tech stack
         widget: string

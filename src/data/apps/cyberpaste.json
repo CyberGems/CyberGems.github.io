@@ -5,7 +5,7 @@
   "emoji": "⚡",
   "icon": "/icons/apps/cyberpaste.png",
   "explainer": "paste-flow",
-  "accent": "#49BFD5",
+  "accent": "#90CAF9",
   "stack": "Tauri · React · Rust",
   "license": "GPLv3",
   "tagline": {

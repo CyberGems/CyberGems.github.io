@@ -5,7 +5,7 @@
   "emoji": "🚀",
   "icon": "/icons/apps/cyberlauncher.png",
   "explainer": "launcher-flow",
-  "accent": "#8B9CF6",
+  "accent": "#90CAF9",
   "stack": "Electron · React · TypeScript",
   "license": "GPLv3",
   "tagline": {

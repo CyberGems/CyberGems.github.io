@@ -5,7 +5,7 @@
   "emoji": "💻",
   "icon": "/icons/apps/cybermanager.png",
   "explainer": "manager-flow",
-  "accent": "#4FC3F7",
+  "accent": "#90CAF9",
   "stack": "C# · WPF · .NET 10",
   "license": "GPLv3",
   "tagline": {

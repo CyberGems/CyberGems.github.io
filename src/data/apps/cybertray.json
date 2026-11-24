@@ -5,7 +5,7 @@
   "emoji": "⚡",
   "icon": "/icons/apps/cybertray.png",
   "explainer": "tray-flow",
-  "accent": "#34D6E9",
+  "accent": "#90CAF9",
   "stack": "Electron · TypeScript",
   "license": "GPLv3",
   "tagline": {
