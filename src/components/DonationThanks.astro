@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NavIcon from './NavIcon.astro';
 import FeatureSymbol from './FeatureSymbol.astro';
-import { apps } from '../data/apps';
 import type { Lang } from '../data/ui';
 
 interface Props { lang: Lang; }
@@ -83,8 +82,8 @@ const donateHref = en ? '/donate' : '/es/donate';
 
       <p class="thanks-note mx-auto mt-10 max-w-xl text-xs leading-relaxed text-[var(--text-dim)]">
         {en
-          ? `There are ${apps.length} free apps waiting for you. Your payment details are handled by PayPal, this page only says thank you.`
-          : `Te esperan ${apps.length} apps gratis. Los detalles de tu pago los gestiona PayPal, esta página solo dice gracias.`}
+          ? 'Your payment details are handled by PayPal, this page only says thank you.'
+          : 'Los detalles de tu pago los gestiona PayPal, esta página solo dice gracias.'}
       </p>
 
       <a href={donateHref} class="mt-4 inline-block text-xs font-semibold text-accent hover:text-white transition-colors">
