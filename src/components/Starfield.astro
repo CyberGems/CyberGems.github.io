@@ -7,9 +7,9 @@ const random = () => {
 };
 
 const layers = [
-  { count: 110, depth: 0.25, radius: 0.7, opacity: 0.45, driftX: -5, driftY: 3, driftDuration: 64, driftDelay: -12 },
-  { count: 65, depth: 0.6, radius: 1.05, opacity: 0.65, driftX: 7, driftY: -4, driftDuration: 52, driftDelay: -28 },
-  { count: 28, depth: 1.0, radius: 1.45, opacity: 0.85, driftX: -9, driftY: 6, driftDuration: 42, driftDelay: -6 },
+  { count: 110, depth: 0.25, radius: 0.7, opacity: 0.45, driftX: -16, driftY: 8, driftDuration: 42, driftDelay: -10 },
+  { count: 65, depth: 0.6, radius: 1.05, opacity: 0.65, driftX: 20, driftY: -12, driftDuration: 34, driftDelay: -19 },
+  { count: 28, depth: 1.0, radius: 1.45, opacity: 0.85, driftX: -26, driftY: 16, driftDuration: 28, driftDelay: -7 },
 ].map((layer, index) => ({
   ...layer,
   stars: Array.from({ length: layer.count }, (_, starIndex) => {
@@ -30,54 +30,56 @@ const layers = [
 <div class="hero-starfield absolute inset-0 overflow-hidden pointer-events-none" data-starfield aria-hidden="true">
   {layers.map((layer) => (
     <div class="starfield-layer" style={`--depth: ${layer.depth}; --drift-x: ${layer.driftX}px; --drift-y: ${layer.driftY}px; --drift-duration: ${layer.driftDuration}s; --drift-delay: ${layer.driftDelay}s;`}>
-      <div class="starfield-drift">
-        <svg class="starfield-sky" viewBox="0 0 1440 840" preserveAspectRatio="xMidYMid slice" focusable="false">
+      <svg class="starfield-sky" viewBox="0 0 1440 840" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <g class="starfield-drift">
           {/* Steady anchor stars */}
           <g class="starfield-steady">
-          {layer.stars.filter((s) => s.group === 0).map((star) => (
-            <circle cx={star.x} cy={star.y} r={star.radius} opacity={star.opacity} />
-          ))}
-        </g>
+            {layer.stars.filter((s) => s.group === 0).map((star) => (
+              <circle cx={star.x} cy={star.y} r={star.radius} opacity={star.opacity} />
+            ))}
+          </g>
 
           {/* Phase 1: Fast twinkle */}
           <g class="starfield-twinkle-fast">
-          {layer.stars.filter((s) => s.group === 1).map((star) => (
-            <circle cx={star.x} cy={star.y} r={star.radius} opacity={star.opacity} />
-          ))}
-        </g>
+            {layer.stars.filter((s) => s.group === 1).map((star) => (
+              <circle cx={star.x} cy={star.y} r={star.radius} opacity={star.opacity} />
+            ))}
+          </g>
 
           {/* Phase 2: Medium shimmer */}
           <g class="starfield-twinkle-mid">
-          {layer.stars.filter((s) => s.group === 2).map((star) => (
-            <circle cx={star.x} cy={star.y} r={star.radius} opacity={star.opacity} />
-          ))}
-        </g>
+            {layer.stars.filter((s) => s.group === 2).map((star) => (
+              <circle cx={star.x} cy={star.y} r={star.radius} opacity={star.opacity} />
+            ))}
+          </g>
 
           {/* Phase 3: Slow pulse */}
           <g class="starfield-twinkle-slow">
-          {layer.stars.filter((s) => s.group === 3).map((star) => (
-            <circle cx={star.x} cy={star.y} r={star.radius} opacity={star.opacity} />
-          ))}
-        </g>
+            {layer.stars.filter((s) => s.group === 3).map((star) => (
+              <circle cx={star.x} cy={star.y} r={star.radius} opacity={star.opacity} />
+            ))}
+          </g>
 
           {/* Phase 4: Gentle breathe */}
           <g class="starfield-twinkle-breathe">
-          {layer.stars.filter((s) => s.group === 4).map((star) => (
-            <circle cx={star.x} cy={star.y} r={star.radius} opacity={star.opacity} />
-          ))}
-        </g>
+            {layer.stars.filter((s) => s.group === 4).map((star) => (
+              <circle cx={star.x} cy={star.y} r={star.radius} opacity={star.opacity} />
+            ))}
+          </g>
 
           {/* Foreground 4-point cross sparkles */}
           {layer.stars.filter((s) => s.sparkle).map((star) => (
             <path d="M-3.5 0H3.5M0-3.5V3.5" transform={`translate(${star.x} ${star.y})`} opacity={star.opacity} class="starfield-sparkle" />
           ))}
-        </svg>
+        </g>
+      </svg>
 
-        {/* Interactive cursor illumination */}
-        <svg class="starfield-highlight" viewBox="0 0 1440 840" preserveAspectRatio="xMidYMid slice" focusable="false">
+      {/* Interactive cursor illumination */}
+      <svg class="starfield-highlight" viewBox="0 0 1440 840" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <g class="starfield-drift">
           {layer.stars.map((star) => <circle cx={star.x} cy={star.y} r={Number(star.radius) + 0.35} />)}
-        </svg>
-      </div>
+        </g>
+      </svg>
     </div>
   ))}
 </div>
@@ -151,8 +153,6 @@ const layers = [
     will-change: transform;
   }
   .starfield-drift {
-    position: absolute;
-    inset: 0;
     will-change: transform;
   }
   .starfield-sky, .starfield-highlight {
