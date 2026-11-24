@@ -246,11 +246,12 @@ function homeCard(lang: Lang): string {
   const badgeSpacing = 1.1;
   const badgeY = 164;
   const badgeHeight = 34;
-  const badgeTextX = leftX + 28;
-  // A fixed 350/300 px pill left the label off-centre. The estimate is
-  // calibrated to the wider Linux fallback font used by the deploy runner.
-  const badgeTextWidth = Math.ceil(badge.length * (badgeSize * 0.68 + badgeSpacing));
-  const badgeWidth = 28 + badgeTextWidth + 28;
+  const badgeTextX = leftX + 41;
+  // Pin the rendered text width so the pill stays balanced even when Sharp
+  // falls back to a wider font than Segoe UI on the deploy runner. The left
+  // padding clears the icon and matches the trailing padding.
+  const badgeTextWidth = 255;
+  const badgeWidth = 41 + badgeTextWidth + 15;
 
   // The old 57 px headline ran underneath the showcase card ("premium." was
   // visible through the translucent panel). Fit it to the left column instead.
@@ -290,7 +291,7 @@ function homeCard(lang: Lang): string {
 
   <rect x="${leftX}" y="${badgeY}" width="${badgeWidth}" height="${badgeHeight}" rx="17" fill="${accent}" fill-opacity="0.1" stroke="${accent}" stroke-opacity="0.32" />
   ${windowsIcon(leftX + 9, badgeY + 8, 18, accent)}
-  <text id="home-badge" x="${badgeTextX}" y="${badgeY + 22}" fill="#d8ecff" font-family="Segoe UI, system-ui, sans-serif" font-size="${badgeSize}" font-weight="700" letter-spacing="${badgeSpacing}">${badge}</text>
+  <text id="home-badge" x="${badgeTextX}" y="${badgeY + 22}" fill="#d8ecff" font-family="Segoe UI, system-ui, sans-serif" font-size="${badgeSize}" font-weight="700" letter-spacing="${badgeSpacing}" textLength="${badgeTextWidth}" lengthAdjust="spacingAndGlyphs">${badge}</text>
   <text x="${leftX}" y="278" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${headlineSize}" font-weight="800" letter-spacing="-1.8">${escapeXml(headline)}</text>
   <text x="${leftX}" y="344" fill="url(#brand)" font-family="Segoe UI, system-ui, sans-serif" font-size="48" font-weight="800" letter-spacing="-1.4">${escapeXml(subtitle)}</text>
   <text x="${leftX}" y="397" fill="#d8d8df" font-family="Segoe UI, system-ui, sans-serif" font-size="22" font-weight="500">${escapeXml(intro)}</text>
@@ -332,17 +333,14 @@ function appCard(app: CyberApp, lang: Lang): string {
   const longestLine = Math.max(...tagline.map((line) => line.length));
   const taglineSize = Math.max(24, Math.min(27, Math.floor(textWidth / (longestLine * 0.56))));
 
-  // The deploy runner has no Segoe UI and its wider fallback font used to
-  // leave just 2 px after "64-BIT". Size the pill from a conservative glyph
-  // estimate so the label keeps the same breathing room on both sides.
+  // Pin the rendered text width so the pill stays balanced even when Sharp
+  // falls back to a wider font than Segoe UI on the deploy runner.
   const platformLabel = 'WINDOWS 10 / 11 · 64-BIT';
   const platformSize = 13;
   const platformSpacing = 1.1;
-  const platformLabelWidth = Math.ceil(
-    platformLabel.length * (platformSize * 0.63 + platformSpacing),
-  );
-  const platformTextX = leftX + 28;
-  const pillWidth = 28 + platformLabelWidth + 28;
+  const platformLabelWidth = 190;
+  const platformTextX = leftX + 41;
+  const pillWidth = 41 + platformLabelWidth + 15;
   const pillHeight = 34;
 
   // Lay the left column out as one measured block, then center it between the
@@ -387,7 +385,7 @@ function appCard(app: CyberApp, lang: Lang): string {
   <!-- Left: platform, name, lema and stack -->
   <rect x="${leftX}" y="${pillY}" width="${pillWidth}" height="${pillHeight}" rx="17" fill="${accent}" fill-opacity="0.1" stroke="${accent}" stroke-opacity="0.36" />
   ${windowsIcon(leftX + 9, pillY + 8, 18, accent)}
-  <text x="${platformTextX}" y="${pillY + 22}" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${platformSize}" font-weight="700" letter-spacing="${platformSpacing}">${platformLabel}</text>
+  <text x="${platformTextX}" y="${pillY + 22}" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${platformSize}" font-weight="700" letter-spacing="${platformSpacing}" textLength="${platformLabelWidth}" lengthAdjust="spacingAndGlyphs">${platformLabel}</text>
   <text x="${leftX}" y="${titleBaseline}" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${titleSize}" font-weight="800" letter-spacing="-2">${titleMarkup}</text>
   ${tagline.map((line, index) => `<text x="${leftX}" y="${taglineStartY + index * taglineLineHeight}" fill="#e4e8f0" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
   <rect x="${leftX}" y="${ruleY}" width="64" height="4" rx="2" fill="${accent}" />
