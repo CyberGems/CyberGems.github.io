@@ -17,8 +17,8 @@
     "es": "Encuentra y abre todo en tu PC en segundos"
   },
   "description": {
-    "en": "The Start menu was never built to find things: it searches a subset of your apps, ignores your files and buries everything three clicks deep. CyberLauncher opens full-screen on a hotkey and searches apps, Microsoft Store apps, shortcuts and files in the locations you configure as you type.\n\nCyber Terminal opens with Ctrl+J as a real PowerShell or CMD session that keeps its shell and working directory between openings. Schedule launches and commands with countdown alerts, keep RAM, CPU and disk in the top bar, and check every drive's free space in the Storage HUD.\n\nCyberBot narrates what is happening from the corner, while portable mode, per-app shortcuts and automatic configuration backups round it out. The floating CyberBot companion opens shortcut search in its own window, and power actions can be scheduled with a countdown.",
-    "es": "El Menú Inicio nunca se diseñó para encontrar cosas: busca solo algunas apps, ignora tus archivos y lo entierra todo a tres clics. CyberLauncher se abre a pantalla completa con un atajo y busca apps, apps de Microsoft Store, accesos directos y archivos en las ubicaciones que configuras mientras escribes.\n\nCyber Terminal se abre con Ctrl+J como una sesión real de PowerShell o CMD que conserva su intérprete y su directorio de trabajo entre aperturas. Programa aperturas y comandos con avisos de cuenta regresiva, mantén RAM, CPU y disco en la barra superior y consulta el espacio libre de cada unidad en el Storage HUD.\n\nCyberBot narra lo que ocurre desde una esquina, mientras el modo portable, los atajos por app y las copias automáticas de configuración completan el conjunto. El CyberBot flotante abre la búsqueda de accesos en su propia ventana, y las acciones de energía se programan con cuenta atrás."
+    "en": "The Start menu was never built to find things: it searches a subset of your apps, ignores your files and buries everything three clicks deep. CyberLauncher opens full-screen on a hotkey and searches apps, Microsoft Store apps, shortcuts and files in the locations you configure as you type.\n\nCyber Terminal opens with Ctrl+J as a real PowerShell or CMD session that keeps its shell and working directory between openings. Schedule launches and commands with countdown alerts, keep RAM, CPU and disk in the top bar, and check every drive's free space in the Storage HUD.\n\nCyberBot narrates what is happening from the corner, while portable mode, per-app shortcuts and automatic configuration backups round it out. Floating CyberBot opens desktop shortcut search from the tray or with Alt+Shift+B by default, and power actions can be scheduled with a countdown.",
+    "es": "El Menú Inicio nunca se diseñó para encontrar cosas: busca solo algunas apps, ignora tus archivos y lo entierra todo a tres clics. CyberLauncher se abre a pantalla completa con un atajo y busca apps, apps de Microsoft Store, accesos directos y archivos en las ubicaciones que configuras mientras escribes.\n\nCyber Terminal se abre con Ctrl+J como una sesión real de PowerShell o CMD que conserva su intérprete y su directorio de trabajo entre aperturas. Programa aperturas y comandos con avisos de cuenta regresiva, mantén RAM, CPU y disco en la barra superior y consulta el espacio libre de cada unidad en el Storage HUD.\n\nCyberBot narra lo que ocurre desde una esquina, mientras el modo portable, los atajos por app y las copias automáticas de configuración completan el conjunto. CyberBot flotante abre el buscador de accesos del escritorio desde la bandeja o con Alt+Shift+B de forma predeterminada, y las acciones de energía se programan con cuenta atrás."
   },
   "highlightsTitle": {
     "en": "Less searching, more doing",
@@ -85,8 +85,8 @@
       "es": "Accede a acciones y navegación del lanzador al instante con la paleta Ctrl+K"
     },
     {
-      "en": "Assign custom shortcuts to individual apps",
-      "es": "Asigna atajos personalizados a cada app"
+      "en": "Assign or clear keyboard shortcuts for the launcher, floating CyberBot and individual apps",
+      "es": "Asigna o borra atajos de teclado para el lanzador, CyberBot flotante y cada app"
     },
     {
       "en": "Recover or remove missing shortcut targets directly when paths change or move",
@@ -117,12 +117,20 @@
       "es": "Personaliza al Asistente CyberBot con entrada del nombre en el globo, mensajes progresivos, horario silencioso y reacciones de enfoque y escaneo"
     },
     {
-      "en": "Interactive CyberBot quick command prompt on avatar click or global shortcut with smart action search",
-      "es": "Paleta rápida interactiva de comandos al hacer clic en CyberBot o con atajo global y búsqueda inteligente de acciones"
+      "en": "Click the integrated CyberBot avatar to search launcher commands and actions",
+      "es": "Haz clic en el avatar de CyberBot integrado para buscar comandos y acciones del lanzador"
     },
     {
       "en": "CyberBot stays visible during routine idle, steps aside in dialogs and the terminal, and gives a brief farewell when disabled",
       "es": "CyberBot permanece visible durante la inactividad rutinaria, se retira en diálogos y la terminal, y se despide brevemente al desactivarlo"
+    },
+    {
+      "en": "Enable floating CyberBot independently and switch between desktop shortcut search and the launcher",
+      "es": "Activa CyberBot flotante de forma independiente y alterna entre el buscador de accesos del escritorio y el lanzador"
+    },
+    {
+      "en": "Review release notes, track the download and choose when to install from one update panel",
+      "es": "Consulta las novedades, sigue la descarga y elige cuándo instalar desde un solo panel de actualizaciones"
     },
     {
       "en": "Portable auto-backups (3 copies kept by default) that embed custom icons and wallpapers for cross-PC migration",
