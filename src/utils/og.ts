@@ -21,12 +21,11 @@ const BANNER_GLOW = '#BA68C8';
 const PUBLIC_DIR = path.join(process.cwd(), 'public');
 
 /**
- * The upper-left corner glow is intentionally the same on every social card.
- * Warm per-app accents (red, violet, cyan, ...) clash with the navy/violet
- * background, while CyberLauncher's indigo sits right between the two. The
- * pill, icon aura and tinted stars still use each app's own accent.
+ * Social cards share a single accent, the same CyberClock blue used for every
+ * app tint on the site. The violet gradient stays as the suite's secondary
+ * brand colour, so the cards keep their depth without competing hues.
  */
-const CORNER_GLOW = '#8B9CF6';
+const OG_ACCENT = '#90CAF9';
 
 /** Copy shared by both home cards. Kept here so variants can swap it cleanly. */
 const HOME_BADGE = {
@@ -147,8 +146,8 @@ function defs(accent: string): string {
       <stop offset="1" stop-color="#0c0b16" />
     </linearGradient>
     <radialGradient id="cornerGlow" cx="15%" cy="15%" r="75%">
-      <stop offset="0" stop-color="${CORNER_GLOW}" stop-opacity="0.14" />
-      <stop offset="1" stop-color="${CORNER_GLOW}" stop-opacity="0" />
+      <stop offset="0" stop-color="${OG_ACCENT}" stop-opacity="0.14" />
+      <stop offset="1" stop-color="${OG_ACCENT}" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="violetGlow" cx="85%" cy="80%" r="70%">
       <stop offset="0" stop-color="#7A5CFF" stop-opacity="0.14" />
@@ -221,7 +220,7 @@ function footer(lang: Lang): string {
 }
 
 function homeCard(lang: Lang): string {
-  const accent = '#00F2FF';
+  const accent = OG_ACCENT;
   const badge = HOME_BADGE[lang];
   const headline = lang === 'es' ? 'Apps de calidad premium.' : 'Premium-quality apps.';
   const subtitle = lang === 'es' ? 'Gratis y de código abierto.' : 'Free & open source.';
@@ -284,9 +283,9 @@ function homeCard(lang: Lang): string {
   ${background(accent)}
   ${brandMark(72, 50, 46)}
 
-  <rect x="${leftX}" y="${badgeY}" width="${badgeWidth}" height="${badgeHeight}" rx="17" fill="#00F2FF" fill-opacity="0.1" stroke="#00F2FF" stroke-opacity="0.32" />
-  <circle cx="${leftX + 16}" cy="${badgeY + 17}" r="3.5" fill="#00F2FF" />
-  <text id="home-badge" x="${badgeTextX}" y="${badgeY + 22}" fill="#bafcff" font-family="Segoe UI, system-ui, sans-serif" font-size="${badgeSize}" font-weight="700" letter-spacing="${badgeSpacing}">${badge}</text>
+  <rect x="${leftX}" y="${badgeY}" width="${badgeWidth}" height="${badgeHeight}" rx="17" fill="${accent}" fill-opacity="0.1" stroke="${accent}" stroke-opacity="0.32" />
+  <circle cx="${leftX + 16}" cy="${badgeY + 17}" r="3.5" fill="${accent}" />
+  <text id="home-badge" x="${badgeTextX}" y="${badgeY + 22}" fill="#d8ecff" font-family="Segoe UI, system-ui, sans-serif" font-size="${badgeSize}" font-weight="700" letter-spacing="${badgeSpacing}">${badge}</text>
   <text x="${leftX}" y="278" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${headlineSize}" font-weight="800" letter-spacing="-1.8">${escapeXml(headline)}</text>
   <text x="${leftX}" y="344" fill="url(#brand)" font-family="Segoe UI, system-ui, sans-serif" font-size="48" font-weight="800" letter-spacing="-1.4">${escapeXml(subtitle)}</text>
   <text x="${leftX}" y="397" fill="#d8d8df" font-family="Segoe UI, system-ui, sans-serif" font-size="22" font-weight="500">${escapeXml(intro)}</text>
@@ -304,7 +303,7 @@ function homeCard(lang: Lang): string {
 }
 
 function appCard(app: CyberApp, lang: Lang): string {
-  const accent = app.accent ?? '#00F2FF';
+  const accent = app.accent ?? OG_ACCENT;
   const titleAccent = app.bannerTitleAccent ?? accent;
   const title = escapeXml(app.name);
   // Social cards show the same short line printed on the generated README
