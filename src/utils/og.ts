@@ -115,6 +115,11 @@ function appImage(app: Pick<BannerSource, 'icon' | 'emoji'>, x: number, y: numbe
   return `<image href="${assetData(app.icon)}" x="${x}" y="${y}" width="${size}" height="${size}" preserveAspectRatio="xMidYMid meet" />`;
 }
 
+/** Same Windows glyph as the site's reusable icon, drawn inside an OG card. */
+function windowsIcon(x: number, y: number, size: number, fill: string): string {
+  return `<svg x="${x}" y="${y}" width="${size}" height="${size}" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="${fill}" d="M1 2.3 7 1.5v6H1V2.3Zm8-1.1 6-.8v7.1H9V1.2ZM1 8.5h6v6L1 13.7V8.5Zm8 0h6v7.1l-6-.8V8.5Z" /></svg>`;
+}
+
 /**
  * The real site header logo: free-standing gradient gem + the official
  * wordmark. The old mark drew a rounded square around the favicon PNG (which
@@ -284,7 +289,7 @@ function homeCard(lang: Lang): string {
   ${brandMark(72, 50, 46)}
 
   <rect x="${leftX}" y="${badgeY}" width="${badgeWidth}" height="${badgeHeight}" rx="17" fill="${accent}" fill-opacity="0.1" stroke="${accent}" stroke-opacity="0.32" />
-  <circle cx="${leftX + 16}" cy="${badgeY + 17}" r="3.5" fill="${accent}" />
+  ${windowsIcon(leftX + 9, badgeY + 8, 18, accent)}
   <text id="home-badge" x="${badgeTextX}" y="${badgeY + 22}" fill="#d8ecff" font-family="Segoe UI, system-ui, sans-serif" font-size="${badgeSize}" font-weight="700" letter-spacing="${badgeSpacing}">${badge}</text>
   <text x="${leftX}" y="278" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${headlineSize}" font-weight="800" letter-spacing="-1.8">${escapeXml(headline)}</text>
   <text x="${leftX}" y="344" fill="url(#brand)" font-family="Segoe UI, system-ui, sans-serif" font-size="48" font-weight="800" letter-spacing="-1.4">${escapeXml(subtitle)}</text>
@@ -381,7 +386,7 @@ function appCard(app: CyberApp, lang: Lang): string {
 
   <!-- Left: platform, name, lema and stack -->
   <rect x="${leftX}" y="${pillY}" width="${pillWidth}" height="${pillHeight}" rx="17" fill="${accent}" fill-opacity="0.1" stroke="${accent}" stroke-opacity="0.36" />
-  <circle cx="${leftX + 16}" cy="${pillY + 17}" r="3.5" fill="${accent}" />
+  ${windowsIcon(leftX + 9, pillY + 8, 18, accent)}
   <text x="${platformTextX}" y="${pillY + 22}" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${platformSize}" font-weight="700" letter-spacing="${platformSpacing}">${platformLabel}</text>
   <text x="${leftX}" y="${titleBaseline}" fill="white" font-family="Segoe UI, system-ui, sans-serif" font-size="${titleSize}" font-weight="800" letter-spacing="-2">${titleMarkup}</text>
   ${tagline.map((line, index) => `<text x="${leftX}" y="${taglineStartY + index * taglineLineHeight}" fill="#e4e8f0" font-family="Segoe UI, system-ui, sans-serif" font-size="${taglineSize}" font-weight="500">${escapeXml(line)}</text>`).join('')}
