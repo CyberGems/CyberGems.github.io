@@ -159,8 +159,8 @@ function defs(accent: string): string {
       <stop offset="1" stop-color="#7A5CFF" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="iconAura" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="${accent}" stop-opacity="0.25" />
-      <stop offset="55%" stop-color="${accent}" stop-opacity="0.08" />
+      <stop offset="0" stop-color="${accent}" stop-opacity="0.12" />
+      <stop offset="60%" stop-color="${accent}" stop-opacity="0.04" />
       <stop offset="100%" stop-color="${accent}" stop-opacity="0" />
     </radialGradient>
     <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
@@ -323,6 +323,17 @@ function appCard(app: CyberApp, lang: Lang): string {
   const cardWidth = 348;
   const cardHeight = 344;
   const iconSize = 232;
+  const iconCenterX = cardX + cardWidth / 2;
+  const iconCenterY = cardY + cardHeight / 2;
+  const orbitOuter = 130;
+  const orbitInner = 108;
+  const gridStep = 44;
+  const panelGrid = [
+    ...Array.from({ length: Math.floor(cardWidth / gridStep) + 1 }, (_, i) =>
+      `<path d="M${cardX + i * gridStep} ${cardY}v${cardHeight}" />`),
+    ...Array.from({ length: Math.floor(cardHeight / gridStep) + 1 }, (_, i) =>
+      `<path d="M${cardX} ${cardY + i * gridStep}h${cardWidth}" />`),
+  ].join('');
   const textWidth = cardX - leftX - 40;
 
   // Fit the two most important elements to the column instead of using fixed
@@ -391,11 +402,20 @@ function appCard(app: CyberApp, lang: Lang): string {
   <rect x="${leftX}" y="${ruleY}" width="64" height="4" rx="2" fill="${accent}" />
   <text x="${leftX}" y="${metaBaseline}" fill="#b7bcc8" font-family="Segoe UI, system-ui, sans-serif" font-size="${metaSize}" font-weight="600">${escapeXml(app.stack)}</text>
 
-  <!-- Right: icon showcase. No repeated name, platform or license. -->
+  <!-- Right: icon showcase. Same quiet orbits and grid as the site banner. -->
+  <clipPath id="iconPanelClip">
+    <rect x="${cardX}" y="${cardY}" width="${cardWidth}" height="${cardHeight}" rx="30" />
+  </clipPath>
   <g filter="url(#softShadow)">
     <rect x="${cardX}" y="${cardY}" width="${cardWidth}" height="${cardHeight}" rx="30" fill="#12151f" fill-opacity="0.92" stroke="white" stroke-opacity="0.14" />
-    <circle cx="${cardX + cardWidth / 2}" cy="${cardY + cardHeight / 2}" r="140" fill="url(#iconAura)" />
-    ${appImage(app, cardX + (cardWidth - iconSize) / 2, cardY + (cardHeight - iconSize) / 2, iconSize)}
+    <g clip-path="url(#iconPanelClip)" fill="none" stroke="${accent}" stroke-opacity="0.09" stroke-width="1">
+      ${panelGrid}
+    </g>
+    <circle cx="${iconCenterX}" cy="${iconCenterY}" r="${orbitOuter + 24}" fill="url(#iconAura)" />
+    <circle cx="${iconCenterX}" cy="${iconCenterY}" r="${orbitOuter}" fill="none" stroke="${accent}" stroke-opacity="0.28" stroke-dasharray="3 8" />
+    <circle cx="${iconCenterX}" cy="${iconCenterY}" r="${orbitInner}" fill="none" stroke="${accent}" stroke-opacity="0.13" />
+    <circle cx="${iconCenterX}" cy="${iconCenterY - orbitOuter}" r="4" fill="${accent}" />
+    ${appImage(app, iconCenterX - iconSize / 2, iconCenterY - iconSize / 2, iconSize)}
   </g>
 
   ${footer(lang)}
