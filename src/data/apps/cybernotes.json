@@ -9,8 +9,8 @@
   "stack": "Electron · React · TypeScript",
   "license": "GPLv3",
   "tagline": {
-    "en": "Catch ideas, organize your thoughts and keep useful notes close, all on your PC.",
-    "es": "Captura ideas, ordena tus pensamientos y ten tus notas a mano, todo en tu PC."
+    "en": "Catch ideas and keep rich, private notes on your PC, with folders, tabs and floating notes.",
+    "es": "Captura ideas y guarda notas ricas y privadas en tu PC, con carpetas, pestañas y notas flotantes."
   },
   "bannerTagline": {
     "en": "Private, flexible note-taking",

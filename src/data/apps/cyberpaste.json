@@ -9,12 +9,12 @@
   "stack": "Tauri · React · Rust",
   "license": "GPLv3",
   "tagline": {
-    "en": "Recall anything you have ever copied — text, code, images, files — 100% local.",
-    "es": "Recupera todo lo que hayas copiado — texto, código, imágenes, archivos — 100% local."
+    "en": "Recall anything you copy — text, code, images or files — from a fully local clipboard history.",
+    "es": "Recupera todo lo que copias —texto, código, imágenes o archivos— desde un historial 100% local."
   },
   "bannerTagline": {
-    "en": "A local clipboard history for everything you copy",
-    "es": "Historial del portapapeles, todo local"
+    "en": "A local history of everything you copy",
+    "es": "Historial local de todo lo que copias"
   },
   "description": {
     "en": "Copy something, copy three more things, and the first one is already gone. CyberPaste keeps a searchable history of everything you copy, text, code, images, links and files, with rich HTML and RTF content preserved when the source provides it, in a local SQLite database.\n\nUse folders and pinning to organize clips, and edit them when needed. One global hotkey pastes straight into the app you were using; instant search and local OCR find a clip from weeks ago or the words inside an image, and an optional AI provider can summarize or transform a clip once you connect one.\n\nConfigurable retention, a PIN or password lock, quiet hours, a tray pause with flexible durations and automatic backups round it out, with no account and no telemetry.",

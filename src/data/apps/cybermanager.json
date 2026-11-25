@@ -9,12 +9,12 @@
   "stack": "C# · WPF · .NET 10",
   "license": "GPLv3",
   "tagline": {
-    "en": "See what is slowing your PC down and take action without losing your place.",
-    "es": "Descubre qué ralentiza tu PC y actúa sin perder de vista lo importante."
+    "en": "See what slows your PC down and act on it without losing your place.",
+    "es": "Descubre qué ralentiza tu PC y actúa sin perder tu lugar."
   },
   "bannerTagline": {
-    "en": "Take control of every Windows process",
-    "es": "Controla cada proceso de Windows"
+    "en": "Every Windows process, under control",
+    "es": "Cada proceso de Windows, bajo control"
   },
   "description": {
     "en": "When a PC slows down, Task Manager is often the first thing to freeze or to hide the process you wanted. CyberManager reads the process list directly from Windows instead of the slower management APIs, so search, sorting and scrolling stay responsive with large process lists.\n\nSearch by name, PID or path, sort by CPU or memory, and use live graphs, heatmap colors and a heaviest-processes filter to spot what needs attention. End a process or its whole tree, then restart, suspend, resume or reprioritize a single process or a group of instances with the same name.\n\nMonitor all disks or one physical disk, and keep a floating CPU/RAM widget on screen while the app waits on a global hotkey. The Startup tab reviews every sign-in app in one place and lets you enable or disable them with confirmation and automatic backup.",

@@ -9,8 +9,8 @@
   "stack": "Electron · React · TypeScript",
   "license": "GPLv3",
   "tagline": {
-    "en": "Follow websites, YouTube and Reddit in one calm, private reading space.",
-    "es": "Sigue sitios web, YouTube y Reddit en un espacio de lectura tranquilo y privado."
+    "en": "Follow websites, YouTube channels and Reddit communities in one calm, private reader.",
+    "es": "Sigue sitios web, canales de YouTube y comunidades de Reddit en un lector tranquilo y privado."
   },
   "bannerTagline": {
     "en": "Follow websites, YouTube and Reddit in one place",

@@ -9,12 +9,12 @@
   "stack": "C# · WPF · .NET 10",
   "license": "GPLv3",
   "tagline": {
-    "en": "Choose which apps can connect. Review new connections and keep the rules that work for you.",
-    "es": "Decide qué apps pueden conectarse. Revisa las conexiones nuevas y conserva las reglas que te convengan."
+    "en": "Choose which apps can connect, review new connections and keep rules you trust.",
+    "es": "Elige qué apps pueden conectarse, revisa las conexiones nuevas y conserva las reglas que te convengan."
   },
   "bannerTagline": {
-    "en": "Block unwanted app connections in real time",
-    "es": "Bloquea conexiones no deseadas en tiempo real"
+    "en": "Control which apps can connect",
+    "es": "Controla qué apps pueden conectarse"
   },
   "description": {
     "en": "Every program on your PC can reach the internet the moment it runs, and port-and-protocol rules are awkward to reason about. CyberWall is a default-deny firewall for Windows: nothing gets out until you allow that specific executable.\n\nUnknown connections raise a simple prompt: allow once, always allow, or block with a persistent rule. The same window shows live connections, traffic statistics, rule management and a clear identity for each app.\n\nIt uses the built-in Windows Advanced Firewall and checks that the Windows Filtering Platform is available, with no third-party kernel driver.",

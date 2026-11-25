@@ -9,11 +9,11 @@
   "stack": "Tauri · Rust",
   "license": "GPLv3",
   "tagline": {
-    "en": "Clock, calendar, timers and recorded soundscapes in one lightweight app — with an optional talking clock.",
-    "es": "Reloj, calendario, temporizadores y paisajes sonoros grabados en una app ligera, con reloj parlante opcional."
+    "en": "Clock, calendar, timers, soundscapes and an optional talking clock in one lightweight app.",
+    "es": "Reloj, calendario, temporizadores, paisajes sonoros y reloj parlante opcional en una app ligera."
   },
   "bannerTagline": {
-    "en": "Clock, timer, stopwatch and calendar for your desktop",
+    "en": "Clock, timer, stopwatch and calendar",
     "es": "Reloj, temporizador, cronómetro y calendario"
   },
   "description": {

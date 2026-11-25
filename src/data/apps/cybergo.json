@@ -9,11 +9,11 @@
   "license": "GPLv3",
   "tagline": {
     "en": "A private, local-first agenda for tasks, events and reminders on Windows.",
-    "es": "Una agenda local y privada para tareas, eventos y avisos en Windows."
+    "es": "Una agenda local y privada para tareas, eventos y recordatorios en Windows."
   },
   "bannerTagline": {
-    "en": "Your offline planner for tasks, events and reminders",
-    "es": "Tu planificador offline de tareas y eventos"
+    "en": "Tasks, events and reminders, offline",
+    "es": "Tareas, eventos y recordatorios, sin conexión"
   },
   "bannerTitleAccent": "#90CAF9",
   "description": {

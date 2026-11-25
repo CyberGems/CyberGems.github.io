@@ -9,11 +9,11 @@
   "stack": "Electron · JavaScript",
   "license": "GPLv3",
   "tagline": {
-    "en": "Images, video and audio in one fast window — browse whole folders and fix files without leaving it.",
-    "es": "Imágenes, video y audio en una ventana rápida: recorre carpetas y haz los ajustes sin salir de ella."
+    "en": "Browse images, video and audio in one fast window, with fixes that keep you there.",
+    "es": "Recorre imágenes, video y audio en una ventana rápida, con ajustes que no te hacen salir de ella."
   },
   "bannerTagline": {
-    "en": "Images, video and audio, all in one viewer",
+    "en": "Images, video and audio in one viewer",
     "es": "Imágenes, video y audio en un solo visor"
   },
   "bannerTitleAccent": "#90CAF9",

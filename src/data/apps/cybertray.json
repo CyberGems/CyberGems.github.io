@@ -9,12 +9,12 @@
   "stack": "Electron · TypeScript",
   "license": "GPLv3",
   "tagline": {
-    "en": "Your favorite apps, files and links, one gesture away without a crowded taskbar.",
-    "es": "Tus apps, archivos y enlaces favoritos a un gesto, sin saturar la barra de tareas."
+    "en": "Keep favorite apps, files and links one gesture away without crowding your taskbar.",
+    "es": "Ten apps, archivos y enlaces favoritos a un gesto sin saturar la barra de tareas."
   },
   "bannerTagline": {
-    "en": "Organize your shortcuts and reach them instantly",
-    "es": "Organiza tus accesos y llega al instante"
+    "en": "Your shortcuts, one click from the tray",
+    "es": "Tus accesos, a un clic de la bandeja"
   },
   "description": {
     "en": "Your taskbar runs out of room, the Start menu takes three clicks and the files you use end up buried in folders. CyberTray keeps a launchpad one click away in the system tray: a shelf of apps, files, folders and URLs with search, categories and drag-and-drop, summoned by Alt+Shift+T, a screen corner or the tray icon and hidden again when you are done.\n\nBeside it, live RAM, CPU and disk telemetry, plus VRAM details, a process viewer that can end what is misbehaving, and a PIN-protected vault you can sweep the desktop into.\n\nPortable mode and scheduled backups to a folder you pick keep the whole setup with you.",

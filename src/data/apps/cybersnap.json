@@ -9,8 +9,8 @@
   "stack": "C# · WPF · .NET 10",
   "license": "GPLv3",
   "tagline": {
-    "en": "Screenshots, recordings, OCR, QR codes and a color picker — capture, edit and share it all in one window.",
-    "es": "Capturas, grabaciones, OCR, códigos QR y selector de color: captura, edita y comparte todo en una ventana."
+    "en": "Capture, edit and share screenshots, recordings, OCR, QR codes and colors in one window.",
+    "es": "Captura, edita y comparte capturas, grabaciones, OCR, códigos QR y colores en una ventana."
   },
   "bannerTagline": {
     "en": "Capture, annotate and record your screen",
