@@ -1,5 +1,6 @@
 import type { CyberApp, BannerSource } from '../data/apps';
 import { apps } from '../data/apps';
+import { APP_TITLE_ACCENT } from '../data/brand';
 import type { Lang } from '../data/ui';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -10,11 +11,10 @@ const BANNER_WIDTH = 1280;
 const BANNER_HEIGHT = 360;
 /**
  * README banners are one family. Every app icon in the suite is cyan, so the
- * banner accent (title suffix, border and starfield tint) uses a single suite
- * cyan instead of each app's brand hue — a red firewall or a violet launcher
- * next to a cyan icon read as accents out of place. CyberViewer's banner is
- * the reference look, so the glow behind the logo keeps its violet: one warm
- * note that keeps the cyan from flooding the frame.
+ * border and starfield tint use a single suite cyan instead of each app's
+ * brand hue. CyberViewer's banner is the reference look, so the glow behind
+ * the logo keeps its violet: one warm note that keeps the cyan from flooding
+ * the frame. The name suffix always uses the shared APP_TITLE_ACCENT.
  */
 const BANNER_ACCENT = '#80E4F0';
 const BANNER_GLOW = '#BA68C8';
@@ -310,7 +310,7 @@ function homeCard(lang: Lang): string {
 
 function appCard(app: CyberApp, lang: Lang): string {
   const accent = app.accent ?? OG_ACCENT;
-  const titleAccent = app.bannerTitleAccent ?? accent;
+  const titleAccent = APP_TITLE_ACCENT;
   const title = escapeXml(app.name);
   // Social cards show the same short line printed on the generated README
   // banner; 56 chars keeps every bannerTagline on a single line, as it is there.
@@ -409,7 +409,7 @@ function appCard(app: CyberApp, lang: Lang): string {
 export function readmeBannerSvg(app: BannerSource, lang: Lang = 'en'): string {
   const accent = BANNER_ACCENT;
   const glowAccent = BANNER_GLOW;
-  const titleAccent = BANNER_ACCENT;
+  const titleAccent = APP_TITLE_ACCENT;
   const title = escapeXml(app.name);
   const bannerTagline = app.bannerTagline?.[lang] ?? app.tagline?.[lang] ?? app.tagline?.en ?? app.name;
   const tagline = balanceTwoLines(bannerTagline);
@@ -430,8 +430,8 @@ export function readmeBannerSvg(app: BannerSource, lang: Lang = 'en'): string {
   );
   const trustSize = 16;
 
-  // Two-tone title, mirroring the app UI: "Cyber" stays white, the rest takes
-  // the per-app banner accent.
+  // Two-tone title: "Cyber" stays white and the rest always takes the shared
+  // app-name accent, matching the site and every other banner.
   const titleMarkup = app.name.startsWith('Cyber') && app.name.length > 5
     ? `<tspan fill="white">Cyber</tspan><tspan fill="${titleAccent}">${escapeXml(app.name.slice(5))}</tspan>`
     : `<tspan fill="white">${title}</tspan>`;

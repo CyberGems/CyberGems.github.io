@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AppName from './AppName.astro';
 import { apps } from '../data/apps';
 import ReleaseDate from './ReleaseDate.astro';
 import { ui, type Lang } from '../data/ui';
@@ -173,7 +174,7 @@ const breadcrumbLd = {
                       : <span class="text-xl">{app.emoji}</span>}
                   </div>
                   <div class="min-w-0">
-                    <p class="text-xs font-semibold text-[#00f2ff]">{app.name}</p>
+                    <p class="text-xs font-semibold text-[#00f2ff]"><AppName name={app.name} /></p>
                     <h3 id={headingId} class="mt-1 font-semibold text-white leading-snug">{release.name}</h3>
                   </div>
                 </div>

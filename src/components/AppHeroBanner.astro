@@ -1,5 +1,6 @@
 ---
 import type { CyberApp, Lang } from '../data/apps';
+import AppName from './AppName.astro';
 import WindowsIcon from './WindowsIcon.astro';
 
 interface Props {
@@ -41,7 +42,7 @@ const benefits = lang === 'en'
       <WindowsIcon size={16} glow class="w-4 h-4 text-[#4fc3f7]" />
       {platformLabel}
     </p>
-    <h1 id={`app-title-${app.slug}`} class="app-hero-banner__title">{app.name}</h1>
+    <h1 id={`app-title-${app.slug}`} class="app-hero-banner__title"><AppName name={app.name} /></h1>
     <p class="app-hero-banner__tagline">{app.tagline[lang]}</p>
     <div class="app-hero-banner__meta" aria-label={lang === 'en' ? 'App details' : 'Detalles de la app'}>
       {benefits.map((benefit, index) => (

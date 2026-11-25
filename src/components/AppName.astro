@@ -1,0 +1,15 @@
+---
+import { APP_TITLE_ACCENT } from '../data/brand';
+
+interface Props {
+  name: string;
+  class?: string;
+}
+
+const { name, class: className = '' } = Astro.props;
+const [prefix, suffix] = name.startsWith('Cyber') && name.length > 5
+  ? [name.slice(0, 5), name.slice(5)]
+  : [name, ''];
+---
+
+<span class={className}>{prefix}{suffix && <span style={`color: ${APP_TITLE_ACCENT}`}>{suffix}</span>}</span>

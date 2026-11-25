@@ -3,6 +3,7 @@ import type { CyberApp } from '../data/apps';
 import type { Lang } from '../data/ui';
 import type { LatestDownload } from '../data/releases';
 import { appTask } from '../data/catalog';
+import AppName from './AppName.astro';
 import NavIcon from './NavIcon.astro';
 import WindowsIcon from './WindowsIcon.astro';
 
@@ -99,7 +100,7 @@ const formattedDate = download?.publishedAt
       )}
       <div class="min-w-0 flex-1">
         <h3 class="text-xl font-bold tracking-tight text-white transition-colors group-hover:text-accent">
-          {app.name}
+          <AppName name={app.name} />
         </h3>
         <p class="text-xs text-[var(--text-dim)]">{lang === 'en' ? 'Desktop App' : 'App de escritorio'}</p>
       </div>

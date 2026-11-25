@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AppHeroBanner from './AppHeroBanner.astro';
+import AppName from './AppName.astro';
 import FeatureSymbol from './FeatureSymbol.astro';
 import AppFlowExplainer from './AppFlowExplainer.astro';
 import AppDownloadButton from './AppDownloadButton.astro';
@@ -105,7 +106,7 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
           {app.icon ? <img src={app.icon} alt="" width="64" height="64" class="h-16 w-16 object-contain" /> : app.emoji}
         </div>
         <div>
-          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">{app.name}</h1>
+          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight"><AppName name={app.name} /></h1>
           <p class="mt-2 text-lg text-[#9a9aa5]">{app.tagline[lang]}</p>
           <div class="mt-3 flex flex-wrap gap-2">
             <span class="chip">🧩 {app.stack}</span>
