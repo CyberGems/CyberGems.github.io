@@ -103,8 +103,8 @@
       "color": "#34D399",
       "title": { "en": "Lightweight & Native", "es": "Ligero y nativo" },
       "text": {
-        "en": "Tauri + Rust build (~50 MB) that lives quietly in your tray. NSIS setup or portable, optional Start with Windows and GitHub auto-updates.",
-        "es": "Compilado Tauri + Rust (~50 MB) que vive discreto en la bandeja. Setup NSIS o portable, inicio con Windows opcional y auto-actualización desde GitHub."
+        "en": "Tauri + Rust build (~50 MB) that lives quietly in your tray. NSIS setup or portable, optional Start with Windows, opt-in update notices and manual About checks.",
+        "es": "Compilado Tauri + Rust (~50 MB) que vive discreto en la bandeja. Setup NSIS o portable, inicio con Windows opcional, avisos de actualización opcionales y comprobaciones manuales en Acerca de."
       }
     },
     {
@@ -154,7 +154,7 @@
     { "en": "Global hotkey (Ctrl+Shift+V), auto-paste injection, multi-monitor aware", "es": "Hotkey global (Ctrl+Shift+V), auto-pegado, consciente de multi-monitor" },
     { "en": "Universal Visor for text, code, images, HTML and files with local Windows Media OCR and export tools", "es": "Visor universal para texto, código, imágenes, HTML y archivos con OCR local de Windows y exportación" },
     { "en": "Save As exports from clip menus and viewers for images, text, HTML, RTF, URLs, original files and multi-file clips", "es": "Exportaciones Guardar como desde menús y visores para imágenes, texto, HTML, RTF, URLs, archivos originales y clips de varios archivos" },
-    { "en": "Persistent local search history with Ctrl+H keyboard navigation, literal wildcard handling and a dedicated no-results state", "es": "Historial de búsqueda local persistente con navegación por teclado mediante Ctrl+H, comodines tratados literalmente y estado dedicado sin resultados" },
+    { "en": "Persistent local search history opens below the focused Full/Compact search field, with Ctrl+H keyboard navigation, literal wildcard handling and a dedicated no-results state", "es": "El historial de búsqueda local persistente se abre bajo el campo de búsqueda enfocado en modo Completo/Compacto, con navegación por teclado mediante Ctrl+H, comodines tratados literalmente y estado dedicado sin resultados" },
     { "en": "Configurable quiet hours suppress routine notifications and associated sounds while critical alerts remain available", "es": "El horario silencioso configurable suprime avisos rutinarios y sus sonidos, mientras las alertas críticas siguen disponibles" },
     { "en": "Pause notifications from the tray for 1, 6, 12 or 24 hours (24h suggested) or until resumed, with a matching Resume now banner in Settings > Notifications", "es": "Pausa las notificaciones desde el tray por 1, 6, 12 o 24 horas (24 h sugeridas) o hasta reanudarlas, con un banner «Reanudar ahora» en Configuración > Notificaciones" },
     { "en": "Dedicated Emoji Mode with bilingual search (English/Spanish), category tabs, isolated history and pinned multi-injection", "es": "Modo Emojis dedicado con búsqueda bilingüe (inglés/español), pestañas por categoría, historial aislado y multi-inyección al anclar" },
@@ -173,7 +173,7 @@
       { "icon": "📥", "title": { "en": "Capture Everything", "es": "Captura todo" }, "text": { "en": "Text, code (HTML included), rich text (RTF), images, links and files — including Ctrl+X cuts, deduped and ghost-filtered.", "es": "Texto, código (HTML incluido), texto enriquecido RTF, imágenes, enlaces y archivos — incluidos cortes Ctrl+X, sin duplicados ni clips fantasma." } },
       { "icon": "🔍", "title": { "en": "Find Instantly", "es": "Encuentra al instante" }, "text": { "en": "Search over content, OCR and source app, plus type chips with live counts. Ctrl+F to jump in.", "es": "Búsqueda sobre contenido, OCR y app de origen, más filtros por tipo con conteos. Ctrl+F para saltar." } },
       { "icon": "🗂️", "title": { "en": "Organize & Edit", "es": "Organiza y edita" }, "text": { "en": "Folders, drag & drop, bulk actions, editable clips, detail panel (Space) and pin protection.", "es": "Carpetas, arrastrar y soltar, acciones en lote, clips editables, panel detalle (Espacio) y protección de fijados." } },
-      { "icon": "✨", "title": { "en": "Apply AI", "es": "Aplica IA" }, "text": { "en": "Right-click → AI Actions: summarize, translate, explain, fix grammar — copy, replace or regenerate.", "es": "Clic derecho → Acciones IA: resumir, traducir, explicar, corregir — copiar, reemplazar o regenerar." } },
+      { "icon": "✨", "title": { "en": "Apply AI", "es": "Aplica IA" }, "text": { "en": "Right-click → AI Actions: summarize, translate, explain, fix grammar — copy or save the result.", "es": "Clic derecho → Acciones IA: resumir, traducir, explicar, corregir — copiar o guardar el resultado." } },
       { "icon": "🖼️", "title": { "en": "Read Images", "es": "Lee imágenes" }, "text": { "en": "Fullscreen viewer with zoom, pan, rotate and one-click local OCR that saves results as a new clip.", "es": "Visor a pantalla completa con zoom, paneo, rotación y OCR local en un clic que guarda el texto como clip nuevo." } },
       { "icon": "⌨️", "title": { "en": "Paste Anywhere", "es": "Pega donde sea" }, "text": { "en": "Ctrl+Shift+V from any app, navigate with arrows, Enter to paste, auto-paste injection, multi-monitor aware.", "es": "Ctrl+Shift+V desde cualquier app, navega con flechas, Enter para pegar, auto-pegado y multi-monitor." } }
     ]
