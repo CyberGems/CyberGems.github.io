@@ -244,5 +244,49 @@
   "screenshotCaption": {
     "en": "Radial dock with icon-rich tool shortcuts, centered date readout, workspace categories and recent launch history.",
     "es": "Dock radial con accesos directos, lectura central de fecha, categorías de trabajo e historial reciente de lanzamientos."
-  }
+  },
+  "gallery": [
+    {
+      "file": {
+        "en": "/screenshots/cyberlauncher/terminal-en.webp",
+        "es": "/screenshots/cyberlauncher/terminal-es.webp"
+      },
+      "alt": {
+        "en": "CyberLauncher embedded Cyber Terminal running PowerShell commands and tests inside the launcher workspace",
+        "es": "Terminal integrada Cyber Terminal en CyberLauncher ejecutando comandos de PowerShell y pruebas dentro del espacio de trabajo"
+      },
+      "caption": {
+        "en": "Integrated Cyber Terminal (Ctrl+J) with persistent PowerShell and CMD sessions inside the launcher.",
+        "es": "Cyber Terminal integrada (Ctrl+J) con sesiones persistentes de PowerShell o CMD dentro del lanzador."
+      }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cyberlauncher/system-en.webp",
+        "es": "/screenshots/cyberlauncher/system-es.webp"
+      },
+      "alt": {
+        "en": "CyberLauncher System Resources HUD overlay displaying RAM usage, processor model and core count, uptime and shortcut info",
+        "es": "Panel HUD de Recursos del sistema en CyberLauncher mostrando uso de RAM, procesador y núcleos, tiempo activo e información rápida"
+      },
+      "caption": {
+        "en": "System Resources HUD showing live memory usage, processor topology, uptime and launcher shortcut overview.",
+        "es": "HUD de Recursos del sistema con uso de memoria en vivo, procesador, tiempo activo y datos clave del lanzador."
+      }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cyberlauncher/cyberbot-en.webp",
+        "es": "/screenshots/cyberlauncher/cyberbot-es.webp"
+      },
+      "alt": {
+        "en": "CyberLauncher floating desktop CyberBot companion bubble showing search bar, most used shortcuts and recent launches",
+        "es": "Compañero flotante CyberBot en el escritorio mostrando buscador de accesos, aplicaciones más usadas y lanzamientos recientes"
+      },
+      "caption": {
+        "en": "Floating desktop CyberBot (Alt+Shift+B) for searching shortcuts, favorites and recent launches right over your workspace.",
+        "es": "CyberBot flotante de escritorio (Alt+Shift+B) para buscar accesos, favoritos y lanzamientos recientes sin abrir la ventana principal."
+      }
+    }
+  ]
 }

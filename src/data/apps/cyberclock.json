@@ -254,6 +254,20 @@
         "en": "Mini Mode compact always-on-top desktop bars in stacked and inline layouts across three of the 20 selectable skins.",
         "es": "Modo Mini en formato barra compacta siempre visible, con diseño apilado o en línea sobre tres de las 20 skins disponibles."
       }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cyberclock/widgets-en.webp",
+        "es": "/screenshots/cyberclock/widgets-es.webp"
+      },
+      "alt": {
+        "en": "CyberClock floating desktop widgets showing the Gem Crown analog clock, floating calendar with day notes, Relax player with live spectrum, floating timer and Quantum stopwatch",
+        "es": "Widgets flotantes de CyberClock mostrando el reloj analógico Corona de Gemas, calendario flotante con notas, reproductor Relax con espectro en vivo, temporizador flotante y cronómetro Quantum"
+      },
+      "caption": {
+        "en": "Independent floating desktop widgets: Gem Crown analog dial, calendar with notes, Relax ambient mixer, timer with quick-add presets and Quantum stopwatch.",
+        "es": "Widgets flotantes independientes de escritorio: esfera Corona de Gemas, calendario con notas, mezclador ambiental Relax, temporizador con preajustes rápidos y cronómetro Quantum."
+      }
     }
   ]
 }

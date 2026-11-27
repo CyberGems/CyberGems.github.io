@@ -127,5 +127,50 @@
   "screenshotCaption": {
     "en": "Process table with live CPU and RAM sparklines, category filters, priority and path inspection, and themeable status bar.",
     "es": "Tabla de procesos con gráficos en vivo de CPU y RAM, filtros por categoría, inspección de prioridad y ruta, y barra de estado con tema adaptable."
-  }
+  },
+  "gallery": [
+    {
+      "file": {
+        "en": "/screenshots/cybermanager/compact-en.webp",
+        "es": "/screenshots/cybermanager/compact-es.webp"
+      },
+      "alt": {
+        "en": "CyberManager Compact mode window showing search, category filters and live CPU and memory heatmaps",
+        "es": "Modo Compacto de CyberManager mostrando búsqueda, filtros por categoría y mapa de calor de CPU y memoria"
+      },
+      "caption": {
+        "en": "Always-on-top Compact mode keeping processes, search and live CPU/RAM meters within reach without filling the screen.",
+        "es": "Modo Compacto siempre visible para tener a mano procesos, búsqueda y medidores en vivo de CPU y RAM sin saturar la pantalla."
+      },
+      "compact": true
+    },
+    {
+      "file": {
+        "en": "/screenshots/cybermanager/performance-en.webp",
+        "es": "/screenshots/cybermanager/performance-es.webp"
+      },
+      "alt": {
+        "en": "CyberManager Performance tab showing Summary view with CPU and Memory history graphs and hardware topology cards",
+        "es": "Pestaña Rendimiento de CyberManager mostrando la vista Resumen con historiales de CPU y Memoria y tarjetas de topología"
+      },
+      "caption": {
+        "en": "Performance view with real-time CPU, memory and commit-charge histories alongside kernel, physical RAM and topology telemetry.",
+        "es": "Vista Rendimiento con historiales en tiempo real de CPU, memoria y carga de commit junto a métricas del kernel, RAM física y topología."
+      }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cybermanager/startup-en.webp",
+        "es": "/screenshots/cybermanager/startup-es.webp"
+      },
+      "alt": {
+        "en": "CyberManager Startup tab listing sign-in applications with publisher, registry or folder source and enable/disable controls",
+        "es": "Pestaña Inicio de CyberManager mostrando aplicaciones de arranque con editor, origen en el registro o carpeta y botones de activación"
+      },
+      "caption": {
+        "en": "Startup tab reviewing sign-in applications from the registry and startup folders with reversible toggles and automatic backup.",
+        "es": "Pestaña Inicio para revisar aplicaciones de arranque desde el registro y carpetas de inicio, con cambios reversibles y respaldo automático."
+      }
+    }
+  ]
 }

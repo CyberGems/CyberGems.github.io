@@ -122,5 +122,35 @@
   "screenshotCaption": {
     "en": "Real-time Windows Filtering Platform dashboard with live upload/download traffic chart, rule toggles, destination country indicators and bandwidth activity badges.",
     "es": "Panel en tiempo real sobre Windows Filtering Platform con gráfica de subida y bajada en vivo, interruptores por regla, país de destino e indicadores de ancho de banda."
-  }
+  },
+  "gallery": [
+    {
+      "file": {
+        "en": "/screenshots/cyberwall/traffic-en.webp",
+        "es": "/screenshots/cyberwall/traffic-es.webp"
+      },
+      "alt": {
+        "en": "CyberWall Traffic Monitor tab showing live download and upload speed cards, 60s telemetry spline graph and top bandwidth-consuming apps",
+        "es": "Pestaña Tráfico de CyberWall con tarjetas de velocidad de subida y descarga, gráfico spline de telemetría de 60s y procesos con mayor consumo activo"
+      },
+      "caption": {
+        "en": "Traffic Monitor tab tracking real-time download and upload throughput, session transfer totals and top bandwidth consumers.",
+        "es": "Pestaña Tráfico con velocidades en vivo de bajada y subida, totales de sesión y las aplicaciones con mayor consumo de ancho de banda."
+      }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cyberwall/connections-en.webp",
+        "es": "/screenshots/cyberwall/connections-es.webp"
+      },
+      "alt": {
+        "en": "CyberWall Connections Log tab listing Allowed and Blocked outbound and inbound attempts with country flags, endpoints and PIDs",
+        "es": "Pestaña Conexiones de CyberWall mostrando eventos permitidos y bloqueados de salida y entrada con banderas por país, destinos y PID"
+      },
+      "caption": {
+        "en": "Connections Log auditing allowed and blocked network events with direction badges, destination countries, endpoints and quick filters.",
+        "es": "Registro de Conexiones para auditar eventos permitidos y bloqueados con dirección, país de destino, endpoint y filtros rápidos."
+      }
+    }
+  ]
 }
