@@ -107,5 +107,16 @@
   },
   "repo": "https://github.com/CyberGems/CyberFeeds",
   "wiki": "https://github.com/CyberGems/CyberFeeds/wiki",
-  "screenshot": null
+  "screenshot": {
+    "en": "main-en.webp",
+    "es": "main-es.webp"
+  },
+  "screenshotAlt": {
+    "en": "CyberFeeds three-panel window with folders, sources, article list and open reader",
+    "es": "Ventana de tres paneles de CyberFeeds con carpetas, fuentes, lista de artículos y lector abierto"
+  },
+  "screenshotCaption": {
+    "en": "Three-panel dark view showing folders and sources on the left, articles in the center, and a full article open in the reader.",
+    "es": "Vista oscura de tres paneles con carpetas y fuentes a la izquierda, lista de artículos al centro y un artículo completo abierto en el lector."
+  }
 }
