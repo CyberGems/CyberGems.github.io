@@ -108,5 +108,16 @@
   },
   "repo": "https://github.com/CyberGems/CyberNotes",
   "wiki": "https://github.com/CyberGems/CyberNotes/wiki",
-  "screenshot": null
+  "screenshot": {
+    "en": "/screenshots/cybernotes/main-en.webp",
+    "es": "/screenshots/cybernotes/main-es.webp"
+  },
+  "screenshotAlt": {
+    "en": "CyberNotes main window with colorful folders, note list, open tabs and formatted editor",
+    "es": "Ventana principal de CyberNotes con carpetas de colores, lista de notas, pestañas abiertas y editor enriquecido"
+  },
+  "screenshotCaption": {
+    "en": "Three-column dark workspace with colorful folders, favorites, multi-tab editing, code blocks, line numbers and minimap.",
+    "es": "Espacio de tres columnas en tema oscuro con carpetas de colores, favoritas, varias pestañas, bloques de código, números de línea y minimapa."
+  }
 }

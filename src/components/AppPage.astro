@@ -64,6 +64,16 @@ const shotSrc = shotFile
   : null;
 const shotAlt = (app.screenshotAlt?.[lang] || '') || (shotSrc ? `${app.name} — ${app.tagline[lang]}` : '');
 const shotCaption = app.screenshotCaption?.[lang] || null;
+const galleryItems = (app.gallery ?? [])
+  .map((item, idx) => {
+    const file = item.file?.[lang] ?? null;
+    if (!file) return null;
+    const src = file.startsWith('/') ? file : `/screenshots/${app.slug}/${file}`;
+    const alt = item.alt?.[lang] || `${app.name} — ${app.tagline[lang]}`;
+    const caption = item.caption?.[lang] || null;
+    return { id: `gallery-${idx}`, src, alt, caption, compact: Boolean(item.compact) };
+  })
+  .filter((item): item is NonNullable<typeof item> => item !== null);
 const related = apps.filter((a) => a.slug !== app.slug).slice(0, 3);
 const downloadPath = lang === 'en' ? '/download' : '/es/download';
 const faqPath = lang === 'en' ? '/faq' : '/es/faq';
@@ -147,7 +157,7 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
       <figure class="mt-10">
         <button
           type="button"
-          data-shot-open
+          data-shot-open="main"
           class="block w-full cursor-zoom-in overflow-hidden rounded-2xl border border-white/10 transition-colors hover:border-white/25"
           aria-label={lang === 'en' ? `Enlarge the ${app.name} screenshot` : `Ampliar la captura de ${app.name}`}
         >
@@ -171,6 +181,20 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
       </div>
     )}
 
+    {galleryItems.map((item) => (
+      <figure class:list={['mt-8', item.compact ? 'mx-auto max-w-[600px]' : '']}>
+        <button
+          type="button"
+          data-shot-open={item.id}
+          class="block w-full cursor-zoom-in overflow-hidden rounded-2xl border border-white/10 transition-colors hover:border-white/25"
+          aria-label={lang === 'en' ? `Enlarge the ${app.name} screenshot` : `Ampliar la captura de ${app.name}`}
+        >
+          <img src={item.src} alt={item.alt} class="block h-auto w-full" loading="lazy" decoding="async" />
+        </button>
+        {item.caption && <figcaption class="mt-3 text-center text-sm text-[#9a9aa5]">{item.caption}</figcaption>}
+      </figure>
+    ))}
+
     <!-- No real screenshot is published yet: say so, instead of letting the
          conceptual illustration pass for a screenshot of the app. -->
     {!shotSrc && app.explainer && (
@@ -179,7 +203,7 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
 
     <!-- Enlarged view. Native <dialog> gives Escape and focus handling for free. -->
     {shotSrc && (
-      <dialog data-shot-dialog class="m-auto max-w-[min(94vw,1500px)] bg-transparent p-0">
+      <dialog data-shot-dialog="main" class="m-auto max-w-[min(94vw,1500px)] bg-transparent p-0">
         <figure class="overflow-hidden rounded-2xl border border-white/15 bg-[#10131c]">
           <img src={shotSrc} alt={shotAlt} class="mx-auto max-h-[86vh] w-auto" />
           {shotCaption && <figcaption class="px-4 py-3 text-center text-sm text-[#9a9aa5]">{shotCaption}</figcaption>}
@@ -194,6 +218,23 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
         </form>
       </dialog>
     )}
+
+    {galleryItems.map((item) => (
+      <dialog data-shot-dialog={item.id} class="m-auto max-w-[min(94vw,1500px)] bg-transparent p-0">
+        <figure class="overflow-hidden rounded-2xl border border-white/15 bg-[#10131c]">
+          <img src={item.src} alt={item.alt} class="mx-auto max-h-[86vh] w-auto" />
+          {item.caption && <figcaption class="px-4 py-3 text-center text-sm text-[#9a9aa5]">{item.caption}</figcaption>}
+        </figure>
+        <form method="dialog" class="absolute right-3 top-3">
+          <button
+            class="rounded-full bg-black/70 px-3 py-1.5 text-sm text-white ring-1 ring-white/25 transition-colors hover:bg-black/90"
+            aria-label={lang === 'en' ? 'Close the enlarged screenshot' : 'Cerrar la captura ampliada'}
+          >
+            ✕
+          </button>
+        </form>
+      </dialog>
+    ))}
 
     <!-- Description -->
     {app.description[lang]
@@ -470,15 +511,16 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
 <script>
   // Enlarged screenshot. The native <dialog> gives Escape-to-close and focus
   // handling on its own, so no dependency is needed.
-  const dialog = document.querySelector<HTMLDialogElement>('[data-shot-dialog]');
-  const opener = document.querySelector<HTMLButtonElement>('[data-shot-open]');
-  if (dialog && opener) {
+  document.querySelectorAll<HTMLButtonElement>('[data-shot-open]').forEach((opener) => {
+    const id = opener.getAttribute('data-shot-open');
+    const dialog = document.querySelector<HTMLDialogElement>(`[data-shot-dialog="${id}"]`);
+    if (!dialog) return;
     opener.addEventListener('click', () => dialog.showModal());
     // A click on the backdrop reaches the dialog element itself.
     dialog.addEventListener('click', (event) => {
       if (event.target === dialog) dialog.close();
     });
-  }
+  });
 </script>
 
 <script is:inline>

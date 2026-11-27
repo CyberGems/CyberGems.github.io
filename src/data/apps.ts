@@ -81,6 +81,13 @@ export interface CyberApp {
   screenshotAlt?: LocalizedText;
   /** Short caption shown under the screenshot, per language. Optional. */
   screenshotCaption?: LocalizedText;
+  /** Optional secondary screenshots shown below the primary image (e.g. compact mode). */
+  gallery?: Array<{
+    file: { en: string | null; es: string | null };
+    alt?: LocalizedText;
+    caption?: LocalizedText;
+    compact?: boolean;
+  }>;
 }
 
 // One JSON file per app — editable in the CMS at /admin.

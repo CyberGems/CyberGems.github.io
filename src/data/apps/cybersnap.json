@@ -84,5 +84,16 @@
       { "icon": "📤", "title": { "en": "Share Instantly", "es": "Comparte al instante" }, "text": { "en": "FTP, SFTP, S3, ImgBB, Imgur, Webhook or CyberSnap Share: URL straight to your clipboard.", "es": "FTP, SFTP, S3, ImgBB, Imgur, Webhook o CyberSnap Share: URL directa a tu portapapeles." } }
     ]
   },
-  "screenshot": null
+  "screenshot": {
+    "en": "/screenshots/cybersnap/main-en.webp",
+    "es": "/screenshots/cybersnap/main-es.webp"
+  },
+  "screenshotAlt": {
+    "en": "CyberSnap capture overlay with floating annotation dock, arrows, blur, ruler readout and confirmation bar",
+    "es": "Superposición de captura de CyberSnap con barra flotante de anotaciones, flechas, difuminado, regla y barra de confirmación"
+  },
+  "screenshotCaption": {
+    "en": "On-screen region selection and annotation overlay with arrows, freehand strokes, mosaic blur, ruler measurements and quick confirmation controls.",
+    "es": "Superposición de selección y anotaciones en pantalla con flechas, trazo libre, difuminado, regla en píxeles y controles de confirmación."
+  }
 }
