@@ -9,3 +9,9 @@ artifacts/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Frontend build output
+dist/
+
+# Framework caches and generated files
+.astro/
