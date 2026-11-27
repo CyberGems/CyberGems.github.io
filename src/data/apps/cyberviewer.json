@@ -124,5 +124,49 @@
   "screenshotCaption": {
     "en": "Multi-tab media viewer with sidebar thumbnails, zoom and pan controls, editing tools and quick export.",
     "es": "Visor multimedia con pestañas, barra lateral de miniaturas, controles de zoom, herramientas de edición y exportación rápida."
-  }
+  },
+  "gallery": [
+    {
+      "file": {
+        "en": "/screenshots/cyberviewer/audio-en.webp",
+        "es": "/screenshots/cyberviewer/audio-es.webp"
+      },
+      "alt": {
+        "en": "CyberViewer audio playback view with real-time spectrum bars, track waveform seek bar, and floating 10-band equalizer",
+        "es": "Reproductor de audio de CyberViewer con analizador espectral en vivo, forma de onda en la barra de progreso y ecualizador de 10 bandas"
+      },
+      "caption": {
+        "en": "Built-in audio player with real-time spectrum visualizer, full-track waveform seek bar, and 10-band graphic equalizer.",
+        "es": "Reproductor de audio integrado con espectro en tiempo real, forma de onda completa y ecualizador gráfico de 10 bandas."
+      }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cyberviewer/video-en.webp",
+        "es": "/screenshots/cyberviewer/video-es.webp"
+      },
+      "alt": {
+        "en": "CyberViewer frameless video playback view with crisp playback HUD, speed control, and audio track equalizer toggle",
+        "es": "Reproductor de vídeo de CyberViewer con controles flotantes, control de velocidad y ecualizador para pistas de audio"
+      },
+      "caption": {
+        "en": "Frameless HD video player with auto-hiding playback controls, skip intervals, speed menu, and audio equalizer toggle.",
+        "es": "Reproductor de vídeo sin bordes con controles flotantes, salto de tiempo, selector de velocidad y ecualizador de audio."
+      }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cyberviewer/adjust-en.webp",
+        "es": "/screenshots/cyberviewer/adjust-es.webp"
+      },
+      "alt": {
+        "en": "CyberViewer live image adjustments drawer showing brightness, contrast, saturation, blur sliders, and instant canvas preview",
+        "es": "Panel de ajustes en vivo de CyberViewer con deslizadores de brillo, contraste, saturación y desenfoque sobre la imagen"
+      },
+      "caption": {
+        "en": "Non-destructive image adjustments drawer with live tone sliders, A/B comparison, and apply-to-copy workflow.",
+        "es": "Panel de ajustes en tiempo real con deslizadores de tono, comparativa A/B y opción para guardar una copia editada."
+      }
+    }
+  ]
 }

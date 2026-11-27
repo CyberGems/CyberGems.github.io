@@ -118,5 +118,21 @@
   "screenshotCaption": {
     "en": "Three-panel dark view showing folders and sources on the left, articles in the center, and a full article open in the reader.",
     "es": "Vista oscura de tres paneles con carpetas y fuentes a la izquierda, lista de artículos al centro y un artículo completo abierto en el lector."
-  }
+  },
+  "gallery": [
+    {
+      "file": {
+        "en": "reader-en.webp",
+        "es": "reader-es.webp"
+      },
+      "alt": {
+        "en": "CyberFeeds distraction-free single-panel Focus Reader view with toolbar, clean article typography, and full-article fetch button",
+        "es": "Vista de lector enfocado en un solo panel de CyberFeeds con barra de lectura limpia, tipografía clara y botón para obtener el artículo completo"
+      },
+      "caption": {
+        "en": "Distraction-free single-panel Focus Reader hiding the sidebar and article list for focused reading.",
+        "es": "Modo de lectura enfocada en un solo panel que oculta la barra lateral y la lista de artículos."
+      }
+    }
+  ]
 }
