@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-27",
   "count": 10,
   "apps": [
     {
       "slug": "cyberclock",
       "name": "CyberClock",
       "tagline": {
-        "en": "Clock, calendar, timers and recorded soundscapes in one lightweight app — with an optional talking clock.",
-        "es": "Reloj, calendario, temporizadores y paisajes sonoros grabados en una app ligera, con reloj parlante opcional."
+        "en": "Clock, calendar, timers, soundscapes and an optional talking clock in one lightweight app.",
+        "es": "Reloj, calendario, temporizadores, paisajes sonoros y reloj parlante opcional en una app ligera."
       },
       "site": "https://cybergems.org/apps/cyberclock/",
       "repo": "https://github.com/CyberGems/CyberClock",
@@ -17,8 +17,8 @@
       "slug": "cyberfeeds",
       "name": "CyberFeeds",
       "tagline": {
-        "en": "Follow websites, YouTube and Reddit in one calm, private reading space.",
-        "es": "Sigue sitios web, YouTube y Reddit en un espacio de lectura tranquilo y privado."
+        "en": "Follow websites, YouTube channels and Reddit communities in one calm, private reader.",
+        "es": "Sigue sitios web, canales de YouTube y comunidades de Reddit en un lector tranquilo y privado."
       },
       "site": "https://cybergems.org/apps/cyberfeeds/",
       "repo": "https://github.com/CyberGems/CyberFeeds",
@@ -28,8 +28,8 @@
       "slug": "cyberlauncher",
       "name": "CyberLauncher",
       "tagline": {
-        "en": "Shortcuts, files, commands and a real terminal one hotkey away, with your system stats in the same panel.",
-        "es": "Accesos, archivos, comandos y una terminal real a un atajo, con las estadísticas del sistema en el mismo panel."
+        "en": "Shortcuts, files, commands and a real terminal one hotkey away, with system stats alongside.",
+        "es": "Accesos, archivos, comandos y una terminal real a un atajo, con las estadísticas del sistema al lado."
       },
       "site": "https://cybergems.org/apps/cyberlauncher/",
       "repo": "https://github.com/CyberGems/CyberLauncher",
@@ -39,8 +39,8 @@
       "slug": "cybermanager",
       "name": "CyberManager",
       "tagline": {
-        "en": "See what is slowing your PC down and take action without losing your place.",
-        "es": "Descubre qué ralentiza tu PC y actúa sin perder de vista lo importante."
+        "en": "See what slows your PC down and act on it without losing your place.",
+        "es": "Descubre qué ralentiza tu PC y actúa sin perder tu lugar."
       },
       "site": "https://cybergems.org/apps/cybermanager/",
       "repo": "https://github.com/CyberGems/CyberManager",
@@ -50,8 +50,8 @@
       "slug": "cybernotes",
       "name": "CyberNotes",
       "tagline": {
-        "en": "Catch ideas, organize your thoughts and keep useful notes close, all on your PC.",
-        "es": "Captura ideas, ordena tus pensamientos y ten tus notas a mano, todo en tu PC."
+        "en": "Catch ideas and keep rich, private notes on your PC, with folders, tabs and floating notes.",
+        "es": "Captura ideas y guarda notas ricas y privadas en tu PC, con carpetas, pestañas y notas flotantes."
       },
       "site": "https://cybergems.org/apps/cybernotes/",
       "repo": "https://github.com/CyberGems/CyberNotes",
@@ -61,8 +61,8 @@
       "slug": "cyberpaste",
       "name": "CyberPaste",
       "tagline": {
-        "en": "Recall anything you have ever copied — text, code, images, files — 100% local.",
-        "es": "Recupera todo lo que hayas copiado — texto, código, imágenes, archivos — 100% local."
+        "en": "Recall anything you copy — text, code, images or files — from a fully local clipboard history.",
+        "es": "Recupera todo lo que copias —texto, código, imágenes o archivos— desde un historial 100% local."
       },
       "site": "https://cybergems.org/apps/cyberpaste/",
       "repo": "https://github.com/CyberGems/CyberPaste",
@@ -72,8 +72,8 @@
       "slug": "cybersnap",
       "name": "CyberSnap",
       "tagline": {
-        "en": "Screenshots, recordings, OCR, QR codes and a color picker — capture, edit and share it all in one window.",
-        "es": "Capturas, grabaciones, OCR, códigos QR y selector de color: captura, edita y comparte todo en una ventana."
+        "en": "Capture, edit and share screenshots, recordings, OCR, QR codes and colors in one window.",
+        "es": "Captura, edita y comparte capturas, grabaciones, OCR, códigos QR y colores en una ventana."
       },
       "site": "https://cybergems.org/apps/cybersnap/",
       "repo": "https://github.com/CyberGems/CyberSnap",
@@ -83,8 +83,8 @@
       "slug": "cybertray",
       "name": "CyberTray",
       "tagline": {
-        "en": "Your favorite apps, files and links, one gesture away without a crowded taskbar.",
-        "es": "Tus apps, archivos y enlaces favoritos a un gesto, sin saturar la barra de tareas."
+        "en": "Keep favorite apps, files and links one gesture away without crowding your taskbar.",
+        "es": "Ten apps, archivos y enlaces favoritos a un gesto sin saturar la barra de tareas."
       },
       "site": "https://cybergems.org/apps/cybertray/",
       "repo": "https://github.com/CyberGems/CyberTray",
@@ -94,8 +94,8 @@
       "slug": "cyberviewer",
       "name": "CyberViewer",
       "tagline": {
-        "en": "Images, video and audio in one fast window — browse whole folders and fix files without leaving it.",
-        "es": "Imágenes, video y audio en una ventana rápida: recorre carpetas y haz los ajustes sin salir de ella."
+        "en": "Browse images, video and audio in one fast window, with fixes that keep you there.",
+        "es": "Recorre imágenes, video y audio en una ventana rápida, con ajustes que no te hacen salir de ella."
       },
       "site": "https://cybergems.org/apps/cyberviewer/",
       "repo": "https://github.com/CyberGems/CyberViewer",
@@ -105,8 +105,8 @@
       "slug": "cyberwall",
       "name": "CyberWall",
       "tagline": {
-        "en": "Choose which apps can connect. Review new connections and keep the rules that work for you.",
-        "es": "Decide qué apps pueden conectarse. Revisa las conexiones nuevas y conserva las reglas que te convengan."
+        "en": "Choose which apps can connect, review new connections and keep rules you trust.",
+        "es": "Elige qué apps pueden conectarse, revisa las conexiones nuevas y conserva las reglas que te convengan."
       },
       "site": "https://cybergems.org/apps/cyberwall/",
       "repo": "https://github.com/CyberGems/CyberWall",

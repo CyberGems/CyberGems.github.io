@@ -113,5 +113,16 @@
   },
   "repo": "https://github.com/CyberGems/CyberViewer",
   "wiki": "https://github.com/CyberGems/CyberViewer/wiki",
-  "screenshot": null
+  "screenshot": {
+    "en": "/screenshots/cyberviewer/main-en.webp",
+    "es": "/screenshots/cyberviewer/main-es.webp"
+  },
+  "screenshotAlt": {
+    "en": "CyberViewer multi-tab workspace showing project artwork, thumbnail sidebar and quick inspector actions",
+    "es": "Espacio con pestañas de CyberViewer mostrando gráficos del proyecto, barra lateral de miniaturas y acciones rápidas"
+  },
+  "screenshotCaption": {
+    "en": "Multi-tab media viewer with sidebar thumbnails, zoom and pan controls, editing tools and quick export.",
+    "es": "Visor multimedia con pestañas, barra lateral de miniaturas, controles de zoom, herramientas de edición y exportación rápida."
+  }
 }

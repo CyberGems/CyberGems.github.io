@@ -95,5 +95,21 @@
   "screenshotCaption": {
     "en": "On-screen region selection and annotation overlay with arrows, freehand strokes, shapes, ruler measurements and quick confirmation controls.",
     "es": "Superposición de selección y anotaciones en pantalla con flechas, trazo libre, formas, regla en píxeles y controles de confirmación."
-  }
+  },
+  "gallery": [
+    {
+      "file": {
+        "en": "/screenshots/cybersnap/ocr-en.webp",
+        "es": "/screenshots/cybersnap/ocr-es.webp"
+      },
+      "alt": {
+        "en": "CyberSnap OCR extraction window with image preview, editable recognized text and inline translation panel",
+        "es": "Ventana de extracción OCR de CyberSnap con vista previa, texto reconocido editable y panel integrado de traducción"
+      },
+      "caption": {
+        "en": "OCR extraction window showing captured preview, editable recognized text, search box and inline translation controls.",
+        "es": "Ventana de extracción OCR con vista previa de la captura, texto reconocido editable, buscador y controles integrados de traducción."
+      }
+    }
+  ]
 }

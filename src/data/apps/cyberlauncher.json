@@ -233,5 +233,16 @@
   },
   "repo": "https://github.com/CyberGems/CyberLauncher",
   "wiki": "https://github.com/CyberGems/CyberLauncher/wiki",
-  "screenshot": null
+  "screenshot": {
+    "en": "/screenshots/cyberlauncher/main-en.webp",
+    "es": "/screenshots/cyberlauncher/main-es.webp"
+  },
+  "screenshotAlt": {
+    "en": "CyberLauncher radial dock wheel surrounded by tool category hubs, shortcuts and bottom launch history",
+    "es": "Rueda radial de CyberLauncher rodeada de categorías de herramientas, atajos e historial de lanzamientos inferior"
+  },
+  "screenshotCaption": {
+    "en": "Radial dock with icon-rich tool shortcuts, centered date readout, workspace categories and recent launch history.",
+    "es": "Dock radial con accesos directos, lectura central de fecha, categorías de trabajo e historial reciente de lanzamientos."
+  }
 }

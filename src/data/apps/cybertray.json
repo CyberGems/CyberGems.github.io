@@ -135,5 +135,16 @@
   },
   "repo": "https://github.com/CyberGems/CyberTray",
   "wiki": "https://github.com/CyberGems/CyberTray/wiki",
-  "screenshot": null
+  "screenshot": {
+    "en": "/screenshots/cybertray/main-en.webp",
+    "es": "/screenshots/cybertray/main-es.webp"
+  },
+  "screenshotAlt": {
+    "en": "CyberTray main window showing monitored tray icon inventory, category folders and preview pane",
+    "es": "Ventana principal de CyberTray con inventario de iconos monitoreados, categorías y panel de vista previa"
+  },
+  "screenshotCaption": {
+    "en": "Organized system tray workspace with active/hidden icon folders, quick actions and live state preview.",
+    "es": "Espacio organizado para la bandeja del sistema con carpetas de iconos activos y ocultos, acciones rápidas y vista previa del estado."
+  }
 }

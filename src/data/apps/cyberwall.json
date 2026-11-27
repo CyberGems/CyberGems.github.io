@@ -111,5 +111,16 @@
     "es": "Firma de código gratuita proporcionada por SignPath.io, certificado de SignPath Foundation. Los releases publicados antes de la aprobación del proyecto no están firmados; verifícalos con el SHA256 de las notas del release."
   },
   "codeSigningPolicy": "https://github.com/CyberGems/CyberWall/wiki/Code-signing-policy",
-  "screenshot": null
+  "screenshot": {
+    "en": "/screenshots/cyberwall/main-en.webp",
+    "es": "/screenshots/cyberwall/main-es.webp"
+  },
+  "screenshotAlt": {
+    "en": "CyberWall main window with live 60s network traffic graph, Allowed and Blocked rule groups, country flags and active throughput pills",
+    "es": "Ventana principal de CyberWall con gráfico de tráfico de red en vivo de 60s, grupos de reglas Permitidas y Bloqueadas, banderas por país y consumo activo"
+  },
+  "screenshotCaption": {
+    "en": "Real-time Windows Filtering Platform dashboard with live upload/download traffic chart, rule toggles, destination country indicators and bandwidth activity badges.",
+    "es": "Panel en tiempo real sobre Windows Filtering Platform con gráfica de subida y bajada en vivo, interruptores por regla, país de destino e indicadores de ancho de banda."
+  }
 }

@@ -228,5 +228,32 @@
   },
   "repo": "https://github.com/CyberGems/CyberClock",
   "wiki": "https://github.com/CyberGems/CyberClock/wiki",
-  "screenshot": null
+  "screenshot": {
+    "en": "/screenshots/cyberclock/main-en.webp",
+    "es": "/screenshots/cyberclock/main-es.webp"
+  },
+  "screenshotAlt": {
+    "en": "CyberClock main window showing the Quantum analog dial, digital header clock, three-month calendar ribbon, upcoming notes and today summary",
+    "es": "Ventana principal de CyberClock con esfera analógica Quantum, reloj digital superior, calendario trimestral, notas próximas y resumen del día"
+  },
+  "screenshotCaption": {
+    "en": "Full mode view with the Quantum dial design, three-month calendar ribbon, upcoming agenda notes and today summary.",
+    "es": "Vista en modo completo con esfera Quantum, calendario de tres meses, notas próximas de agenda y resumen del día actual."
+  },
+  "gallery": [
+    {
+      "file": {
+        "en": "/screenshots/cyberclock/mini-en.webp",
+        "es": "/screenshots/cyberclock/mini-es.webp"
+      },
+      "alt": {
+        "en": "CyberClock Mini Mode floating bars showcasing Deep Space stacked, Quantum inline and Emerald Terminal inline skins with day progress bar",
+        "es": "Barras flotantes del Modo Mini de CyberClock mostrando las skins Deep Space apilada, Quantum en línea y Emerald Terminal en línea con barra de progreso diario"
+      },
+      "caption": {
+        "en": "Mini Mode compact always-on-top desktop bars in stacked and inline layouts across three of the 20 selectable skins.",
+        "es": "Modo Mini en formato barra compacta siempre visible, con diseño apilado o en línea sobre tres de las 20 skins disponibles."
+      }
+    }
+  ]
 }

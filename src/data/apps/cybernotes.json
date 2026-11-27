@@ -27,18 +27,36 @@
   "highlights": [
     {
       "icon": "@book-open",
-      "title": { "en": "Write the way you think", "es": "Escribe a tu manera" },
-      "text": { "en": "Go from a one-line thought to a formatted note with headings, checklists, links, images and code, or search and batch-insert symbols and emojis.", "es": "Pasa de una idea breve a una nota con títulos, listas, enlaces, imágenes y código, o busca e inserta símbolos y emojis incluso en grupo." }
+      "title": {
+        "en": "Write the way you think",
+        "es": "Escribe a tu manera"
+      },
+      "text": {
+        "en": "Go from a one-line thought to a formatted note with headings, checklists, links, images and code, or search and batch-insert symbols and emojis.",
+        "es": "Pasa de una idea breve a una nota con títulos, listas, enlaces, imágenes y código, o busca e inserta símbolos y emojis incluso en grupo."
+      }
     },
     {
       "icon": "@folder",
-      "title": { "en": "Keep things connected", "es": "Mantén las ideas conectadas" },
-      "text": { "en": "Group notes in colorful folders, open several tabs and pin favorites you revisit often.", "es": "Agrupa notas en carpetas de colores, abre varias pestañas y marca tus favoritas para volver a ellas." }
+      "title": {
+        "en": "Keep things connected",
+        "es": "Mantén las ideas conectadas"
+      },
+      "text": {
+        "en": "Group notes in colorful folders, open several tabs and pin favorites you revisit often.",
+        "es": "Agrupa notas en carpetas de colores, abre varias pestañas y marca tus favoritas para volver a ellas."
+      }
     },
     {
       "icon": "@search",
-      "title": { "en": "Find it when you need it", "es": "Encuéntrala cuando haga falta" },
-      "text": { "en": "Search titles and content instantly, revisit recent notes or float an important note over other windows.", "es": "Busca al instante en títulos y contenido, vuelve a notas recientes o deja una nota importante flotando sobre otras ventanas." }
+      "title": {
+        "en": "Find it when you need it",
+        "es": "Encuéntrala cuando haga falta"
+      },
+      "text": {
+        "en": "Search titles and content instantly, revisit recent notes or float an important note over other windows.",
+        "es": "Busca al instante en títulos y contenido, vuelve a notas recientes o deja una nota importante flotando sobre otras ventanas."
+      }
     }
   ],
   "featuresHeading": {
@@ -46,63 +64,150 @@
     "es": "Más formas en que CyberNotes te ayuda"
   },
   "features": [
-    { "en": "Rich editing with headings, lists, links, images, code blocks and markdown shortcuts, plus five text case transformations with Shift+F3", "es": "Edición enriquecida con títulos, listas, enlaces, imágenes, bloques de código y atajos markdown, más cinco transformaciones de mayúsculas y minúsculas con Mayús+F3" },
-    { "en": "Colorful folders, drag and drop, favorites, tabs and floating notes in 10 vibrant colors with mouse-wheel access to hidden toolbar actions", "es": "Carpetas de colores, arrastrar y soltar, favoritos, pestañas y notas flotantes en 10 colores vibrantes; desplaza su barra con la rueda del mouse para llegar a las acciones ocultas" },
-    { "en": "Full-text search across titles and content, plus recent-note history", "es": "Búsqueda de texto completo en títulos y contenido, más historial de notas recientes" },
-    { "en": "Autosave, session restore, timestamped save feedback in the editor and floating notes, plus export to Markdown, HTML or JSON backup", "es": "Autoguardado, restauración de sesión, estados de guardado con hora en el editor y las notas flotantes, y exportación a Markdown, HTML o copia JSON" },
-    { "en": "Optional Caps Lock shutoff after keyboard inactivity, title-bar countdown and keyboard status indicators", "es": "Apagado opcional de Bloq Mayús por inactividad, cuenta regresiva en la barra de título e indicadores de estado del teclado" },
-    { "en": "Optional password or PIN access lock, auto-lock and privacy shield (notes are not encrypted)", "es": "Bloqueo opcional con contraseña o PIN, bloqueo automático y escudo de privacidad (notas sin cifrar)" },
-    { "en": "Local notes without an account or built-in cloud sync; configurable global shortcuts for main window (Alt+Shift+N) and floating notes (Alt+Shift+F)", "es": "Notas locales sin cuenta ni sincronización en la nube integrada; atajos globales configurables para ventana principal (Alt+Shift+N) y notas flotantes (Alt+Shift+F)" },
-    { "en": "Three themes, custom backgrounds, glass effects and interface scaling for menus and controls", "es": "Tres temas, fondos personalizados, efectos de cristal y escala de interfaz para menús y controles" },
-    { "en": "Search Unicode symbols and Emoji 18.0 by category; insert one or queue multiple characters for batch insertion", "es": "Busca símbolos Unicode y emojis 18.0 por categoría; inserta uno o prepara varios para agregarlos juntos" },
-    { "en": "Follow long notes with aligned line numbers and continuation markers", "es": "Sigue notas largas con números de línea e indicadores de continuación alineados" },
-    { "en": "Collapse the sidebar or line-number gutter; the More menu adapts to the screen and interface scale", "es": "Contrae la barra lateral o la columna de números de línea; el menú Más se adapta a la pantalla y a la escala de interfaz" },
-    { "en": "Automatic backups on a 6-hour to weekly schedule in a folder of your choice, keeping 1 to 7 portable copies with the database and images that you can restore in-app", "es": "Copias de seguridad automáticas cada 6 horas o cada semana en la carpeta que elijas, conservando de 1 a 7 copias portátiles con base de datos e imágenes restaurables desde la app" },
-    { "en": "Danger Zone to permanently delete all data on demand, with automatic backups preserved", "es": "Zona de peligro para borrar permanentemente todos los datos al instante, conservando las copias de seguridad automáticas" }
+    {
+      "en": "Rich editing with headings, lists, links, images, code blocks and markdown shortcuts, plus five text case transformations with Shift+F3",
+      "es": "Edición enriquecida con títulos, listas, enlaces, imágenes, bloques de código y atajos markdown, más cinco transformaciones de mayúsculas y minúsculas con Mayús+F3"
+    },
+    {
+      "en": "Colorful folders, drag and drop, favorites, tabs and floating notes in 10 vibrant colors with mouse-wheel access to hidden toolbar actions",
+      "es": "Carpetas de colores, arrastrar y soltar, favoritos, pestañas y notas flotantes en 10 colores vibrantes; desplaza su barra con la rueda del mouse para llegar a las acciones ocultas"
+    },
+    {
+      "en": "Full-text search across titles and content, plus recent-note history",
+      "es": "Búsqueda de texto completo en títulos y contenido, más historial de notas recientes"
+    },
+    {
+      "en": "Autosave, session restore, timestamped save feedback in the editor and floating notes, plus export to Markdown, HTML or JSON backup",
+      "es": "Autoguardado, restauración de sesión, estados de guardado con hora en el editor y las notas flotantes, y exportación a Markdown, HTML o copia JSON"
+    },
+    {
+      "en": "Optional Caps Lock shutoff after keyboard inactivity, title-bar countdown and keyboard status indicators",
+      "es": "Apagado opcional de Bloq Mayús por inactividad, cuenta regresiva en la barra de título e indicadores de estado del teclado"
+    },
+    {
+      "en": "Optional password or PIN access lock, auto-lock and privacy shield (notes are not encrypted)",
+      "es": "Bloqueo opcional con contraseña o PIN, bloqueo automático y escudo de privacidad (notas sin cifrar)"
+    },
+    {
+      "en": "Local notes without an account or built-in cloud sync; configurable global shortcuts for main window (Alt+Shift+N) and floating notes (Alt+Shift+F)",
+      "es": "Notas locales sin cuenta ni sincronización en la nube integrada; atajos globales configurables para ventana principal (Alt+Shift+N) y notas flotantes (Alt+Shift+F)"
+    },
+    {
+      "en": "Three themes, custom backgrounds, glass effects and interface scaling for menus and controls",
+      "es": "Tres temas, fondos personalizados, efectos de cristal y escala de interfaz para menús y controles"
+    },
+    {
+      "en": "Search Unicode symbols and Emoji 18.0 by category; insert one or queue multiple characters for batch insertion",
+      "es": "Busca símbolos Unicode y emojis 18.0 por categoría; inserta uno o prepara varios para agregarlos juntos"
+    },
+    {
+      "en": "Follow long notes with aligned line numbers and continuation markers",
+      "es": "Sigue notas largas con números de línea e indicadores de continuación alineados"
+    },
+    {
+      "en": "Collapse the sidebar or line-number gutter; the More menu adapts to the screen and interface scale",
+      "es": "Contrae la barra lateral o la columna de números de línea; el menú Más se adapta a la pantalla y a la escala de interfaz"
+    },
+    {
+      "en": "Automatic backups on a 6-hour to weekly schedule in a folder of your choice, keeping 1 to 7 portable copies with the database and images that you can restore in-app",
+      "es": "Copias de seguridad automáticas cada 6 horas o cada semana en la carpeta que elijas, conservando de 1 a 7 copias portátiles con base de datos e imágenes restaurables desde la app"
+    },
+    {
+      "en": "Danger Zone to permanently delete all data on demand, with automatic backups preserved",
+      "es": "Zona de peligro para borrar permanentemente todos los datos al instante, conservando las copias de seguridad automáticas"
+    }
   ],
   "useCases": {
     "roles": [
       {
         "icon": "✍️",
-        "title": { "en": "Writers and students", "es": "Escritores y estudiantes" },
-        "text": { "en": "Build longer notes with headings, lists, images and code, then return to several drafts in tabs.", "es": "Crea notas extensas con títulos, listas, imágenes y código, y vuelve a varios borradores en pestañas." }
+        "title": {
+          "en": "Writers and students",
+          "es": "Escritores y estudiantes"
+        },
+        "text": {
+          "en": "Build longer notes with headings, lists, images and code, then return to several drafts in tabs.",
+          "es": "Crea notas extensas con títulos, listas, imágenes y código, y vuelve a varios borradores en pestañas."
+        }
       },
       {
         "icon": "💻",
-        "title": { "en": "Developers", "es": "Desarrolladores" },
-        "text": { "en": "Keep snippets, links and project notes together, with code blocks and search across their contents.", "es": "Reúne fragmentos, enlaces y notas de proyectos con bloques de código y búsqueda en su contenido." }
+        "title": {
+          "en": "Developers",
+          "es": "Desarrolladores"
+        },
+        "text": {
+          "en": "Keep snippets, links and project notes together, with code blocks and search across their contents.",
+          "es": "Reúne fragmentos, enlaces y notas de proyectos con bloques de código y búsqueda en su contenido."
+        }
       },
       {
         "icon": "📋",
-        "title": { "en": "Organizers", "es": "Quienes organizan su día" },
-        "text": { "en": "Collect checklists and plans in folders, then mark the notes you open most as favorites.", "es": "Guarda listas de tareas y planes en carpetas, y marca como favoritas las notas que más consultas." }
+        "title": {
+          "en": "Organizers",
+          "es": "Quienes organizan su día"
+        },
+        "text": {
+          "en": "Collect checklists and plans in folders, then mark the notes you open most as favorites.",
+          "es": "Guarda listas de tareas y planes en carpetas, y marca como favoritas las notas que más consultas."
+        }
       },
       {
         "icon": "🖥️",
-        "title": { "en": "Multitaskers", "es": "Quienes hacen varias cosas a la vez" },
-        "text": { "en": "Float a reference note over another app while you write, study or follow instructions.", "es": "Mantén una nota de referencia sobre otra app mientras escribes, estudias o sigues instrucciones." }
+        "title": {
+          "en": "Multitaskers",
+          "es": "Quienes hacen varias cosas a la vez"
+        },
+        "text": {
+          "en": "Float a reference note over another app while you write, study or follow instructions.",
+          "es": "Mantén una nota de referencia sobre otra app mientras escribes, estudias o sigues instrucciones."
+        }
       }
     ],
     "tasks": [
       {
         "icon": "💡",
-        "title": { "en": "Catch an idea", "es": "Captura una idea" },
-        "text": { "en": "Open CyberNotes with Alt+Shift+N, type a thought and let autosave preserve it.", "es": "Abre CyberNotes con Alt+Shift+N, escribe una idea y deja que se guarde automáticamente." }
+        "title": {
+          "en": "Catch an idea",
+          "es": "Captura una idea"
+        },
+        "text": {
+          "en": "Open CyberNotes with Alt+Shift+N, type a thought and let autosave preserve it.",
+          "es": "Abre CyberNotes con Alt+Shift+N, escribe una idea y deja que se guarde automáticamente."
+        }
       },
       {
         "icon": "🗂️",
-        "title": { "en": "Sort a growing collection", "es": "Ordena una colección creciente" },
-        "text": { "en": "Drag notes into color-coded folders and pin important ones for quick access.", "es": "Arrastra notas a carpetas de colores y fija las importantes para acceder rápido." }
+        "title": {
+          "en": "Sort a growing collection",
+          "es": "Ordena una colección creciente"
+        },
+        "text": {
+          "en": "Drag notes into color-coded folders and pin important ones for quick access.",
+          "es": "Arrastra notas a carpetas de colores y fija las importantes para acceder rápido."
+        }
       },
       {
         "icon": "🔎",
-        "title": { "en": "Find that detail again", "es": "Vuelve a encontrar ese detalle" },
-        "text": { "en": "Search words in a title or note body instead of remembering which folder held it.", "es": "Busca palabras en el título o contenido sin tener que recordar en qué carpeta estaba." }
+        "title": {
+          "en": "Find that detail again",
+          "es": "Vuelve a encontrar ese detalle"
+        },
+        "text": {
+          "en": "Search words in a title or note body instead of remembering which folder held it.",
+          "es": "Busca palabras en el título o contenido sin tener que recordar en qué carpeta estaba."
+        }
       },
       {
         "icon": "📌",
-        "title": { "en": "Keep a note in sight", "es": "Ten una nota a la vista" },
-        "text": { "en": "Detach a note into an always-on-top window and keep working in another app.", "es": "Separa una nota en una ventana siempre visible y sigue trabajando en otra app." }
+        "title": {
+          "en": "Keep a note in sight",
+          "es": "Ten una nota a la vista"
+        },
+        "text": {
+          "en": "Detach a note into an always-on-top window and keep working in another app.",
+          "es": "Separa una nota en una ventana siempre visible y sigue trabajando en otra app."
+        }
       }
     ]
   },
@@ -119,5 +224,21 @@
   "screenshotCaption": {
     "en": "Three-column dark workspace with colorful folders, favorites, multi-tab editing, code blocks, line numbers and minimap.",
     "es": "Espacio de tres columnas en tema oscuro con carpetas de colores, favoritas, varias pestañas, bloques de código, números de línea y minimapa."
-  }
+  },
+  "gallery": [
+    {
+      "file": {
+        "en": "/screenshots/cybernotes/floating-note-en.webp",
+        "es": "/screenshots/cybernotes/floating-note-es.webp"
+      },
+      "alt": {
+        "en": "Four CyberNotes floating sticky notes in neon cyan, cyber yellow, midnight purple and matrix green above a blurred workspace",
+        "es": "Cuatro notas flotantes de CyberNotes en cian neón, amarillo cyber, púrpura medianoche y verde matrix sobre el espacio difuminado"
+      },
+      "caption": {
+        "en": "Always-on-top floating sticky notes in customizable colors keep checklists, shortcuts, code snippets and quotes visible above any window.",
+        "es": "Las notas flotantes siempre visibles en colores personalizables mantienen listas, atajos, fragmentos de código y citas a la vista sobre cualquier ventana."
+      }
+    }
+  ]
 }

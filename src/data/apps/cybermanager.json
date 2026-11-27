@@ -116,5 +116,16 @@
   },
   "repo": "https://github.com/CyberGems/CyberManager",
   "wiki": "https://github.com/CyberGems/CyberManager/wiki",
-  "screenshot": null
+  "screenshot": {
+    "en": "/screenshots/cybermanager/main-en.webp",
+    "es": "/screenshots/cybermanager/main-es.webp"
+  },
+  "screenshotAlt": {
+    "en": "CyberManager main window with real-time CPU and RAM sparklines, process table, category filters and dark theme",
+    "es": "Ventana principal de CyberManager con gráficos de CPU y RAM en tiempo real, tabla de procesos, filtros por categoría y tema oscuro"
+  },
+  "screenshotCaption": {
+    "en": "Process table with live CPU and RAM sparklines, category filters, priority and path inspection, and themeable status bar.",
+    "es": "Tabla de procesos con gráficos en vivo de CPU y RAM, filtros por categoría, inspección de prioridad y ruta, y barra de estado con tema adaptable."
+  }
 }

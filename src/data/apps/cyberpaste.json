@@ -211,6 +211,20 @@
         "es": "Modo Compacto (Ctrl+M) con lista flotante de alta densidad, miniaturas en línea y navegación rápida de carpetas."
       },
       "compact": true
+    },
+    {
+      "file": {
+        "en": "/screenshots/cyberpaste/clip-detail-en.webp",
+        "es": "/screenshots/cyberpaste/clip-detail-es.webp"
+      },
+      "alt": {
+        "en": "CyberPaste standalone image viewer with zoom controls, OCR side drawer and quick copy actions",
+        "es": "Visor de imágenes independiente de CyberPaste con controles de zoom, panel lateral OCR y copia rápida"
+      },
+      "caption": {
+        "en": "Inspect captured images at full resolution and extract text with built-in offline OCR right from the viewer.",
+        "es": "Inspecciona imágenes capturadas a resolución completa y extrae texto mediante OCR local integrado desde el visor."
+      }
     }
   ]
 }
