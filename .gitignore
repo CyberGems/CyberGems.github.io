@@ -15,3 +15,7 @@ dist/
 
 # Framework caches and generated files
 .astro/
+
+# Local environment
+.env
+.env.production
