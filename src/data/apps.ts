@@ -94,6 +94,7 @@ import cyberwall from './apps/cyberwall.json';
 import cyberviewer from './apps/cyberviewer.json';
 import cyberlauncher from './apps/cyberlauncher.json';
 import cyberclock from './apps/cyberclock.json';
+import cyberfiles from './apps/cyberfiles.json';
 import cybergo from './apps/cybergo.json';
 import cyberpdf from './apps/cyberpdf.json';
 import bannerOnly from './banner-apps.json';
@@ -109,6 +110,7 @@ const appEntries: CyberApp[] = [
   cyberviewer,
   cyberlauncher,
   cyberclock,
+  cyberfiles,
   cybergo,
   cyberpdf,
 ] as CyberApp[];

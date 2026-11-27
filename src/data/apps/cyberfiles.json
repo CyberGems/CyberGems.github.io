@@ -1,0 +1,171 @@
+{
+  "slug": "cyberfiles",
+  "published": false,
+  "name": "CyberFiles",
+  "emoji": "🗂️",
+  "icon": "/icons/apps/cyberfiles.png",
+  "accent": "#90CAF9",
+  "stack": "Tauri · Rust · React · TypeScript",
+  "license": "GPLv3",
+  "tagline": {
+    "en": "A dual-pane file manager for Windows built for keyboard-first work.",
+    "es": "Un gestor de archivos de doble panel para Windows pensado para trabajar con el teclado."
+  },
+  "bannerTagline": {
+    "en": "A fast, tabbed dual-pane file manager",
+    "es": "Gestor de archivos de doble panel con pestañas"
+  },
+  "bannerTitleAccent": "#90CAF9",
+  "description": {
+    "en": "CyberFiles keeps two folders side by side, each with its own tabs, history and saved view styles, while letting the keyboard drive everyday work. Queue copy, move, extraction and archive tasks with pause, resume and undo, inspect files in an inline properties panel with audio, video and PDF previews, and rely on real Windows Shell integration for native icons, drives, MTP devices and the Recycle Bin.\n\nEverything runs offline on your machine with atomic session snapshots, customizable themes in English and Spanish, zero telemetry and zero accounts.",
+    "es": "CyberFiles mantiene dos carpetas lado a lado, cada una con sus pestañas, historial y estilos de vista guardados, dejando que el teclado agilice el trabajo diario. Encola copias, movimientos, extracciones y archivos comprimidos con pausa, reanudación y deshacer, inspecciona archivos en el panel de propiedades con vistas previas de audio, vídeo y PDF, e intégrate con el Shell real de Windows para iconos nativos, unidades, dispositivos MTP y Papelera.\n\nTodo funciona sin conexión en tu equipo con instantáneas atómicas de sesión, tres temas en inglés y español, cero telemetría y sin cuentas."
+  },
+  "highlightsTitle": {
+    "en": "Two panes, queued transfers and native Shell speed",
+    "es": "Dos paneles, transferencias en cola y velocidad nativa del Shell"
+  },
+  "highlights": [
+    {
+      "icon": "@grid",
+      "title": {
+        "en": "Dual-pane workspaces & tabs",
+        "es": "Doble panel, pestañas y espacios"
+      },
+      "text": {
+        "en": "Switch between vertical, horizontal or single-pane views with independent tabs, saved layouts and crash-resilient session recovery.",
+        "es": "Alterna entre vista vertical, horizontal o panel único con pestañas independientes, diseños guardados y recuperación ante cierres inesperados."
+      }
+    },
+    {
+      "icon": "@list-checks",
+      "title": {
+        "en": "Queued operations with undo",
+        "es": "Operaciones en cola y deshacer"
+      },
+      "text": {
+        "en": "Copy (`F5`), move (`F6`), extract ZIP and RAR archives, batch rename files and reverse supported actions from one Operations Center.",
+        "es": "Copia (`F5`), mueve (`F6`), extrae ZIP y RAR, renombra en lote y revierte acciones compatibles desde un único Centro de operaciones."
+      }
+    },
+    {
+      "icon": "@sources",
+      "title": {
+        "en": "Rich previews & Shell integration",
+        "es": "Vistas previas e integración con Windows"
+      },
+      "text": {
+        "en": "Preview code, images, PDFs, audio and video inline, browse MTP/SMB devices, and optionally handle folders or Win+E for your account.",
+        "es": "Previsualiza código, imágenes, PDF, audio y vídeo al instante, explora dispositivos MTP/SMB y gestiona carpetas o Win+E de forma opcional."
+      }
+    }
+  ],
+  "featuresHeading": {
+    "en": "More ways CyberFiles helps",
+    "es": "Más formas en que CyberFiles te ayuda"
+  },
+  "features": [
+    {
+      "en": "Dual vertical, dual horizontal and single-pane layouts with independent tabs, tab coloring, locking and crash recovery",
+      "es": "Diseños doble vertical, doble horizontal y panel único con pestañas independientes, colores, bloqueo y recuperación ante fallos"
+    },
+    {
+      "en": "Native This PC discovery for drives, MTP/PTP phones and cameras, network SMB shares and Quick Access with custom folder icons",
+      "es": "Vista Este equipo nativa para unidades, dispositivos MTP/PTP, recursos de red SMB y Acceso rápido con iconos personalizados"
+    },
+    {
+      "en": "Details, List, Large Icons and Tiles views with Shell thumbnails, relative size/date graphs and per-folder style memory",
+      "es": "Vistas Detalles, Lista, Iconos grandes y Mosaicos con miniaturas del Explorador, gráficos relativos y memoria de estilo por carpeta"
+    },
+    {
+      "en": "Queued copy, move, delete, ZIP creation and password-protected ZIP/RAR extraction with pause, resume and ten-step undo history",
+      "es": "Cola de copia, movimiento, borrado, creación ZIP y extracción ZIP/RAR con contraseña, pausa, reanudación e historial de deshacer"
+    },
+    {
+      "en": "Batch rename studio, timestamp & attribute editor (Ctrl+Enter), instant filter bar and global regex file finder",
+      "es": "Estudio de renombrado por lotes, editor de fechas y atributos (Ctrl+Enter), filtro instantáneo y buscador global con regex"
+    },
+    {
+      "en": "Properties panel with inline text, Markdown, code, HTML, SVG/HEIC image, PDF, audio and streaming video previews",
+      "es": "Panel de propiedades con vistas previas de texto, Markdown, código, HTML, imágenes SVG/HEIC, PDF, audio y vídeo en streaming"
+    },
+    {
+      "en": "Command palette (Ctrl+K), Explorer context menu option, system tray menu, global hotkey and optional default folder / Win+E integration",
+      "es": "Paleta de comandos (Ctrl+K), opción en el menú del Explorador, bandeja del sistema, atajo global e integración opcional con Win+E"
+    }
+  ],
+  "useCases": {
+    "roles": [
+      {
+        "icon": "⌨️",
+        "title": {
+          "en": "Keyboard-first power users",
+          "es": "Usuarios avanzados de teclado"
+        },
+        "text": {
+          "en": "Move between panes with Tab, trigger commands with Ctrl+K and transfer files without reaching for extra dialogs.",
+          "es": "Muévete entre paneles con Tab, lanza comandos con Ctrl+K y transfiere archivos sin abrir cuadros de diálogo extra."
+        }
+      },
+      {
+        "icon": "🧰",
+        "title": {
+          "en": "System builders and developers",
+          "es": "Desarrolladores y técnicos"
+        },
+        "text": {
+          "en": "Edit file timestamps, inspect archives and attributes, jump into elevated terminals and resolve environment paths directly.",
+          "es": "Modifica fechas y atributos, inspecciona comprimidos, abre terminales con elevación y resuelve variables de entorno al instante."
+        }
+      },
+      {
+        "icon": "📁",
+        "title": {
+          "en": "Archive and media organizers",
+          "es": "Quienes organizan archivos y medios"
+        },
+        "text": {
+          "en": "Batch-rename folders cleanly, preview photos, audio and video in place and queue large transfers safely without overwrites.",
+          "es": "Renombra lotes con reglas precisas, previsualiza fotos, audio y vídeo al momento y encola copias grandes sin sobrescrituras accidentales."
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "icon": "📦",
+        "title": {
+          "en": "Verify and move large folders",
+          "es": "Verificar y mover carpetas grandes"
+        },
+        "text": {
+          "en": "Queue transfers with per-item progress and undo if anything needs to roll back.",
+          "es": "Encola transferencias con progreso por elemento y deshaz cuando necesites revertir una operación."
+        }
+      },
+      {
+        "icon": "🔎",
+        "title": {
+          "en": "Inspect files before opening them",
+          "es": "Inspeccionar archivos sin abrirlos"
+        },
+        "text": {
+          "en": "Check encoding, media streams, archive trees and PDFs right inside the properties sidebar.",
+          "es": "Consulta codificación, pistas multimedia, árboles de comprimidos y PDF directamente en la barra lateral."
+        }
+      },
+      {
+        "icon": "🪟",
+        "title": {
+          "en": "Keep multi-project layouts ready",
+          "es": "Guardar diseños para cada proyecto"
+        },
+        "text": {
+          "en": "Combine saved pane layouts and tab sessions into workspaces you restore in one step.",
+          "es": "Combina diseños de paneles y sesiones de pestañas en espacios de trabajo que se restauran en un paso."
+        }
+      }
+    ]
+  },
+  "repo": "https://github.com/CyberGems/CyberFiles",
+  "wiki": "https://github.com/CyberGems/CyberFiles/wiki",
+  "screenshot": null
+}
