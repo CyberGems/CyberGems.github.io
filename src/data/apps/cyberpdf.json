@@ -1,0 +1,171 @@
+{
+  "slug": "cyberpdf",
+  "published": false,
+  "name": "CyberPDF",
+  "emoji": "📄",
+  "icon": "/icons/apps/cyberpdf.png",
+  "accent": "#2AA9B8",
+  "stack": ".NET 10 · WinForms · PDFium",
+  "license": "GPLv3",
+  "tagline": {
+    "en": "A fast, lightweight PDF reader for Windows built directly on Chromium's PDFium.",
+    "es": "Un lector de PDF rápido y ligero para Windows construido directamente sobre PDFium de Chromium."
+  },
+  "bannerTagline": {
+    "en": "Fast, lightweight PDF reader on PDFium",
+    "es": "Lector de PDF rápido y ligero sobre PDFium"
+  },
+  "bannerTitleAccent": "#2AA9B8",
+  "description": {
+    "en": "CyberPDF opens documents in under half a second without carrying a browser runtime. Open multiple PDFs in tabs, jump to chapters from the outline panel, keep local highlights and bookmarks on disk, and search or print without leaving the window.\n\nPages render in horizontal bands straight into native bitmaps, so even tall engineering blueprints scroll smoothly on a steady memory budget. Everything stays private and offline: no accounts, no cloud sync and no telemetry.",
+    "es": "CyberPDF abre documentos en menos de medio segundo sin cargar un navegador completo. Abre varios PDF en pestañas, salta a capítulos desde el índice lateral, guarda resaltados y marcadores en disco y busca o imprime sin salir de la ventana.\n\nLas páginas se generan en franjas horizontales directamente sobre mapas de bits del sistema, para que incluso láminas enormes se desplacen con fluidez y un consumo estable. Todo permanece privado y sin conexión: sin cuentas, sin nube y sin telemetría."
+  },
+  "highlightsTitle": {
+    "en": "Direct PDFium speed, everyday reading tools",
+    "es": "Velocidad directa de PDFium, herramientas para leer cada día"
+  },
+  "highlights": [
+    {
+      "icon": "@activity",
+      "title": {
+        "en": "Low memory, banded rendering",
+        "es": "Poca memoria, renderizado por franjas"
+      },
+      "text": {
+        "en": "Pages decode on one dedicated worker thread straight into window bitmaps, splitting tall pages into compact bands.",
+        "es": "Las páginas se procesan en un único hilo dedicado directamente sobre los mapas de bits, dividiendo páginas altas en franjas compactas."
+      }
+    },
+    {
+      "icon": "@book-open",
+      "title": {
+        "en": "Built for focused reading",
+        "es": "Pensado para leer sin distracciones"
+      },
+      "text": {
+        "en": "Pan effortlessly with the default hand tool, switch to text selection to copy or highlight in four colors, and keep page bookmarks locally.",
+        "es": "Desplázate con la herramienta mano predeterminada, cambia a selección de texto para copiar o resaltar en cuatro colores y guarda marcadores locales."
+      }
+    },
+    {
+      "icon": "@search",
+      "title": {
+        "en": "Find and organize fast",
+        "es": "Busca y organiza rápido"
+      },
+      "text": {
+        "en": "Floating search with match case and whole word keeps your reading position steady, alongside thumbnails, outline trees and saved copies.",
+        "es": "El buscador flotante con mayúsculas y palabra completa no mueve el diseño, junto con miniaturas, índice y copias guardadas."
+      }
+    }
+  ],
+  "featuresHeading": {
+    "en": "Everything included out of the box",
+    "es": "Todo incluido desde el primer arranque"
+  },
+  "features": [
+    {
+      "en": "Open PDFs from tabs, drag and drop, the start view, or the command line",
+      "es": "Abre archivos PDF desde pestañas, arrastrando, la vista inicial o la línea de comandos"
+    },
+    {
+      "en": "Switch cleanly between the default Hand pan tool and Select text mode",
+      "es": "Alterna con claridad entre la herramienta Mano predeterminada y el modo Selección de texto"
+    },
+    {
+      "en": "Save a copy with Save as..., print documents and inspect PDF metadata",
+      "es": "Guarda una copia con Guardar como..., imprime documentos e inspecciona metadatos"
+    },
+    {
+      "en": "Continuous, single-page, two-page and dark page viewing modes",
+      "es": "Modos de vista continua, página única, dos páginas y filtro nocturno de página"
+    },
+    {
+      "en": "Four-color text highlights and personal bookmarks stored per document in local JSON",
+      "es": "Resaltados de texto en cuatro colores y marcadores personales guardados por documento en JSON local"
+    },
+    {
+      "en": "Floating search bar with match case, whole word and match counter",
+      "es": "Buscador flotante con distinción de mayúsculas, palabra completa y contador de coincidencias"
+    },
+    {
+      "en": "Default, Gray and Light themes, live English/Spanish switching and system tray support",
+      "es": "Temas Predeterminado, Gris y Claro, cambio en vivo entre inglés y español y bandeja del sistema"
+    }
+  ],
+  "useCases": {
+    "roles": [
+      {
+        "icon": "📚",
+        "title": {
+          "en": "Students and researchers",
+          "es": "Estudiantes e investigadores"
+        },
+        "text": {
+          "en": "Keep multiple reference papers open in tabs, highlight key paragraphs and bookmark pages for quick revision.",
+          "es": "Mantén varios artículos de referencia en pestañas, resalta párrafos clave y marca páginas para repasar rápido."
+        }
+      },
+      {
+        "icon": "🛠️",
+        "title": {
+          "en": "Engineers and technical readers",
+          "es": "Ingenieros y lectores técnicos"
+        },
+        "text": {
+          "en": "Scroll smoothly through large schematics and manuals without memory spikes.",
+          "es": "Desplázate con fluidez por planos y manuales extensos sin picos de memoria."
+        }
+      },
+      {
+        "icon": "💼",
+        "title": {
+          "en": "Everyday Windows users",
+          "es": "Usuarios diarios de Windows"
+        },
+        "text": {
+          "en": "Open forms, receipts and guides almost instantly instead of loading a heavy browser-based viewer.",
+          "es": "Abre formularios, recibos y guías casi al instante en lugar de esperar a un visor pesado basado en navegador."
+        }
+      }
+    ],
+    "tasks": [
+      {
+        "icon": "🔍",
+        "title": {
+          "en": "Search long specifications",
+          "es": "Buscar en especificaciones largas"
+        },
+        "text": {
+          "en": "Press Ctrl+F to find terms across the whole document without shifting your reading position.",
+          "es": "Pulsa Ctrl+F para localizar términos en todo el documento sin mover tu posición de lectura."
+        }
+      },
+      {
+        "icon": "🖍️",
+        "title": {
+          "en": "Mark key passages cleanly",
+          "es": "Marcar pasajes clave sin alterar el PDF"
+        },
+        "text": {
+          "en": "Select text, copy or highlight it in four colors, while the source PDF remains untouched on disk.",
+          "es": "Selecciona texto, cópialo o resáltalo en cuatro colores mientras el archivo PDF original permanece intacto."
+        }
+      },
+      {
+        "icon": "💾",
+        "title": {
+          "en": "Save and archive a copy",
+          "es": "Guardar y archivar una copia"
+        },
+        "text": {
+          "en": "Save a separate copy with Ctrl+S and carry your highlights and bookmarks along in CyberPDF.",
+          "es": "Guarda una copia independiente con Ctrl+S conservando tus resaltados y marcadores en CyberPDF."
+        }
+      }
+    ]
+  },
+  "repo": "https://github.com/CyberGems/CyberPDF",
+  "wiki": "https://github.com/CyberGems/CyberPDF/wiki",
+  "screenshot": null
+}

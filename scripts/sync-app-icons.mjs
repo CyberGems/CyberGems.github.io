@@ -25,6 +25,7 @@ const iconSources = [
   { slug: 'cybermanager', repo: 'CyberManager', ref: 'main', source: 'src/CyberManager.UI/Assets/CyberManager.png' },
   { slug: 'cybernotes', repo: 'CyberNotes', ref: 'main', source: 'public/icon.png' },
   { slug: 'cyberpaste', repo: 'CyberPaste', ref: 'main', source: 'src-tauri/icons/icon.png' },
+  { slug: 'cyberpdf', repo: 'CyberPDF', ref: 'main', source: 'src/CyberPDF.UI/Assets/CyberPDF.png' },
   { slug: 'cybersnap', repo: 'CyberSnap', ref: 'main', source: 'src/CyberSnap/Assets/CyberSnap_square.png' },
   { slug: 'cybertray', repo: 'CyberTray', ref: 'main', source: 'public/icon.png' },
   { slug: 'cyberviewer', repo: 'CyberViewer', ref: 'main', source: 'assets/icon.png' },
