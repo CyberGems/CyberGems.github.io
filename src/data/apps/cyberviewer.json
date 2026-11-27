@@ -53,6 +53,8 @@
     { "en": "Keep images together in tabs and restore your previous session", "es": "Agrupa imágenes en pestañas y restaura tu sesión anterior" },
     { "en": "Play local videos (MP4, MKV, WebM, MOV and more) in media tabs", "es": "Reproduce videos locales (MP4, MKV, WebM, MOV y más) en pestañas de medios" },
     { "en": "Play audio tracks (MP3, WAV, FLAC, OGG, AAC and more) in the same player", "es": "Reproduce pistas de audio (MP3, WAV, FLAC, OGG, AAC y más) en el mismo reproductor" },
+    { "en": "See whole-track audio waveforms, cycle reactive visualizations, and display tagged titles and embedded cover art", "es": "Consulta formas de onda completas, recorre visualizaciones reactivas y muestra títulos etiquetados y carátulas integradas" },
+    { "en": "Browse named sidebar cards with compact mode and per-tab open/closed memory, plus Copy File Name and Copy File Path actions", "es": "Explora tarjetas con nombre, modo compacto y estado del panel por pestaña, además de Copiar nombre del archivo y Copiar ruta de archivo" },
     { "en": "Watch YouTube videos or playlists in an isolated viewer", "es": "Mira videos o listas de YouTube en un reproductor aislado" },
     { "en": "Inspect media properties, local video frames and YouTube thumbnails or playlist positions", "es": "Consulta propiedades de medios, fotogramas de videos locales y miniaturas o posiciones de playlists de YouTube" },
     { "en": "Show media type icons in tabs, preserve playback state, and choose how center drops open files", "es": "Muestra iconos de tipo en las pestañas, conserva el estado de reproducción y elige cómo abrir archivos soltados en el centro" },
