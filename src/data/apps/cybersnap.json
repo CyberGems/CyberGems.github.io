@@ -89,11 +89,11 @@
     "es": "/screenshots/cybersnap/main-es.webp"
   },
   "screenshotAlt": {
-    "en": "CyberSnap capture overlay with floating annotation dock, arrows, blur, ruler readout and confirmation bar",
-    "es": "Superposición de captura de CyberSnap con barra flotante de anotaciones, flechas, difuminado, regla y barra de confirmación"
+    "en": "CyberSnap capture overlay with floating annotation dock, arrows, rectangle, ruler readout and confirmation bar",
+    "es": "Superposición de captura de CyberSnap con barra flotante de anotaciones, flechas, recuadro, regla y barra de confirmación"
   },
   "screenshotCaption": {
-    "en": "On-screen region selection and annotation overlay with arrows, freehand strokes, mosaic blur, ruler measurements and quick confirmation controls.",
-    "es": "Superposición de selección y anotaciones en pantalla con flechas, trazo libre, difuminado, regla en píxeles y controles de confirmación."
+    "en": "On-screen region selection and annotation overlay with arrows, freehand strokes, shapes, ruler measurements and quick confirmation controls.",
+    "es": "Superposición de selección y anotaciones en pantalla con flechas, trazo libre, formas, regla en píxeles y controles de confirmación."
   }
 }
