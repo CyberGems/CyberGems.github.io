@@ -226,60 +226,78 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
               />
             </button>
           ))}
-
-          <button
-            type="button"
-            data-shot-prev
-            class="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/65 text-white ring-1 ring-white/20 backdrop-blur-sm transition-colors hover:bg-black/85 hover:ring-white/40 cursor-pointer"
-            aria-label={lang === 'en' ? 'Previous screenshot' : 'Captura anterior'}
-          >
-            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg>
-          </button>
-
-          <button
-            type="button"
-            data-shot-next
-            class="absolute right-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/65 text-white ring-1 ring-white/20 backdrop-blur-sm transition-colors hover:bg-black/85 hover:ring-white/40 cursor-pointer"
-            aria-label={lang === 'en' ? 'Next screenshot' : 'Siguiente captura'}
-          >
-            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6" /></svg>
-          </button>
-
-          <span
-            data-shot-counter
-            class="pointer-events-none absolute right-3 top-3 rounded-full bg-black/65 px-2.5 py-1 text-xs font-medium tabular-nums text-white/90 ring-1 ring-white/15 backdrop-blur-sm"
-          >
-            {`1 / ${allShots.length}`}
-          </span>
         </div>
 
         <p data-shot-caption class="mt-3 min-h-[1.25rem] text-center text-sm text-[#9a9aa5]">
           {allShots[0]?.caption ?? ''}
         </p>
 
-        <div
-          role="tablist"
-          aria-label={lang === 'en' ? 'Select screenshot' : 'Seleccionar captura'}
-          class="cg-shot-thumbs mt-4 flex items-center justify-start sm:justify-center gap-2.5 overflow-x-auto px-1 py-1.5"
-        >
-          {allShots.map((shot, idx) => (
-            <button
-              type="button"
-              role="tab"
-              data-shot-thumb={idx}
-              aria-selected={idx === 0 ? 'true' : 'false'}
-              aria-label={shot.caption ? shot.caption : (lang === 'en' ? `Screenshot ${idx + 1}` : `Captura ${idx + 1}`)}
-              class="cg-shot-thumb relative aspect-[16/10] w-24 sm:w-28 shrink-0 overflow-hidden rounded-lg border bg-[#0b0e17] transition-all cursor-pointer"
-            >
-              <img
-                src={shot.src}
-                alt=""
-                class:list={['h-full w-full', shot.compact ? 'object-contain p-1' : 'object-cover']}
-                loading="eager"
-                decoding="async"
-              />
-            </button>
-          ))}
+        <div class="mt-3 flex items-center justify-center gap-2 sm:gap-3">
+          <button
+            type="button"
+            data-shot-prev
+            class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/85 transition-colors hover:border-white/35 hover:bg-white/15 hover:text-white cursor-pointer"
+            aria-label={lang === 'en' ? 'Previous screenshot' : 'Captura anterior'}
+          >
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg>
+          </button>
+
+          <div
+            data-shot-thumbs
+            role="tablist"
+            aria-label={lang === 'en' ? 'Select screenshot' : 'Seleccionar captura'}
+            class="cg-shot-thumbs flex items-center justify-start gap-2.5 overflow-x-auto px-1 py-1.5"
+          >
+            {allShots.map((shot, idx) => (
+              <button
+                type="button"
+                role="tab"
+                data-shot-thumb={idx}
+                aria-selected={idx === 0 ? 'true' : 'false'}
+                aria-label={shot.caption ? shot.caption : (lang === 'en' ? `Screenshot ${idx + 1}` : `Captura ${idx + 1}`)}
+                class="cg-shot-thumb relative aspect-[16/10] w-24 sm:w-28 shrink-0 overflow-hidden rounded-lg border bg-[#0b0e17] transition-all cursor-pointer"
+              >
+                <img
+                  src={shot.src}
+                  alt=""
+                  class:list={['h-full w-full', shot.compact ? 'object-contain p-1' : 'object-cover']}
+                  loading="eager"
+                  decoding="async"
+                />
+              </button>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            data-shot-next
+            class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/85 transition-colors hover:border-white/35 hover:bg-white/15 hover:text-white cursor-pointer"
+            aria-label={lang === 'en' ? 'Next screenshot' : 'Siguiente captura'}
+          >
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6" /></svg>
+          </button>
+        </div>
+
+        <div class="mt-2 flex items-center justify-center gap-3 text-xs text-[#9a9aa5]">
+          <span data-shot-counter class="tabular-nums font-medium text-white/80">
+            {`1 / ${allShots.length}`}
+          </span>
+          <span aria-hidden="true" class="text-white/25">·</span>
+          <button
+            type="button"
+            data-shot-autoplay
+            aria-pressed="false"
+            data-label-pause={lang === 'en' ? 'Pause automatic slideshow' : 'Pausar avance automático'}
+            data-label-play={lang === 'en' ? 'Resume automatic slideshow' : 'Reanudar avance automático'}
+            data-text-auto={lang === 'en' ? 'Auto' : 'Automático'}
+            data-text-paused={lang === 'en' ? 'Paused' : 'Pausado'}
+            aria-label={lang === 'en' ? 'Pause automatic slideshow' : 'Pausar avance automático'}
+            class="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-white/85 transition-colors hover:border-white/30 hover:bg-white/10 hover:text-white cursor-pointer"
+          >
+            <svg data-autoplay-icon="pause" viewBox="0 0 24 24" class="h-3 w-3" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" /><rect x="14" y="5" width="4" height="14" rx="1" /></svg>
+            <svg data-autoplay-icon="play" viewBox="0 0 24 24" class="hidden h-3 w-3" fill="currentColor" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4" /></svg>
+            <span data-autoplay-text>{lang === 'en' ? 'Auto' : 'Automático'}</span>
+          </button>
         </div>
       </section>
     )}
@@ -635,8 +653,14 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
   const gallery = document.querySelector<HTMLElement>('[data-shot-gallery]');
   const slides = gallery ? Array.from(gallery.querySelectorAll<HTMLButtonElement>('[data-shot-slide]')) : [];
   const thumbs = gallery ? Array.from(gallery.querySelectorAll<HTMLButtonElement>('[data-shot-thumb]')) : [];
+  const thumbsTrack = gallery?.querySelector<HTMLElement>('[data-shot-thumbs]') ?? null;
   const captionEl = gallery?.querySelector<HTMLElement>('[data-shot-caption]') ?? null;
   const counterEl = gallery?.querySelector<HTMLElement>('[data-shot-counter]') ?? null;
+  const autoplayBtn = gallery?.querySelector<HTMLButtonElement>('[data-shot-autoplay]') ?? null;
+  const iconPause = autoplayBtn?.querySelector<SVGElement>('[data-autoplay-icon="pause"]') ?? null;
+  const iconPlay = autoplayBtn?.querySelector<SVGElement>('[data-autoplay-icon="play"]') ?? null;
+  const autoplayText = autoplayBtn?.querySelector<HTMLElement>('[data-autoplay-text]') ?? null;
+
   const lightbox = document.querySelector<HTMLDialogElement>('[data-shot-lightbox]');
   const lbImg = lightbox?.querySelector<HTMLImageElement>('[data-lightbox-img]') ?? null;
   const lbCaption = lightbox?.querySelector<HTMLElement>('[data-lightbox-caption]') ?? null;
@@ -650,6 +674,47 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
     } catch {
       shotsData = [];
     }
+  }
+
+  const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+  let userPaused = prefersReducedMotion;
+  let isHovering = false;
+  let isFocused = false;
+  let isInView = true;
+  let autoTimer: number | null = null;
+
+  function updateAutoplayUI() {
+    if (!autoplayBtn) return;
+    autoplayBtn.setAttribute('aria-pressed', String(userPaused));
+    autoplayBtn.setAttribute(
+      'aria-label',
+      userPaused ? (autoplayBtn.dataset.labelPlay || 'Resume') : (autoplayBtn.dataset.labelPause || 'Pause')
+    );
+    iconPause?.classList.toggle('hidden', userPaused);
+    iconPlay?.classList.toggle('hidden', !userPaused);
+    if (autoplayText) {
+      autoplayText.textContent = userPaused
+        ? (autoplayBtn.dataset.textPaused || 'Paused')
+        : (autoplayBtn.dataset.textAuto || 'Auto');
+    }
+  }
+
+  function clearAutoTimer() {
+    if (autoTimer !== null) {
+      window.clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  function refreshAutoplay() {
+    clearAutoTimer();
+    updateAutoplayUI();
+    if (slides.length <= 1 || userPaused || isHovering || isFocused || !isInView || lightbox?.open || document.hidden) {
+      return;
+    }
+    autoTimer = window.setInterval(() => {
+      setSlide(activeIndex + 1, { fromUser: false });
+    }, 5500);
   }
 
   function syncLightbox(index: number) {
@@ -666,7 +731,13 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
     }
   }
 
-  function setSlide(index: number, { scrollThumb = true }: { scrollThumb?: boolean } = {}) {
+  function scrollThumbInsideTrack(thumb: HTMLButtonElement) {
+    if (!thumbsTrack || thumbsTrack.scrollWidth <= thumbsTrack.clientWidth + 2) return;
+    const targetLeft = Math.max(0, thumb.offsetLeft - (thumbsTrack.clientWidth - thumb.offsetWidth) / 2);
+    thumbsTrack.scrollTo({ left: targetLeft, behavior: 'smooth' });
+  }
+
+  function setSlide(index: number, { fromUser = false, scrollThumb = true }: { fromUser?: boolean; scrollThumb?: boolean } = {}) {
     if (slides.length === 0) return;
     activeIndex = ((index % slides.length) + slides.length) % slides.length;
     slides.forEach((slide, idx) => {
@@ -679,19 +750,56 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
       const isCurrent = idx === activeIndex;
       thumb.setAttribute('aria-selected', String(isCurrent));
       if (isCurrent && scrollThumb) {
-        thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        scrollThumbInsideTrack(thumb);
       }
     });
     if (counterEl) counterEl.textContent = `${activeIndex + 1} / ${slides.length}`;
     if (captionEl) captionEl.textContent = slides[activeIndex]?.dataset.caption ?? '';
     syncLightbox(activeIndex);
+    if (fromUser) {
+      userPaused = true;
+      refreshAutoplay();
+    }
   }
 
-  gallery?.querySelector<HTMLButtonElement>('[data-shot-prev]')?.addEventListener('click', () => setSlide(activeIndex - 1));
-  gallery?.querySelector<HTMLButtonElement>('[data-shot-next]')?.addEventListener('click', () => setSlide(activeIndex + 1));
+  gallery?.querySelector<HTMLButtonElement>('[data-shot-prev]')?.addEventListener('click', () => setSlide(activeIndex - 1, { fromUser: true }));
+  gallery?.querySelector<HTMLButtonElement>('[data-shot-next]')?.addEventListener('click', () => setSlide(activeIndex + 1, { fromUser: true }));
   thumbs.forEach((thumb, idx) => {
-    thumb.addEventListener('click', () => setSlide(idx));
+    thumb.addEventListener('click', () => setSlide(idx, { fromUser: true }));
   });
+
+  autoplayBtn?.addEventListener('click', () => {
+    userPaused = !userPaused;
+    refreshAutoplay();
+  });
+
+  if (gallery) {
+    gallery.addEventListener('pointerenter', () => {
+      isHovering = true;
+      refreshAutoplay();
+    });
+    gallery.addEventListener('pointerleave', () => {
+      isHovering = false;
+      refreshAutoplay();
+    });
+    gallery.addEventListener('focusin', () => {
+      isFocused = true;
+      refreshAutoplay();
+    });
+    gallery.addEventListener('focusout', () => {
+      isFocused = gallery.contains(document.activeElement);
+      refreshAutoplay();
+    });
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        isInView = Boolean(entries[0]?.isIntersecting);
+        refreshAutoplay();
+      }, { threshold: 0.25 });
+      observer.observe(gallery);
+    }
+  }
+
+  document.addEventListener('visibilitychange', () => refreshAutoplay());
 
   document.querySelectorAll<HTMLButtonElement>('[data-shot-open]').forEach((opener) => {
     opener.addEventListener('click', () => {
@@ -699,20 +807,22 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
       const idx = Number(opener.getAttribute('data-shot-open') || '0');
       activeIndex = Number.isFinite(idx) ? idx : 0;
       syncLightbox(activeIndex);
+      userPaused = true;
+      refreshAutoplay();
       lightbox.showModal();
     });
   });
 
   if (lightbox) {
     lightbox.querySelector<HTMLButtonElement>('[data-lightbox-prev]')?.addEventListener('click', () => {
-      if (slides.length > 0) setSlide(activeIndex - 1);
+      if (slides.length > 0) setSlide(activeIndex - 1, { fromUser: true });
       else if (shotsData.length > 1) {
         activeIndex = (activeIndex - 1 + shotsData.length) % shotsData.length;
         syncLightbox(activeIndex);
       }
     });
     lightbox.querySelector<HTMLButtonElement>('[data-lightbox-next]')?.addEventListener('click', () => {
-      if (slides.length > 0) setSlide(activeIndex + 1);
+      if (slides.length > 0) setSlide(activeIndex + 1, { fromUser: true });
       else if (shotsData.length > 1) {
         activeIndex = (activeIndex + 1) % shotsData.length;
         syncLightbox(activeIndex);
@@ -721,6 +831,7 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
     lightbox.addEventListener('click', (event) => {
       if (event.target === lightbox) lightbox.close();
     });
+    lightbox.addEventListener('close', () => refreshAutoplay());
   }
 
   document.addEventListener('keydown', (event) => {
@@ -730,18 +841,20 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
     if (!isLightboxOpen && !isGalleryFocused) return;
     if (event.key === 'ArrowLeft') {
       event.preventDefault();
-      setSlide(activeIndex - 1);
+      setSlide(activeIndex - 1, { fromUser: true });
     } else if (event.key === 'ArrowRight') {
       event.preventDefault();
-      setSlide(activeIndex + 1);
+      setSlide(activeIndex + 1, { fromUser: true });
     } else if (event.key === 'Home') {
       event.preventDefault();
-      setSlide(0);
+      setSlide(0, { fromUser: true });
     } else if (event.key === 'End') {
       event.preventDefault();
-      setSlide(slides.length - 1);
+      setSlide(slides.length - 1, { fromUser: true });
     }
   });
+
+  refreshAutoplay();
 </script>
 
 <script is:inline>
