@@ -276,6 +276,20 @@
     },
     {
       "file": {
+        "en": "/screenshots/cyberlauncher/storage-en.webp",
+        "es": "/screenshots/cyberlauncher/storage-es.webp"
+      },
+      "alt": {
+        "en": "CyberLauncher Storage HUD drawer displaying disk drives C through H with cyan and amber usage bars, free space and total capacity",
+        "es": "Panel HUD de Almacenamiento en CyberLauncher mostrando las unidades C a H con barras de uso en cian y ámbar, espacio libre y capacidad total"
+      },
+      "caption": {
+        "en": "Storage HUD showing every drive's usage percentage, high-usage alerts, free space, and total capacity in one side drawer.",
+        "es": "HUD de Almacenamiento con porcentaje de uso por unidad, alertas de espacio alto, capacidad libre y total en un solo panel lateral."
+      }
+    },
+    {
+      "file": {
         "en": "/screenshots/cyberlauncher/cyberbot-en.webp",
         "es": "/screenshots/cyberlauncher/cyberbot-es.webp"
       },

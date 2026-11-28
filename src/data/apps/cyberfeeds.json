@@ -27,18 +27,36 @@
   "highlights": [
     {
       "icon": "@sources",
-      "title": { "en": "One home for your sources", "es": "Todas tus fuentes en un lugar" },
-      "text": { "en": "Bring websites, YouTube channels and Reddit feeds into one organized reading list.", "es": "Reúne sitios web, canales de YouTube y feeds de Reddit en una lista de lectura organizada." }
+      "title": {
+        "en": "One home for your sources",
+        "es": "Todas tus fuentes en un lugar"
+      },
+      "text": {
+        "en": "Bring websites, YouTube channels and Reddit feeds into one organized reading list.",
+        "es": "Reúne sitios web, canales de YouTube y feeds de Reddit en una lista de lectura organizada."
+      }
     },
     {
       "icon": "@book-open",
-      "title": { "en": "Read the whole story", "es": "Lee la historia completa" },
-      "text": { "en": "Open articles in a focused reader and extract full text when the source allows it.", "es": "Abre artículos en un lector enfocado y extrae el texto completo cuando la fuente lo permite." }
+      "title": {
+        "en": "Read the whole story",
+        "es": "Lee la historia completa"
+      },
+      "text": {
+        "en": "Open articles in a focused reader and extract full text when the source allows it.",
+        "es": "Abre artículos en un lector enfocado y extrae el texto completo cuando la fuente lo permite."
+      }
     },
     {
       "icon": "@database",
-      "title": { "en": "Keep your library local", "es": "Tu biblioteca se queda contigo" },
-      "text": { "en": "Your articles live in a local database, with backups and OPML export to help you keep control.", "es": "Tus artículos viven en una base de datos local, con copias de seguridad y exportación OPML para conservar el control." }
+      "title": {
+        "en": "Keep your library local",
+        "es": "Tu biblioteca se queda contigo"
+      },
+      "text": {
+        "en": "Your articles live in a local database, with backups and OPML export to help you keep control.",
+        "es": "Tus artículos viven en una base de datos local, con copias de seguridad y exportación OPML para conservar el control."
+      }
     }
   ],
   "featuresHeading": {
@@ -46,62 +64,146 @@
     "es": "Más formas en que CyberFeeds te ayuda"
   },
   "features": [
-    { "en": "Subscribe to RSS, Atom, YouTube and Reddit sources", "es": "Suscríbete a fuentes RSS, Atom, YouTube y Reddit" },
-    { "en": "Import and export OPML while keeping your folder structure", "es": "Importa y exporta OPML conservando la estructura de carpetas" },
-    { "en": "Find articles across your library or search within an open article", "es": "Encuentra artículos en tu biblioteca o busca dentro de uno abierto" },
-    { "en": "Filter notifications by keyword and snooze them when you need focus", "es": "Filtra los avisos por palabras clave y posponlos cuando necesites concentrarte" },
-    { "en": "Organize with folders, favorites, read states and trash", "es": "Organiza con carpetas, favoritos, estados de lectura y papelera" },
-    { "en": "Watch videos with visual card badges and instant indexed media filtering", "es": "Mira videos con insignias visuales en tarjetas y filtrado multimedia indexado al instante" },
-    { "en": "Open articles in tabs with session restore and quick switcher", "es": "Abre artículos en pestañas con restauración de sesión y selector rápido" },
-    { "en": "Rotating status ticker with contextual time greetings and unread counts", "es": "Barra de estado rotativa con saludos contextuales según la hora y artículos sin leer" },
-    { "en": "Unified scan batches that deliver incoming updates sorted by newest first", "es": "Lotes de escaneo unificados que entregan novedades ordenadas por las más recientes" },
-    { "en": "See new articles without losing your place in the reading list", "es": "Consulta artículos nuevos sin perder tu lugar en la lista de lectura" },
-    { "en": "Back up and restore your local library automatically", "es": "Crea y restaura copias automáticas de tu biblioteca local" },
-    { "en": "Get started in seconds with a first-run wizard: language, theme and suggested feeds", "es": "Empieza en segundos con un asistente de primera ejecución: idioma, tema y fuentes sugeridas" }
+    {
+      "en": "Subscribe to RSS, Atom, YouTube and Reddit sources",
+      "es": "Suscríbete a fuentes RSS, Atom, YouTube y Reddit"
+    },
+    {
+      "en": "Import and export OPML while keeping your folder structure",
+      "es": "Importa y exporta OPML conservando la estructura de carpetas"
+    },
+    {
+      "en": "Find articles across your library or search within an open article",
+      "es": "Encuentra artículos en tu biblioteca o busca dentro de uno abierto"
+    },
+    {
+      "en": "Filter notifications by keyword and snooze them when you need focus",
+      "es": "Filtra los avisos por palabras clave y posponlos cuando necesites concentrarte"
+    },
+    {
+      "en": "Organize with folders, favorites, read states and trash",
+      "es": "Organiza con carpetas, favoritos, estados de lectura y papelera"
+    },
+    {
+      "en": "Watch videos with visual card badges and instant indexed media filtering",
+      "es": "Mira videos con insignias visuales en tarjetas y filtrado multimedia indexado al instante"
+    },
+    {
+      "en": "Open articles in tabs with session restore and quick switcher",
+      "es": "Abre artículos en pestañas con restauración de sesión y selector rápido"
+    },
+    {
+      "en": "Rotating status ticker with contextual time greetings and unread counts",
+      "es": "Barra de estado rotativa con saludos contextuales según la hora y artículos sin leer"
+    },
+    {
+      "en": "Unified scan batches that deliver incoming updates sorted by newest first",
+      "es": "Lotes de escaneo unificados que entregan novedades ordenadas por las más recientes"
+    },
+    {
+      "en": "See new articles without losing your place in the reading list",
+      "es": "Consulta artículos nuevos sin perder tu lugar en la lista de lectura"
+    },
+    {
+      "en": "Back up and restore your local library automatically",
+      "es": "Crea y restaura copias automáticas de tu biblioteca local"
+    },
+    {
+      "en": "Get started in seconds with a first-run wizard: language, theme and suggested feeds",
+      "es": "Empieza en segundos con un asistente de primera ejecución: idioma, tema y fuentes sugeridas"
+    }
   ],
   "useCases": {
     "roles": [
       {
         "icon": "☕",
-        "title": { "en": "Curious readers", "es": "Lectores curiosos" },
-        "text": { "en": "Catch up with favorite publications in one place instead of opening the same tabs every day.", "es": "Ponte al día con tus publicaciones favoritas en un solo lugar sin abrir las mismas pestañas cada día." }
+        "title": {
+          "en": "Curious readers",
+          "es": "Lectores curiosos"
+        },
+        "text": {
+          "en": "Catch up with favorite publications in one place instead of opening the same tabs every day.",
+          "es": "Ponte al día con tus publicaciones favoritas en un solo lugar sin abrir las mismas pestañas cada día."
+        }
       },
       {
         "icon": "🔬",
-        "title": { "en": "Researchers", "es": "Investigadores" },
-        "text": { "en": "Follow specialist sources, save useful articles and find them again with search.", "es": "Sigue fuentes especializadas, guarda artículos útiles y vuelve a encontrarlos con la búsqueda." }
+        "title": {
+          "en": "Researchers",
+          "es": "Investigadores"
+        },
+        "text": {
+          "en": "Follow specialist sources, save useful articles and find them again with search.",
+          "es": "Sigue fuentes especializadas, guarda artículos útiles y vuelve a encontrarlos con la búsqueda."
+        }
       },
       {
         "icon": "🎬",
-        "title": { "en": "Video followers", "es": "Seguidores de video" },
-        "text": { "en": "Keep track of YouTube channels and playlists alongside the rest of your reading.", "es": "Sigue canales y listas de YouTube junto con el resto de tus lecturas." }
+        "title": {
+          "en": "Video followers",
+          "es": "Seguidores de video"
+        },
+        "text": {
+          "en": "Keep track of YouTube channels and playlists alongside the rest of your reading.",
+          "es": "Sigue canales y listas de YouTube junto con el resto de tus lecturas."
+        }
       },
       {
         "icon": "🔐",
-        "title": { "en": "Privacy-minded people", "es": "Personas que cuidan su privacidad" },
-        "text": { "en": "Build a reading library on your own PC without signing in to a cloud reader.", "es": "Crea una biblioteca de lectura en tu propio PC sin iniciar sesión en un lector en la nube." }
+        "title": {
+          "en": "Privacy-minded people",
+          "es": "Personas que cuidan su privacidad"
+        },
+        "text": {
+          "en": "Build a reading library on your own PC without signing in to a cloud reader.",
+          "es": "Crea una biblioteca de lectura en tu propio PC sin iniciar sesión en un lector en la nube."
+        }
       }
     ],
     "tasks": [
       {
         "icon": "📥",
-        "title": { "en": "Bring your subscriptions", "es": "Trae tus suscripciones" },
-        "text": { "en": "Import an OPML file with its folders or add a new feed directly.", "es": "Importa un archivo OPML con sus carpetas o añade un feed directamente." }
+        "title": {
+          "en": "Bring your subscriptions",
+          "es": "Trae tus suscripciones"
+        },
+        "text": {
+          "en": "Import an OPML file with its folders or add a new feed directly.",
+          "es": "Importa un archivo OPML con sus carpetas o añade un feed directamente."
+        }
       },
       {
         "icon": "📰",
-        "title": { "en": "Catch up without tab hopping", "es": "Ponte al día sin saltar entre pestañas" },
-        "text": { "en": "Read new posts from different sources in a single organized list.", "es": "Lee publicaciones nuevas de distintas fuentes en una sola lista organizada." }
+        "title": {
+          "en": "Catch up without tab hopping",
+          "es": "Ponte al día sin saltar entre pestañas"
+        },
+        "text": {
+          "en": "Read new posts from different sources in a single organized list.",
+          "es": "Lee publicaciones nuevas de distintas fuentes en una sola lista organizada."
+        }
       },
       {
         "icon": "🔎",
-        "title": { "en": "Find something you read", "es": "Encuentra algo que leíste" },
-        "text": { "en": "Search your article library or look for a phrase inside the article you have open.", "es": "Busca en tu biblioteca de artículos o encuentra una frase dentro del artículo abierto." }
+        "title": {
+          "en": "Find something you read",
+          "es": "Encuentra algo que leíste"
+        },
+        "text": {
+          "en": "Search your article library or look for a phrase inside the article you have open.",
+          "es": "Busca en tu biblioteca de artículos o encuentra una frase dentro del artículo abierto."
+        }
       },
       {
         "icon": "🔔",
-        "title": { "en": "Tune your alerts", "es": "Ajusta tus avisos" },
-        "text": { "en": "Use keyword filters and snooze to hear about the updates that matter to you.", "es": "Usa filtros por palabras clave y posposición para recibir solo los avisos que te importan." }
+        "title": {
+          "en": "Tune your alerts",
+          "es": "Ajusta tus avisos"
+        },
+        "text": {
+          "en": "Use keyword filters and snooze to hear about the updates that matter to you.",
+          "es": "Usa filtros por palabras clave y posposición para recibir solo los avisos que te importan."
+        }
       }
     ]
   },
