@@ -224,6 +224,20 @@
   "gallery": [
     {
       "file": {
+        "en": "welcome-en.webp",
+        "es": "welcome-es.webp"
+      },
+      "alt": {
+        "en": "CyberFeeds three-panel window with hero-image article cards, collapsed folders and Reading Space welcome overview",
+        "es": "Ventana de tres paneles de CyberFeeds con tarjetas visuales con portada, carpetas plegadas y panel de bienvenida Su espacio de lectura"
+      },
+      "caption": {
+        "en": "Card-driven feed list with hero article previews alongside the Reading Space overview showing pending counts and keyboard shortcuts.",
+        "es": "Lista en modo tarjetas con portadas amplias junto al panel de bienvenida Su espacio de lectura con resumen de pendientes y atajos rápidos."
+      }
+    },
+    {
+      "file": {
         "en": "reader-en.webp",
         "es": "reader-es.webp"
       },

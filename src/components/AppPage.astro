@@ -228,7 +228,7 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
           ))}
         </div>
 
-        <p data-shot-caption class="mt-3 min-h-[1.25rem] text-center text-sm text-[#9a9aa5]">
+        <p data-shot-caption class="mt-3 flex min-h-[2.75rem] items-center justify-center px-2 text-center text-sm text-[#9a9aa5]">
           {allShots[0]?.caption ?? ''}
         </p>
 
@@ -313,49 +313,51 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
       <dialog
         data-shot-lightbox
         data-shots={JSON.stringify(allShots.map((s) => ({ src: s.src, alt: s.alt, caption: s.caption ?? '' })))}
-        class="m-auto max-w-[min(94vw,1500px)] bg-transparent p-0"
+        class="m-auto w-[min(94vw,1360px)] max-w-[min(94vw,1360px)] bg-transparent p-0"
       >
-        <div class="relative">
-          <figure class="overflow-hidden rounded-2xl border border-white/15 bg-[#10131c]">
-            <img data-lightbox-img src={allShots[0].src} alt={allShots[0].alt} class="mx-auto max-h-[84vh] w-auto" />
-            <figcaption data-lightbox-caption class:list={['px-4 py-3 text-center text-sm text-[#9a9aa5]', allShots[0].caption ? '' : 'hidden']}>
-              {allShots[0].caption ?? ''}
+        <div class="relative w-full">
+          <figure class="flex w-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-[#10131c]">
+            <div class="relative flex h-[min(76vh,800px)] w-full items-center justify-center bg-[#0b0e17] p-3 sm:p-5">
+              <img data-lightbox-img src={allShots[0].src} alt={allShots[0].alt} class="max-h-full max-w-full h-auto w-auto select-none object-contain" />
+              {allShots.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    data-lightbox-prev
+                    class="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/75 text-white ring-1 ring-white/25 transition-colors hover:bg-black/95 cursor-pointer"
+                    aria-label={lang === 'en' ? 'Previous screenshot' : 'Captura anterior'}
+                  >
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg>
+                  </button>
+                  <button
+                    type="button"
+                    data-lightbox-next
+                    class="absolute right-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/75 text-white ring-1 ring-white/25 transition-colors hover:bg-black/95 cursor-pointer"
+                    aria-label={lang === 'en' ? 'Next screenshot' : 'Siguiente captura'}
+                  >
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6" /></svg>
+                  </button>
+                  <span
+                    data-lightbox-counter
+                    class="pointer-events-none absolute left-3 top-3 rounded-full bg-black/75 px-2.5 py-1 text-xs font-medium tabular-nums text-white/90 ring-1 ring-white/20"
+                  >
+                    {`1 / ${allShots.length}`}
+                  </span>
+                </>
+              )}
+              <form method="dialog" class="absolute right-3 top-3">
+                <button
+                  class="rounded-full bg-black/75 px-3 py-1.5 text-sm text-white ring-1 ring-white/25 transition-colors hover:bg-black/95 cursor-pointer"
+                  aria-label={lang === 'en' ? 'Close the enlarged screenshot' : 'Cerrar la captura ampliada'}
+                >
+                  ✕
+                </button>
+              </form>
+            </div>
+            <figcaption data-lightbox-caption class:list={['flex min-h-[3.25rem] items-center justify-center px-6 py-3 text-center text-sm text-[#9a9aa5]', allShots[0].caption ? '' : 'opacity-0']}>
+              {allShots[0].caption || '\u00a0'}
             </figcaption>
           </figure>
-          {allShots.length > 1 && (
-            <>
-              <button
-                type="button"
-                data-lightbox-prev
-                class="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/75 text-white ring-1 ring-white/25 transition-colors hover:bg-black/95 cursor-pointer"
-                aria-label={lang === 'en' ? 'Previous screenshot' : 'Captura anterior'}
-              >
-                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg>
-              </button>
-              <button
-                type="button"
-                data-lightbox-next
-                class="absolute right-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/75 text-white ring-1 ring-white/25 transition-colors hover:bg-black/95 cursor-pointer"
-                aria-label={lang === 'en' ? 'Next screenshot' : 'Siguiente captura'}
-              >
-                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6" /></svg>
-              </button>
-              <span
-                data-lightbox-counter
-                class="pointer-events-none absolute left-3 top-3 rounded-full bg-black/75 px-2.5 py-1 text-xs font-medium tabular-nums text-white/90 ring-1 ring-white/20"
-              >
-                {`1 / ${allShots.length}`}
-              </span>
-            </>
-          )}
-          <form method="dialog" class="absolute right-3 top-3">
-            <button
-              class="rounded-full bg-black/75 px-3 py-1.5 text-sm text-white ring-1 ring-white/25 transition-colors hover:bg-black/95 cursor-pointer"
-              aria-label={lang === 'en' ? 'Close the enlarged screenshot' : 'Cerrar la captura ampliada'}
-            >
-              ✕
-            </button>
-          </form>
         </div>
       </dialog>
     )}
@@ -723,8 +725,8 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
     lbImg.src = item.src;
     lbImg.alt = item.alt;
     if (lbCaption) {
-      lbCaption.textContent = item.caption;
-      lbCaption.classList.toggle('hidden', !item.caption);
+      lbCaption.textContent = item.caption || '\u00a0';
+      lbCaption.classList.toggle('opacity-0', !item.caption);
     }
     if (lbCounter) {
       lbCounter.textContent = `${index + 1} / ${shotsData.length}`;
