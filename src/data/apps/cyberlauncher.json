@@ -301,6 +301,20 @@
         "en": "Floating desktop CyberBot (Alt+Shift+B) for searching shortcuts, favorites and recent launches right over your workspace.",
         "es": "CyberBot flotante de escritorio (Alt+Shift+B) para buscar accesos, favoritos y lanzamientos recientes sin abrir la ventana principal."
       }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cyberlauncher/tray-menu-en.webp",
+        "es": "/screenshots/cyberlauncher/tray-menu-es.webp"
+      },
+      "alt": {
+        "en": "CyberLauncher system tray menu with open shortcuts, Quick Launch flyout, Settings, About and Exit",
+        "es": "Menú en la bandeja del sistema de CyberLauncher con accesos rápidos, submenú Lanzamiento rápido, Configuración, Acerca de y Salir"
+      },
+      "caption": {
+        "en": "Custom themed system tray menu with quick launch flyout, hotkey visibility and direct settings access.",
+        "es": "Menú de bandeja con tema personalizado, submenú de lanzamiento rápido, atajo visible y acceso directo a los ajustes."
+      }
     }
   ]
 }

@@ -99,6 +99,34 @@
   "gallery": [
     {
       "file": {
+        "en": "/screenshots/cybersnap/video-record-en.webp",
+        "es": "/screenshots/cybersnap/video-record-es.webp"
+      },
+      "alt": {
+        "en": "CyberSnap active MP4 screen recording region frame with floating live timer, pause/stop buttons, FPS selector, and Trimmer shortcut",
+        "es": "Marco activo de grabación MP4 de CyberSnap con barra flotante en vivo, temporizador, pausa, detención, selector de FPS y acceso al cortador"
+      },
+      "caption": {
+        "en": "MP4 and GIF screen recording overlay showing the dashed capture frame, resolution pill, and live floating control bar with elapsed timer and storage meter.",
+        "es": "Superposición de grabación MP4 y GIF con marco de región, indicador de resolución y barra flotante en vivo con temporizador y espacio libre."
+      }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cybersnap/editor-en.webp",
+        "es": "/screenshots/cybersnap/editor-es.webp"
+      },
+      "alt": {
+        "en": "CyberSnap Annotations Editor showing left tool palette, color swatches, rulers, and vector annotations with numbered steps, highlight, arrow, and text",
+        "es": "Editor de anotaciones de CyberSnap mostrando herramientas laterales, paleta de colores, reglas y anotaciones vectoriales con pasos, resaltado, flecha y texto"
+      },
+      "caption": {
+        "en": "Full Annotations Editor with vector shapes, arrows, highlights, numbered steps, text callouts, rulers, and export tools.",
+        "es": "Editor de anotaciones completo con formas vectoriales, flechas, resaltado, pasos numerados, etiquetas de texto, reglas y opciones de exportación."
+      }
+    },
+    {
+      "file": {
         "en": "/screenshots/cybersnap/ocr-en.webp",
         "es": "/screenshots/cybersnap/ocr-es.webp"
       },
@@ -109,6 +137,104 @@
       "caption": {
         "en": "OCR extraction window showing captured preview, editable recognized text, search box and inline translation controls.",
         "es": "Ventana de extracción OCR con vista previa de la captura, texto reconocido editable, buscador y controles integrados de traducción."
+      }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cybersnap/history-en.webp",
+        "es": "/screenshots/cybersnap/history-es.webp"
+      },
+      "alt": {
+        "en": "CyberSnap Capture Gallery window displaying images, MP4 recordings, OCR extracts, picked colors, and scanned QR codes",
+        "es": "Galería de capturas de CyberSnap mostrando imágenes, grabaciones MP4, texto OCR, colores capturados y códigos QR"
+      },
+      "caption": {
+        "en": "Local Capture Gallery organizing screenshots, videos, OCR text snippets, picked colors, and QR/barcode scans with instant full-text search.",
+        "es": "Galería local de capturas que organiza imágenes, vídeos, fragmentos OCR, colores y códigos QR escaneados con búsqueda instantánea."
+      }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cybersnap/video-trimmer-en.webp",
+        "es": "/screenshots/cybersnap/video-trimmer-es.webp"
+      },
+      "alt": {
+        "en": "CyberSnap Video and GIF Trimmer showing video preview, thumbnail filmstrip, audio waveform, in/out range markers, and Trim controls",
+        "es": "Cortador MP4 y GIF de CyberSnap con vista previa del vídeo, tira de fotogramas, forma de onda, marcadores de recorte y controles de exportación"
+      },
+      "caption": {
+        "en": "Built-in Video and GIF Trimmer with frame-accurate thumbnail filmstrip, audio waveform preview, loop playback, and one-click export.",
+        "es": "Cortador integrado para MP4 y GIF con tira de miniaturas cuadro a cuadro, forma de onda de audio, bucle y exportación en un clic."
+      }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cybersnap/qr-en.webp",
+        "es": "/screenshots/cybersnap/qr-es.webp"
+      },
+      "alt": {
+        "en": "CyberSnap QR and Barcode Scanner result window with preview graphic, detected format pill, decoded URL content, and auto-copy toggle",
+        "es": "Ventana de Escáner de Códigos de CyberSnap con vista previa del QR, tipo detectado, contenido decodificado e interruptor de autocopiado"
+      },
+      "caption": {
+        "en": "QR and barcode scanner result window showing visual code preview, detected format badge, decoded payload, and quick copy controls.",
+        "es": "Ventana de resultados del escáner QR y códigos de barras con vista previa visual, formato detectado, contenido e interruptor de copiado rápido."
+      }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cybersnap/settings-en.webp",
+        "es": "/screenshots/cybersnap/settings-es.webp"
+      },
+      "alt": {
+        "en": "CyberSnap Configuration window showing General tab, language picker, app theme cards, interface scale, and capture preferences",
+        "es": "Ventana de Configuración de CyberSnap mostrando pestaña General, selector de idioma, tarjetas de tema, escala e idioma"
+      },
+      "caption": {
+        "en": "Tabbed Configuration window for tuning themes, global hotkeys, capture defaults, recording presets, uploads, and backups.",
+        "es": "Ventana de Configuración por pestañas para ajustar temas, atajos globales, captura, grabación, destinos de subida y copias de seguridad."
+      }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cybersnap/capture-widget-en.webp",
+        "es": "/screenshots/cybersnap/capture-widget-es.webp"
+      },
+      "alt": {
+        "en": "CyberSnap Floating Quick Panel edge widget with Area, Fullscreen, Window, Repeat, recording, tools, Gallery, and Editor buttons",
+        "es": "Panel rápido flotante de CyberSnap anclado al borde con Área, Pantalla, Ventana, Repetir, grabación, herramientas, Galería y Editor"
+      },
+      "caption": {
+        "en": "Always-accessible floating edge widget keeping every capture mode, screen recording, tools, Gallery, and Editor one click away.",
+        "es": "Widget flotante en el borde de la pantalla con acceso en un clic a modos de captura, grabación de vídeo, herramientas, Galería y Editor."
+      }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cybersnap/tray-menu-en.webp",
+        "es": "/screenshots/cybersnap/tray-menu-es.webp"
+      },
+      "alt": {
+        "en": "CyberSnap System Tray Quick Panel displaying capture modes, MP4/GIF recording, OCR, QR, Color, Ruler, Zoom, Pin, Gallery, and Editor",
+        "es": "Panel rápido en la bandeja de CyberSnap con modos de captura, grabar vídeo o GIF, OCR, QR, Color, Regla, Zoom, Fijar, Galería y Editor"
+      },
+      "caption": {
+        "en": "System tray quick panel offering instant capture triggers, recording controls, utilities, gallery access, and app actions.",
+        "es": "Panel rápido en la bandeja del sistema con disparadores de captura, grabación, utilidades, acceso a galería y ajustes."
+      }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cybersnap/achievements-en.webp",
+        "es": "/screenshots/cybersnap/achievements-es.webp"
+      },
+      "alt": {
+        "en": "CyberSnap Achievements window showing capture milestone rail, current streak, total captures, and breakdown by capture type",
+        "es": "Ventana de Logros de CyberSnap mostrando línea de hitos, racha actual, capturas totales y desglose por tipo"
+      },
+      "caption": {
+        "en": "Local-only Achievements dashboard tracking milestone tiers, active streaks, and capture counts across screenshots, recordings, OCR, and scans.",
+        "es": "Panel de Logros 100% local con hitos de captura, rachas activas y estadísticas acumuladas por tipo de herramienta."
       }
     }
   ]

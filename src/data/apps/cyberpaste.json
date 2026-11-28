@@ -225,6 +225,20 @@
         "en": "Inspect captured images at full resolution and extract text with built-in offline OCR right from the viewer.",
         "es": "Inspecciona imágenes capturadas a resolución completa y extrae texto mediante OCR local integrado desde el visor."
       }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cyberpaste/tray-menu-en.webp",
+        "es": "/screenshots/cyberpaste/tray-menu-es.webp"
+      },
+      "alt": {
+        "en": "CyberPaste system tray menu with status toggle, timed pause submenu, settings and lock options",
+        "es": "Menú en la bandeja del sistema de CyberPaste con estado de captura, submenú de pausa temporal, ajustes y bloqueo"
+      },
+      "caption": {
+        "en": "Custom system tray menu with monitoring status indicator, timed clipboard pause submenu, lock toggle and quick settings.",
+        "es": "Menú en la bandeja del sistema con estado de monitorización, submenú de pausa temporal, bloqueo rápido y acceso a la configuración."
+      }
     }
   ]
 }

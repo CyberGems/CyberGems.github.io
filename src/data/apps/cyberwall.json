@@ -151,6 +151,20 @@
         "en": "Connections Log auditing allowed and blocked network events with direction badges, destination countries, endpoints and quick filters.",
         "es": "Registro de Conexiones para auditar eventos permitidos y bloqueados con dirección, país de destino, endpoint y filtros rápidos."
       }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cyberwall/tray-menu-en.webp",
+        "es": "/screenshots/cyberwall/tray-menu-es.webp"
+      },
+      "alt": {
+        "en": "CyberWall system tray menu with protection switch, timed Pause floating alerts submenu, floating widget toggle and logs",
+        "es": "Menú en la bandeja del sistema de CyberWall con interruptor de protección, submenú de pausa temporal de avisos, widget flotante y registro"
+      },
+      "caption": {
+        "en": "Custom system tray menu featuring the protection switch, timed alert pause flyout, floating traffic widget toggle and audit logs.",
+        "es": "Menú en la bandeja del sistema con interruptor de protección, submenú para pausar avisos temporalmente, widget flotante y acceso a los registros."
+      }
     }
   ]
 }
