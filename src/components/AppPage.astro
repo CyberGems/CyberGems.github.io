@@ -74,6 +74,10 @@ const galleryItems = (app.gallery ?? [])
     return { id: `gallery-${idx}`, src, alt, caption, compact: Boolean(item.compact) };
   })
   .filter((item): item is NonNullable<typeof item> => item !== null);
+const allShots = [
+  ...(shotSrc ? [{ id: 'main', src: shotSrc, alt: shotAlt, caption: shotCaption, compact: false }] : []),
+  ...galleryItems,
+];
 const related = apps.filter((a) => a.slug !== app.slug).slice(0, 3);
 const downloadPath = lang === 'en' ? '/download' : '/es/download';
 const faqPath = lang === 'en' ? '/faq' : '/es/faq';
@@ -152,20 +156,8 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
       </p>
     )}
 
-    <!-- Screenshot / conceptual explainer / placeholder -->
-    {shotSrc ? (
-      <figure class="mt-10">
-        <button
-          type="button"
-          data-shot-open="main"
-          class="block w-full cursor-zoom-in overflow-hidden rounded-2xl border border-white/10 transition-colors hover:border-white/25"
-          aria-label={lang === 'en' ? `Enlarge the ${app.name} screenshot` : `Ampliar la captura de ${app.name}`}
-        >
-          <img src={shotSrc} alt={shotAlt} class="block h-auto w-full" loading="lazy" decoding="async" />
-        </button>
-        {shotCaption && <figcaption class="mt-3 text-center text-sm text-[#9a9aa5]">{shotCaption}</figcaption>}
-      </figure>
-    ) : (
+    <!-- Screenshot / navigable gallery / conceptual explainer / placeholder -->
+    {allShots.length === 0 ? (
       <div
         class:list={['mt-10 rounded-2xl border border-white/10 overflow-hidden flex items-center justify-center relative', { 'aspect-video': !app.explainer }]}
         style={`background: radial-gradient(100% 100% at 50% 0%, ${app.accent}1f 0%, transparent 60%), #10131c;`}
@@ -179,21 +171,118 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
           </div>
         )}
       </div>
-    )}
-
-    {galleryItems.map((item) => (
-      <figure class:list={['mt-8', item.compact ? 'mx-auto max-w-[620px]' : '']}>
+    ) : allShots.length === 1 ? (
+      <figure class="mt-10">
         <button
           type="button"
-          data-shot-open={item.id}
+          data-shot-open="0"
           class="block w-full cursor-zoom-in overflow-hidden rounded-2xl border border-white/10 transition-colors hover:border-white/25"
           aria-label={lang === 'en' ? `Enlarge the ${app.name} screenshot` : `Ampliar la captura de ${app.name}`}
         >
-          <img src={item.src} alt={item.alt} class="block h-auto w-full" loading="lazy" decoding="async" />
+          <img src={allShots[0].src} alt={allShots[0].alt} class="block h-auto w-full" loading="lazy" decoding="async" />
         </button>
-        {item.caption && <figcaption class="mt-3 text-center text-sm text-[#9a9aa5]">{item.caption}</figcaption>}
+        {allShots[0].caption && <figcaption class="mt-3 text-center text-sm text-[#9a9aa5]">{allShots[0].caption}</figcaption>}
       </figure>
-    ))}
+    ) : (
+      <section
+        data-shot-gallery
+        style={`--gallery-accent: ${app.accent};`}
+        class="mt-10"
+        tabindex="-1"
+        aria-roledescription="carousel"
+        aria-label={lang === 'en' ? `${app.name} screenshots` : `Capturas de ${app.name}`}
+      >
+        <div
+          class="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/10 bg-[#0b0e17]"
+          style={`background: radial-gradient(110% 90% at 50% 0%, ${app.accent}12 0%, transparent 65%), #0b0e17;`}
+        >
+          {allShots.map((shot, idx) => (
+            <button
+              type="button"
+              data-shot-slide={idx}
+              data-shot-open={idx}
+              data-src={shot.src}
+              data-alt={shot.alt}
+              data-caption={shot.caption ?? ''}
+              aria-hidden={idx === 0 ? 'false' : 'true'}
+              class:list={[
+                'h-full w-full cursor-zoom-in items-center justify-center focus:outline-none',
+                idx === 0 ? 'flex' : 'hidden',
+                shot.compact ? 'p-4 sm:p-8' : '',
+              ]}
+              aria-label={lang === 'en' ? `Enlarge screenshot ${idx + 1} of ${allShots.length}` : `Ampliar captura ${idx + 1} de ${allShots.length}`}
+            >
+              <img
+                src={shot.src}
+                alt={shot.alt}
+                class:list={[
+                  'block select-none',
+                  shot.compact
+                    ? 'max-h-full max-w-full w-auto rounded-xl border border-white/10 shadow-2xl object-contain'
+                    : 'h-full w-full object-contain',
+                ]}
+                loading="eager"
+                decoding="async"
+              />
+            </button>
+          ))}
+
+          <button
+            type="button"
+            data-shot-prev
+            class="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/65 text-white ring-1 ring-white/20 backdrop-blur-sm transition-colors hover:bg-black/85 hover:ring-white/40 cursor-pointer"
+            aria-label={lang === 'en' ? 'Previous screenshot' : 'Captura anterior'}
+          >
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg>
+          </button>
+
+          <button
+            type="button"
+            data-shot-next
+            class="absolute right-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/65 text-white ring-1 ring-white/20 backdrop-blur-sm transition-colors hover:bg-black/85 hover:ring-white/40 cursor-pointer"
+            aria-label={lang === 'en' ? 'Next screenshot' : 'Siguiente captura'}
+          >
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6" /></svg>
+          </button>
+
+          <span
+            data-shot-counter
+            class="pointer-events-none absolute right-3 top-3 rounded-full bg-black/65 px-2.5 py-1 text-xs font-medium tabular-nums text-white/90 ring-1 ring-white/15 backdrop-blur-sm"
+          >
+            {`1 / ${allShots.length}`}
+          </span>
+        </div>
+
+        <p data-shot-caption class="mt-3 min-h-[1.25rem] text-center text-sm text-[#9a9aa5]">
+          {allShots[0]?.caption ?? ''}
+        </p>
+
+        <div
+          role="tablist"
+          aria-label={lang === 'en' ? 'Select screenshot' : 'Seleccionar captura'}
+          class="cg-shot-thumbs mt-4 flex items-center justify-start sm:justify-center gap-2.5 overflow-x-auto px-1 py-1.5"
+        >
+          {allShots.map((shot, idx) => (
+            <button
+              type="button"
+              role="tab"
+              data-shot-thumb={idx}
+              aria-selected={idx === 0 ? 'true' : 'false'}
+              aria-label={shot.caption ? shot.caption : (lang === 'en' ? `Screenshot ${idx + 1}` : `Captura ${idx + 1}`)}
+              class="cg-shot-thumb relative aspect-[16/10] w-24 sm:w-28 shrink-0 overflow-hidden rounded-lg border bg-[#0b0e17] transition-all cursor-pointer"
+            >
+              <img
+                src={shot.src}
+                alt=""
+                class:list={['h-full w-full', shot.compact ? 'object-contain p-1' : 'object-cover']}
+                loading="eager"
+                decoding="async"
+              />
+            </button>
+          ))}
+        </div>
+      </section>
+    )}
 
     <!-- No real screenshot is published yet: say so, instead of letting the
          conceptual illustration pass for a screenshot of the app. -->
@@ -201,40 +290,57 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
       <p class="mt-3 text-center text-sm text-[#9a9aa5]">{t.shotConceptNote}</p>
     )}
 
-    <!-- Enlarged view. Native <dialog> gives Escape and focus handling for free. -->
-    {shotSrc && (
-      <dialog data-shot-dialog="main" class="m-auto max-w-[min(94vw,1500px)] bg-transparent p-0">
-        <figure class="overflow-hidden rounded-2xl border border-white/15 bg-[#10131c]">
-          <img src={shotSrc} alt={shotAlt} class="mx-auto max-h-[86vh] w-auto" />
-          {shotCaption && <figcaption class="px-4 py-3 text-center text-sm text-[#9a9aa5]">{shotCaption}</figcaption>}
-        </figure>
-        <form method="dialog" class="absolute right-3 top-3">
-          <button
-            class="rounded-full bg-black/70 px-3 py-1.5 text-sm text-white ring-1 ring-white/25 transition-colors hover:bg-black/90"
-            aria-label={lang === 'en' ? 'Close the enlarged screenshot' : 'Cerrar la captura ampliada'}
-          >
-            ✕
-          </button>
-        </form>
+    <!-- Unified enlarged lightbox view -->
+    {allShots.length > 0 && (
+      <dialog
+        data-shot-lightbox
+        data-shots={JSON.stringify(allShots.map((s) => ({ src: s.src, alt: s.alt, caption: s.caption ?? '' })))}
+        class="m-auto max-w-[min(94vw,1500px)] bg-transparent p-0"
+      >
+        <div class="relative">
+          <figure class="overflow-hidden rounded-2xl border border-white/15 bg-[#10131c]">
+            <img data-lightbox-img src={allShots[0].src} alt={allShots[0].alt} class="mx-auto max-h-[84vh] w-auto" />
+            <figcaption data-lightbox-caption class:list={['px-4 py-3 text-center text-sm text-[#9a9aa5]', allShots[0].caption ? '' : 'hidden']}>
+              {allShots[0].caption ?? ''}
+            </figcaption>
+          </figure>
+          {allShots.length > 1 && (
+            <>
+              <button
+                type="button"
+                data-lightbox-prev
+                class="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/75 text-white ring-1 ring-white/25 transition-colors hover:bg-black/95 cursor-pointer"
+                aria-label={lang === 'en' ? 'Previous screenshot' : 'Captura anterior'}
+              >
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg>
+              </button>
+              <button
+                type="button"
+                data-lightbox-next
+                class="absolute right-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-black/75 text-white ring-1 ring-white/25 transition-colors hover:bg-black/95 cursor-pointer"
+                aria-label={lang === 'en' ? 'Next screenshot' : 'Siguiente captura'}
+              >
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6" /></svg>
+              </button>
+              <span
+                data-lightbox-counter
+                class="pointer-events-none absolute left-3 top-3 rounded-full bg-black/75 px-2.5 py-1 text-xs font-medium tabular-nums text-white/90 ring-1 ring-white/20"
+              >
+                {`1 / ${allShots.length}`}
+              </span>
+            </>
+          )}
+          <form method="dialog" class="absolute right-3 top-3">
+            <button
+              class="rounded-full bg-black/75 px-3 py-1.5 text-sm text-white ring-1 ring-white/25 transition-colors hover:bg-black/95 cursor-pointer"
+              aria-label={lang === 'en' ? 'Close the enlarged screenshot' : 'Cerrar la captura ampliada'}
+            >
+              ✕
+            </button>
+          </form>
+        </div>
       </dialog>
     )}
-
-    {galleryItems.map((item) => (
-      <dialog data-shot-dialog={item.id} class="m-auto max-w-[min(94vw,1500px)] bg-transparent p-0">
-        <figure class="overflow-hidden rounded-2xl border border-white/15 bg-[#10131c]">
-          <img src={item.src} alt={item.alt} class="mx-auto max-h-[86vh] w-auto" />
-          {item.caption && <figcaption class="px-4 py-3 text-center text-sm text-[#9a9aa5]">{item.caption}</figcaption>}
-        </figure>
-        <form method="dialog" class="absolute right-3 top-3">
-          <button
-            class="rounded-full bg-black/70 px-3 py-1.5 text-sm text-white ring-1 ring-white/25 transition-colors hover:bg-black/90"
-            aria-label={lang === 'en' ? 'Close the enlarged screenshot' : 'Cerrar la captura ampliada'}
-          >
-            ✕
-          </button>
-        </form>
-      </dialog>
-    ))}
 
     <!-- Description -->
     {app.description[lang]
@@ -503,23 +609,138 @@ const showHeroBanner = appsWithHeroBanner.has(app.slug);
 </BaseLayout>
 
 <style is:global>
-  dialog[data-shot-dialog]::backdrop {
+  dialog[data-shot-lightbox]::backdrop {
     background: rgba(0, 0, 0, 0.85);
+  }
+  .cg-shot-thumb {
+    border-color: rgba(255, 255, 255, 0.14);
+    opacity: 0.6;
+  }
+  .cg-shot-thumb:hover {
+    opacity: 0.94;
+    border-color: rgba(255, 255, 255, 0.34);
+  }
+  .cg-shot-thumb[aria-selected='true'] {
+    opacity: 1;
+    border-color: var(--gallery-accent, #00f2ff);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--gallery-accent, #00f2ff) 35%, transparent);
+  }
+  .cg-shot-thumbs {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
   }
 </style>
 
 <script>
-  // Enlarged screenshot. The native <dialog> gives Escape-to-close and focus
-  // handling on its own, so no dependency is needed.
-  document.querySelectorAll<HTMLButtonElement>('[data-shot-open]').forEach((opener) => {
-    const id = opener.getAttribute('data-shot-open');
-    const dialog = document.querySelector<HTMLDialogElement>(`[data-shot-dialog="${id}"]`);
-    if (!dialog) return;
-    opener.addEventListener('click', () => dialog.showModal());
-    // A click on the backdrop reaches the dialog element itself.
-    dialog.addEventListener('click', (event) => {
-      if (event.target === dialog) dialog.close();
+  const gallery = document.querySelector<HTMLElement>('[data-shot-gallery]');
+  const slides = gallery ? Array.from(gallery.querySelectorAll<HTMLButtonElement>('[data-shot-slide]')) : [];
+  const thumbs = gallery ? Array.from(gallery.querySelectorAll<HTMLButtonElement>('[data-shot-thumb]')) : [];
+  const captionEl = gallery?.querySelector<HTMLElement>('[data-shot-caption]') ?? null;
+  const counterEl = gallery?.querySelector<HTMLElement>('[data-shot-counter]') ?? null;
+  const lightbox = document.querySelector<HTMLDialogElement>('[data-shot-lightbox]');
+  const lbImg = lightbox?.querySelector<HTMLImageElement>('[data-lightbox-img]') ?? null;
+  const lbCaption = lightbox?.querySelector<HTMLElement>('[data-lightbox-caption]') ?? null;
+  const lbCounter = lightbox?.querySelector<HTMLElement>('[data-lightbox-counter]') ?? null;
+
+  let activeIndex = 0;
+  let shotsData: Array<{ src: string; alt: string; caption: string }> = [];
+  if (lightbox?.dataset.shots) {
+    try {
+      shotsData = JSON.parse(lightbox.dataset.shots);
+    } catch {
+      shotsData = [];
+    }
+  }
+
+  function syncLightbox(index: number) {
+    const item = shotsData[index];
+    if (!item || !lbImg) return;
+    lbImg.src = item.src;
+    lbImg.alt = item.alt;
+    if (lbCaption) {
+      lbCaption.textContent = item.caption;
+      lbCaption.classList.toggle('hidden', !item.caption);
+    }
+    if (lbCounter) {
+      lbCounter.textContent = `${index + 1} / ${shotsData.length}`;
+    }
+  }
+
+  function setSlide(index: number, { scrollThumb = true }: { scrollThumb?: boolean } = {}) {
+    if (slides.length === 0) return;
+    activeIndex = ((index % slides.length) + slides.length) % slides.length;
+    slides.forEach((slide, idx) => {
+      const isCurrent = idx === activeIndex;
+      slide.classList.toggle('flex', isCurrent);
+      slide.classList.toggle('hidden', !isCurrent);
+      slide.setAttribute('aria-hidden', String(!isCurrent));
     });
+    thumbs.forEach((thumb, idx) => {
+      const isCurrent = idx === activeIndex;
+      thumb.setAttribute('aria-selected', String(isCurrent));
+      if (isCurrent && scrollThumb) {
+        thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    });
+    if (counterEl) counterEl.textContent = `${activeIndex + 1} / ${slides.length}`;
+    if (captionEl) captionEl.textContent = slides[activeIndex]?.dataset.caption ?? '';
+    syncLightbox(activeIndex);
+  }
+
+  gallery?.querySelector<HTMLButtonElement>('[data-shot-prev]')?.addEventListener('click', () => setSlide(activeIndex - 1));
+  gallery?.querySelector<HTMLButtonElement>('[data-shot-next]')?.addEventListener('click', () => setSlide(activeIndex + 1));
+  thumbs.forEach((thumb, idx) => {
+    thumb.addEventListener('click', () => setSlide(idx));
+  });
+
+  document.querySelectorAll<HTMLButtonElement>('[data-shot-open]').forEach((opener) => {
+    opener.addEventListener('click', () => {
+      if (!lightbox) return;
+      const idx = Number(opener.getAttribute('data-shot-open') || '0');
+      activeIndex = Number.isFinite(idx) ? idx : 0;
+      syncLightbox(activeIndex);
+      lightbox.showModal();
+    });
+  });
+
+  if (lightbox) {
+    lightbox.querySelector<HTMLButtonElement>('[data-lightbox-prev]')?.addEventListener('click', () => {
+      if (slides.length > 0) setSlide(activeIndex - 1);
+      else if (shotsData.length > 1) {
+        activeIndex = (activeIndex - 1 + shotsData.length) % shotsData.length;
+        syncLightbox(activeIndex);
+      }
+    });
+    lightbox.querySelector<HTMLButtonElement>('[data-lightbox-next]')?.addEventListener('click', () => {
+      if (slides.length > 0) setSlide(activeIndex + 1);
+      else if (shotsData.length > 1) {
+        activeIndex = (activeIndex + 1) % shotsData.length;
+        syncLightbox(activeIndex);
+      }
+    });
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) lightbox.close();
+    });
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (shotsData.length <= 1) return;
+    const isLightboxOpen = Boolean(lightbox?.open);
+    const isGalleryFocused = Boolean(gallery && (gallery === document.activeElement || gallery.contains(document.activeElement)));
+    if (!isLightboxOpen && !isGalleryFocused) return;
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      setSlide(activeIndex - 1);
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      setSlide(activeIndex + 1);
+    } else if (event.key === 'Home') {
+      event.preventDefault();
+      setSlide(0);
+    } else if (event.key === 'End') {
+      event.preventDefault();
+      setSlide(slides.length - 1);
+    }
   });
 </script>
 
