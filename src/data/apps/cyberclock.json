@@ -268,6 +268,20 @@
         "en": "Independent floating desktop widgets: Gem Crown analog dial, calendar with notes, Relax ambient mixer, timer with quick-add presets and Quantum stopwatch.",
         "es": "Widgets flotantes independientes de escritorio: esfera Corona de Gemas, calendario con notas, mezclador ambiental Relax, temporizador con preajustes rápidos y cronómetro Quantum."
       }
+    },
+    {
+      "file": {
+        "en": "/screenshots/cyberclock/tray-menu-en.webp",
+        "es": "/screenshots/cyberclock/tray-menu-es.webp"
+      },
+      "alt": {
+        "en": "CyberClock system tray menu with Full and Mini Mode toggles, New widgets flyout, Relax playback pause, click-through, and audio toggle",
+        "es": "Menú en la bandeja del sistema de CyberClock con selector de Modo completo y Modo Mini, submenú Nuevo, pausa de Relax, clic transparente y sonido"
+      },
+      "caption": {
+        "en": "Custom themed system tray menu for switching between Full and Mini Mode, launching widgets, controlling Relax audio, and toggling click-through.",
+        "es": "Menú de bandeja personalizado para alternar entre Modo completo y Modo Mini, abrir widgets flotantes, pausar Relax y controlar el clic transparente."
+      }
     }
   ]
 }

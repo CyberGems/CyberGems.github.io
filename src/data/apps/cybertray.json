@@ -146,5 +146,21 @@
   "screenshotCaption": {
     "en": "Organized system tray workspace with active/hidden icon folders, quick actions and live state preview.",
     "es": "Espacio organizado para la bandeja del sistema con carpetas de iconos activos y ocultos, acciones rápidas y vista previa del estado."
-  }
+  },
+  "gallery": [
+    {
+      "file": {
+        "en": "/screenshots/cybertray/tray-menu-en.webp",
+        "es": "/screenshots/cybertray/tray-menu-es.webp"
+      },
+      "alt": {
+        "en": "CyberTray system tray menu with quick shelf toggle, recent shortcuts flyout, settings, and help options",
+        "es": "Menú en la bandeja del sistema de CyberTray con interruptor rápido del estante, submenú de accesos recientes, ajustes y ayuda"
+      },
+      "caption": {
+        "en": "Custom themed system tray menu with visibility status, shortcut hotkey badge, and quick recent-shortcuts flyout.",
+        "es": "Menú de bandeja personalizado con indicador de visibilidad, insignia de atajo y panel flotante de accesos recientes."
+      }
+    }
+  ]
 }
